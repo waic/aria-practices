@@ -3,7 +3,7 @@ name: Trigger deploy for WAI-APG site
 on:
   push:
     branches:
-      - main
+      - waic-main
     paths:
       - ".github/workflows/wai-trigger-deploy.yml"
       - "common/**"
@@ -25,5 +25,5 @@ jobs:
               owner: context.repo.owner,
               repo: 'wai-aria-practices',
               workflow_id: 'deploy.yml',
-              ref: 'main'
+              ref: 'waic-main'
             });
