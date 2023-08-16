@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Examples</title>
+    <title>ボタンの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -20,45 +20,46 @@
   <body>
     <nav aria-label="Related Links" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/14">Related Issues</a></li>
-        <li><a href="../button-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/14">関連するIssues</a></li>
+        <li><a href="../button-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
 
     <main>
-      <h1>Button Examples</h1>
+      <h1>ボタンの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section>
-        <h2>About This Example</h2>
-        <p>The following command and toggle button examples demonstrate the <a href="../button-pattern.html">Button Pattern</a>.</p>
-        <p>Similar examples include:</p>
+        <h2>この例について</h2>
+        <p>以下のコマンドとトグルボタンの例は、<a href="../button-pattern.html">ボタンパターン</a>を示しています。</p>
+        <p>類似の例には以下のものがあります：</p>
         <ul>
-          <li><a href="../../menu-button/examples/menu-button-links.html">Navigation Menu Button</a>: A button that opens a menu of items that behave as links.</li>
+          <li><a href="../../menu-button/examples/menu-button-links.html">ナビゲーションメニューボタン</a>：リンクとして動作する、項目のメニューを開くボタン。</li>
           <li>
-            <a href="../../menu-button/examples/menu-button-actions.html">Action Menu Button Example Using <code>element.focus()</code></a>:
-            A button that opens a menu of actions or commands where focus in the menu is managed using <code>element.focus()</code>.
+            <a href="../../menu-button/examples/menu-button-actions.html"><code>element.focus()</code>を使用したアクションメニューボタンの例</a>：
+            メニュー内のフォーカスが<code>element.focus()</code>を使用して管理される、アクションまたはコマンドのメニューを開くボタン。
           </li>
           <li>
-            <a href="../../menu-button/examples/menu-button-actions-active-descendant.html">Action Menu Button Example Using <code>aria-activedescendant</code></a>:
-            A button that opens a menu of actions or commands where focus in the menu is managed using <code>aria-activedescendant</code>.
+            <a href="../../menu-button/examples/menu-button-actions-active-descendant.html"><code>aria-activedescendant</code>を使用したアクションメニューボタンの例</a>：
+            メニュー内のフォーカスが<code>aria-activedescendant</code>を使用して管理される、アクションまたはコマンドのメニューを開くボタン。
           </li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
 
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
 
         <div id="example">
-          <p>This <q>Print</q> action button uses a <code>div</code> element.</p>
-          <div tabindex="0" role="button" id="action">Print Page</div>
+          <p>この<q>印刷</q>アクションボタンは、<code>div</code>要素を使用しています。</p>
+          <div tabindex="0" role="button" id="action">ページを印刷</div>
 
-          <p>This <q>Mute</q> toggle button uses an <code>a</code> element.</p>
+          <p>この<q>ミュート</q>トグルボタンは、<code>a</code>要素を使用しています。</p>
           <a tabindex="0" role="button" id="toggle" aria-pressed="false">
-            Mute
+            ミュート
             <svg aria-hidden="true" focusable="false">
               <use xlink:href="#icon-sound"></use>
             </svg>
@@ -81,42 +82,42 @@
           </svg>
         </div>
 
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_label ex_end_sep" aria-label="の終了"></div>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードサポート</h2>
 
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
             <tr data-test-id="key-enter">
               <th><kbd>Enter</kbd></th>
-              <td>Activates the button.</td>
+              <td>ボタンを作動させる。</td>
             </tr>
             <tr data-test-id="key-space">
               <th><kbd>Space</kbd></th>
-              <td>Activates the button.</td>
+              <td>ボタンを作動させる。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">役割、プロパティ、状態、およびタブインデックス属性</h2>
 
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">役割</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -126,8 +127,8 @@
               <td><code>div</code>, <code>a</code></td>
               <td>
                 <ul>
-                  <li>Identifies the element as a <code>button</code> widget.</li>
-                  <li>Accessible name for the button is defined by the text content of the element.</li>
+                  <li>要素を<code>button</code>ウィジェットとして識別します。</li>
+                  <li>ボタンのアクセシブルな名前は、要素のテキストコンテンツによって定義されます。</li>
                 </ul>
               </td>
             </tr>
@@ -139,8 +140,8 @@
               <td><code>div</code>, <code>a</code></td>
               <td>
                 <ul>
-                  <li>Includes the element in the tab sequence.</li>
-                  <li>Needed on the <code>a</code> element because it does not have a <code>href</code> attribute.</li>
+                  <li>要素をタブ順序に含めます。</li>
+                  <li><code>href</code>属性を持っていない<code>a</code>要素に必要です。</li>
                 </ul>
               </td>
             </tr>
@@ -150,8 +151,8 @@
               <td><code>a</code></td>
               <td>
                 <ul>
-                  <li>Identifies the button as a toggle button.</li>
-                  <li>Indicates the toggle button is not pressed.</li>
+                  <li>ボタンをトグルボタンとして識別します。</li>
+                  <li>トグルボタンが押されていないことを示します。</li>
                 </ul>
               </td>
             </tr>
@@ -161,8 +162,8 @@
               <td><code>a</code></td>
               <td>
                 <ul>
-                  <li>Identifies the button as a toggle button.</li>
-                  <li>Indicates the toggle button is pressed.</li>
+                  <li>ボタンをトグルボタンとして識別します。</li>
+                  <li>トグルボタンが押されていることを示します。</li>
                 </ul>
               </td>
             </tr>
@@ -171,7 +172,7 @@
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScriptとCSSのソースコード</h2>
 
         <ul id="css_js_files">
           <li>
@@ -186,10 +187,10 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2 id="sc1_label">HTMLソースコード</h2>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
         <script>
           sourceCode.add('sc1', 'example', 'ex_label', 'css_js_files');
           sourceCode.make();
@@ -197,8 +198,8 @@
       </section>
 
       <section id="at-support">
-        <h2>Assistive Technology Support</h2>
-        <h3>Command Button</h3>
+        <h2>支援技術のサポート</h2>
+        <h3>コマンドボタン</h3>
         <iframe
           class="support-levels-command-button"
           src="https://aria-at.w3.org/embed/reports/command-button"
@@ -207,7 +208,7 @@
           style="border-style: none; width: 100%;">
         </iframe>
 
-        <h3>Toggle Button</h3>
+        <h3>トグルボタン</h3>
         <iframe
           class="support-levels-toggle-button"
           src="https://aria-at.w3.org/embed/reports/toggle-button"
