@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accordion Example</title>
+    <title>アコーディオンの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -19,59 +19,60 @@
   <body>
     <nav aria-label="Related Links" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/8">Related Issues</a></li>
-        <li><a href="../accordion-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/8">関連するIssues</a></li>
+        <li><a href="../accordion-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
-      <h1>Accordion Example</h1>
+      <h1>アコーディオンの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section>
-        <h2>About This Example</h2>
-        <p>The below example section contains a simple personal information input form divided into 3 sections that demonstrates the <a href="../accordion-pattern.html">Accordion Pattern</a>.</p>
+        <h2>この例について</h2>
+        <p>以下の例のセクションには、<a href="../accordion-pattern.html">アコーディオンパターン</a>を示す3つのセクションに分けられたシンプルな個人情報入力フォームが含まれています。</p>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
         <div id="ex1">
           <div id="accordionGroup" class="accordion">
             <h3>
               <button type="button" aria-expanded="true" class="accordion-trigger" aria-controls="sect1" id="accordion1id">
                 <span class="accordion-title">
-                  Personal Information
+                  個人情報
                   <span class="accordion-icon"></span>
                 </span>
               </button>
             </h3>
             <div id="sect1" role="region" aria-labelledby="accordion1id" class="accordion-panel">
               <div>
-                <!-- Variable content within section, may include any type of markup or interactive widgets. -->
+                <!-- セクション内の可変コンテンツ、マークアップや対話型ウィジェットの任意のタイプを含むことができます。 -->
                 <fieldset>
                   <p>
-                    <label for="cufc1">Name<span aria-hidden="true">*</span>:</label>
+                    <label for="cufc1">名前<span aria-hidden="true">*</span>:</label>
                     <input type="text" value="" name="Name" id="cufc1" class="required" aria-required="true">
                   </p>
                   <p>
-                    <label for="cufc2">Email<span aria-hidden="true">*</span>:</label>
+                    <label for="cufc2">メール<span aria-hidden="true">*</span>:</label>
                     <input type="text" value="" name="Email" id="cufc2" aria-required="true">
                   </p>
                   <p>
-                    <label for="cufc3">Phone:</label>
+                    <label for="cufc3">電話:</label>
                     <input type="text" value="" name="Phone" id="cufc3">
                   </p>
                   <p>
-                    <label for="cufc4">Extension:</label>
+                    <label for="cufc4">内線:</label>
                     <input type="text" value="" name="Ext" id="cufc4">
                   </p>
                   <p>
-                    <label for="cufc5">Country:</label>
+                    <label for="cufc5">国:</label>
                     <input type="text" value="" name="Country" id="cufc5">
                   </p>
                   <p>
-                    <label for="cufc6">City/Province:</label>
+                    <label for="cufc6">市/県:</label>
                     <input type="text" value="" name="City_Province" id="cufc6">
                   </p>
                 </fieldset>
@@ -80,7 +81,7 @@
             <h3>
               <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect2" id="accordion2id">
                 <span class="accordion-title">
-                  Billing Address
+                  請求先住所
                   <span class="accordion-icon"></span>
                 </span>
               </button>
@@ -89,23 +90,23 @@
               <div>
                 <fieldset>
                   <p>
-                    <label for="b-add1">Address 1:</label>
+                    <label for="b-add1">住所1:</label>
                     <input type="text" name="b-add1" id="b-add1">
                   </p>
                   <p>
-                    <label for="b-add2">Address 2:</label>
+                    <label for="b-add2">住所2:</label>
                     <input type="text" name="b-add2" id="b-add2">
                   </p>
                   <p>
-                    <label for="b-city">City:</label>
+                    <label for="b-city">市:</label>
                     <input type="text" name="b-city" id="b-city">
                   </p>
                   <p>
-                    <label for="b-state">State:</label>
+                    <label for="b-state">州:</label>
                     <input type="text" name="b-state" id="b-state">
                   </p>
                   <p>
-                    <label for="b-zip">Zip Code:</label>
+                    <label for="b-zip">郵便番号:</label>
                     <input type="text" name="b-zip" id="b-zip">
                   </p>
                 </fieldset>
@@ -114,7 +115,7 @@
             <h3>
               <button type="button" aria-expanded="false" class="accordion-trigger" aria-controls="sect3" id="accordion3id">
                 <span class="accordion-title">
-                  Shipping Address
+                  配送先住所
                   <span class="accordion-icon"></span>
                 </span>
               </button>
@@ -123,23 +124,23 @@
               <div>
                 <fieldset>
                   <p>
-                    <label for="m-add1">Address 1:</label>
+                    <label for="m-add1">住所1:</label>
                     <input type="text" name="m-add1" id="m-add1">
                   </p>
                   <p>
-                    <label for="m-add2">Address 2:</label>
+                    <label for="m-add2">住所2:</label>
                     <input type="text" name="m-add2" id="m-add2">
                   </p>
                   <p>
-                    <label for="m-city">City:</label>
+                    <label for="m-city">市:</label>
                     <input type="text" name="m-city" id="m-city">
                   </p>
                   <p>
-                    <label for="m-state">State:</label>
+                    <label for="m-state">州:</label>
                     <input type="text" name="m-state" id="m-state">
                   </p>
                   <p>
-                    <label for="m-zip">Zip Code:</label>
+                    <label for="m-zip">郵便番号:</label>
                     <input type="text" name="m-zip" id="m-zip">
                   </p>
                 </fieldset>
@@ -147,29 +148,29 @@
             </div>
           </div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_label ex_end_sep" aria-label="の終了"></div>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
             <tr data-test-id="key-enter-or-space">
-              <th><kbd>Space</kbd> or <kbd>Enter</kbd></th>
-              <td>When focus is on the accordion header of a collapsed section, expands the section.</td>
+              <th><kbd>Space</kbd> または <kbd>Enter</kbd></th>
+              <td>アコーディオンのヘッダーにフォーカスがあるときに、セクションを展開します。</td>
             </tr>
             <tr data-test-id="key-tab">
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to the next focusable element.</li>
-                  <li>All focusable elements in the accordion are included in the page <kbd>Tab</kbd> sequence.</li>
+                  <li>次のフォーカス可能な要素にフォーカスを移動します。</li>
+                  <li>アコーディオン内のすべてのフォーカス可能な要素は、ページの<kbd>Tab</kbd>の順序に含まれます。</li>
                 </ul>
               </td>
             </tr>
@@ -177,8 +178,8 @@
               <th><kbd>Shift + Tab</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to the previous focusable element.</li>
-                  <li>All focusable elements in the accordion are included in the page <kbd>Tab</kbd> sequence.</li>
+                  <li>前のフォーカス可能な要素にフォーカスを移動します。</li>
+                  <li>アコーディオン内のすべてのフォーカス可能な要素は、ページの<kbd>Tab</kbd>の順序に含まれます。</li>
                 </ul>
               </td>
             </tr>
@@ -187,16 +188,16 @@
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">役割、プロパティ、状態、およびTabindex属性</h2>
         <!--
-      Update this table to describe how roles, properties, states, and tabindex are used in this example -->
+        この例でどのように役割、プロパティ、状態、およびtabindexが使用されているかを説明するためにこのテーブルを更新してください -->
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">役割</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -206,9 +207,9 @@
               <th scope="row"><code>h3</code></th>
               <td>
                 <ul>
-                  <li>Element that serves as an accordion header.</li>
-                  <li>Each accordion header element contains a button that controls the visibility of its content panel.</li>
-                  <li>The example uses heading level 3 so it fits correctly within the outline of the page; the example is contained in a section titled with a level 2 heading.</li>
+                  <li>アコーディオンヘッダーとして機能する要素。</li>
+                  <li>各アコーディオンヘッダー要素には、コンテンツパネルの可視性を制御するボタンが含まれています。</li>
+                  <li>この例では、ページの概要内で正しく適合するために、見出しレベル3が使用されています; この例はレベル2の見出しでタイトルが付けられたセクションに含まれています。</li>
                 </ul>
               </td>
             </tr>
@@ -216,19 +217,19 @@
               <td></td>
               <th scope="row"><code>aria-expanded="true"</code></th>
               <td><code>button</code></td>
-              <td>Set to <code>true</code> when the Accordion panel is expanded, otherwise set to <code>false</code>.</td>
+              <td>アコーディオンパネルが展開されている場合は<code>true</code>に設定し、それ以外の場合は<code>false</code>に設定します。</td>
             </tr>
             <tr data-test-id="button-aria-controls">
               <td></td>
               <th scope="row"><code>aria-controls="ID"</code></th>
               <td><code>button</code></td>
-              <td>Points to the ID of the panel which the header controls.</td>
+              <td>ヘッダーが制御するパネルのIDを指す。</td>
             </tr>
             <tr data-test-id="region-role">
               <th scope="row"><code>region</code></th>
               <td></td>
               <td><code>div</code></td>
-              <td>Creates a landmark region that contains the currently expanded accordion panel.</td>
+              <td>現在展開されているアコーディオンパネルを含むランドマーク領域を作成します。</td>
             </tr>
             <tr data-test-id="region-aria-labelledby">
               <td></td>
@@ -236,9 +237,9 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Defines the accessible name for the <code>region</code> element.</li>
-                  <li>References the accordion header button that expands and collapses the region.</li>
-                  <li><code>region</code> elements are required to have an accessible name to be identified as a landmark.</li>
+                  <li><code>region</code>要素のアクセシブルな名前を定義します。</li>
+                  <li>領域を展開および折りたたむアコーディオンヘッダーボタンを参照します。</li>
+                  <li><code>region</code>要素は、ランドマークとして識別されるためにアクセシブルな名前を持つ必要があります。</li>
                 </ul>
               </td>
             </tr>
@@ -247,7 +248,7 @@
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScriptとCSSのソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/accordion.css" type="tex/css">accordion.css</a></li>
           <li>JavaScript: <a href="js/accordion.js" type="text/javascript">accordion.js</a></li>
@@ -255,10 +256,10 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2 id="sc1_label">HTMLソースコード</h2>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep " aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
         <script>
           sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files');
           sourceCode.make();
