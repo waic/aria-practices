@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breadcrumb Example</title>
+    <title>パンくずの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -19,88 +19,89 @@
   <body>
     <nav aria-label="Related Links" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/21">Related Issues</a></li>
-        <li><a href="../breadcrumb-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/21">関連するIssues</a></li>
+        <li><a href="../breadcrumb-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
-      <h1>Breadcrumb Example</h1>
+      <h1>パンくずの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section>
-        <h2>About This Example</h2>
-        <p>The following example demonstrates the <a href="../breadcrumb-pattern.html">Breadcrumb Pattern</a>.</p>
+        <h2>この例について</h2>
+        <p>以下の例は、<a href="../breadcrumb-pattern.html">パンくずパターン</a>を示しています。</p>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
         <div id="ex1">
-          <nav aria-label="Breadcrumb" class="breadcrumb">
+          <nav aria-label="パンくず" class="breadcrumb">
             <ol>
               <li>
-                <a href="../../../apg-home.html">WAI-ARIA Authoring Practices Guide (APG)</a>
+                <a href="../../../apg-home.html">WAI-ARIAオーサリングプラクティスガイド(APG)</a>
               </li>
               <li>
-                <a href="../../patterns.html">Patterns</a>
+                <a href="../../patterns.html">パターン</a>
               </li>
               <li>
-                <a href="../breadcrumb-pattern.html">Breadcrumb Pattern</a>
+                <a href="../breadcrumb-pattern.html">パンくずパターン</a>
               </li>
               <li>
-                <a href="./breadcrumb.html" aria-current="page">Breadcrumb Example</a>
+                <a href="./breadcrumb.html" aria-current="page">パンくずの例</a>
               </li>
             </ol>
           </nav>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_label ex_end_sep" aria-label="の終了"></div>
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティの特長</h2>
         <ul>
-          <li>The set of links is structured using an ordered list .</li>
-          <li>A <code>nav</code> element labeled <q>Breadcrumb</q> identifies the structure as a breadcrumb trail and makes it a navigation landmark so that it is easy to locate.</li>
+          <li>リンクのセットは、順序付きリストを使用して構造化されています。</li>
+          <li><code>nav</code>要素のラベル<q>パンくず</q>は、構造をパンくずリストとして識別し、ナビゲーションのランドマークとして簡単に探せるようにします。</li>
           <li>
-            To prevent screen reader announcement of the visual separators between links, they are added via <abbr title="Cascading Style Sheets">CSS</abbr>:
+            リンク間の視覚的なセパレーターのスクリーンリーダーのアナウンスを防ぐため、それらは<abbr title="Cascading Style Sheets">CSS</abbr>を介して追加されます:
             <ul>
               <li>
-                The separators are part of the visual presentation that signifies the breadcrumb trail, which is already semantically represented by the <code>nav</code> element with its label of <q>Breadcrumb</q>.
-                So, using a display technique that is not represented in the accessibility tree used by screen readers prevents redundant and potentially distracting verbosity.
+                セパレーターは、<q>パンくず</q>のラベルを持つ<code>nav</code>要素によってすでにセマンティックに表現されているパンくずリストを示す視覚的なプレゼンテーションの一部です。
+                したがって、スクリーンリーダーが使用するアクセシビリティツリーに表示されない表示技術を使用することで、冗長で潜在的に気を散らす冗語を防ぎます。
               </li>
-              <li>Each link has a border on one side that is skewed with the CSS’ <code>transform</code> property so it resembles a slash.</li>
+              <li>各リンクは、スラッシュのように見えるようにCSSの<code>transform</code>プロパティで斜めにされた一方の境界線を持っています。</li>
             </ul>
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
-        <p>No keyboard interaction needed.</p>
+        <h2 id="kbd_label">キーボードサポート</h2>
+        <p>キーボード操作は必要ありません。</p>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">役割、プロパティ、状態、およびTabindex属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">役割</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
             <tr data-test-id="aria-label">
               <td></td>
               <th scope="row">
-                <code>aria-label=<q>Breadcrumb</q></code>
+                <code>aria-label=<q>パンくず</q></code>
               </th>
               <td>
                 <code>nav</code>
               </td>
-              <td>Provides a label that describes the type of navigation provided in the <code>nav</code> element.</td>
+              <td><code>nav</code>要素内で提供されるナビゲーションのタイプを説明するラベルを提供します。</td>
             </tr>
             <tr data-test-id="aria-current">
               <td></td>
@@ -110,14 +111,14 @@
               <td>
                 <code>a</code>
               </td>
-              <td>Applied to the last link in the set to indicate that it represents the current page.</td>
+              <td>セット内の最後のリンクに適用して、現在のページを表すことを示します。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScriptとCSSのソースコード</h2>
         <ul id="css_js_files">
           <li>
             CSS:
@@ -127,10 +128,10 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2 id="sc1_label">HTMLソースコード</h2>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
         <script>
           sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files');
           sourceCode.make();
