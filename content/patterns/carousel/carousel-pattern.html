@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -14,171 +14,172 @@
   </head>
   <body>
     <main>
-      <h1>Carousel (Slide Show or Image Rotator) Pattern</h1>
+      <h1>カルーセル（スライドショーまたは画像ローテーター）パターン</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンについて</h2>
         <p>
-          A carousel presents a set of items, referred to as slides, by sequentially displaying a subset of one or more slides.
-          Typically, one slide is displayed at a time, and users can activate a next or previous slide control that hides the current slide and &quot;rotates&quot; the next or previous slide into view.
-          In some implementations, rotation automatically starts when the page loads, and it may also automatically stop once all the slides have been displayed.
-          While a slide may contain any type of content, image carousels where each slide contains nothing more than a single image are common.
+          カルーセルは、スライドとして参照される一連のアイテムを提示し、1つ以上のスライドのサブセットを順次表示します。
+          通常、一度に1つのスライドが表示され、ユーザーは現在のスライドを隠し、次または前のスライドを「回転」させて表示するコントロールを作動することができます。
+          一部の実装では、ページの読み込み時に自動的に回転が開始され、すべてのスライドが表示されると自動的に停止することもあります。
+          スライドには任意のタイプのコンテンツを含めることができますが、各スライドに単一の画像しか含まれていない画像カルーセルは一般的です。
         </p>
         <p>
-          Ensuring all users can easily control and are not adversely affected by slide rotation is an essential aspect of making carousels accessible.
-          For instance, the screen reader experience can be confusing and disorienting if slides that are not visible on screen are incorrectly hidden, e.g., displayed off-screen.
-          Similarly, if slides rotate automatically and a screen reader user is not aware of the rotation, the user may read an element on slide one, execute the screen reader command for next element, and, instead of hearing the next element on slide one, hear an element from slide 2 without any knowledge that the element just announced is from an entirely new context.
+          すべてのユーザーがスライドの回転を簡単に制御し、スライドの回転によって不利益を受けないようにすることは、カルーセルをアクセス可能にするための本質的な側面です。
+          例えば、画面上に表示されていないスライドが誤って非表示になっている場合、スクリーンリーダーの体験は混乱しやすくなります。例えば、オフスクリーンに表示されるなど。
+          同様に、スライドが自動的に回転し、スクリーンリーダーユーザーが回転を認識していない場合、ユーザーはスライド1の要素を読み、次の要素のスクリーンリーダーコマンドを実行すると、スライド1の次の要素を聞く代わりに、完全に新しいコンテキストからの要素であるスライド2の要素を知らずに聞くことになります。
         </p>
-        <p>Features needed to provide sufficient rotation control include:</p>
+        <p>十分な回転制御を提供するための機能には以下が含まれます：</p>
         <ul>
-          <li>Buttons for displaying the previous and next slides.</li>
+          <li>前のスライドと次のスライドを表示するボタン。</li>
           <li>
-            Optionally, a control, or group of controls, for choosing a specific slide to display.
-            For example, slide picker controls can be marked up as tabs in a tablist with the slide represented by a tabpanel element.
+            必要に応じて、特定のスライドを表示するためのコントロール、またはコントロールのグループ。
+            例えば、スライドピッカーコントロールは、tabpanel要素で表されるスライドとしてタブリスト内のタブとしてマークアップすることができます。
           </li>
           <li>
-            If the carousel can automatically rotate, it also:
+            カルーセルが自動的に回転する場合、それはまた：
             <ul>
               <li>
-                Has a button for stopping and restarting rotation.
-                This is particularly important for supporting assistive technologies operating in a mode that does not move either keyboard focus or the mouse.
+                回転を停止し再開するボタンを持っています。
+                これは、キーボードフォーカスやマウスを移動しないモードでの支援技術の動作をサポートするために特に重要です。
               </li>
               <li>
-                Stops rotating when keyboard focus enters the carousel.
-                It does not restart unless the user explicitly requests it to do so.
+                キーボードフォーカスがカルーセルに入ると回転が停止します。
+                ユーザーが明示的にそれを要求しない限り、再開しません。
               </li>
-              <li>Stops rotating whenever the mouse is hovering over the carousel.</li>
+              <li>マウスがカルーセルの上にホバーしているときいつでも回転が停止します。</li>
             </ul>
           </li>
         </ul>
       </section>
 
       <section id="examples">
-        <h2>Examples</h2>
+        <h2>例</h2>
         <ul>
-          <li><a href="examples/carousel-1-prev-next.html">Auto-Rotating Image Carousel with Buttons for Slide Control:</a> A basic image carousel that demonstrates the accessibility features necessary for carousels that rotate automatically on page load and also enables users to choose which slide is displayed with buttons for previous and next slide.</li>
-          <li><a href="examples/carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control:</a> An image carousel that demonstrates accessibility features necessary for carousels that rotate automatically on page load and also enables users to choose which slide is displayed with a set of tabs.</li>
+          <li><a href="examples/carousel-1-prev-next.html">スライドコントロールのボタンを持つ自動回転画像カルーセル：</a> ページの読み込み時に自動的に回転するカルーセルのアクセシビリティ機能を示す基本的な画像カルーセルで、ユーザーが前のスライドと次のスライドのボタンで表示するスライドを選択できます。</li>
+          <li><a href="examples/carousel-2-tablist.html">スライドコントロールのタブを持つ自動回転画像カルーセル：</a> ページの読み込み時に自動的に回転するカルーセルのアクセシビリティ機能を示す画像カルーセルで、ユーザーが一連のタブで表示するスライドを選択できます。</li>
         </ul>
       </section>
 
       <section id="terms">
-        <h2>Terms</h2>
-        <p>The following terms are used to describe components of a carousel.</p>
+        <h2>用語</h2>
+        <p>カルーセルのコンポーネントを説明するために以下の用語が使用されています。</p>
         <dl>
-          <dt>Slide</dt>
-          <dd>A single content container within a set of content containers that hold the content to be presented by the carousel.</dd>
-          <dt>Rotation Control</dt>
-          <dd>An interactive element that stops and starts automatic slide rotation.</dd>
-          <dt>Next Slide Control</dt>
-          <dd>An interactive element, often styled as an arrow, that displays the next slide in the rotation sequence.</dd>
-          <dt>Previous Slide Control</dt>
-          <dd>An interactive element, often styled as an arrow, that displays the previous slide in the rotation sequence.</dd>
-          <dt>Slide Picker Controls</dt>
-          <dd>A group of elements, often styled as small dots, that enable the user to pick a specific slide in the rotation sequence to display.</dd>
+          <dt>スライド</dt>
+          <dd>カルーセルによって提示されるコンテンツを保持する一連のコンテンツコンテナ内の単一のコンテンツコンテナ。</dd>
+          <dt>回転コントロール</dt>
+          <dd>自動スライド回転を停止および開始するインタラクティブな要素。</dd>
+          <dt>次のスライドコントロール</dt>
+          <dd>回転シーケンスの次のスライドを表示する、しばしば矢印としてスタイル付けされたインタラクティブな要素。</dd>
+          <dt>前のスライドコントロール</dt>
+          <dd>回転シーケンスの前のスライドを表示する、しばしば矢印としてスタイル付けされたインタラクティブな要素。</dd>
+          <dt>スライドピッカーコントロール</dt>
+          <dd>ユーザーが回転シーケンスで表示する特定のスライドを選択できるようにする、しばしば小さなドットとしてスタイル付けされた要素のグループ。</dd>
         </dl>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
+        <h2>キーボードのインタラクション</h2>
         <ul>
           <li>
-            If the carousel has an auto-rotate feature, automatic slide rotation stops when any element in the carousel receives keyboard focus.
-            It does not resume unless the user activates the rotation control.
+            カルーセルに自動回転機能がある場合、カルーセル内の任意の要素がキーボードフォーカスを受け取ると、自動スライド回転が停止します。
+            ユーザーが回転コントロールを作動するまで再開しません。
           </li>
-          <li><kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus through the interactive elements of the carousel as specified by the page tab sequence -- scripting for <kbd>Tab</kbd> is not necessary.</li>
+          <li><kbd>Tab</kbd> および <kbd>Shift + Tab</kbd>: ページのタブ順序で指定されたカルーセルのインタラクティブな要素を通じてフォーカスを移動します -- <kbd>Tab</kbd> のためのスクリプトは必要ありません。</li>
           <li>
-            Button elements implement the keyboard interaction defined in the <a href="../button/button-pattern.html">button pattern</a>.
-            Note: Activating the rotation control, next slide, and previous slide do not move focus, so users may easily repetitively activate them as many times as desired.
+            ボタン要素は、<a href="../button/button-pattern.html">ボタンパターン</a>で定義されたキーボードインタラクションを実装します。
+            注：回転コントロール、次のスライド、前のスライドを作動することはフォーカスを移動しませんので、ユーザーは望むだけ何度も繰り返し作動することができます。
           </li>
           <li>
-            If present, the rotation control is the first element in the <kbd>Tab</kbd> sequence inside the carousel.
-            It is essential that it precede the rotating content so it can be easily located.
+            存在する場合、回転コントロールはカルーセル内の<kbd>Tab</kbd>シーケンスの最初の要素です。
+            回転するコンテンツよりも前にあることが重要です。
           </li>
-          <li>If tab elements are used for slide picker controls, they implement the keyboard interaction defined in the <a href="../tabs/tabs-pattern.html">Tabs Pattern.</a></li>
+          <li>スライドピッカーコントロールのためにタブ要素が使用されている場合、それらは<a href="../tabs/tabs-pattern.html">タブパターン</a>で定義されたキーボードインタラクションを実装します。</li>
         </ul>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties</h2>
-        <p>This section describes the element composition for three styles of carousels:</p>
+        <h2>WAI-ARIAの役割、状態、およびプロパティ</h2>
+        <p>このセクションでは、3つのスタイルのカルーセルの要素構成について説明します：</p>
         <ul>
-          <li>Basic: Has rotation, previous slide, and next slide controls but no slide picker controls.</li>
-          <li>Tabbed: Has basic controls plus a single tab stop for slide picker controls implemented using the <a href="../tabs/tabs-pattern.html">tabs pattern.</a></li>
+          <li>基本：回転、前のスライド、次のスライドのコントロールはあるが、スライドピッカーコントロールはない。</li>
+          <li>タブ付き：基本のコントロールに加えて、<a href="../tabs/tabs-pattern.html">タブのパターン</a>を使用して実装されたスライドピッカーコントロールのための単一のタブ停止がある。</li>
           <li>
-            Grouped: Has basic controls plus a series of tab stops in a group of slide picker controls where each control implements the <a href="../button/button-pattern.html">button pattern.</a>
-            Because each slide selector button adds an element to the page tab sequence, this style is the least friendly for keyboard users.
+            グループ化：基本のコントロールに加えて、各コントロールが<a href="../button/button-pattern.html">ボタンのパターン</a>を実装するスライドピッカーコントロールのグループ内の一連のタブ停止がある。
+            各スライドセレクターボタンがページのタブシーケンスに要素を追加するため、このスタイルはキーボードユーザーにとって最も使いにくい。
           </li>
         </ul>
-        <h3>Basic carousel elements</h3>
+        <h3>基本的なカルーセルの要素</h3>
         <ul>
           <li>
-            A carousel container element that encompasses all components of the carousel, including both carousel controls and slides, has either role <a href="#region" class="role-reference">region</a> or role <a href="#group" class="role-reference">group.</a>
-            The most appropriate role for the carousel container depends on the information architecture of the page.
-            See the
-            <a href="../../practices/landmark-regions/landmark-regions-practice.html">Landmark Regions Practice</a>
-            to determine whether the carousel warrants being designated as a landmark region.
+            カルーセルのコントロールとスライドの両方を含むカルーセルのコンテナ要素は、役割<a href="#region" class="role-reference">region</a>または役割<a href="#group" class="role-reference">group</a>のいずれかを持っています。
+            カルーセルコンテナの最も適切な役割は、ページの情報アーキテクチャに依存します。
+            カルーセルがランドマークリージョンとして指定されるかどうかを判断するために、
+            <a href="../../practices/landmark-regions/landmark-regions-practice.html">ランドマークリージョンの実践</a>
+            を参照してください。
           </li>
-          <li>The carousel container has the <a href="#aria-roledescription" class="property-reference">aria-roledescription</a> property set to <code>carousel</code>.</li>
+          <li>カルーセルのコンテナは、<a href="#aria-roledescription" class="property-reference">aria-roledescription</a>プロパティを<code>carousel</code>に設定しています。</li>
           <li>
-            If the carousel has a visible label, its accessible label is provided by the property <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> on the carousel container set to the ID of the element containing the visible label.
-            Otherwise, an accessible label is provided by the property <a href="#aria-label" class="property-reference">aria-label</a> set on the carousel container.
-            Note that since the <code>aria-roledescription</code> is set to &quot;carousel&quot;, the label does not contain the word &quot;carousel&quot;.
+            カルーセルに表示されるラベルがある場合、そのアクセシブルなラベルは、カルーセルコンテナのプロパティ<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>によって提供され、表示されるラベルを含む要素のIDに設定されます。
+            それ以外の場合、アクセシブルなラベルは、カルーセルコンテナに設定されたプロパティ<a href="#aria-label" class="property-reference">aria-label</a>によって提供されます。
+            <code>aria-roledescription</code>が「carousel」と設定されているため、ラベルに「carousel」という言葉は含まれていません。
           </li>
-          <li>The rotation control, next slide control, and previous slide control are either native button elements (recommended) or implement the <a href="../button/button-pattern.html">button pattern</a>.</li>
+          <li>回転コントロール、次のスライドコントロール、および前のスライドコントロールは、ネイティブのボタン要素（推奨）であるか、<a href="../button/button-pattern.html">ボタンのパターン</a>を実装しています。</li>
           <li>
-            The rotation control has an accessible label provided by either its inner text or <a href="#aria-label" class="property-reference">aria-label</a>.
-            The label changes to match the action the button will perform, e.g., &quot;Stop slide rotation&quot; or &quot;Start slide rotation&quot;.
-            A label that changes when the button is activated clearly communicates both that slide content can change automatically and when it is doing so.
-            Note that since the label changes, the rotation control does not have any states, e.g., <code>aria-pressed</code>, specified.
+            回転コントロールには、内部テキストまたは<a href="#aria-label" class="property-reference">aria-label</a>によって提供されるアクセシブルなラベルがあります。
+            ラベルは、ボタンが実行するアクションに合わせて変更されます。例えば、「スライド回転を停止」または「スライド回転を開始」。
+            ボタンが作動するとラベルが変わることで、スライドのコンテンツが自動的に変わる可能性があり、それが実際に行われていることを明確に伝えることができます。
+            ラベルが変わるため、回転コントロールには、例えば<code>aria-pressed</code>などの状態が指定されていません。
           </li>
-          <li>Each slide container has role <a href="#group" class="role-reference">group</a> with the property <a href="#aria-roledescription" class="property-reference">aria-roledescription</a> set to <code>slide</code>.</li>
+          <li>各スライドコンテナは、役割<a href="#group" class="role-reference">group</a>を持ち、プロパティ<a href="#aria-roledescription" class="property-reference">aria-roledescription</a>を<code>slide</code>に設定しています。</li>
           <li>
-            Each slide has an accessible name:
+            各スライドにはアクセシブルな名前があります：
             <ul>
-              <li>If a slide has a visible label, its accessible label is provided by the property <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> on the slide container set to the ID of the element containing the visible label.</li>
-              <li>Otherwise, an accessible label is provided by the property <a href="#aria-label" class="property-reference">aria-label</a> set on the slide container.</li>
-              <li>If unique names that identify the slide content are not available, a number and set size can serve as a meaningful alternative, e.g., &quot;3 of 10&quot;. Note: Normally, including set position and size information in an accessible name is not appropriate. An exception is helpful in this implementation because group elements do not support <a href="#aria-setsize" class="property-reference">aria-setsize</a> or <a href="#aria-posinset" class="property-reference">aria-posinset</a>. The tabbed carousel implementation pattern does not have this limitation.</li>
-              <li>Note that since the <code>aria-roledescription</code> is set to &quot;slide&quot;, the label does not contain the word &quot;slide.&quot;</li>
+              <li>スライドに表示されるラベルがある場合、そのアクセシブルなラベルは、スライドコンテナのプロパティ<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>によって提供され、表示されるラベルを含む要素のIDに設定されます。</li>
+              <li>それ以外の場合、アクセシブルなラベルは、スライドコンテナに設定されたプロパティ<a href="#aria-label" class="property-reference">aria-label</a>によって提供されます。</li>
+              <li>スライドのコンテンツを識別するユニークな名前が利用できない場合、番号とセットサイズを意味のある代替手段として使用できます。例：「3/10」。注：通常、アクセシブルな名前にセット位置とサイズ情報を含めることは適切ではありません。この実装では例外が役立ちます。なぜなら、group要素は<a href="#aria-setsize" class="property-reference">aria-setsize</a>または<a href="#aria-posinset" class="property-reference">aria-posinset</a>をサポートしていないからです。タブ付きのカルーセル実装パターンにはこの制限がありません。</li>
+              <li><code>aria-roledescription</code>が「slide」と設定されているため、ラベルに「slide」という言葉は含まれていません。</li>
             </ul>
           </li>
           <li>
-            Optionally, an element wrapping the set of slide elements has <a href="#aria-atomic" class="property-reference">aria-atomic</a> set to <code>false</code> and <a href="#aria-live" class="property-reference">aria-live</a> set to:
+            任意で、スライド要素のセットをラッピングする要素には、<a href="#aria-atomic" class="property-reference">aria-atomic</a>が<code>false</code>に設定され、<a href="#aria-live" class="property-reference">aria-live</a>が以下に設定されています：
             <ul>
-              <li><code>off</code>: if the carousel is automatically rotating.</li>
-              <li><code>polite</code>: if the carousel is <strong>NOT</strong> automatically rotating.</li>
+              <li><code>off</code>：カルーセルが自動的に回転している場合。</li>
+              <li><code>polite</code>：カルーセルが<strong>自動的に回転していない</strong>場合。</li>
             </ul>
           </li>
         </ul>
-        <h3>Tabbed Carousel Elements</h3>
-        <p>The structure of a tabbed carousel is the same as a basic carousel except that:</p>
+        <h3>タブ付きカルーセルの要素</h3>
+        <p>タブ付きのカルーセルの構造は、基本的なカルーセルと同じですが、以下の点が異なります：</p>
         <ul>
-          <li>Each slide container has role <a href="#tabpanel" class="role-reference">tabpanel</a> in lieu of <code>group</code>, and it does not have the <code>aria-roledescription</code> property.</li>
+          <li>各スライドコンテナは、<code>group</code>の代わりに役割<a href="#tabpanel" class="role-reference">tabpanel</a>を持ち、<code>aria-roledescription</code>プロパティを持っていません。</li>
           <li>
-            It has slide picker controls implemented using the <a href="../tabs/tabs-pattern.html">tabs pattern</a> where:
+            <a href="../tabs/tabs-pattern.html">タブのパターン</a>を使用して実装されたスライドピッカーコントロールがあり、以下のようになります：
             <ul>
-              <li>Each control is a <code>tab</code> element, so activating a tab displays the slide associated with that tab.</li>
+              <li>各コントロールは<code>tab</code>要素であり、タブを作動すると、そのタブに関連付けられたスライドが表示されます。</li>
               <li>
-                The accessible name of each <code>tab</code> indicates which slide it will display by including the name or number of the slide, e.g., &quot;Slide 3&quot;.
-                Slide names are preferable if each slide has a unique name.
+                各<code>tab</code>のアクセシブルな名前は、スライドの名前または番号を含むことで、どのスライドを表示するかを示します。例：「スライド3」。
+                各スライドにユニークな名前がある場合、スライドの名前が望ましい。
               </li>
-              <li>The set of controls is grouped in a <code>tablist</code> element with an accessible name provided by the value of <a href="#aria-label" class="property-reference">aria-label</a> that identifies the purpose of the tabs, e.g., &quot;Choose slide to display.&quot;</li>
-              <li>The <code>tab</code>, <code>tablist</code>, and <code>tabpanel</code> implement the properties specified in the <a href="../tabs/tabs-pattern.html">tabs pattern</a>.</li>
+              <li>コントロールのセットは、タブの目的を識別する<a href="#aria-label" class="property-reference">aria-label</a>の値によって提供されるアクセシブルな名前を持つ<code>tablist</code>要素にグループ化されます。例：「表示するスライドを選択」。</li>
+              <li><code>tab</code>、<code>tablist</code>、および<code>tabpanel</code>は、<a href="../tabs/tabs-pattern.html">タブのパターン</a>で指定されたプロパティを実装しています。</li>
             </ul>
           </li>
         </ul>
-        <h3>Grouped Carousel Elements</h3>
-        <p>A grouped carousel has the same structure as a basic carousel, but it also includes slide picker controls where:</p>
+        <h3>グループ化されたカルーセルの要素</h3>
+        <p>グループ化されたカルーセルは、基本的なカルーセルと同じ構造を持っていますが、スライドピッカーコントロールも含まれています：</p>
         <ul>
-          <li>The set of slide picker controls is contained in an element with role <a href="#group" class="role-reference">group</a>.</li>
-          <li>The group containing the picker controls has an accessible label provided by the value of <a href="#aria-label" class="property-reference">aria-label</a> that identifies the purpose of the controls, e.g., &quot;Choose slide to display.&quot;</li>
-          <li>Each picker control is a native button element (recommended) or implements the <a href="../button/button-pattern.html">button pattern.</a></li>
+          <li>スライドピッカーコントロールのセットは、役割<a href="#group" class="role-reference">group</a>を持つ要素に含まれています。</li>
+          <li>ピッカーコントロールを含むグループには、コントロールの目的を識別する<a href="#aria-label" class="property-reference">aria-label</a>の値によって提供されるアクセシブルなラベルがあります。例：「表示するスライドを選択」。</li>
+          <li>各ピッカーコントロールは、ネイティブのボタン要素（推奨）であるか、<a href="../button/button-pattern.html">ボタンのパターン</a>を実装しています。</li>
           <li>
-            The accessible name of each picker button matches the name of the slide it displays.
-            One technique for accomplishing this is to set <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> to a value that references the slide <code>group</code> element.
+            各ピッカーボタンのアクセシブルな名前は、表示するスライドの名前と一致します。
+            これを実現するための一つの手法は、<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>を、スライド<code>group</code>要素を参照する値に設定することです。
           </li>
           <li>
-            The picker button representing the currently displayed slide has the property <a href="#aria-disabled" class="property-reference">aria-disabled</a> set to <code>true</code>.
-            Note: <code>aria-disabled</code> is preferable to the HTML <code>disabled</code> attribute because this is a circumstance where screen reader users benefit from the disabled button being included in the page <kbd>Tab</kbd> sequence.
+            現在表示されているスライドを表すピッカーボタンには、プロパティ<a href="#aria-disabled" class="property-reference">aria-disabled</a>が<code>true</code>に設定されています。
+            注：<code>aria-disabled</code>は、この状況でスクリーンリーダーユーザーがページの<kbd>Tab</kbd>シーケンスに含まれる無効なボタンから利益を得るため、HTMLの<code>disabled</code>属性よりも優れています。
           </li>
         </ul>
       </section>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto-Rotating Image Carousel Example with Buttons for Slide Control</title>
+    <title>スライド制御のボタンを持つ自動回転イメージカルーセルの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -18,70 +18,71 @@
     <script src="js/carousel-prev-next.js"></script>
   </head>
   <body>
-    <nav aria-label="Related Links" class="feedback">
+    <nav aria-label="関連リンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/10">Related Issues</a></li>
-        <li><a href="../carousel-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/10">関連するIssues</a></li>
+        <li><a href="../carousel-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
-      <h1>Auto-Rotating Image Carousel Example with Buttons for Slide Control</h1>
+      <h1>スライド制御のボタンを持つ自動回転イメージカルーセルの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <p>
-          The following example implementation of the <a href="../carousel-pattern.html">Carousel Pattern</a> demonstrates features of the pattern that are essential to accessibility for carousels that automatically start rotating when the page loads.
-          For instance, rotation stops when users either move focus into the carousel or hover the mouse over carousel content, and users can manually control which slide is displayed with previous and next slide buttons.
-          The accessibility features section that follows the example describes these features in detail.
+          以下の<a href="../carousel-pattern.html">カルーセルのパターン</a>の実装例は、ページの読み込み時に自動的に回転を開始するカルーセルのアクセシビリティに不可欠なパターンの特徴を示しています。
+          例えば、ユーザーがカルーセル内にフォーカスを移動するか、カルーセルのコンテンツの上にマウスをホバーすると回転が停止し、ユーザーは前のスライドと次のスライドのボタンで表示するスライドを手動で制御できます。
+          例の後に続くアクセシビリティの特徴のセクションでは、これらの特徴を詳しく説明しています。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下があります：</p>
         <ul>
-          <li><a href="carousel-2-tablist.html">Auto-Rotating Image Carousel with Tabs for Slide Control:</a> An image carousel that demonstrates accessibility features necessary for carousels that rotate automatically on page load and also enables users to choose which slide is displayed with a set of tabs.</li>
+          <li><a href="carousel-2-tablist.html">タブでスライドを制御する自動回転イメージカルーセル:</a> ページの読み込み時に自動的に回転するカルーセルに必要なアクセシビリティの特徴を示し、ユーザーがタブのセットで表示するスライドを選択できるようにするイメージカルーセル。</li>
         </ul>
       </section>
 
       <section>
-        <h2>Example Options</h2>
+        <h2>例のオプション</h2>
 
         <fieldset class="carousel-options">
-          <legend>Carousel View and Behavior Options</legend>
+          <legend>カルーセルの表示と動作のオプション</legend>
 
           <label for="accessible-controls">
             <input type="checkbox" id="accessible-controls" value="moreaccessible" aria-describedby="accessible-controls-desc">
-            Display controls and captions outside of image
+            画像の外にコントロールとキャプションを表示
           </label>
-          <p id="accessible-controls-desc">This option is more accessible than rendering controls and captions within the image, because controls are easier to perceive and captions are easier to read without rotating images behind them.</p>
+          <p id="accessible-controls-desc">このオプションは、コントロールとキャプションを画像内にレンダリングするよりもアクセシブルです。なぜなら、コントロールは知覚しやすく、キャプションは背後に回転する画像なしで読みやすくなるからです。</p>
 
           <label for="rotation-paused">
             <input type="checkbox" id="rotation-paused" value="paused" aria-describedby="rotation-paused-desc">
-            Pause auto-rotation on load (<a href="javascript:history.go(0)"><img class="reload" src="images/reload-icon.png" alt="">reload needed</a>)
+            読み込み時に自動回転を一時停止（<a href="javascript:history.go(0)"><img class="reload" src="images/reload-icon.png" alt="">再読み込みが必要</a>）
           </label>
           <p id="rotation-paused-desc">
-            This option controls whether the carousel is paused or playing on page load.
-            The paused option improves accessibility for users with visual impairments and people who are distracted or confused by auto-rotation, but allows users to start auto-rotation using the start/stop button.</p>
-          <p>Note: If the user has chosen reduced motion in system settings, auto-rotation will always be paused on load.</p>
+            このオプションは、ページの読み込み時にカルーセルが一時停止しているか再生しているかを制御します。
+            一時停止オプションは、視覚障害のあるユーザーや自動回転によって混乱や気を散らされる人々のアクセシビリティを向上させますが、ユーザーが開始/停止ボタンを使用して自動回転を開始できるようにします。</p>
+          <p>注：ユーザーがシステムの設定で動きを減少させるオプションを選択している場合、読み込み時に自動回転は常に一時停止されます。</p>
 
           <label for="rotation-disabled">
             <input type="checkbox" id="rotation-disabled" value="norotate" aria-describedby="rotation-disabled-desc">
-            Disable auto-rotation
+            自動回転を無効にする
           </label>
           <p id="rotation-disabled-desc">
-            This option improves accessibility for users with visual impairments and people who are distracted or confused by auto-rotation by disabling the auto-rotation feature and removing the start/stop button from the user interface.
-            Users can use the previous and next buttons to manually navigate through the slides.
+            このオプションは、自動回転機能を無効にし、ユーザーインターフェースから開始/停止ボタンを削除することで、視覚障害のあるユーザーや自動回転によって混乱や気を散らされる人々のアクセシビリティを向上させます。
+            ユーザーは前のボタンと次のボタンを使用して、手動でスライドをナビゲートできます。
           </p>
         </fieldset>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
         <div id="ex1">
-          <section id="myCarousel" class="carousel" aria-roledescription="carousel" aria-label="Highlighted television shows">
+          <section id="myCarousel" class="carousel" aria-roledescription="カルーセル" aria-label="ハイライトされたテレビ番組">
             <div class="carousel-inner">
               <div class="controls">
-                <button type="button" class="rotation pause" aria-label="Stop automatic slide show">
+                <button type="button" class="rotation pause" aria-label="自動スライドショーを停止">
                   <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <rect class="background" x="2" y="2" rx="5" ry="5" width="38" height="24" />
                     <rect class="border" x="4" y="4" rx="5" ry="5" width="34" height="20" />
@@ -94,7 +95,7 @@
                   </svg>
                 </button>
 
-                <button type="button" class="previous" aria-controls="myCarousel-items" aria-label="Previous Slide">
+                <button type="button" class="previous" aria-controls="myCarousel-items" aria-label="前のスライド">
                   <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <rect class="background" x="2" y="2" rx="5" ry="5" width="38" height="24" />
                     <rect class="border" x="4" y="4" rx="5" ry="5" width="34" height="20" />
@@ -102,7 +103,7 @@
                   </svg>
                 </button>
 
-                <button type="button" class="next" aria-controls="myCarousel-items" aria-label="Next Slide">
+                <button type="button" class="next" aria-controls="myCarousel-items" aria-label="次のスライド">
                   <svg width="42" height="34" version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <rect class="background" x="2" y="2" rx="5" ry="5" width="38" height="24" />
                     <rect class="border" x="4" y="4" rx="5" ry="5" width="34" height="20" />
@@ -112,56 +113,56 @@
               </div>
 
               <div id="myCarousel-items" class="carousel-items" aria-live="off">
-                <div class="carousel-item active" role="group" aria-roledescription="slide" aria-label="1 of 6">
+                <div class="carousel-item active" role="group" aria-roledescription="スライド" aria-label="1 of 6">
                   <div class="carousel-image">
                     <a href="#">
-                      <img src="images/amsterdamslide__800x600.jpg" alt="Walking Tour in Amsterdam">
+                      <img src="images/amsterdamslide__800x600.jpg" alt="アムステルダムでのウォーキングツアー">
                     </a>
                   </div>
 
                   <div class="carousel-caption">
                     <h3>
-                      <a href="#" id="carousel-label-1"> Dynamic Europe: Amsterdam, Prague, Berlin </a>
+                      <a href="#" id="carousel-label-1"> ダイナミックヨーロッパ: アムステルダム、プラハ、ベルリン </a>
                     </h3>
 
                     <div class="hidden-xs hidden-sm">
-                      <p><span class="contrast">7 pm Tuesday, March 3, on TV</span></p>
+                      <p><span class="contrast">3月3日火曜日、午後7時、テレビで</span></p>
                     </div>
                   </div>
                   <!-- .carousel-caption -->
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="2 of 6">
+                <div class="carousel-item" role="group" aria-roledescription="スライド" aria-label="2 of 6">
                   <div class="carousel-image">
                     <a href="#">
-                      <img src="images/lands-endslide__800x600.jpg" alt="Land&#039;s End in Cornwall">
+                      <img src="images/lands-endslide__800x600.jpg" alt="コーンウォールのLand's End">
                     </a>
                   </div>
 
                   <div class="carousel-caption">
                     <h3>
-                      <a href="#" id="carousel-label-2"> Travel to Southwest England and Paris </a>
+                      <a href="#" id="carousel-label-2"> イングランド南西部とパリへの旅 </a>
                     </h3>
 
                     <div>
-                      <p><span class="contrast">Sept. 14 to Sept. 24 or 27</span></p>
+                      <p><span class="contrast">9月14日から9月24日または27日まで</span></p>
                     </div>
                   </div>
                   <!-- .carousel-caption -->
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="3 of 6">
+                <div class="carousel-item" role="group" aria-roledescription="スライド" aria-label="3 of 6">
                   <div class="carousel-image">
                     <a href="#">
-                      <img src="images/trustslide-2__800x600.jpg" alt="Mom and daughter play Daniel Tiger game on notebook computer.">
+                      <img src="images/trustslide-2__800x600.jpg" alt="母と娘がノートパソコンでダニエルタイガーゲームをプレイ">
                     </a>
                   </div>
 
                   <div class="carousel-caption">
                     <h3>
-                      <a href="#" id="carousel-label-3"> Great Children's Programming on Public TV </a>
+                      <a href="#" id="carousel-label-3"> 公共テレビの素晴らしい子供向け番組 </a>
                     </h3>
 
                     <div></div>
@@ -170,36 +171,36 @@
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="4 of 6">
+                <div class="carousel-item" role="group" aria-roledescription="スライド" aria-label="4 of 6">
                   <div class="carousel-image">
                     <a href="#">
-                      <img src="images/foyleswarslide__800x600.jpg" alt="A man in a suit and fedora and a woman with coiffed hair look sternly into the camera.">
+                      <img src="images/foyleswarslide__800x600.jpg" alt="スーツとフェドラ帽をかぶった男と、髪を整えた女がカメラを厳しく見つめている。">
                     </a>
                   </div>
 
                   <div class="carousel-caption">
                     <h3>
-                      <a href="#" id="carousel-label-4"> Foyle&#8217;s War Revisited </a>
+                      <a href="#" id="carousel-label-4"> Foyleの戦争再訪 </a>
                     </h3>
 
                     <div>
-                      <p><span class="contrast">8 pm Sunday, March 8, on TV: Sneak peek at the final season.</span></p>
+                      <p><span class="contrast">3月8日日曜日、午後8時、テレビで: 最終シーズンの先行上映。</span></p>
                     </div>
                   </div>
                   <!-- .carousel-caption -->
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="5 of 6">
+                <div class="carousel-item" role="group" aria-roledescription="スライド" aria-label="5 of 6">
                   <div class="carousel-image">
                     <a href="#">
-                      <img src="images/britcomdavidslide__800x600.jpg" alt="British flag with WILL-TV host David Thiel.">
+                      <img src="images/britcomdavidslide__800x600.jpg" alt="WILL-TVのホスト、デビッド・シールとともに英国の旗">
                     </a>
                   </div>
 
                   <div class="carousel-caption">
                     <h3>
-                      <a href="#" id="carousel-label-5"> Great Britain Vote: 7 pm Sat. </a>
+                      <a href="#" id="carousel-label-5"> グレートブリテン投票: 土曜日午後7時 </a>
                     </h3>
 
                     <div></div>
@@ -208,20 +209,20 @@
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" role="group" aria-roledescription="slide" aria-label="6 of 6">
+                <div class="carousel-item" role="group" aria-roledescription="スライド" aria-label="6 of 6">
                   <div class="carousel-image">
                     <a href="#">
-                      <img src="images/mag800-2__800x600.jpg" alt="Mid-American Gardener panelists on the set">
+                      <img src="images/mag800-2__800x600.jpg" alt="セットでのMid-American Gardenerのパネリスト">
                     </a>
                   </div>
 
                   <div class="carousel-caption">
                     <h3>
-                      <a href="#" id="carousel-label-6"> Mid-American Gardener: Thursdays at 7 pm </a>
+                      <a href="#" id="carousel-label-6"> Mid-American Gardener: 木曜日午後7時 </a>
                     </h3>
 
                     <div class="hidden-xs hidden-sm">
-                      <p><span class="contrast">Watch the latest episodes.</span></p>
+                      <p><span class="contrast">最新のエピソードを見る。</span></p>
                     </div>
                   </div>
                   <!-- .carousel-caption -->
@@ -235,84 +236,85 @@
 
           <div class="col-sm-1"></div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_label ex_end_sep" aria-label="の終了"></div>
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
-        <h3>Controlling Automatic Slide Rotation</h3>
+        <h2>アクセシビリティ機能</h2>
+        <h3>自動スライド回転の制御</h3>
         <p>
-          Users can stop and start slide rotation, which is an essential aspect of accessibility of the carousel for a variety of people with disabilities.
-          People with low vision or a cognitive disability that affects visual processing or reading benefit from being able to control slide rotation so they have sufficient time to explore slide content.
-          Similarly, since screen reader users cannot perceive automatic rotation, it can make reading the page confusing and disorienting.
-          For example, when slides are automatically rotating, a screen reader user may read an element on slide one, execute a screen reader command to read the next element, and, instead of hearing the next element on slide one, hear an element from slide 2 without any knowledge that the element just announced is from an entirely new context.
+          ユーザーはスライドの回転を停止し、再開することができ、これはさまざまな障害を持つ人々にとってカルーセルのアクセシビリティの重要な側面です。
+          低視力者や視覚処理や読書に影響を及ぼす認知障害を持つ人々は、スライドの内容を探索するのに十分な時間を持つためにスライドの回転を制御できることから利益を得ます。
+          同様に、スクリーンリーダーのユーザーが自動回転を知覚できないため、ページの読み取りが混乱し、方向を失うことがあります。
+          例えば、スライドが自動的に回転しているとき、スクリーンリーダーのユーザーはスライド1の要素を読み、次の要素を読むためのスクリーンリーダーのコマンドを実行するかもしれませんが、スライド1の次の要素を聞く代わりに、完全に新しいコンテキストからの要素を知らずにスライド2からの要素を聞くことになります。
         </p>
-        <p>This example includes the following features for giving users control over slide rotation:</p>
+        <p>この例には、ユーザーがスライドの回転を制御するための以下の機能が含まれています:</p>
         <ul>
-          <li>If operating system preferences have been set for reduced motion or disabling animations, the auto-rotation is initially paused.</li>
+          <li>オペレーティングシステムの設定が動きの減少やアニメーションの無効化に設定されている場合、自動回転は初めから一時停止されます。</li>
           <li>
-            Hovering the mouse over any carousel content pauses automatic rotation.
-            Automatic rotation resumes when the mouse moves away from the carousel unless another condition, such as keyboard focus, that prevents rotation has been triggered.
+            カルーセルの任意のコンテンツにマウスをホバーすると、自動回転が一時停止します。
+            マウスがカルーセルから移動すると、キーボードのフォーカスなど、回転を防ぐ別の条件がトリガーされていない限り、自動回転が再開されます。
           </li>
           <li>
-            Moving keyboard focus to any of the carousel content, including the next and previous slide elements, pauses automatic rotation.
-            Automatic rotation resumes when keyboard focus moves out of the carousel content unless another condition, such as mouse hover, that prevents rotation has been triggered.
+            キーボードのフォーカスをカルーセルの任意のコンテンツ、次や前のスライドの要素を含むものに移動すると、自動回転が一時停止します。
+            キーボードのフォーカスがカルーセルのコンテンツから移動すると、マウスのホバーなど、回転を防ぐ別の条件がトリガーされていない限り、自動回転が再開されます。
           </li>
           <li>
-            The carousel also contains a rotation control button that can stop and start automatic rotation.
+            カルーセルには、自動回転を停止し、再開することができる回転制御ボタンも含まれています。
             <ul>
-              <li>The rotation control button is the first element in the screen reader reading order.</li>
-              <li>The rotation control button is always visible so it is available to all users whether they are interacting via a mouse, keyboard, assistive technology, or touch.</li>
-              <li>If the carousel is rotating, the button's accessible name is &quot;Stop Automatic Slide Show&quot;, informing screen reader users that the slides are changing in addition to providing a way to stop the changes.</li>
-              <li>If the carousel is not rotating, the accessible name of the button is &quot;Start Automatic Slide Show&quot;.</li>
+              <li>回転制御ボタンは、スクリーンリーダーの読み取り順序で最初の要素です。</li>
+              <li>回転制御ボタンは常に表示されているため、マウス、キーボード、補助技術、またはタッチを介して対話しているすべてのユーザーに利用できます。</li>
+              <li>カルーセルが回転している場合、ボタンのアクセシブルな名前は「自動スライドショーを停止」となり、スライドが変更されていることをスクリーンリーダーユーザーに通知するとともに、変更を停止する方法を提供します。</li>
+              <li>カルーセルが回転していない場合、ボタンのアクセシブルな名前は「自動スライドショーを開始」となります。</li>
               <li>
-                If a user activates the rotation control button to start rotation it is assumed the user wants auto-rotation to start immediately, so focus and/or hover states within the carousel for pausing rotation are ignored.
-                The rotation will only stop if the rotation control button is activated again.
+                ユーザーが回転制御ボタンを活性化して回転を開始する場合、ユーザーが自動回転をすぐに開始したいと考えていると想定されます。したがって、回転を一時停止するカルーセル内のフォーカスや/およびホバーの状態は無視されます。
+                回転は、再び回転制御ボタンが活性化されるまで停止することはありません。
               </li>
             </ul>
           </li>
           <li>
-            The example includes an option to completely disable automatic slide rotation.
-            When this option is selected the start/stop button is not rendered and the slides can only be rotated through activation of the next and previous buttons.
+            この例には、自動スライド回転を完全に無効にするオプションが含まれています。
+            このオプションが選択されると、開始/停止ボタンはレンダリングされず、スライドは次および前のボタンの活性化を通じてのみ回転することができます。
           </li>
         </ul>
-        <h3>Color Contrast of Text and Rotation Controls</h3>
+        <h3>テキストと回転制御の色のコントラスト</h3>
         <p>
-          In the view of this carousel where the controls and captions are displayed inside the image, background images could cause color contrast for the controls and text to become insufficient.
-          However, this view includes the following features to prevent this potential problem and ensure it meets WCAG 2.1 color contrast requirements:
+          このカルーセルのビューでは、コントロールとキャプションが画像内に表示されている場合、背景画像によってコントロールとテキストの色のコントラストが不十分になる可能性があります。
+          しかし、このビューには、この潜在的な問題を防ぐための以下の機能が含まれており、WCAG 2.1の色のコントラスト要件を満たしています:
         </p>
         <ul>
           <li>
-            When the rotation control, next slide, and previous slide buttons are rendered within the image, the buttons have foreground and background colors that meet WCAG 2.1 color contrast requirements.
-            In addition, the focus styling uses SVG images that make the focus indicator highly visible when a control receives keyboard focus.</li>
-          <li>The transparency of the caption area is decreased so the caption text meets the WCAG 2.1 color contrast requirements.</li>
+            回転制御、次のスライド、および前のスライドのボタンが画像内にレンダリングされる場合、ボタンにはWCAG 2.1の色のコントラスト要件を満たす前景色と背景色があります。
+            さらに、フォーカスのスタイリングは、コントロールがキーボードのフォーカスを受け取ったときにフォーカスインジケーターが非常に目立つようにするSVG画像を使用しています。
+          </li>
+          <li>キャプションエリアの透明度が減少しているため、キャプションテキストはWCAG 2.1の色のコントラスト要件を満たしています。</li>
         </ul>
 
         <p>
-          One way to avoid the color contrast issues caused by displaying controls and text within the images is to position the controls outside the image.
-          Displaying the controls and text on a solid background makes it easier to control color contrast.
-          One of the view options provides an example of this technique.
+          画像内にコントロールとテキストを表示することによって引き起こされる色のコントラストの問題を回避する1つの方法は、コントロールを画像の外に配置することです。
+          コントロールとテキストを固定背景に表示することで、色のコントラストを制御するのが簡単になります。
+          1つのビューオプションは、この技術の例を提供しています。
         </p>
 
-        <h3>Screen Reader Announcement of Slide Changes</h3>
+        <h3>スライドの変更のスクリーンリーダーのアナウンスメント</h3>
         <p>
-          When automatic rotation is turned off, the carousel slide content is included in a live region.
-          This makes it easier for screen reader users to scan through the carousel slides.
-          When screen reader users activate the next or previous slide button, the new slide content is announced, giving users immediate feedback that helps them determine whether or not to interact with the content.
-          Very importantly, if automatic rotation is turned on, the live region is disabled.
-          If it were not, the page would become unusable as announcements of the continuously changing content constantly interrupt anything else the user is reading.
+          自動回転がオフになっている場合、カルーセルのスライドコンテンツはライブリージョンに含まれています。
+          これにより、スクリーンリーダーのユーザーがカルーセルのスライドをスキャンするのが簡単になります。
+          スクリーンリーダーのユーザーが次または前のスライドボタンを活性化すると、新しいスライドのコンテンツがアナウンスされ、コンテンツと対話するかどうかを判断するための即時のフィードバックが与えられます。
+          非常に重要なことに、自動回転がオンになっている場合、ライブリージョンは無効になっています。
+          そうでなければ、継続的に変更されるコンテンツのアナウンスメントが他のユーザーが読んでいるものを常に中断するため、ページが使用できなくなります。
         </p>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードサポート</h2>
         <section>
-          <h3 id="kbd_label_2">Rotation Control Button</h3>
+          <h3 id="kbd_label_2">回転制御ボタン</h3>
           <table aria-labelledby="kbd_label_2 kbd_label" class="def">
             <thead>
               <tr>
-                <th>Key</th>
-                <th>Function</th>
+                <th>キー</th>
+                <th>機能</th>
               </tr>
             </thead>
             <tbody>
@@ -320,32 +322,32 @@
                 <th><kbd>Tab</kbd></th>
                 <td>
                   <ul>
-                    <li>Moves focus through interactive elements in the carousel.</li>
-                    <li>Rotation control, previous slide, and next slide buttons precede the slide content in the <kbd>Tab</kbd> sequence.</li>
+                    <li>カルーセル内のインタラクティブな要素を通してフォーカスを移動します。</li>
+                    <li>回転制御、前のスライド、次のスライドのボタンは、<kbd>Tab</kbd>の順序でスライドの内容よりも先に来ます。</li>
                   </ul>
                 </td>
               </tr>
               <tr data-test-id="carousel-enter-or-space-toggle">
-                <th><kbd>Enter</kbd> or <kbd>Space</kbd></th>
-                <td>Toggle the auto rotation of slides in the carousel.</td>
+                <th><kbd>Enter</kbd> または <kbd>Space</kbd></th>
+                <td>カルーセル内のスライドの自動回転を切り替えます。</td>
               </tr>
             </tbody>
           </table>
         </section>
 
         <section>
-          <h3 id="kbd_label_3">Next and Previous Slide Buttons</h3>
+          <h3 id="kbd_label_3">次および前のスライドボタン</h3>
           <table aria-labelledby="kbd_label_3 kbd_label" class="def">
             <thead>
               <tr>
-                <th>Key</th>
-                <th>Function</th>
+                <th>キー</th>
+                <th>機能</th>
               </tr>
             </thead>
             <tbody>
               <tr data-test-id="carousel-key-enter-or-space-move">
                 <th><kbd>Enter</kbd><br><kbd>Space</kbd></th>
-                <td>Display next or previous slide in the carousel.</td>
+                <td>カルーセル内の次または前のスライドを表示します。</td>
               </tr>
             </tbody>
           </table>
@@ -353,14 +355,14 @@
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">役割、プロパティ、状態、およびTabindex属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">役割</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -374,8 +376,8 @@
               </td>
               <td>
                 <ul>
-                  <li>Role <code>region</code> is implied for any <code>section</code> element that has an accessible name.</li>
-                  <li>Defines the carousel and its controls as a landmark region.</li>
+                  <li>アクセス可能な名前を持つ任意の<code>section</code>要素には役割<code>region</code>が暗示されます。</li>
+                  <li>カルーセルとそのコントロールをランドマーク領域として定義します。</li>
                 </ul>
               </td>
             </tr>
@@ -389,21 +391,21 @@
               </td>
               <td>
                 <ul>
-                  <li>Informs assistive technologies to identify the element as a &quot;carousel&quot; rather than a &quot;region.&quot;</li>
-                  <li>Affects how the assistive technology renders the role but does not affect functionality, such as commands for navigating to landmark regions.</li>
-                  <li>NOTE: The <code>aria-roledescription</code> value is defined using the language of the page and should be localized by the author.</li>
+                  <li>要素を「region」ではなく「carousel」として識別するように支援技術に通知します。</li>
+                  <li>支援技術が役割をレンダリングする方法に影響を与えますが、ランドマーク領域への移動のような機能には影響しません。</li>
+                  <li>注: <code>aria-roledescription</code>の値はページの言語を使用して定義され、著者によってローカライズされる必要があります。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="carousel-region-aria-label">
               <td></td>
               <th scope="row">
-                <code>aria-label="Highlighted television shows"</code>
+                <code>aria-label="ハイライトされたテレビ番組"</code>
               </th>
               <td>
                 <code>section</code>
               </td>
-              <td>Provides a label that describes the content in the carousel region.</td>
+              <td>カルーセル領域の内容を説明するラベルを提供します。</td>
             </tr>
             <tr data-test-id="carousel-aria-live">
               <td></td>
@@ -415,9 +417,9 @@
               </td>
               <td>
                 <ul>
-                  <li>Applied to a <code>div</code> element that contains all the slides.</li>
-                  <li>Identifies the container element as a live region that is in the &quot;off&quot; state, meaning assistive technology users are not informed about changes to the region.</li>
-                  <li>The live region is off when the carousel is automatically rotating.</li>
+                  <li>すべてのスライドを含む<code>div</code>要素に適用されます。</li>
+                  <li>コンテナ要素を「off」状態のライブ領域として識別し、支援技術のユーザーは領域の変更について通知されません。</li>
+                  <li>カルーセルが自動的に回転している場合、ライブ領域はオフになります。</li>
                 </ul>
               </td>
             </tr>
@@ -431,9 +433,9 @@
               </td>
               <td>
                 <ul>
-                  <li>Applied to a <code>div</code> element that contains all the slides.</li>
-                  <li>Identifies the container element as a live region in the &quot;polite&quot; state, meaning assistive technology users are informed about changes to the region at the next available opportunity.</li>
-                  <li>This causes screen readers to automatically announce the content of slides when the next and previous slide buttons are activated.</li>
+                  <li>すべてのスライドを含む<code>div</code>要素に適用されます。</li>
+                  <li>コンテナ要素を「polite」状態のライブ領域として識別し、支援技術のユーザーは次の利用可能な機会に領域の変更について通知されます。</li>
+                  <li>これにより、次のスライドボタンと前のスライドボタンがアクティブになったときにスクリーンリーダーが自動的にスライドの内容をアナウンスします。</li>
                 </ul>
               </td>
             </tr>
@@ -447,24 +449,24 @@
               </td>
               <td>
                 <ul>
-                  <li>Applied to each of the elements that contains the content of a single slide.</li>
-                  <li>Enables assistive technology users to perceive the boundaries of a slide.</li>
+                  <li>単一のスライドの内容を含む各要素に適用されます。</li>
+                  <li>支援技術のユーザーがスライドの境界を知覚できるようにします。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="carousel-group-aria-roledescription">
               <td></td>
               <th scope="row">
-                <code>aria-roledescription="slide"</code>
+                <code>aria-roledescription="スライド"</code>
               </th>
               <td>
                 <code>div.carousel-item</code>
               </td>
               <td>
                 <ul>
-                  <li>Informs assistive technologies to identify the element as a &quot;slide&quot; rather than a &quot;group.&quot;</li>
-                  <li>Affects how the assistive technology renders the role but does not remove any assistive technology functions related to <code>group</code> elements.</li>
-                  <li>NOTE: The <code>aria-roledescription</code> value is defined using the language of the page and should be localized by the author.</li>
+                  <li>要素を「group」ではなく「スライド」として識別するように支援技術に通知します。</li>
+                  <li>支援技術が役割をレンダリングする方法に影響を与えますが、<code>group</code>要素に関連する支援技術の機能を削除することはありません。</li>
+                  <li>注: <code>aria-roledescription</code>の値はページの言語を使用して定義され、著者によってローカライズされる必要があります。</li>
                 </ul>
               </td>
             </tr>
@@ -478,10 +480,10 @@
               </td>
               <td>
                 <ul>
-                  <li>Provides each slide with a distinct label that helps the user understand which of the 6 slides is displayed.</li>
+                  <li>6つのスライドのうちどれが表示されているかをユーザーに理解させるための独自のラベルを各スライドに提供します。</li>
                   <li>
-                    Note: Normally, including set position and size information in an accessible name is not appropriate.
-                    An exception is helpful in this implementation because group elements do not support <code>aria-setsize</code> or <code>aria-posinset</code>.
+                    注: 通常、アクセス可能な名前にセットの位置とサイズの情報を含めることは適切ではありません。
+                    例外として、この実装ではgroup要素が<code>aria-setsize</code>または<code>aria-posinset</code>をサポートしていないため、この情報が役立ちます。
                   </li>
                 </ul>
               </td>
@@ -494,7 +496,7 @@
               <td>
                 <code>button</code>
               </td>
-              <td>Defines the accessible name for the pause auto-rotation button and the next and previous slide buttons.</td>
+              <td>一時停止自動回転ボタンおよび次および前のスライドボタンのアクセス可能な名前を定義します。</td>
             </tr>
             <tr data-test-id="carousel-button-aria-controls">
               <td></td>
@@ -506,8 +508,8 @@
               </td>
               <td>
                 <ul>
-                  <li>Identifies the content on the page that the button controls.</li>
-                  <li>Refers to the <code>div</code> that contains all the slides.</li>
+                  <li>ボタンが制御するページ上のコンテンツを識別します。</li>
+                  <li>すべてのスライドを含む<code>div</code>を参照します。</li>
                 </ul>
               </td>
             </tr>
@@ -516,7 +518,7 @@
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScriptとCSSのソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/carousel-prev-next.css" type="text/css">carousel-prev-next.css</a></li>
           <li>Javascript: <a href="js/carousel-prev-next.js" type="text/javascript">carousel-prev-next.js</a></li>
@@ -524,10 +526,10 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2 id="sc1_label">HTMLソースコード</h2>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
         <script>
           sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files');
           sourceCode.make();
