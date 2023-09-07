@@ -32,7 +32,7 @@
         <h2>HTMLセクショニング要素</h2>
         <p>
           いくつかのHTMLセクショニング要素は、自動的にARIAランドマーク領域を作成します。
-          したがって、支援技術の利用者にページの論理的なビューを提供するためには、HTMLセクショニング要素を使用する際の効果を理解することが重要です。
+          よって、支援技術の利用者にページの論理的なビューを提供するためには、HTMLセクショニング要素を使用する際の効果を理解することが重要です。
           [[HTML-ARIA]]には、HTML要素のロールマッピングに関する詳細な情報が含まれています。
         </p>
         <table class="widget-features">
@@ -88,32 +88,32 @@
 
       <section>
         <h2>ランドマークデザインの一般的な原則</h2>
-        <p>ページ上の<strong>すべての知覚可能なコンテンツ</strong>をランドマーク領域のいずれかに含め、各ランドマーク領域に意味的に意味のある役割を与えることは、支援技術の利用者が自分たちのニーズに関連する情報を見逃さないようにする最も効果的な方法の一つです。</p>
+        <p>ページ上の<strong>すべての知覚可能なコンテンツ</strong>をランドマーク領域のいずれかに含め、各ランドマーク領域にセマンティックに意味のある役割を与えることは、支援技術の利用者が自分たちのニーズに関連する情報を見逃さないようにする最も効果的な方法の一つです。</p>
         <p><strong>ステップ1: 論理構造を特定する</strong></p>
 
         <ul>
-          <li>ページを、デザイナーが通常、整列と間隔を使用して視覚的に示す知覚可能なコンテンツの領域に分割します。</li>
+          <li>ページを知覚可能なコンテンツの領域に分割します。通常、デザイナーは整列と間隔を使用して視覚的にその領域を示します。</li>
 
-          <li>領域は必要に応じて論理的なサブエリアにさらに定義することができます。</li>
+          <li>必要に応じて、領域は論理的なサブ領域にさらに定義できます。</li>
 
-          <li>サブエリアの例として、ポータルアプリケーションのポートレットがあります。</li>
+          <li>サブ領域の例として、ポータルアプリケーションのポートレットがあります。</li>
         </ul>
 
-        <p><strong>ステップ2: 各エリアにランドマークロールを割り当てる</strong></p>
+        <p><strong>ステップ2: 各領域にランドマークロールを割り当てる</strong></p>
 
         <ul>
-          <li>エリア内のコンテンツのタイプに基づいてランドマークロールを割り当てます。</li>
+          <li>領域内のコンテンツの種類に基づいてランドマークロールを割り当てます。</li>
 
-          <li><code>banner</code>、<code>main</code>、<code>complementary</code>、<code>contentinfo</code>のランドマークは、トップレベルのランドマークであるべきです。</li>
+          <li><code>banner</code>、<code>main</code>、<code>complementary</code>、<code>contentinfo</code>ランドマークは、トップレベルのランドマークであるべきです。</li>
 
-          <li>ランドマークロールは、提示される情報の親子関係を識別するためにネストすることができます。</li>
+          <li>ランドマークロールは、提示される情報の親子関係を識別するためにネストできます。</li>
         </ul>
 
-        <p id="aria_lh_step3"><strong>ステップ3: エリアにラベルを付ける</strong></p>
+        <p id="aria_lh_step3"><strong>ステップ3: 領域にラベルを付ける</strong></p>
 
         <ul>
           <li>
-            特定のランドマークロールがページ上で複数回使用される場合、そのランドマークの各インスタンスに固有のラベルを提供します。
+            特定のランドマークロールがページ上で複数回使用される場合、そのランドマークの各インスタンスに一意なラベルを提供します。
             複数のインスタンスに同じラベルを提供することが有益な稀な状況が一つあります: 各インスタンスのコンテンツと目的が同一である場合。
             例: 大きな検索結果テーブルが、テーブルの上下に同一のページネーションコントロールを2セット持っているため、各セットは<q>検索結果</q>というラベルのナビゲーション領域にあります。
             この場合、2つのインスタンスを区別するためにラベルに追加情報を追加することは、役立つよりもかえって混乱を招く可能性があります。
@@ -121,12 +121,12 @@
 
           <li>
             ランドマークがページ上で一度しか使用されない場合、ラベルを必要としない場合があります。
-            以下のランドマークロールセクションを参照してください。
+            以下のランドマークロールのセクションを参照してください。
           </li>
 
-          <li>エリアが見出し要素（例：<code>h1-h6</code>）で始まる場合、<code>aria-labelledby</code>属性を使用してエリアのラベルとして使用することができます。</li>
+          <li>領域が見出し要素（例：<code>h1-h6</code>）で始まる場合、<code>aria-labelledby</code>属性を使用して領域のラベルとして使用できます。</li>
 
-          <li>エリアがラベルを必要とし、見出し要素を持っていない場合、<code>aria-label</code>属性を使用してラベルを提供します。</li>
+          <li>領域がラベルを必要とし、かつ見出し要素を持たない場合、<code>aria-label</code>属性を使用してラベルを提供します。</li>
 
           <li>
             ラベルの一部としてランドマークロールを使用しないでください。
@@ -137,31 +137,31 @@
       </section>
 
       <section>
-        <h2>ランドマークの役割</h2>
+        <h2>ランドマークロール</h2>
 
         <section class="widget" id="aria_lh_banner">
-          <h3 class="widget-name">バナー</h3>
+          <h3 class="widget-name">Banner</h3>
 
           <p>
-            <a class="role-reference" href="#banner"><code>banner</code></a>ランドマークは、ウェブサイト内の各ページの始めにサイト指向のコンテンツを識別します。
-            サイト指向のコンテンツには、サイトのスポンサーのロゴやアイデンティティ、サイト固有の検索ツールなどが一般的に含まれます。
-            バナーは通常、ページの上部に表示され、通常全幅にわたります。
+            <a class="role-reference" href="#banner"><code>banner</code></a>ランドマークは、ウェブサイト内の各ページの最初にサイト指向のコンテンツを識別します。
+            サイト指向のコンテンツには一般的に、サイトのスポンサーのロゴやアイデンティティ、サイト固有の検索ツールなどが含まれます。
+            バナーは、通常ページの上部に表示され、おおむね全幅に及びます。
           </p>
 
           <ul>
-            <li>各ページには一つの<code>banner</code>ランドマークがあるかもしれません。</li>
+            <li>各ページには一つの<code>banner</code>ランドマークがあってもよいです。</li>
 
             <li><code>banner</code>ランドマークは、最上位のランドマークであるべきです。</li>
 
-            <li>ページがネストされた<code>document</code>および/または<code>application</code>役割（例：<code>iframe</code>と<code>frame</code>要素の使用を通じて）を含む場合、各<code>document</code>または<code>application</code>役割には一つの<code>banner</code>ランドマークがあるかもしれません。</li>
+            <li>ページがネストされた<code>document</code>および/または<code>application</code>ロール（例：<code>iframe</code>、<code>frame</code>要素の使用を通じて）を含む場合、各<code>document</code>または<code>application</code>ロールには一つの<code>banner</code>ランドマークがあってもよいです。</li>
 
-            <li>ページに複数の<code>banner</code>ランドマークが含まれている場合、それぞれに固有のラベルが付けられるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>参照）。</li>
+            <li>ページに複数の<code>banner</code>ランドマークが含まれている場合、それぞれに一意のラベルが付けられるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>を参照）。</li>
           </ul>
 
           <section>
-            <h4>HTML技法</h4>
+            <h4>HTMLテクニック</h4>
             <ul>
-              <li>HTMLの<code>header</code>要素は、そのコンテキストが<code>body</code>要素の場合、<code>banner</code>ランドマークを定義します。</li>
+              <li>HTMLの<code>header</code>要素は、そのコンテキストが<code>body</code>要素の場合、<code>banner</code>ランドマークを規定します。</li>
 
               <li>
                 以下の要素のいずれかの子孫である場合、HTMLの<code>header</code>要素は<code>banner</code>ランドマークとは見なされません（<a href="" class="html-mapping">HTML Accessibility Mappings</a>参照）：
@@ -175,20 +175,20 @@
               </li>
             </ul>
 
-            <h4>ARIA技法</h4>
+            <h4>ARIAテクニック</h4>
 
-            <p>HTMLの<code>header</code>要素の技法が使用されていない場合、<code>banner</code>ランドマークを定義するために<code>role=&quot;banner&quot;</code>属性を使用するべきです。</p>
+            <p>HTMLの<code>header</code>要素のテクニックが使用されていない場合、<code>banner</code>ランドマークを明示するために<code>role=&quot;banner&quot;</code>属性を使用するべきです。</p>
           </section>
 
           <section>
             <h4>例</h4>
 
-            <p><a href="../../patterns/landmarks/examples/banner.html">バナーランドマークの例</a></p>
+            <p><a href="../../patterns/landmarks/examples/banner.html">Bannerランドマークの例</a></p>
           </section>
         </section>
 
         <section id="aria_lh_complementary">
-          <h3 class="widget-name">補完</h3>
+          <h3 class="widget-name">Complementary</h3>
 
           <p>
             <a class="role-reference" href="#complementary"><code>complementary</code></a>ランドマークは、ドキュメントの補助的なセクションで、DOM階層の同じようなレベルのメインコンテンツに補完的であるように設計されていながらも、主要なコンテンツから分離しても意味を持ち続けるようなセクションです。
@@ -197,41 +197,41 @@
           <ul>
             <li><code>complementary</code>ランドマークは、最上位のランドマークであるべきです（例：他のランドマークの中に含まれない）。</li>
 
-            <li>補完的なコンテンツが主要なコンテンツと関連していない場合、より一般的な役割が割り当てられるべきです（例：<code>region</code>）。</li>
+            <li>補完的なコンテンツが主要なコンテンツと関連していない場合、より一般的なロールが割り当てられるべきです（例：<code>region</code>）。</li>
 
-            <li>ページに複数の<code>complementary</code>ランドマークが含まれている場合、それぞれに一意のラベルを持たせる必要があります（上記の<a href="#aria_lh_step3">ステップ3</a>を参照）。</li>
+            <li>ページに複数の<code>complementary</code>ランドマークが含まれている場合、それぞれに一意のラベルを持たせるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>を参照）。</li>
           </ul>
 
           <section>
             <h4>HTMLテクニック</h4>
 
-            <p><code>complementary</code>ランドマークを定義するには、HTMLの<code>aside</code>要素を使用します。</p>
+            <p><code>complementary</code>ランドマークを明示するには、HTMLの<code>aside</code>要素を使用します。</p>
 
             <h4>ARIAテクニック</h4>
 
-            <p>HTMLの<code>aside</code>要素のテクニックが使用されていない場合、<code>role=&quot;complementary&quot;</code>属性を使用して<code>complementary</code>ランドマークを定義します。</p>
+            <p>HTMLの<code>aside</code>要素のテクニックが使用されていない場合、<code>role=&quot;complementary&quot;</code>属性を使用して<code>complementary</code>ランドマークを明示します。</p>
           </section>
 
           <section>
             <h4>例</h4>
 
-            <p><a href="../../patterns/landmarks/examples/complementary.html">補完ランドマークの例</a></p>
+            <p><a href="../../patterns/landmarks/examples/complementary.html">Complementaryランドマークの例</a></p>
           </section>
         </section>
 
         <section id="aria_lh_contentinfo">
-          <h3 class="widget-name">コンテンツ情報</h3>
+          <h3 class="widget-name">Contentinfo</h3>
 
-          <p><a class="role-reference" href="#contentinfo"><code>contentinfo</code></a>ランドマークは、ウェブサイトの各ページの下部にある一般的な情報を識別する方法で、通常はページの「フッター」と呼ばれ、著作権やプライバシー、アクセシビリティに関する記述へのリンクなどの情報を含みます。</p>
+          <p><a class="role-reference" href="#contentinfo"><code>contentinfo</code></a>ランドマークは、ウェブサイトの各ページの下部にある共通の情報を特定する方法で、通常はページの「フッター」と呼ばれ、著作権、プライバシー、アクセシビリティに関する声明へのリンクなどの情報を含みます。</p>
 
           <ul>
-            <li>各ページは、一つの<code>contentinfo</code>ランドマークを持つことができます。</li>
+            <li>各ページは、一つの<code>contentinfo</code>ランドマークを持ってもよいです。</li>
 
             <li><code>contentinfo</code>ランドマークは、最上位のランドマークであるべきです。</li>
 
-            <li>ページにネストされた<code>document</code>および/または<code>application</code>役割が含まれている場合（例：通常、<code>iframe</code>と<code>frame</code>要素の使用を通じて）、各<code>document</code>または<code>application</code>役割は、一つの<code>contentinfo</code>ランドマークを持つことができます。</li>
+            <li>ページにネストされた<code>document</code>および/または<code>application</code>ロールが含まれている場合（例：通常、<code>iframe</code>および<code>frame</code>要素の使用を通じて）、各<code>document</code>または<code>application</code>ロールは、一つの<code>contentinfo</code>ランドマークを持ってもよいです。</li>
 
-            <li>ページに複数の<code>contentinfo</code>ランドマークが含まれている場合、それぞれに一意のラベルが必要です（上記の<a href="#aria_lh_step3">ステップ3</a>を参照）。</li>
+            <li>ページに複数の<code>contentinfo</code>ランドマークが含まれている場合、それぞれに一意のラベルがあるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>を参照）。</li>
           </ul>
 
           <section>
@@ -259,12 +259,12 @@
 
           <section>
             <h4>例</h4>
-            <p><a href="../../patterns/landmarks/examples/contentinfo.html">補完ランドマークの例</a></p>
+            <p><a href="../../patterns/landmarks/examples/contentinfo.html">Contentinfoランドマークの例</a></p>
           </section>
         </section>
 
         <section id="aria_lh_form">
-          <h3 class="widget-name">フォーム</h3>
+          <h3 class="widget-name">Form</h3>
 
           <p><a class="role-reference" href="#form"><code>form</code></a>ランドマークは、アイテムとオブジェクトの集合体を含む領域を表し、他の名前付きランドマーク（例：メインまたは検索）が適切でない場合、全体としてフォームを構成します。</p>
 
@@ -273,9 +273,9 @@
 
             <li><code>form</code>ランドマークには、フォームの目的をユーザーに理解させるためのラベルがあるべきです。</li>
 
-            <li><code>form</code>ランドマークのラベルは、すべてのユーザーに見えるべきです（例：<code>h1-h6</code>要素）。</li>
+            <li><code>form</code>ランドマークのラベルは、すべてのユーザーに表示されるべきです（例：<code>h1-h6</code>要素）。</li>
 
-            <li>ページに複数の<code>form</code>ランドマークが含まれている場合、それぞれに一意のラベルが必要です（上記の<a href="#aria_lh_step3">ステップ3</a>を参照）。</li>
+            <li>ページに複数の<code>form</code>ランドマークが含まれている場合、それぞれに一意のラベルがあるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>を参照）。</li>
 
             <li>
               可能な限り、HTMLドキュメント内の<code>form</code>ランドマークに含まれるコントロールは、ネイティブホストのセマンティクスを使用するべきです：
@@ -304,12 +304,12 @@
           <section>
             <h4>例</h4>
 
-            <p><a href="../../patterns/landmarks/examples/form.html">フォームランドマークの例</a></p>
+            <p><a href="../../patterns/landmarks/examples/form.html">Formランドマークの例</a></p>
           </section>
         </section>
 
         <section id="aria_lh_main">
-          <h3 class="widget-name">メイン</h3>
+          <h3 class="widget-name">Main</h3>
 
           <p><a class="role-reference" href="#main"><code>main</code></a>ランドマークは、ページの主要なコンテンツを表します。</p>
 
@@ -318,9 +318,9 @@
 
             <li><code>main</code>ランドマークは、最上位のランドマークであるべきです。</li>
 
-            <li>ページにネストされた<code>document</code>および/または<code>application</code>役割が含まれている場合（例：通常、<code>iframe</code>と<code>frame</code>要素の使用を通じて）、各<code>document</code>または<code>application</code>役割は、一つの<code>main</code>ランドマークを持つことができます。</li>
+            <li>ページにネストされた<code>document</code>および/または<code>application</code>ロールが含まれている場合（例：通常、<code>iframe</code>と<code>frame</code>要素の使用を通じて）、各<code>document</code>または<code>application</code>ロールは、一つの<code>main</code>ランドマークを持ってもよいです。</li>
 
-            <li>ページに複数の<code>main</code>ランドマークが含まれている場合、それぞれに一意のラベルが必要です（上記の<a href="#aria_lh_step3">ステップ3</a>を参照）。</li>
+            <li>ページに複数の<code>main</code>ランドマークが含まれている場合、それぞれに一意のラベルがあるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>を参照）。</li>
           </ul>
 
           <section>
@@ -336,17 +336,17 @@
           <section>
             <h4>例</h4>
 
-            <p><a href="../../patterns/landmarks/examples/main.html">メインランドマークの例</a></p>
+            <p><a href="../../patterns/landmarks/examples/main.html">Mainランドマークの例</a></p>
           </section>
         </section>
 
         <section id="aria_lh_navigation">
-          <h3 class="widget-name">ナビゲーション</h3>
+          <h3 class="widget-name">Navigation</h3>
 
-          <p><a class="role-reference" href="#navigation"><code>Navigation</code></a>ランドマークは、ウェブサイトやページコンテンツのナビゲーションに使用するためのリンクのグループ（例：リスト）を識別する方法を提供します。</p>
+          <p><a class="role-reference" href="#navigation"><code>Navigation</code></a>ランドマークは、ウェブサイトまたはページコンテンツのナビゲーションに使用するためのリンクのグループ（例：リスト）を識別する方法を提供します。</p>
 
           <ul>
-            <li>ページに<code>navigation</code>ランドマークが複数含まれる場合、それぞれに一意のラベルを持たせる必要があります（上記の<a href="#aria_lh_step3">ステップ3</a>参照）。</li>
+            <li>ページに<code>navigation</code>ランドマークが複数含まれる場合、それぞれに一意のラベルを持たせるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>参照）。</li>
 
             <li>ページ上の別の<code>navigation</code>ランドマークと同じリンクセットを持つ<code>navigation</code>ランドマークがある場合、それぞれの<code>navigation</code>ランドマークに同じラベルを使用してください。</li>
           </ul>
@@ -364,19 +364,19 @@
           <section>
             <h4>例</h4>
 
-            <p><a href="../../patterns/landmarks/examples/navigation.html">ナビゲーションランドマークの例</a></p>
+            <p><a href="../../patterns/landmarks/examples/navigation.html">Navigationランドマークの例</a></p>
           </section>
         </section>
 
         <section id="aria_lh_region">
-          <h3 class="widget-name">リージョン</h3>
+          <h3 class="widget-name">Region</h3>
 
-          <p><a class="role-reference" href="#region"><code>region</code></a>ランドマークは、ページの知覚可能なセクションで、ユーザーがセクションにナビゲートできるほど重要なコンテンツを含んでいます。</p>
+          <p><a class="role-reference" href="#region"><code>region</code></a>ランドマークは、ユーザーがセクションにナビゲートできるほど重要なコンテンツを含む、ページの知覚可能なセクションです。</p>
 
           <ul>
-            <li><code>region</code>ランドマークにはラベルが必要です。</li>
+            <li><code>region</code>ランドマークにはラベルがなければなりません。</li>
 
-            <li>ページに<code>region</code>ランドマークが複数含まれる場合、それぞれに一意のラベルが必要です（上記の<a href="#aria_lh_step3">ステップ3</a>参照）。</li>
+            <li>ページに<code>region</code>ランドマークが複数含まれる場合、それぞれに一意のラベルがあるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>参照）。</li>
 
             <li>名前付きランドマークでは適切に言い表せないコンテンツを識別するために<code>region</code>ランドマークを使用できます。</li>
           </ul>
@@ -394,19 +394,19 @@
           <section>
             <h4>例</h4>
 
-            <p><a href="../../patterns/landmarks/examples/region.html">リージョンランドマークの例</a></p>
+            <p><a href="../../patterns/landmarks/examples/region.html">Regionランドマークの例</a></p>
           </section>
         </section>
 
         <section id="aria_lh_search">
-          <h3 class="widget-name">検索</h3>
+          <h3 class="widget-name">Search</h3>
 
           <p><a class="role-reference" href="#search"><code>search</code></a>ランドマークは、アイテムとオブジェクトの集合体で、全体として検索機能を構成するものです。</p>
 
           <ul>
             <li>フォームが検索機能に使用される場合、<code>form</code>ランドマークの代わりに<code>search</code>ランドマークを使用してください。</li>
 
-            <li>ページに複数の<code>search</code>ランドマークが含まれている場合、それぞれに一意のラベルを持たせる必要があります（上記の<a href="#aria_lh_step3">ステップ3</a>を参照してください）。</li>
+            <li>ページに複数の<code>search</code>ランドマークが含まれている場合、それぞれに一意のラベルを持たせるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>を参照してください）。</li>
           </ul>
 
           <section>
@@ -421,7 +421,7 @@
           <section>
             <h4>例</h4>
 
-            <p><a href="../../patterns/landmarks/examples/search.html">検索ランドマークの例</a></p>
+            <p><a href="../../patterns/landmarks/examples/search.html">Searchランドマークの例</a></p>
           </section>
         </section>
       </section>
