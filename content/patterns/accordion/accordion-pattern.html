@@ -74,11 +74,11 @@
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIAの役割、状態、およびプロパティ:</h2>
+        <h2>WAI-ARIAのロール、ステート、およびプロパティ:</h2>
         <ul>
-          <li>各アコーディオンヘッダーのタイトルは、役割が<a href="#button" class="role-reference">ボタン</a>の要素に含まれています。</li>
+          <li>各アコーディオンヘッダーのタイトルは、<a href="#button" class="role-reference">button</a>ロールの要素に含まれています。</li>
           <li>
-            各アコーディオンヘッダーの<code>button</code>は、ページの情報アーキテクチャに適した<a href="#aria-level" class="property-reference">aria-level</a>の値を持つ役割<a href="#heading" class="role-reference">見出し</a>の要素で囲まれています。
+            各アコーディオンヘッダーの<code>button</code>は、ページの情報アーキテクチャに適した<a href="#aria-level" class="property-reference">aria-level</a>の値を持つ<a href="#heading" class="role-reference">headingし</a>ロールの要素で囲まれています。
             <ul>
               <li>ネイティブのホスト言語に<code>heading</code>および<code>aria-level</code>を暗黙的に持つ要素（HTMLの見出しタグなど）がある場合、ネイティブのホスト言語の要素を使用することができます。</li>
               <li><code>button</code>要素は<code>heading</code>要素内の唯一の要素です。つまり、他の視覚的に持続する要素がある場合、それらは<code>heading</code>要素の中に含まれていません。</li>
@@ -88,10 +88,10 @@
           <li>アコーディオンヘッダーの<code>button</code>要素は、アコーディオンパネルのコンテンツを含む要素のIDに<a href="#aria-controls" class="property-reference">aria-controls</a>を設定しています。</li>
           <li>アコーディオンヘッダーに関連するアコーディオンパネルが表示されていて、アコーディオンがパネルを折りたたむことを許可していない場合、ヘッダーの<code>button</code>要素は<a href="#aria-disabled" class="state-reference">aria-disabled</a>を<code>true</code>に設定します。</li>
           <li>
-            任意で、パネルのコンテンツのコンテナとして機能する各要素は、役割<a href="#region" class="role-reference">リージョン</a>および<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>を持ち、パネルの表示を制御するボタンを参照する値が設定されています。
+            任意で、パネルのコンテンツのコンテナとして機能する各要素は、<a href="#region" class="role-reference">region</a>ロールおよび<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>を持ち、パネルの表示を制御するボタンを参照する値が設定されています。
             <ul>
-              <li><code>region</code>の役割は、たとえば、同時に拡張できるパネルが約6つ以上含まれるアコーディオンなど、ランドマークリージョンの増殖を生む状況での使用を避けてください。</li>
-              <li>役割<code>region</code>は、パネルに見出し要素やネストされたアコーディオンが含まれている場合、スクリーンリーダーユーザーの構造の認識に特に役立ちます。</li>
+              <li><code>region</code>ロールは、たとえば、同時に拡張できるパネルが約6つ以上含まれるアコーディオンなど、ランドマークリージョンの増殖を生む状況での使用を避けてください。</li>
+              <li><code>region</code>ロールは、パネルに見出し要素やネストされたアコーディオンが含まれている場合、スクリーンリーダーユーザーの構造の認識に特に役立ちます。</li>
             </ul>
           </li>
         </ul>
