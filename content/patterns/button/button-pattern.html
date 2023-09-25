@@ -26,11 +26,11 @@
         <p>通常のボタンウィジェットに加えて、WAI-ARIAは2種類のボタンをサポートしています：</p>
         <ul>
           <li>
-            トグルボタン：オフ（押されていない状態）とオン（押された状態）の2つの状態を持つボタン。
+            トグルボタン：オフ（押されていない状態）とオン（押された状態）の2つのステートを持つボタン。
             ボタンがトグルボタンであることを支援技術に伝えるには、<a href="#aria-pressed" class="state-reference">aria-pressed</a>属性に値を指定します。
-            例えば、オーディオプレーヤーのミュートというラベルのボタンは、押された状態をtrueに設定することで、音がミュートされていることを示すことができます。
-            <strong>重要：</strong>トグルボタンのラベルは、その状態が変化しても変化しないことが重要です。
-            この例では、押された状態がtrueのとき、ラベルは &quot;ミュート&quot; のままなので、スクリーンリーダーは "ミュート トグルボタン 押されています"のように言うでしょう。
+            例えば、オーディオプレーヤーのミュートというラベルのボタンは、押されたステートをtrueに設定することで、音がミュートされていることを示すことができます。
+            <strong>重要：</strong>トグルボタンのラベルは、そのステートが変化しても変化しないことが重要です。
+            この例では、押されたステートがtrueのとき、ラベルは &quot;ミュート&quot; のままなので、スクリーンリーダーは "ミュート トグルボタン 押されています"のように言うでしょう。
             そうではなく、ボタンのラベルが "ミュート" から "ミュート解除" に変わるようなデザインであれば、aria-pressed属性は必要ありません。
           </li>
           <li>メニューボタン：<a href="../menu-button/menu-button-pattern.html">メニューボタン パターン</a>で説明されているように、ボタンは、プロパティ<a href="#aria-haspopup" class="property-reference">aria-haspopup</a>が<code>menu</code>か<code>true</code>に設定されていれば、メニューボタンとして支援技術に公開されます。</li>
@@ -39,9 +39,9 @@
           <h3>ノート</h3>
           <p>
             ボタンによって実行されるアクションのタイプは、リンクの機能（<a href="../link/link-pattern.html">リンクパターン</a>を参照）とは明確に異なる。
-            ウィジェットの外観と役割は、それが提供する機能と一致することが重要です。
+            ウィジェットの外観とロールは、それが提供する機能と一致することが重要です。
             それにもかかわらず、要素がリンクの視覚的なスタイルを持ちながら、ボタンのアクションを実行することがあります。
-            このような場合、要素に<code>button</code>の役割を与えることは、支援技術ユーザーが要素の機能を理解するのに役立ちます。
+            このような場合、要素に<code>button</code>のロールを与えることは、支援技術ユーザーが要素の機能を理解するのに役立ちます。
             しかし、より良い解決策は、機能とARIAロールが一致するように視覚デザインを調整することです。
           </p>
         </div>
@@ -88,9 +88,9 @@
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIAの役割、状態、およびプロパティ</h2>
+        <h2>WAI-ARIAのロール、ステート、およびプロパティ</h2>
         <ul>
-          <li>ボタンは<a class="role-reference" href="#button">button</a>の役割を持っています。</li>
+          <li>ボタンは<a class="role-reference" href="#button">button</a>のロールを持っています。</li>
           <li>
             <code>button</code>はアクセス可能なラベルを持ちます。
             デフォルトでは、アクセシブルな名前はボタン要素内のテキスト内容から計算されます。
@@ -99,8 +99,8 @@
           <li>ボタンの機能の説明が存在する場合、ボタン要素の<a href="#aria-describedby" class="property-reference">aria-describedby</a>には、説明を含む要素のIDが設定されます。</li>
           <li>ボタンに関連するアクションが利用できない場合、ボタンは<a class="state-reference" href="#aria-disabled">aria-disabled</a>に<code>true</code>が設定されます。</li>
           <li>
-            ボタンがトグルボタンの場合、<a href="#aria-pressed" class="state-reference">aria-pressed</a>状態を持ちます。
-            ボタンがオンに切り替えられると、この状態の値は<code>true</code>になり、オフに切り替えられると、この状態は<code>false</code>になります。
+            ボタンがトグルボタンの場合、<a href="#aria-pressed" class="state-reference">aria-pressed</a>ステートを持ちます。
+            ボタンがオンに切り替えられると、このステートの値は<code>true</code>になり、オフに切り替えられると、このステートは<code>false</code>になります。
           </li>
         </ul>
       </section>
