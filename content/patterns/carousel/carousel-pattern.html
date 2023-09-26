@@ -100,7 +100,7 @@
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIAの役割、状態、およびプロパティ</h2>
+        <h2>WAI-ARIAのロール、ステート、およびプロパティ</h2>
         <p>このセクションでは、3つのスタイルのカルーセルの要素構成について説明します：</p>
         <ul>
           <li>基本：回転、前のスライド、次のスライドのコントロールはあるが、スライドピッカーコントロールはない。</li>
@@ -113,8 +113,8 @@
         <h3>基本的なカルーセルの要素</h3>
         <ul>
           <li>
-            カルーセルのコントロールとスライドの両方を含むカルーセルのコンテナ要素は、役割<a href="#region" class="role-reference">region</a>または役割<a href="#group" class="role-reference">group</a>のいずれかを持っています。
-            カルーセルコンテナの最も適切な役割は、ページの情報アーキテクチャに依存します。
+            カルーセルのコントロールとスライドの両方を含むカルーセルのコンテナ要素は、<a href="#region" class="role-reference">region</a>ロールまたは<a href="#group" class="role-reference">group</a>ロールのいずれかを持っています。
+            カルーセルコンテナの最も適切なロールは、ページの情報アーキテクチャに依存します。
             カルーセルがランドマークリージョンとして指定されるかどうかを判断するために、
             <a href="../../practices/landmark-regions/landmark-regions-practice.html">ランドマークリージョンの実践</a>
             を参照してください。
@@ -130,9 +130,9 @@
             回転コントロールには、内部テキストまたは<a href="#aria-label" class="property-reference">aria-label</a>によって提供されるアクセシブルなラベルがあります。
             ラベルは、ボタンが実行するアクションに合わせて変更されます。例えば、「スライド回転を停止」または「スライド回転を開始」。
             ボタンが作動するとラベルが変わることで、スライドのコンテンツが自動的に変わる可能性があり、それが実際に行われていることを明確に伝えることができます。
-            ラベルが変わるため、回転コントロールには、例えば<code>aria-pressed</code>などの状態が指定されていません。
+            ラベルが変わるため、回転コントロールには、例えば<code>aria-pressed</code>などのステートが指定されていません。
           </li>
-          <li>各スライドコンテナは、役割<a href="#group" class="role-reference">group</a>を持ち、プロパティ<a href="#aria-roledescription" class="property-reference">aria-roledescription</a>を<code>slide</code>に設定しています。</li>
+          <li>各スライドコンテナは、<a href="#group" class="role-reference">group</a>ロールを持ち、プロパティ<a href="#aria-roledescription" class="property-reference">aria-roledescription</a>を<code>slide</code>に設定しています。</li>
           <li>
             各スライドにはアクセシブルな名前があります：
             <ul>
@@ -153,7 +153,7 @@
         <h3>タブ付きカルーセルの要素</h3>
         <p>タブ付きのカルーセルの構造は、基本的なカルーセルと同じですが、以下の点が異なります：</p>
         <ul>
-          <li>各スライドコンテナは、<code>group</code>の代わりに役割<a href="#tabpanel" class="role-reference">tabpanel</a>を持ち、<code>aria-roledescription</code>プロパティを持っていません。</li>
+          <li>各スライドコンテナは、<code>group</code>の代わりに<a href="#tabpanel" class="role-reference">tabpanel</a>ロールを持ち、<code>aria-roledescription</code>プロパティを持っていません。</li>
           <li>
             <a href="../tabs/tabs-pattern.html">タブのパターン</a>を使用して実装されたスライドピッカーコントロールがあり、以下のようになります：
             <ul>
@@ -170,7 +170,7 @@
         <h3>グループ化されたカルーセルの要素</h3>
         <p>グループ化されたカルーセルは、基本的なカルーセルと同じ構造を持っていますが、スライドピッカーコントロールも含まれています：</p>
         <ul>
-          <li>スライドピッカーコントロールのセットは、役割<a href="#group" class="role-reference">group</a>を持つ要素に含まれています。</li>
+          <li>スライドピッカーコントロールのセットは、<a href="#group" class="role-reference">group</a>ロールを持つ要素に含まれています。</li>
           <li>ピッカーコントロールを含むグループには、コントロールの目的を識別する<a href="#aria-label" class="property-reference">aria-label</a>の値によって提供されるアクセシブルなラベルがあります。例：「表示するスライドを選択」。</li>
           <li>各ピッカーコントロールは、ネイティブのボタン要素（推奨）であるか、<a href="../button/button-pattern.html">ボタンのパターン</a>を実装しています。</li>
           <li>
