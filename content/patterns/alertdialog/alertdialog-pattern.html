@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>アラートとメッセージダイアログ パターン</title>
+    <title>アラート及びメッセージダイアログ パターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,47 +14,45 @@
   </head>
   <body>
     <main>
-      <h1>アラートとメッセージダイアログ パターン</h1>
+      <h1>アラート及びメッセージダイアログ パターン</h1>
       <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section id="about">
         <h2>このパターンについて</h2>
         <p>
-          アラートダイアログは、重要なメッセージを伝え、応答を取得するためにユーザーのワークフローを中断する<a href="../dialog-modal/dialog-modal-pattern.html">モーダルダイアログ</a>です。
-          アクションの確認プロンプトやエラーメッセージの確認などが例として挙げられます。
-          <a href="#alertdialog" class="role-reference">alertdialog</a>ロールは、支援技術やブラウザがアラートダイアログを他のダイアログと区別できるようにするためのもので、システムアラート音を再生するなど、アラートダイアログに特別な処理を施すオプションを持っています。
+          アラートダイアログは、重要なメッセージを伝えて応答を取得するため、利用者のワークフローを中断する<a href="../dialog-modal/dialog-modal-pattern.html">モーダルダイアログ</a>です。アクションの確認プロンプトやエラーメッセージの確認などが例として挙げられます。<a href="#alertdialog" class="role-reference">alertdialog</a> ロールは、支援技術やブラウザがアラートダイアログを他のダイアログと区別できるようにするためのもので、システムアラート音を再生するなど、アラートダイアログに特別な処理を施すオプションを持っています。
         </p>
       </section>
 
       <section id="examples">
         <h2>例</h2>
-        <p><a href="../alertdialog/examples/alertdialog.html">アラートダイアログの例</a>：アラートダイアログを示す確認プロンプト。</p>
+        <p><a href="../alertdialog/examples/alertdialog.html">アラートダイアログの例</a>：アラートダイアログのデモンストレーションである確認プロンプト。</p>
       </section>
 
       <section id="keyboard_interaction">
         <h2>キーボードの操作</h2>
-        <p><a href="../dialog-modal/dialog-modal-pattern.html">モーダルダイアログのパターン</a>のキーボード操作セクションを参照してください。</p>
+        <p><a href="../dialog-modal/dialog-modal-pattern.html">モーダルダイアログのパターン</a>のキーボード操作のセクションを参照してください。</p>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIAのロール、ステート、およびプロパティ</h2>
+        <h2>WAI-ARIA のロール、ステート、及びプロパティ</h2>
         <ul>
           <li>
-            ダイアログのすべての要素、アラートメッセージやダイアログボタンを含む要素を含む要素には、<a class="role-reference" href="#alertdialog">alertdialog</a>ロールがあります。
+            アラートメッセージやダイアログボタンといった、ダイアログのすべての要素を包含する要素には、<a class="role-reference" href="#alertdialog">alertdialog</a> ロールがあります。
           </li>
           <li>
-            <code>alertdialog</code>ロールを持つ要素は、以下のいずれかを持っています：
+            <code>alertdialog</code> ロールを持つ要素は、以下のいずれかを持っています：
             <ul>
               <li>
-                ダイアログに可視ラベルがある場合、ダイアログのタイトルを含む要素を参照する<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>の値。
+                ダイアログに可視ラベルがある場合、ダイアログのタイトルを含む要素を参照する <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> の値。
               </li>
               <li>
-                ダイアログに可視ラベルがない場合、<a href="#aria-label" class="property-reference">aria-label</a>の値。
+                ダイアログに可視ラベルがない場合、<a href="#aria-label" class="property-reference">aria-label</a> の値。
               </li>
             </ul>
           </li>
           <li>
-            <code>alertdialog</code>ロールを持つ要素には、アラートメッセージを含む要素を参照する<a href="#aria-describedby" class="property-reference">aria-describedby</a>の値が設定されています。
+            <code>alertdialog</code> ロールを持つ要素には、アラートメッセージを含む要素を参照する <a href="#aria-describedby" class="property-reference">aria-describedby</a> の値が設定されています。
           </li>
         </ul>
       </section>
