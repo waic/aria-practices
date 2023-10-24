@@ -29,7 +29,7 @@
 
       <section>
         <h2>この例について</h2>
-        <p>以下の例のセクションには、<a href="../accordion-pattern.html">アコーディオンパターン</a>を示す3つのセクションに分けられたシンプルな個人情報入力フォームが含まれています。</p>
+        <p>以下の例のセクションには、<a href="../accordion-pattern.html">アコーディオンパターン</a>のデモンストレーションとして、3 つのセクションに分けられたシンプルな個人情報入力フォームが含まれています。</p>
       </section>
 
       <section>
@@ -90,11 +90,11 @@
               <div>
                 <fieldset>
                   <p>
-                    <label for="b-add1">住所1:</label>
+                    <label for="b-add1">住所 1:</label>
                     <input type="text" name="b-add1" id="b-add1">
                   </p>
                   <p>
-                    <label for="b-add2">住所2:</label>
+                    <label for="b-add2">住所 2:</label>
                     <input type="text" name="b-add2" id="b-add2">
                   </p>
                   <p>
@@ -124,11 +124,11 @@
               <div>
                 <fieldset>
                   <p>
-                    <label for="m-add1">住所1:</label>
+                    <label for="m-add1">住所 1:</label>
                     <input type="text" name="m-add1" id="m-add1">
                   </p>
                   <p>
-                    <label for="m-add2">住所2:</label>
+                    <label for="m-add2">住所 2:</label>
                     <input type="text" name="m-add2" id="m-add2">
                   </p>
                   <p>
@@ -152,7 +152,7 @@
       </section>
 
       <section>
-        <h2 id="kbd_label">キーボードサポート</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
@@ -162,15 +162,15 @@
           </thead>
           <tbody>
             <tr data-test-id="key-enter-or-space">
-              <th><kbd>Space</kbd> または <kbd>Enter</kbd></th>
-              <td>アコーディオンのヘッダーにフォーカスがあるときに、セクションを展開します。</td>
+              <th><kbd>Space</kbd> 又は <kbd>Enter</kbd></th>
+              <td>折りたたまれたセクションのアコーディオンヘッダーにフォーカスがある場合、そのセクションを展開します。</td>
             </tr>
             <tr data-test-id="key-tab">
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
                   <li>次のフォーカス可能な要素にフォーカスを移動します。</li>
-                  <li>アコーディオン内のすべてのフォーカス可能な要素は、ページの<kbd>Tab</kbd>の順序に含まれます。</li>
+                  <li>アコーディオン内のすべてのフォーカス可能な要素は、ページの <kbd>Tab</kbd> シーケンスに含まれます。</li>
                 </ul>
               </td>
             </tr>
@@ -179,7 +179,7 @@
               <td>
                 <ul>
                   <li>前のフォーカス可能な要素にフォーカスを移動します。</li>
-                  <li>アコーディオン内のすべてのフォーカス可能な要素は、ページの<kbd>Tab</kbd>の順序に含まれます。</li>
+                  <li>アコーディオン内のすべてのフォーカス可能な要素は、ページの <kbd>Tab</kbd> シーケンスに含まれます。</li>
                 </ul>
               </td>
             </tr>
@@ -188,9 +188,9 @@
       </section>
 
       <section>
-        <h2 id="rps_label">ロール、プロパティ、ステート、およびtabindex属性</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <!--
-        この例でどのようにロール、プロパティ、ステート、およびtabindexが使用されているかを説明するためにこのテーブルを更新してください -->
+        この例でどのようにロール、プロパティ、ステート、及び tabindex が使用されているかを説明するためにこのテーブルを更新してください -->
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
@@ -209,7 +209,7 @@
                 <ul>
                   <li>アコーディオンヘッダーとして機能する要素。</li>
                   <li>各アコーディオンヘッダー要素には、コンテンツパネルの可視性を制御するボタンが含まれています。</li>
-                  <li>この例では、ページの概要内で正しく適合するために、見出しレベル3が使用されています; この例はレベル2の見出しでタイトルが付けられたセクションに含まれています。</li>
+                  <li>この例ではページのアウトラインに正しく適合するために、見出しレベル 3 が使用されています。この例は、レベル 2 の見出しでタイトル付けられたセクションの中に含まれているためです。</li>
                 </ul>
               </td>
             </tr>
@@ -217,19 +217,19 @@
               <td></td>
               <th scope="row"><code>aria-expanded="true"</code></th>
               <td><code>button</code></td>
-              <td>アコーディオンパネルが展開されている場合は<code>true</code>に設定し、それ以外の場合は<code>false</code>に設定します。</td>
+              <td>アコーディオンパネルが展開されている場合は <code>true</code> に設定され、それ以外の場合は <code>false</code> に設定されます。</td>
             </tr>
             <tr data-test-id="button-aria-controls">
               <td></td>
               <th scope="row"><code>aria-controls="ID"</code></th>
               <td><code>button</code></td>
-              <td>ヘッダーが制御するパネルのIDを指す。</td>
+              <td>ヘッダーが制御するパネルの ID を指します。</td>
             </tr>
             <tr data-test-id="region-role">
               <th scope="row"><code>region</code></th>
               <td></td>
               <td><code>div</code></td>
-              <td>現在展開されているアコーディオンパネルを含むランドマーク領域を作成します。</td>
+              <td>現在展開されているアコーディオンパネルを含むランドマークの領域を生成します。</td>
             </tr>
             <tr data-test-id="region-aria-labelledby">
               <td></td>
@@ -237,9 +237,9 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li><code>region</code>要素のアクセシブルな名前を定義します。</li>
-                  <li>領域を展開および折りたたむアコーディオンヘッダーボタンを参照します。</li>
-                  <li><code>region</code>要素は、ランドマークとして識別されるためにアクセシブルな名前を持つ必要があります。</li>
+                  <li><code>region</code> 要素のアクセシブルな名前を定義します。</li>
+                  <li>領域を展開する及び折りたたむアコーディオンヘッダーボタンを参照します。</li>
+                  <li><code>region</code> 要素は、ランドマークとして識別されるためにアクセシブルな名前を持つ必要があります。</li>
                 </ul>
               </td>
             </tr>
@@ -248,7 +248,7 @@
       </section>
 
       <section>
-        <h2>JavaScriptとCSSのソースコード</h2>
+        <h2>JavaScript 及び CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/accordion.css" type="tex/css">accordion.css</a></li>
           <li>JavaScript: <a href="js/accordion.js" type="text/javascript">accordion.js</a></li>
@@ -256,7 +256,7 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTMLソースコード</h2>
+        <h2 id="sc1_label">HTML のソースコード</h2>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep " aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
         <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
