@@ -19,23 +19,23 @@
 
       <section id="about">
         <h2>このパターンについて</h2>
-        <p>WAI-ARIAは、2種類の<a href="#checkbox" class="role-reference">チェックボックス</a>ウィジェットをサポートしています：二重状態のチェックボックスは、チェックされているとチェックされていないの2つの選択肢を切り替えます。三重状態のチェックボックスは、部分的にチェックされているという追加の第三の状態を許可します。</p>
+        <p>WAI-ARIAは、2種類の<a href="#checkbox" class="role-reference">チェックボックス</a>ウィジェットをサポートしています：二つの状態のチェックボックスは、チェックされているとチェックされていないの2つの選択肢を切り替えます。三つの状態のチェックボックスは、一部が一部チェックされているという追加の第三の状態を許可します。</p>
         <p>
-          三重状態のチェックボックスの一般的な使用例は、ソフトウェアインストーラーに見られます。ここでは、1つの三重状態のチェックボックスが、インストールオプションのグループ全体の状態を表現し制御するために使用されます。
-          また、グループ内の各オプションは、二重状態のチェックボックスで個別にオンまたはオフにすることができます。
+          三つの状態のチェックボックスの一般的な使用例は、ソフトウェアインストーラーに見られます。ここでは、1つの三つの状態のチェックボックスが、インストールオプションのグループ全体の状態を表現し、制御するために使用されます。
+          また、グループ内の各オプションは、二つの状態のチェックボックスで個別にオンまたはオフにすることができます。
         </p>
         <ul>
-          <li>グループ内のすべてのオプションがチェックされている場合、全体の状態は、三重状態のチェックボックスがチェックされているとして表示されることで表現されます。</li>
-          <li>グループ内の一部のオプションがチェックされている場合、全体の状態は、三重状態のチェックボックスが部分的にチェックされているとして表示されることで表現されます。</li>
-          <li>グループ内のオプションが1つもチェックされていない場合、グループ全体の状態は、三重状態のチェックボックスがチェックされていないとして表示されることで表現されます。</li>
+          <li>グループ内のすべてのオプションがチェックされている場合、全体の状態は、三つの状態のチェックボックスがチェックされているとして表示されることで表現されます。</li>
+          <li>グループ内の一部のオプションがチェックされている場合、全体の状態は、三つの状態のチェックボックスが一部チェックされているとして表示されることで表現されます。</li>
+          <li>グループ内のオプションが1つもチェックされていない場合、グループ全体の状態は、三つの状態のチェックボックスがチェックされていないとして表示されることで表現されます。</li>
         </ul>
-        <p>ユーザーは、三重状態のチェックボックスを使用して、グループ内のすべてのオプションを1つのアクションで変更することができます：</p>
+        <p>ユーザーは、三つの状態のチェックボックスを使用して、グループ内のすべてのオプションを1つのアクションで変更することができます：</p>
         <ul>
           <li>全体のチェックボックスをチェックすると、グループ内のすべてのオプションがチェックされます。</li>
           <li>全体のチェックボックスのチェックを外すと、グループ内のすべてのオプションのチェックが外れます。</li>
           <li>
-            そして、一部の実装では、システムが全体のステータスが部分的にチェックされていた最後の時にどのオプションがチェックされていたかを記憶する場合があります。
-            この機能が提供されている場合、全体のチェックボックスを3回目に作動すると、グループ内の一部のオプションのみがチェックされている部分的にチェックされた状態が再現されます。
+            そして、一部の実装では、システムが全体のステータスが一部チェックされていた最後の時にどのオプションがチェックされていたかを記憶する場合があります。
+            この機能が提供されている場合、全体のチェックボックスを3回目に作動させると、グループ内の一部のオプションのみがチェックされている一部チェックされた状態が再現されます。
           </li>
         </ul>
       </section>
@@ -43,8 +43,8 @@
       <section id="examples">
         <h2>例</h2>
         <ul>
-          <li><a href="examples/checkbox.html">チェックボックス（二重状態）の例</a>：シンプルな2状態のチェックボックスを示します。</li>
-          <li><a href="examples/checkbox-mixed.html">チェックボックス（混合状態）の例</a>：HTML <code>fieldset</code>内に含まれる2状態のHTMLチェックボックスのグループ内のチェック状態を反映し制御するために、aria-checkedの混合値を使用するチェックボックスを示します。</li>
+          <li><a href="examples/checkbox.html">チェックボックス（二つの状態）の例</a>：シンプルな2状態のチェックボックスを示します。</li>
+          <li><a href="examples/checkbox-mixed.html">チェックボックス（三つの状態）の例</a>：HTML <code>fieldset</code>内に含まれる2状態のHTMLチェックボックスのグループ内のチェック状態を反映し制御するために、aria-checkedの混合値を使用するチェックボックスを示します。</li>
         </ul>
       </section>
 
@@ -56,20 +56,20 @@
       <section id="roles_states_properties">
         <h2>WAI-ARIAのロール、ステート、およびプロパティ</h2>
         <ul>
-          <li>チェックボックスは<a href="#checkbox" class="role-reference">checkbox</a>ロールを持っています。</li>
+          <li>チェックボックスには<a href="#checkbox" class="role-reference">checkbox</a>ロールがあります。</li>
           <li>
             チェックボックスには、以下のいずれかによってアクセシブルなラベルが提供されています：
             <ul>
-              <li><code>checkbox</code>ロールを持つ要素内に含まれる可視テキストコンテンツ。</li>
-              <li><code>checkbox</code>ロールを持つ要素に設定された<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>の値によって参照される可視ラベル。</li>
+              <li><code>checkbox</code>ロールを持つ要素内に含まれる表示可能なテキストコンテンツ。</li>
+              <li><code>checkbox</code>ロールを持つ要素に設定された<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>の値によって参照される表示可能なラベル。</li>
               <li><code>checkbox</code>ロールを持つ要素に設定された<a href="#aria-label" class="property-reference">aria-label</a>。</li>
             </ul>
           </li>
-          <li>チェックされている場合、チェックボックス要素のステートは<a href="#aria-checked" class="state-reference">aria-checked</a>が<code>true</code>に設定されています。</li>
-          <li>チェックされていない場合、ステートは<a href="#aria-checked" class="state-reference">aria-checked</a>が<code>false</code>に設定されています。</li>
-          <li>部分的にチェックされている場合、ステートは<a href="#aria-checked" class="state-reference">aria-checked</a>が<code>mixed</code>に設定されています。</li>
-          <li>チェックボックスが論理的なグループとして可視ラベルとともに提示される場合、チェックボックスは、ラベルを含む要素のIDに設定されたプロパティ<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>を持つ<a href="#group" class="role-reference">group</a>ロールの要素に含まれています。</li>
-          <li>プレゼンテーションにチェックボックスまたはチェックボックスグループに関連する追加の記述的な静的テキストが含まれている場合、チェックボックスまたはチェックボックスグループは、説明を含む要素のIDに設定されたプロパティ<a href="#aria-describedby" class="property-reference">aria-describedby</a>を持っています。</li>
+          <li>チェックされている場合、チェックボックス要素の状態は<a href="#aria-checked" class="state-reference">aria-checked</a>が<code>true</code>に設定されています。</li>
+          <li>チェックされていない場合、状態は<a href="#aria-checked" class="state-reference">aria-checked</a>が<code>false</code>に設定されています。</li>
+          <li>一部チェックされている場合、状態は二つの状態<a href="#aria-checked" class="state-reference">aria-checked</a>が<code>mixed</code>に設定されています。</li>
+          <li>チェックボックスが論理的なグループとして表示可能なラベルとともに提示される場合、チェックボックスは、ラベルを含む要素のIDに設定されたプロパティ<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>を持つ<a href="#group" class="role-reference">group</a>ロールの要素に含まれています。</li>
+          <li>チェックボックスまたはチェックボックスのグループに関連する静的な補足の説明テキストを表示させる場合、チェックボックスまたはチェックボックスのグループには、その説明テキストを含む要素のIDと関連づいた<a href="#aria-describedby" class="property-reference">aria-describedby</a>プロパティを設定します。</li>
         </ul>
       </section>
     </main>
