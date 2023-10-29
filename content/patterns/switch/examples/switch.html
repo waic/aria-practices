@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Switch Example</title>
+    <title>スイッチの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -25,65 +25,65 @@
       </ul>
     </nav>
     <main>
-      <h1>Switch Example</h1>
+      <h1>スイッチの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <p>
-          This example illustrates implementation of the <a href="../switch-pattern.html">Switch Pattern</a> for a notification preferences control.
-          It uses a <code>div</code> element for the switch and CSS borders to provide graphical rendering of switch states.
+          この例は、通知の設定コントロールの<a href="../switch-pattern.html">スイッチパターン</a>の実装を示しています。スイッチの状態のグラフィカルな表示のために<code>div</code>要素をスイッチとして使用し、CSSの境界線を使用しています。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下があります：</p>
         <ul>
-          <li><a href="switch-button.html">Switch Example Using HTML Button</a>: A group of 2 switches based on HTML <code>button</code> elements that turn lights on and off.</li>
-          <li><a href="switch-checkbox.html">Switch Example Using HTML Checkbox Input</a>: A group of 2 switches based on HTML <code>input[type="checkbox"]</code> elements that turn accessibility preferences on and off.</li>
+          <li><a href="switch-button.html">HTMLボタンを使用したスイッチの例</a>: 照明のオンオフを切り替えるHTML <code>button</code>要素をベースにした2つのスイッチのグループ。</li>
+          <li><a href="switch-checkbox.html">HTMLチェックボックス入力を使用したスイッチの例</a>: アクセシビリティ設定のオンオフを切り替えるHTML <code>input[type="checkbox"]</code>要素をベースにした2つのスイッチのグループ。</li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="開始"></div>
         <div id="ex1">
           <div role="switch" aria-checked="false" tabindex="0">
-            <span class="label">Notifications</span>
+            <span class="label">通知</span>
             <span class="switch">
               <span></span>
             </span>
-            <span class="on" aria-hidden="true">On</span>
-            <span class="off" aria-hidden="true">Off</span>
+            <span class="on" aria-hidden="true">オン</span>
+            <span class="off" aria-hidden="true">オフ</span>
           </div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="終了"></div>
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティの特徴</h2>
         <ul>
           <li>
-            To make understanding the state of the switch easier for users with visual or cognitive disabilities, a text equivalent of the state (<q>on</q> or <q>off</q>) is displayed adjacent to the graphical state indicator.
-            CSS attribute selectors ensure the label displayed is synchronized with the value of the <code>aria-checked</code> attribute.<br>
-            <strong>NOTE:</strong> To prevent redundant announcement of the state by screen readers, the text indicators of state are hidden from assistive technologies with <code>aria-hidden</code>.
+            視覚や認知の障害を持つユーザーがスイッチの状態を簡単に理解できるように、状態（<q>オン</q>または<q>オフ</q>）のテキストの同等物がグラフィカルな状態インジケータの隣に表示されます。
+            CSSの属性セレクタは、表示されるラベルが<code>aria-checked</code>属性の値と同期していることを保証します。<br>
+            <strong>注意：</strong> スクリーンリーダーによる状態の冗長なアナウンスを防ぐため、状態のテキストインジケータは<code>aria-hidden</code>で支援技術から隠されます。
           </li>
           <li>
-            Spacing, border widths and fill are important to ensure the graphical states are visible and discernible to people with visual impairments, including when browser or operating system high contrast settings are enabled:
+            スペーシング、境界線の幅、塗りつぶしは、ブラウザやオペレーティングシステムのハイコントラスト設定が有効な場合も含めて、視覚障害を持つ人々にグラフィカルな状態が見えることと識別可能であることを確実にするために重要です：
             <ul>
-              <li>To make the graphical representation of the state of a switch readily perceivable, two pixel borders are used for the switch state container and a solid color is used for the fill of the circles indicating the on and off states.</li>
-              <li>To ensure users can perceive the difference between the container and the circles used to indicate the state of the switch, there are two pixels of space between the container border and the circles.</li>
+              <li>スイッチの状態のグラフィカルな表示を容易に知覚できるようにするため、スイッチの状態コンテナには2ピクセルの境界線が使用され、オンとオフの状態を示す円の塗りつぶしには固定色が使用されます。</li>
+              <li>スイッチの状態を示すために使用されるコンテナと円の違いは、境界線と塗りつぶしの色によって強調されます。コンテナの境界線と円との間には2ピクセルのスペースがあります。</li>
             </ul>
           </li>
           <li>
-            To enhance perceivability when operating the switches, visual keyboard focus and hover are styled using the CSS <code>:hover</code> and <code>:focus</code> pseudo-classes:
+            スイッチの操作時の知覚性を高めるため、ビジュアルなキーボードフォーカスとホバーはCSSの<code>:hover</code>および<code>:focus</code>疑似クラスを使用してスタイリングされます：
             <ul>
-              <li>To make it easier to perceive focus and the relationship between a label and its associated switch, focus creates a border around both the switch and the label and also changes the background color.</li>
-              <li>To make it easier to perceive that clicking either the label or switch will activate the switch, the hover indicator is the same as the focus indicator.</li>
-              <li>To help people with visual impairments identify the switch as an interactive element, the cursor is changed to a pointer when hovering over the switch.</li>
+              <li>フォーカスとラベルとその関連するスイッチとの関係を容易に知覚するため、フォーカスはスイッチとラベルの両方を囲む境界線を作成し、背景色も変更します。</li>
+              <li>ラベルまたはスイッチのいずれかをクリックするとスイッチが有効になることを容易に知覚するため、ホバーインジケータはフォーカスインジケータと同じです。</li>
+              <li>視覚障害を持つ人々がスイッチを対話型の要素として認識するのを助けるため、スイッチの上にマウスカーソルがホバーするとカーソルがポインタに変わります。</li>
               <li>
-                Note: Because transparent borders are visible on some systems with operating system high contrast settings enabled, transparency cannot be used to create a visual difference between the element that is focused an other elements.
-                Instead of using transparency, the focused element has a thicker border and less padding.
-                When an element receives focus, its border changes from zero to two pixels and padding is reduced by two pixels.
-                When an element loses focus, its border changes from two pixels to two and padding is increased by two pixels.
+                注意：透明な境界線は、オペレーティングシステムのハイコントラスト設定が有効ないくつかのシステムで表示されるため、要素がフォーカスされていることと他の要素との視覚的な違いを作成するために透明度を使用することはできません。
+                透明度の代わりに、フォーカスが当たった要素は境界線が厚く、パディングが少なくなります。
+                要素にフォーカスが当たると、その境界線はゼロから2ピクセルに変わり、パディングは2ピクセル減少します。
+                要素のフォーカスが外れると、その境界線は2ピクセルのままで、パディングは2ピクセル増加します。
               </li>
             </ul>
           </li>
@@ -91,12 +91,12 @@
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
@@ -104,7 +104,7 @@
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
-                  <li>Moves keyboard focus to the <code>switch</code>.</li>
+                  <li><code>switch</code>へのキーボードフォーカスを移動します。</li>
                 </ul>
               </td>
             </tr>
@@ -112,7 +112,7 @@
               <th><kbd>Space</kbd><br><kbd>Enter</kbd></th>
               <td>
                 <ul>
-                  <li>Toggle switch between on and off.</li>
+                  <li>スイッチをオンとオフの間で切り替えます。</li>
                 </ul>
               </td>
             </tr>
@@ -121,14 +121,14 @@
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、およびtabindex属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用方法</th>
             </tr>
           </thead>
           <tbody>
@@ -136,13 +136,13 @@
               <th scope="row"><code>switch</code></th>
               <td></td>
               <td><code>div</code></td>
-              <td>Identifies the <code>div</code> element as a <code>switch</code>.</td>
+              <td><code>div</code>要素を<code>switch</code>として識別する。</td>
             </tr>
             <tr data-test-id="switch-tabindex">
               <td></td>
               <th scope="row"><code>tabindex="0"</code></th>
               <td><code>div</code></td>
-              <td>Includes the switch in the page <kbd>Tab</kbd> sequence.</td>
+              <td>スイッチをページの<kbd>Tab</kbd>順序に含める。</td>
             </tr>
             <tr data-test-id="switch-aria-checked">
               <td></td>
@@ -150,8 +150,8 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Indicates the <code>switch</code> is off.</li>
-                  <li>CSS attribute selectors (e.g. <code>[aria-checked="false"]</code>) are used to synchronize the visual states with the value of the <code>aria-checked</code> attribute.</li>
+                  <li><code>switch</code>がオフであることを示す。</li>
+                  <li>CSS属性セレクタ（例：<code>[aria-checked="false"]</code>）を使用して、視覚的な状態を<code>aria-checked</code>属性の値と同期させる。</li>
                 </ul>
               </td>
             </tr>
@@ -161,19 +161,19 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Indicates the <code>switch</code> is on.</li>
-                  <li>CSS attribute selectors (e.g. <code>[aria-checked="true"]</code>) are used to synchronize the visual states with the value of the <code>aria-checked</code> attribute.</li>
+                  <li><code>switch</code>がオンであることを示す。</li>
+                  <li>CSS属性セレクタ（例：<code>[aria-checked="true"]</code>）を使用して、視覚的な状態を<code>aria-checked</code>属性の値と同期させる。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="aria-hidden">
               <td></td>
               <th scope="row"><code>aria-hidden="true"</code></th>
-              <td><code>span.on</code> and <code>span.off</code></td>
+              <td><code>span.on</code>および<code>span.off</code></td>
               <td>
                 <ul>
-                  <li>Removes the strings <q>on</q> and <q>off</q> that appear to the right of the switch from the accessible name of the switch.</li>
-                  <li>These strings are included only for enhancing visual comprehension of the state; element states are not permitted in accessible names.</li>
+                  <li>スイッチの右側に表示される<q>on</q>および<q>off</q>の文字列を、スイッチのアクセシブルな名前から削除する。</li>
+                  <li>これらの文字列は、状態の視覚的理解を強化するためだけに含まれており、要素の状態はアクセシブルな名前に許可されていない。</li>
                 </ul>
               </td>
             </tr>
@@ -182,7 +182,7 @@
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScriptとCSSのソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/switch.css" type="tex/css">switch.css</a></li>
           <li>Javascript: <a href="js/switch.js" type="text/javascript">switch.js</a></li>
@@ -190,10 +190,10 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2 id="sc1_label">HTMLソースコード</h2>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="終了"></div>
         <script>
           sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files');
           sourceCode.make();
