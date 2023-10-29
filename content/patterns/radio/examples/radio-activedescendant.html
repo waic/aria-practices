@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radio Group Example Using aria-activedescendant</title>
+    <title>aria-activedescendantを使用したラジオグループの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -25,89 +25,89 @@
       </ul>
     </nav>
     <main>
-      <h1>Radio Group Example Using aria-activedescendant</h1>
+      <h1>aria-activedescendantを使用したラジオグループの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <p>
-          This example implements the features of the <a href="../radio-group-pattern.html">Radio Group Pattern</a> for two radio groups -- one for choosing a pizza crust and another for choosing a delivery method.
-          This implementation uses <code>aria-activedescendant</code> for informing assistive technologies which radio button has visual focus.
+          この例は、ピザのクラストを選ぶためのラジオグループと、配達方法を選ぶためのもう一つのラジオグループの2つのラジオグループに<a href="../radio-group-pattern.html">ラジオグループパターン</a>の機能を実装しています。
+          この実装では、どのラジオボタンが視覚的にフォーカスされているかを支援技術に知らせるために<code>aria-activedescendant</code>を使用しています。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下のものがあります：</p>
         <ul>
-          <li><a href="radio.html">Radio Group Example Using Roving tabindex</a>: A radio button group that uses roving <code>tabindex</code> for managing keyboard focus.</li>
-          <li><a href="radio-rating.html">Rating Radio Group Example</a>: Radio group that provides input for a five-star rating scale.</li>
+          <li><a href="radio.html">キーボードフォーカスの管理にroving <code>tabindex</code>を使用するラジオグループの例</a></li>
+          <li><a href="radio-rating.html">五つ星評価尺度の入力を提供するラジオグループの例</a></li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
         <div id="ex1">
-          <h3 id="group_label_1">Pizza Crust</h3>
+          <h3 id="group_label_1">ピザクラスト</h3>
 
           <ul class="radiogroup-activedescendant" role="radiogroup" aria-labelledby="group_label_1" aria-activedescendant="rb11" tabindex="0">
-            <li id="rb11" role="radio" aria-checked="false">Regular crust</li>
-            <li id="rb12" role="radio" aria-checked="false">Deep dish</li>
-            <li id="rb13" role="radio" aria-checked="false">Thin crust</li>
+            <li id="rb11" role="radio" aria-checked="false">レギュラークラスト</li>
+            <li id="rb12" role="radio" aria-checked="false">ディープディッシュ</li>
+            <li id="rb13" role="radio" aria-checked="false">シンクラスト</li>
           </ul>
 
-          <h3 id="group_label_2">Pizza Delivery</h3>
+          <h3 id="group_label_2">ピザ配達</h3>
 
           <ul class="radiogroup-activedescendant" role="radiogroup" aria-labelledby="group_label_2" aria-activedescendant="rb21" tabindex="0">
-            <li id="rb21" role="radio" aria-checked="false">Pick up</li>
-            <li id="rb22" role="radio" aria-checked="false">Home Delivery</li>
-            <li id="rb23" role="radio" aria-checked="false">Dine in Restaurant</li>
+            <li id="rb21" role="radio" aria-checked="false">ピックアップ</li>
+            <li id="rb22" role="radio" aria-checked="false">ホームデリバリー</li>
+            <li id="rb23" role="radio" aria-checked="false">レストランでの食事</li>
           </ul>
         </div>
         <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティの特徴</h2>
         <ul>
           <li>
-            The radio button referenced by <code>aria-activedescendant</code> is scrolled into view when it is not visible in the graphical rendering.
-            This can occur under many conditions, but is most common when people with visual impairments use a browser's zoom feature to increase the size of content.
+            <code>aria-activedescendant</code>で参照されるラジオボタンは、グラフィカルなレンダリングで見えない場合に表示されます。
+            これは多くの状況で発生しますが、視覚障害のある人がブラウザのズーム機能を使用してコンテンツのサイズを増やす場合が最も一般的です。
           </li>
-          <li>Uses CSS attribute selectors for synchronizing <code>aria-checked</code> state with the visual state indicator.</li>
+          <li><code>aria-checked</code>ステートと視覚的なステートインジケータを同期するためにCSS属性セレクタを使用。</li>
           <li>
-            Uses CSS <code>:hover</code> and <code>:focus</code> pseudo-classes for styling visual keyboard focus and hover.
+            CSSの<code>:hover</code>及び<code>:focus</code>疑似クラスを使用して、視覚的なキーボードフォーカスとホバーのスタイリングを行います。
             <ul>
-              <li>The focus indicator encompasses both the radio button and label, making it easier to perceive which option is being chosen.</li>
-              <li>Hover changes background of both the radio button and label, making it easier to perceive that clicking either the label or button will activate the radio button.</li>
-              <li>The cursor is changed to a pointer when hovering over the radio button to help people with visual impairments identify it as an interactive element.</li>
+              <li>フォーカスインジケータはラジオボタン及びラベルの両方を包含し、どのオプションが選ばれているかを認識しやすくします。</li>
+              <li>ホバーはラジオボタン及びラベルの背景を変更し、ラベル又はボタンのいずれかをクリックするとラジオボタンが作動することを認識しやすくします。</li>
+              <li>ラジオボタンの上にマウスを置くと、視覚障害のある人がそれを対話的な要素として識別するのを助けるためにカーソルがポインタに変わります。</li>
             </ul>
           </li>
           <li>
-            Because transparent borders are visible on some systems with high contrast enabled, only the focused element has a visible border.
-            When focusable elements are not focused, they have a 0-width border and additional padding equal in width to the border that is used to indicate focus.
+            透明な境界線は、高コントラストが有効なシステムで見えるため、フォーカスされている要素だけが境界線を持っています。
+            フォーカス可能な要素がフォーカスされていない場合、それらは0の幅の境界線と、フォーカスを示すために使用される境界線と同じ幅の追加のパディングを持っています。
           </li>
           <li>
-            To ensure the inline SVG radio button graphics in the CSS file have sufficient contrast with the background when high contrast settings change the color of text content, CSS <code>forced-color-adjust</code> is set to <code>auto</code> on the <code>svg</code> graphics.
-            This causes the colors of the <code>stroke</code> and <code>fill</code> of the circle elements to be overridden by the high contrast color setting.
-            To make the background of the <code>circle</code> elements match the high contrast background color, the <code>fill-opacity</code> attribute of the outer <code>circle</code> is set to zero and the <code>stroke-opacity</code> attribute of the inner <code>circle</code> is set to zero.
-            If <code>forced-color-adjust</code> were not used to override the colors specified for the <code>stroke</code> and <code>fill</code> properties, those colors would remain the same in high contrast mode, which could lead to insufficient contrast between the radio circle elements and the background or even make them invisible if their color matched the high contrast mode background.<br>
-            Note: The explicit setting of <code>forced-color-adjust</code> is necessary because some browsers do not use <code>auto</code> as the default value for SVG graphics.
+            CSSファイル内のインラインSVGラジオボタングラフィックが、高コントラスト設定がテキストコンテンツの色を変更するときに背景と十分なコントラストを持つようにするため、CSSの<code>forced-color-adjust</code>は<code>svg</code>グラフィック上で<code>auto</code>に設定されます。
+            これにより、<code>stroke</code>と<code>fill</code>の円要素の色が高コントラスト色設定によって上書きされます。
+            高コントラスト背景色と<code>circle</code>要素の背景を一致させるために、外側の<code>circle</code>の<code>fill-opacity</code>属性はゼロに設定され、内側の<code>circle</code>の<code>stroke-opacity</code>属性はゼロに設定されます。
+            <code>forced-color-adjust</code>が<code>stroke</code>及び<code>fill</code>プロパティに指定された色を上書きするために使用されなかった場合、これらの色は高コントラストモードで同じままであり、ラジオ円要素と背景との間の不十分なコントラストにつながるか、その色が高コントラストモードの背景と一致して不可視になる可能性があります。<br>
+            注: 一部のブラウザはSVGグラフィックのデフォルト値として<code>auto</code>を使用しないため、<code>forced-color-adjust</code>の明示的な設定が必要です。
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードサポート</h2>
         <p>
-          <strong>NOTE:</strong> When visual focus is on a radio button in the radio group, DOM focus remains on the radio group container and the value of <code>aria-activedescendant</code> on the radio group refers to the radio button that is visually indicated as focused.
-          Where the following descriptions of keyboard commands mention focus, they are referring to the visual focus indicator, not DOM focus.
-          For more information about this focus management technique, see
-          <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">Managing Focus in Composites Using aria-activedescendant</a>.
+          <strong>注:</strong> ラジオグループ内のラジオボタンに視覚的なフォーカスがある場合、DOMのフォーカスはラジオグループのコンテナに維持され、ラジオグループ上の<code>aria-activedescendant</code>の値はフォーカスが視覚的に示されているラジオボタンを指します。
+          以下のキーボードコマンドの説明でフォーカスに言及している場合、それは視覚的なフォーカスインジケータを指しており、DOMのフォーカスではありません。
+          このフォーカス管理技術に関する詳細は、<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendantを使用したコンポジットのフォーカス管理</a>を参照してください。
         </p>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
@@ -115,8 +115,8 @@
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to the checked <code>radio</code> button in the <code>radiogroup</code>.</li>
-                  <li>If a <code>radio</code> button is not checked, focus moves to the first <code>radio</code> button in the group.</li>
+                  <li>フォーカスを<code>radiogroup</code>内の選択済みの<code>radio</code>ボタンに移動します。</li>
+                  <li><code>radio</code>ボタンが選択されていない場合、フォーカスはグループの最初の<code>radio</code>ボタンに移動します。</li>
                 </ul>
               </td>
             </tr>
@@ -124,29 +124,29 @@
               <th><kbd>Space</kbd></th>
               <td>
                 <ul>
-                  <li>If the <code>radio</code> button with focus is not checked, changes the state to <code>checked</code>.</li>
-                  <li>Otherwise, does nothing.</li>
-                  <li>Note: The state where a radio is not checked only occurs on page load.</li>
+                  <li>フォーカスがある<code>radio</code>ボタンが選択されていない場合、その状態を<code>checked</code>に変更します。</li>
+                  <li>それ以外の場合、何もしません。</li>
+                  <li>注: ラジオが選択されていない状態は、ページの読み込み時にのみ発生します。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="key-down-right-arrow">
-              <th><kbd>Down arrow</kbd><br><kbd>Right arrow</kbd></th>
+              <th><kbd>下矢印</kbd><br><kbd>右矢印</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to and checks the next <code>radio</code> button in the group.</li>
-                  <li>If focus is on the last <code>radio</code> button, moves focus to the first <code>radio</code> button.</li>
-                  <li>The state of the previously checked radio button is changed to unchecked.</li>
+                  <li>フォーカスを移動し、グループ内の次の<code>radio</code>ボタンを選択します。</li>
+                  <li>フォーカスが最後の<code>radio</code>ボタンにある場合、フォーカスをグループ内の最初の<code>radio</code>ボタンに移動します。</li>
+                  <li>以前に選択されていたラジオボタンの状態は選択解除に変更されます。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="key-up-left-arrow">
-              <th><kbd>Up arrow</kbd><br><kbd>Left arrow</kbd></th>
+              <th><kbd>上矢印</kbd><br><kbd>左矢印</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to and checks the previous <code>radio</code> button in the group.</li>
-                  <li>If focus is on the first <code>radio</code> button, moves focus to and checks the last <code>radio</code> button.</li>
-                  <li>The state of the previously checked radio button is changed to unchecked.</li>
+                  <li>フォーカスを移動し、グループ内の前の<code>radio</code>ボタンを選択します。</li>
+                  <li>フォーカスが最初の<code>radio</code>ボタンにある場合、フォーカスを移動し、グループ内の最後の<code>radio</code>ボタンを選択します。</li>
+                  <li>以前に選択されていたラジオボタンの状態は選択解除に変更されます。</li>
                 </ul>
               </td>
             </tr>
@@ -155,14 +155,14 @@
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、およびtabindex属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attributes</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用方法</th>
             </tr>
           </thead>
           <tbody>
@@ -170,38 +170,22 @@
               <th scope="row"><code>radiogroup</code></th>
               <td></td>
               <td><code>ul</code></td>
-              <td>Identifies the element as a container for a group of <code>radio</code> buttons.</td>
+              <td><code>radio</code>ボタンのグループのコンテナとしての要素を識別します。</td>
             </tr>
             <tr data-test-id="radiogroup-aria-labelledby">
               <td></td>
               <th scope="row"><code>aria-labelledby="[IDREF]"</code></th>
               <td><code>ul</code></td>
-              <td>Refers to the element that contains the label of the radio group.</td>
+              <td>ラジオグループのラベルを含む要素を参照します。</td>
             </tr>
             <tr data-test-id="radiogroup-tabindex">
               <td></td>
-              <th scope="row"><code>tabindex=&quot;0&quot;</code></th>
+              <th scope="row"><code>tabindex="0"</code></th>
               <td><code>ul</code></td>
               <td>
                 <ul>
-                  <li>Includes the radio group in the page <kbd>Tab</kbd> sequence.</li>
-                  <li>Applied to the radio group because <code>aria--activedescendant</code> is used to manage focus as described below.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="radiogroup-aria-activedescendant">
-              <td></td>
-              <th scope="row"><code>aria-activedescendant=&quot;[IDREF]&quot;</code></th>
-              <td><code>ul</code></td>
-              <td>
-                <ul>
-                  <li>When a radio button in the radio group is visually indicated as having keyboard focus, refers to that radio button.</li>
-                  <li>When arrow keys are pressed, the JavaScript changes the value.</li>
-                  <li>Enables assistive technologies to know which element the application regards as focused while DOM focus remains on the radio group element.</li>
-                  <li>
-                    For more information about this focus management technique, see
-                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">Managing Focus in Composites Using aria-activedescendant</a>.
-                  </li>
+                  <li>ラジオグループをページの<kbd>Tab</kbd>シーケンスに含めます。</li>
+                  <li>以下で説明されているように、<code>aria-activedescendant</code>属性と組み合わせて使用することで、フォーカスを移動しながら<kbd>Tab</kbd>キーを使用してページのタブシーケンスに含めることができます。</li>
                 </ul>
               </td>
             </tr>
@@ -211,8 +195,8 @@
               <td><code>li</code></td>
               <td>
                 <ul>
-                  <li>Identifies the element as an ARIA <code>radio</code> button.</li>
-                  <li>The accessible name is computed from the child text content of the element.</li>
+                  <li>要素をARIAの<code>radio</code>ボタンとして識別します。</li>
+                  <li>アクセシブルな名前は要素の子テキストコンテンツから計算されます。</li>
                 </ul>
               </td>
             </tr>
@@ -222,9 +206,9 @@
               <td><code>li</code></td>
               <td>
                 <ul>
-                  <li>Identifies <code>radio</code> buttons which are not checked.</li>
-                  <li>CSS attribute selectors (e.g. <code>[aria-checked="false"]</code>) are used to synchronize the visual states with the value of the <code>aria-checked</code> attribute.</li>
-                  <li>The CSS <code>::before</code> pseudo-element is used to indicate visual state of unchecked radio buttons to support high contrast settings in operating systems and browsers.</li>
+                  <li><code>radio</code>ボタンで選択されていないものを識別します。</li>
+                  <li>CSS属性セレクタ（例：<code>[aria-checked="false"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期するために使用されます。</li>
+                  <li>CSSの<code>::before</code>疑似要素は、オペレーティングシステムやブラウザの高コントラスト設定で選択されていないラジオボタンの視覚的な状態を示すために使用されます。</li>
                 </ul>
               </td>
             </tr>
@@ -234,9 +218,9 @@
               <td><code>li</code></td>
               <td>
                 <ul>
-                  <li>Identifies the <code>radio</code> button which is checked.</li>
-                  <li>CSS attribute selectors (e.g. <code>[aria-checked="true"]</code>) are used to synchronize the visual states with the value of the <code>aria-checked</code> attribute.</li>
-                  <li>The CSS <code>::before</code> pseudo-element is used to indicate visual state of checked radio buttons to support high contrast settings in operating systems and browsers.</li>
+                  <li><code>radio</code>ボタンで選択されているものを識別します。</li>
+                  <li>CSS属性セレクタ（例：<code>[aria-checked="true"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期するために使用されます。</li>
+                  <li>CSSの<code>::before</code>疑似要素は、オペレーティングシステムやブラウザの高コントラスト設定で選択されているラジオボタンの視覚的な状態を示すために使用されます。</li>
                 </ul>
               </td>
             </tr>
@@ -245,7 +229,7 @@
       </section>
 
       <section id="at-support">
-        <h2>Assistive Technology Support</h2>
+        <h2>支援技術のサポート</h2>
         <iframe
           class="support-levels-radiogroup-aria-activedescendant"
           src="https://aria-at.w3.org/embed/reports/radiogroup-aria-activedescendant"
@@ -256,7 +240,7 @@
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScriptとCSSのソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/radio.css" type="tex/css">radio.css</a></li>
           <li>Javascript: <a href="js/radio-activedescendant.js" type="text/javascript">radio-activedescendant.js</a></li>
@@ -264,10 +248,10 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2 id="sc1_label">HTMLのソースコード</h2>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="終了"></div>
         <script>
           sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files');
           sourceCode.make();

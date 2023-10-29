@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Radio Group Pattern</title>
+    <title>ライオグループ パターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,120 +14,121 @@
   </head>
   <body>
     <main>
-      <h1>Radio Group Pattern</h1>
+      <h1>ライオグループ パターン</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンについて</h2>
         <p>
-          A radio group is a set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.
-          Some implementations may initialize the set with all buttons in the unchecked state in order to force the user to check one of the buttons before moving past a certain point in the workflow.
+          ラジオグループは、ラジオボタンとして知られる選択可能なボタンのセットであり、一度に1つのボタンしか選択できない。
+          一部の実装では、利用者がワークフローの特定のポイントを超える前にボタンの1つを選択するように強制するために、すべてのボタンを未選択の状態でセットを初期化する場合がある。
         </p>
       </section>
 
       <section id="examples">
-        <h2>Examples</h2>
+        <h2>例</h2>
         <ul>
-          <li><a href="examples/radio.html">Radio Group Example Using Roving tabindex</a></li>
-          <li><a href="examples/radio-activedescendant.html">Radio Group Example Using aria-activedescendant</a></li>
-          <li><a href="examples/radio-rating.html">Rating Radio Group Example</a>: Radio group that provides input for a five-star rating scale.</li>
+          <li><a href="examples/radio.html">Roving tabindexを使用したラジオグループの例</a></li>
+          <li><a href="examples/radio-activedescendant.html">aria-activedescendantを使用したラジオグループの例</a></li>
+          <li><a href="examples/radio-rating.html">評価ラジオグループの例</a>：五つ星評価スケールの入力を提供するラジオグループ。</li>
         </ul>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
+        <h2>キーボード インタラクション</h2>
         <section>
-          <h3>For Radio Groups Not Contained in a Toolbar</h3>
+          <h3>ツールバーに含まれていないラジオグループ用</h3>
           <p>
-            This section describes the keyboard interaction implemented for most radio groups.
-            For the special case of a radio group nested inside a <a href="../toolbar/toolbar-pattern.html">toolbar</a>, use the keyboard interaction described in the following section.
+            このセクションでは、ほとんどのラジオグループで実装されているキーボードインタラクションについて説明します。
+            <a href="../toolbar/toolbar-pattern.html">ツールバー</a>内にネストされたラジオグループの特殊なケースについては、次のセクションで説明されているキーボードインタラクションを使用してください。
           </p>
           <ul>
             <li>
-              <kbd>Tab</kbd> and <kbd>Shift + Tab</kbd>: Move focus into and out of the radio group.
-              When focus moves into a radio group:
+              <kbd>Tab</kbd> 及び <kbd>Shift + Tab</kbd>：ラジオグループ内にフォーカスを移動し、ラジオグループからフォーカスを移動します。
+              フォーカスがラジオグループに移動するとき：
               <ul>
-                <li>If a radio button is checked, focus is set on the checked button.</li>
-                <li>If none of the radio buttons are checked, focus is set on the first radio button in the group.</li>
+                <li>ラジオボタンが選択されている場合、フォーカスは選択されているボタンに設定されます。</li>
+                <li>ラジオボタンのいずれも選択されていない場合、フォーカスはグループ内の最初のラジオボタンに設定されます。</li>
               </ul>
             </li>
-            <li><kbd>Space</kbd>: checks the focused radio button if it is not already checked.</li>
+            <li><kbd>Space</kbd>：フォーカスされているラジオボタンがまだ選択されていない場合、そのラジオボタンを選択します。</li>
             <li>
-              <kbd>Right Arrow</kbd> and <kbd>Down Arrow</kbd>: move focus to the next radio button in the group, uncheck the previously focused button, and check the newly focused button.
-              If focus is on the last button, focus moves to the first button.
+              <kbd>Right Arrow</kbd> 及び <kbd>Down Arrow</kbd>：フォーカスをグループ内の次のラジオボタンに移動し、以前にフォーカスされていたボタンの選択を解除し、新しくフォーカスされたボタンを選択します。
+              フォーカスが最後のボタンにある場合、フォーカスは最初のボタンに移動します。
             </li>
             <li>
-              <kbd>Left Arrow</kbd> and <kbd>Up Arrow</kbd>: move focus to the previous radio button in the group, uncheck the previously focused button, and check the newly focused button.
-              If focus is on the first button, focus moves to the last button.
+              <kbd>Left Arrow</kbd> 及び <kbd>Up Arrow</kbd>：フォーカスをグループ内の前のラジオボタンに移動し、以前にフォーカスされていたボタンの選択を解除し、新しくフォーカスされたボタンを選択します。
+              フォーカスが最初のボタンにある場合、フォーカスは最後のボタンに移動します。
             </li>
           </ul>
           <div class="note">
-            <h3>Note</h3>
-            <p>The initial focus behavior described above differs slightly from the behavior provided by some browsers for native HTML radio groups.
-            In some browsers, if none of the radio buttons are selected, moving focus into the radio group with <kbd>Shift+Tab</kbd> will place focus on the last radio button instead of the first radio button.</p>
+            <h3>注記</h3>
+            <p>上記で説明されている初期フォーカスの動作は、ネイティブHTMLラジオグループの一部のブラウザで提供される動作とわずかに異なります。
+              いくつかのブラウザでは、ラジオボタンのいずれも選択されていない場合、<kbd>Shift+Tab</kbd>を使用してラジオグループにフォーカスを移動すると、フォーカスが最初のラジオボタンではなく最後のラジオボタンに配置されます。</p>
           </div>
         </section>
         <section>
-          <h3>For Radio Group Contained in a Toolbar</h3>
+          <h3>ツールバー内のラジオグループ用</h3>
           <p>
-            Because arrow keys are used to navigate among elements of a toolbar and the <kbd>Tab</kbd> key moves focus in and out of a toolbar, when a radio group is nested inside a toolbar, the keyboard interaction of the radio group is slightly different from that of a radio group that is not inside of a toolbar.
-            For instance, users need to be able to navigate among all toolbar elements, including the radio buttons, without changing which radio button is checked.
-            So, when navigating through a radio group in a toolbar with arrow keys, the button that is checked does not change.
-            The keyboard interaction of a radio group nested in a toolbar is as follows.
+            矢印キーがツールバーの要素間を移動するために使用され、<kbd>Tab</kbd>キーがツールバー内およびツールバー外にフォーカスを移動するため、ラジオグループがツールバー内にネストされている場合、ラジオグループのキーボードインタラクションはツールバー内にないラジオグループのキーボードインタラクションとはわずかに異なります。
+            たとえば、利用者は、ラジオボタンの選択を変更せずに、ラジオボタンを含むすべてのツールバー要素間を移動することができる必要があります。
+            したがって、ツールバー内のラジオグループを矢印キーで移動するとき、選択されているボタンは変わりません。
+            ツールバー内にネストされたラジオグループのキーボードインタラクションは次のとおりです。
           </p>
           <ul>
             <li>
-              <kbd>Space</kbd>: If the focused radio button is not checked, unchecks the currently checked radio button and checks the focused radio button.
-              Otherwise, does nothing.
+              <kbd>Space</kbd>：フォーカスされているラジオボタンが選択されていない場合、現在選択されているラジオボタンの選択を解除し、フォーカスされているラジオボタンを選択します。
+              それ以外の場合は何もしません。
             </li>
             <li>
-              <kbd>Enter</kbd> (optional): If the focused radio button is not checked, unchecks the currently checked radio button and checks the focused radio button.
-              Otherwise, does nothing.
+              <kbd>Enter</kbd>（オプション）：フォーカスされているラジオボタンが選択されていない場合、現在選択されているラジオボタンの選択を解除し、フォーカスされているラジオボタンを選択します。
+              それ以外の場合は何もしません。
             </li>
             <li>
-              <kbd>Right Arrow</kbd>:
+              <kbd>Right Arrow</kbd>：
               <ul>
-                <li>When focus is on a radio button and that radio button is <strong>not</strong> the last radio button in the radio group, moves focus to the next radio button.</li>
-                <li>When focus is on the last radio button in the radio group and that radio button is <strong>not</strong> the last element in the toolbar, moves focus to the next element in the toolbar.</li>
-                <li>When focus is on the last radio button in the radio group and that radio button is also the last element in the toolbar, moves focus to the first element in the toolbar.</li>
+                <li>フォーカスがラジオボタンにあり、そのラジオボタンがラジオグループの最後のラジオボタンで<strong>ない</strong>場合、フォーカスを次のラジオボタンに移動します。</li>
+                <li>フォーカスがラジオグループの最後のラジオボタンにあり、そのラジオボタンがツールバーの最後の要素でも<strong>ない</strong>場合、フォーカスをツールバーの次の要素に移動します。</li>
+                <li>フォーカスがラジオグループの最後のラジオボタンにあり、そのラジオボタンがツールバーの最後の要素でもある場合、フォーカスをツールバーの最初の要素に移動します。</li>
               </ul>
             </li>
             <li>
-              <kbd>Left Arrow</kbd>:
+              <kbd>Left Arrow</kbd>：
               <ul>
-                <li>When focus is on a radio button and that radio button is <strong>not</strong> the first radio button in the radio group, moves focus to the previous radio button.</li>
-                <li>When focus is on the first radio button in the radio group and that radio button is <strong>not</strong> the first element in the toolbar, moves focus to the previous element in the toolbar.</li>
-                <li>When focus is on the first radio button in the radio group and that radio button is also the first element in the toolbar, moves focus to the last element in the toolbar.</li>
+                <li>フォーカスがラジオボタンにあり、そのラジオボタンがラジオグループの最初のラジオボタンで<strong>ない</strong>場合、フォーカスを前のラジオボタンに移動します。</li>
+                <li>フォーカスがラジオグループの最初のラジオボタンにあり、そのラジオボタンがツールバーの最初の要素でも<strong>ない</strong>場合、フォーカスをツールバーの前の要素に移動します。</li>
+                <li>フォーカスがラジオグループの最初のラジオボタンにあり、そのラジオボタンがツールバーの最初の要素でもある場合、フォーカスをツールバーの最後の要素に移動します。</li>
               </ul>
             </li>
             <li>
-              <kbd>Down Arrow</kbd> (optional): Moves focus to the next radio button in the radio group.
-              If focus is on the last radio button in the radio group, moves focus to the first radio button in the group.
+              <kbd>Down Arrow</kbd>（オプション）：フォーカスをラジオグループ内の次のラジオボタンに移動します。
+              フォーカスがラジオグループの最後のラジオボタンにある場合、フォーカスはグループ内の最初のラジオボタンに移動します。
             </li>
             <li>
-              <kbd>Up Arrow</kbd> (optional): Moves focus to the previous radio button in the radio group.
-              If focus is on the first radio button in the radio group, moves focus to the last radio button in the group.
+              <kbd>Up Arrow</kbd>（オプション）：フォーカスをラジオグループ内の前のラジオボタンに移動します。
+              フォーカスがラジオグループの最初のラジオボタンにある場合、フォーカスはグループ内の最後のラジオボタンに移動します。
             </li>
           </ul>
           <div class="note">
-            <h4>Note</h4>
-            <p>Radio buttons in a toolbar are frequently styled in a manner that appears more like toggle buttons.
-            For an example, See the <a href="../toolbar/examples/toolbar.html">Simple Editor Toolbar Example</a>.</p>
+            <h4>注記</h4>
+            <p>ツールバー内のラジオボタンは、しばしばトグルボタンのように見えるスタイルで表示されます。
+              例については、<a href="../toolbar/examples/toolbar.html">シンプルなエディタツールバーの例</a>を参照してください。</p>
           </div>
         </section>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties</h2>
+        <h2>WAI-ARIA ロール、ステート、及びプロパティ</h2>
         <ul>
-          <li>The radio buttons are contained in or owned by an element with role <a href="#radiogroup" class="role-reference">radiogroup</a>.</li>
-          <li>Each radio button element has role <a href="#radio" class="role-reference">radio</a>.</li>
+          <li>ラジオボタンは、ロールが <a href="#radiogroup" class="role-reference">radiogroup</a> の要素に含まれている又は所有されています。</li>
+          <li>各ラジオボタン要素は、ロールが <a href="#radio" class="role-reference">radio</a> です。</li>
           <li>
-            If a radio button is checked, the <code>radio</code> element has <a href="#aria-checked" class="state-reference">aria-checked</a> set to <code>true</code>.
-            If it is not checked, it has <a href="#aria-checked" class="state-reference">aria-checked</a> set to <code>false</code>.
+            ラジオボタンがチェックされている場合、<code>radio</code> 要素は <a href="#aria-checked" class="state-reference">aria-checked</a> を <code>true</code> に設定しています。
+            チェックされていない場合は、<a href="#aria-checked" class="state-reference">aria-checked</a> を <code>false</code> に設定しています。
           </li>
-          <li>Each <code>radio</code> element is labelled by its content, has a visible label referenced by <a href="#aria-labelledby" class="property-reference">aria-labelledby</a>, or has a label specified with <a href="#aria-label" class="property-reference">aria-label</a>.</li>
-          <li>The <code>radiogroup</code> element has a visible label referenced by <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> or has a label specified with <a href="#aria-label" class="property-reference">aria-label</a>.</li>
-          <li>If elements providing additional information about either the radio group or each radio button are present, those elements are referenced by the <code>radiogroup</code> element or <code>radio</code> elements with the <a href="#aria-describedby" class="property-reference">aria-describedby</a> property.</li>
+          <li>各 <code>radio</code> 要素は、そのコンテンツによってラベル付けされ、<a href="#aria-labelledby" class="property-reference">aria-labelledby</a> によって参照される可視ラベルを持っているか、又は <a href="#aria-label" class="property-reference">aria-label</a> でラベルが指定されています。</li>
+          <li><code>radiogroup</code> 要素は、<a href="#aria-labelledby" class="property-reference">aria-labelledby</a> によって参照される可視ラベルを持っているか、又は <a href="#aria-label" class="property-reference">aria-label</a> でラベルが指定されています。</li>
+          <li>ラジオグループ又は各ラジオボタンに関する追加情報を提供する要素が存在する場合、それらの要素は、<code>radiogroup</code> 要素又は <code>radio</code> 要素に <a href="#aria-describedby" class="property-reference">aria-describedby</a> プロパティで参照されます。</li>
         </ul>
       </section>
     </main>
