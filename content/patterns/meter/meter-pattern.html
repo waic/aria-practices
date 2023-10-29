@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Meter Pattern</title>
+    <title>メーター パターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,51 +14,52 @@
   </head>
   <body>
     <main>
-      <h1>Meter Pattern</h1>
+      <h1>メーター パターン</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンについて</h2>
         <p>
-          A <a class="role-reference" href="#meter">meter</a> is a graphical display of a numeric value that varies within a defined range.
-          For example, a meter could be used to depict a device's current battery percentage or a car's fuel level.
+          <a class="role-reference" href="#meter">meter</a> は、定義された範囲内で変動する数値のグラフィカルな表示です。
+          例えば、デバイスの現在のバッテリーのパーセンテージや車の燃料レベルを表現するためにメーターを使用できます。
         </p>
         <div class="note">
-          <h3>Note</h3>
+          <h3>注記</h3>
           <ul>
-            <li>A <code>meter</code> should not be used to represent a value like the current world population since it does not have a meaningful maximum limit.</li>
+            <li><code>meter</code> は、意味のある最大限度がないため、現在の世界の人口のような値を表現するために使用すべきではありません。</li>
             <li>
-              The <code>meter</code> should not be used to indicate progress, such as loading or percent completion of a task.
-              To communicate progress, use the <a href="#progressbar" class="role-reference">progressbar</a> role instead.
+              <code>meter</code> は、タスクのロードや完了のパーセンテージなどの進行状況を示すために使用すべきではありません。
+              進行状況を伝えるためには、代わりに <a href="#progressbar" class="role-reference">progressbar</a> ロールを使用してください。
             </li>
           </ul>
         </div>
       </section>
 
       <section id="examples">
-        <h2>Example</h2>
-        <p><a href="examples/meter.html">Meter Example</a></p>
+        <h2>例</h2>
+        <p><a href="examples/meter.html">メーターの例</a></p>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
-        <p>Not applicable.</p>
+        <h2>キーボードのインタラクション</h2>
+        <p>該当なし。</p>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties</h2>
+        <h2>WAI-ARIA ロール、ステート、及びプロパティ</h2>
         <ul>
-          <li>The element serving as the meter has a role of <a class="role-reference" href="#meter">meter</a>.</li>
-          <li>The meter has <a class="property-reference" href="#aria-valuenow">aria-valuenow</a> set to a decimal value between <code>aria-valuemin</code> and <code>aria-valuemax</code> representing the current value of the meter.</li>
-          <li>The meter has <a class="property-reference" href="#aria-valuemin">aria-valuemin</a> set to a decimal value less than <code>aria-valuemax</code>.</li>
-          <li>The meter has <a class="property-reference" href="#aria-valuemax">aria-valuemax</a> set to a decimal value greater than <code>aria-valuemin</code>.</li>
+          <li>メーターとしての役割を果たす要素は、<a class="role-reference" href="#meter">meter</a> のロールを持っています。</li>
+          <li>メーターは、メーターの現在の値を表す <code>aria-valuemin</code> と <code>aria-valuemax</code> の間の小数値に <a class="property-reference" href="#aria-valuenow">aria-valuenow</a> を設定しています。</li>
+          <li>メーターは、<code>aria-valuemax</code> よりも小さい小数値に <a class="property-reference" href="#aria-valuemin">aria-valuemin</a> を設定しています。</li>
+          <li>メーターは、<code>aria-valuemin</code> よりも大きい小数値に <a class="property-reference" href="#aria-valuemax">aria-valuemax</a> を設定しています。</li>
           <li>
-            Assistive technologies often present <code>aria-valuenow</code> as a percentage.
-            If conveying the value of the meter only in terms of a percentage would not be user friendly, the <a class="property-reference" href="#aria-valuetext">aria-valuetext</a> property is set to a string that makes the meter value understandable.
-            For example, a battery meter value might be conveyed as <code>aria-valuetext="50% (6 hours) remaining"</code>.
+            支援技術は、<code>aria-valuenow</code> をパーセンテージとして頻繁に提示します。
+            メーターの値をパーセンテージだけで伝えることがユーザーフレンドリーでない場合、<a class="property-reference" href="#aria-valuetext">aria-valuetext</a> プロパティはメーターの値を理解可能にする文字列に設定されます。
+            例えば、バッテリーメーターの値は <code>aria-valuetext="50% (6 時間) 残っています"</code> として伝えられるかもしれません。
           </li>
           <li>
-            If the meter has a visible label, it is referenced by <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> on the element with role <code>meter</code>.
-            Otherwise, the element with role <code>meter</code> has a label provided by <a href="#aria-label" class="property-reference">aria-label</a>.
+            もしメーターに可視のラベルがあれば、<code>meter</code> のロールを持つ要素に <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> で参照されます。
+            それ以外の場合、<code>meter</code> のロールを持つ要素は、<a href="#aria-label" class="property-reference">aria-label</a> によってラベルが提供されます。
           </li>
         </ul>
       </section>
