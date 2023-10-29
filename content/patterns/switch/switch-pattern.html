@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Switch Pattern</title>
+    <title>スイッチ パターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,68 +14,69 @@
   </head>
   <body>
     <main>
-      <h1>Switch Pattern</h1>
+      <h1>スイッチ パターン</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンについて</h2>
         <p>
-          A <a href="#switch" class="role-reference">switch</a> is an input widget that allows users to choose one of two values: <q>on</q> or <q>off</q>.
-          Switches are similar to <a href="../checkbox/checkbox-pattern.html">checkboxes</a> and <a href="../button/button-pattern.html">toggle buttons</a>, which can also serve as binary inputs.
-          One difference, however, is that switches can only be used for binary input while checkboxes and toggle buttons allow implementations the option of supporting a third middle state.
-          Checkboxes can be <q>checked</q> or <q>not checked</q> and can optionally also allow for a <q>partially checked</q> state.
-          Toggle buttons can be <q>pressed</q> or <q>not pressed</q> and can optionally allow for a <q>partially pressed</q> state.
+          <a href="#switch" class="role-reference">スイッチ</a>は、利用者が二つの値、<q>オン</q>又は<q>オフ</q>のどちらかを選択できる入力ウィジェットです。
+          スイッチは<a href="../checkbox/checkbox-pattern.html">チェックボックス</a>や<a href="../button/button-pattern.html">トグルボタン</a>と似ており、これらも二値入力として機能することができます。
+          しかし、違いの一つとして、スイッチは二値入力のみに使用可能なのに対し、チェックボックスとトグルボタンは三つ目の中間ステートのサポートをオプションで許容します。
+          チェックボックスは<q>チェック済み</q>または<q>チェックなし</q>となり、<q>部分的にチェック済み</q>のステートをオプションで許容することができます。
+          トグルボタンは<q>押下</q>又は<q>非押下</q>となり、<q>部分的に押下</q>のステートをオプションで許容することができます。
         </p>
         <p>
-          Since switch, checkbox, and toggle button all offer binary input, they are often functionally interchangeable.
-          Choose the role that best matches both the visual design and semantics of the user interface.
-          For instance, there are some circumstances where the semantics of <q>on or off</q> would be easier for assistive technology users to understand than the semantics of <q>checked or unchecked</q>, and vice versa.
-          Consider a widget for turning lights on or off.
-          In this case, screen reader output of <q>Lights switch on</q> is more user friendly than <q>Lights checkbox checked</q>.
-          However, if the same input were in a group of inputs labeled <q>Which of the following must be included in your pre-takeoff procedures?</q>, <q>Lights checkbox checked</q> would make more sense.
+          スイッチ、チェックボックス、及びトグルボタンはすべて二値入力を提供するため、よく機能的に交換可能です。
+          ユーザインターフェースのビジュアルデザイン及びセマンティクスに最も適したロールを選択してください。
+          例えば、<q>オン又はオフ</q>のセマンティクスが<q>チェック済み又は非チェック</q>のセマンティクスよりも支援技術の利用者にとって理解しやすい状況がある、そしてその逆もあります。
+          照明をオン又はオフにするウィジェットを考えてみてください。
+          この場合、<q>ライトスイッチオン</q>というスクリーンリーダーの出力は<q>ライトチェックボックスチェック済み</q>よりもユーザーフレンドリーです。
+          しかし、同じ入力が<q>離陸前の手順に何を含める必要がありますか？</q>というグループの入力のラベルの中にあった場合、<q>ライトチェックボックスチェック済み</q>の方が理にかなっています。
         </p>
-        <p><strong>Important:</strong> it is critical the label on a switch does not change when its state changes.</p>
+        <p><strong>重要:</strong> スイッチのラベルは、そのステートが変わる時に変わってはならない。</p>
       </section>
 
       <section id="examples">
-        <h2>Examples</h2>
+        <h2>例</h2>
         <ul>
-          <li><a href="examples/switch.html">Switch Example</a>: A switch based on a <code>div</code> element that turns a notification preference on and off.</li>
-          <li><a href="examples/switch-button.html">Switch Example Using HTML Button</a>: A group of 2 switches based on HTML <code>button</code> elements that turn lights on and off.</li>
-          <li><a href="examples/switch-checkbox.html">Switch Example Using HTML Checkbox Input</a>: A group of 2 switches based on HTML <code>input[type="checkbox"]</code> elements that turn accessibility preferences on and off.</li>
+          <li><a href="examples/switch.html">スイッチの例</a>: 通知設定をオン又はオフにする<code>div</code>要素を基にしたスイッチ。</li>
+          <li><a href="examples/switch-button.html">HTMLボタンを使用したスイッチの例</a>: 照明をオン又はオフにする2つのスイッチがHTML <code>button</code>要素を基にしています。</li>
+          <li><a href="examples/switch-checkbox.html">HTMLチェックボックス入力を使用したスイッチの例</a>: アクセシビリティ設定をオン又はオフにする2つのスイッチがHTML <code>input[type="checkbox"]</code>要素を基にしています。</li>
         </ul>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
+        <h2>キーボードの操作</h2>
         <ul>
-          <li><kbd>Space</kbd>: When focus is on the switch, changes the state of the switch.</li>
-          <li><kbd>Enter</kbd> (Optional): When focus is on the switch, changes the state of the switch.</li>
+          <li><kbd>スペース</kbd>: スイッチにフォーカスがある場合、スイッチのステートを変更する。</li>
+          <li><kbd>エンター</kbd> (オプション): スイッチにフォーカスがある場合、スイッチのステートを変更する。</li>
         </ul>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties</h2>
+        <h2>WAI-ARIAのロール、ステート、及びプロパティ</h2>
         <ul>
-          <li>The switch has role <a href="#switch" class="role-reference">switch</a>.</li>
+          <li>スイッチは<a href="#switch" class="role-reference">スイッチ</a>のロールを持っています。</li>
           <li>
-            The switch has an accessible label provided by one of the following:
+            スイッチには次のいずれかによってアクセシブルなラベルが提供されています:
             <ul>
-              <li>Visible text content contained within the element with role <code>switch</code>.</li>
-              <li>A visible label referenced by the value of <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> set on the element with role <code>switch</code>.</li>
-              <li><a href="#aria-label" class="property-reference">aria-label</a> set on the element with role <code>switch</code>.</li>
+              <li>ロール<code>switch</code>を持つ要素内の表示されるテキストコンテンツ。</li>
+              <li>ロール<code>switch</code>を持つ要素に設定された<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>の値によって参照される表示されるラベル。</li>
+              <li>ロール<code>switch</code>を持つ要素に設定された<a href="#aria-label" class="property-reference">aria-label</a>。</li>
             </ul>
           </li>
-          <li>When <code>on</code>, the switch element has state <a href="#aria-checked" class="state-reference">aria-checked</a> set to <code>true</code>.</li>
-          <li>When <code>off</code>, the switch element has state <a href="#aria-checked" class="state-reference">aria-checked</a> set to <code>false</code>.</li>
-          <li>If the switch element is an HTML <code>input[type="checkbox"]</code>, it uses the HTML <code>checked</code> attribute instead of the <code>aria-checked</code> property.</li>
+          <li>スイッチ要素が<code>オン</code>の時、<a href="#aria-checked" class="state-reference">aria-checked</a>のステートは<code>true</code>に設定されています。</li>
+          <li>スイッチ要素が<code>オフ</code>の時、<a href="#aria-checked" class="state-reference">aria-checked</a>のステートは<code>false</code>に設定されています。</li>
+          <li>スイッチ要素がHTML <code>input[type="checkbox"]</code>の場合、<code>aria-checked</code>プロパティの代わりにHTMLの<code>checked</code>属性を使用します。</li>
           <li>
-            If a set of switches is presented as a logical group with a visible label, either:
+            スイッチのセットが表示されるラベルを持つ論理的なグループとして提供される場合、次のいずれか:
             <ul>
-              <li>The switches are included in an element with role <a href="#group" class="role-reference">group</a> that has the property <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> set to the ID of the element containing the group label.</li>
-              <li>The set is contained in an HTML <code>fieldset</code> and the label for the set is contained in an HTML <code>legend</code> element.</li>
+              <li>スイッチはグループのラベルを含む要素のIDに設定された<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>プロパティを持つ<a href="#group" class="role-reference">group</a>のロールを持つ要素に含まれています。</li>
+              <li>セットはHTMLの<code>fieldset</code>内にあり、セットのラベルはHTMLの<code>legend</code>要素に含まれています。</li>
             </ul>
           </li>
-          <li>If the presentation includes additional descriptive static text relevant to a switch or switch group, the switch or switch group has the property <a href="#aria-describedby" class="property-reference">aria-describedby</a> set to the ID of the element containing the description.</li>
+          <li>プレゼンテーションがスイッチ又はスイッチグループに関連する追加の記述的な静的テキストを含む場合、スイッチ又はスイッチグループは説明を含む要素のIDに設定された<a href="#aria-describedby" class="property-reference">aria-describedby</a>プロパティを持っています。</li>
         </ul>
       </section>
     </main>
