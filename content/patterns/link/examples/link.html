@@ -31,12 +31,10 @@
       <section>
         <h2>この例について</h2>
         <p>
-          下記の例は、<a href="../link-pattern.html">リンクパターン</a>の三つのバリエーションを示しています。
-          リンクの振る舞いを持たせるために、HTMLの<code>a</code>要素以外の要素を使用する必要がある場合に、リンクパターンを使用します。
+          下記の例は、<a href="../link-pattern.html">リンクパターン</a>の三つのバリエーションをデモンストレーションするものです。HTMLの <code>a</code> 以外の要素に対して、リンクの振る舞いを持たせる必要がある場合に、このリンクパターンは用いられます。
         </p>
         <p>
-          <strong>注:</strong> 可能な限りHTMLの<code>a</code>要素を使用してリンクを作成してください。
-          ブラウザは、例えば新しいウィンドウでターゲットを開く、システムのクリップボードにターゲットURLをコピーするなど、ネイティブHTMLリンクのための貴重な機能を提供します。
+          <strong>注記:</strong> 可能な限り HTML の <code>a</code> 要素を使用してリンクを作成してください。ブラウザは、ネイティブな HTML のリンクに対して、例えばリンク先を新しいウィンドウで開く、システムのクリップボードにリンク先 URL をコピーする、といった価値のある機能を提供します。
         </p>
       </section>
 
@@ -56,16 +54,16 @@
               <th>
                 <div class="example-header"><span id="ex1_label">1</span></div>
               </th>
-              <td>テキストコンテンツを持つ<code>span</code>要素。</td>
+              <td>テキストコンテンツを持つ <code>span</code> 要素。</td>
               <td id="ex1">
-                <span tabindex="0" role="link" onclick="goToLink(event, 'https://www.w3.org/')" onkeydown="goToLink(event, 'https://www.w3.org/')"> W3C website </span>
+                <span tabindex="0" role="link" onclick="goToLink(event, 'https://www.w3.org/')" onkeydown="goToLink(event, 'https://www.w3.org/')"> W3C website</span>
               </td>
             </tr>
             <tr>
               <th>
                 <div class="example-header"><span id="ex2_label">2</span></div>
               </th>
-              <td><code>alt</code>属性を持つ<code>img</code>要素。</td>
+              <td><code>alt</code> 属性を持つ <code>img</code> 要素。</td>
               <td id="ex2">
                 <img tabindex="0" role="link" onclick="goToLink(event, 'https://www.w3.org/')" onkeydown="goToLink(event, 'https://www.w3.org/')" src="images/w3c-logo.svg" alt="W3C Website">
               </td>
@@ -74,7 +72,7 @@
               <th>
                 <div class="example-header"><span id="ex3_label">3</span></div>
               </th>
-              <td><code>span</code>要素上のCSS <code>:before</code>コンテンツプロパティ。</td>
+              <td><code>span</code> 要素に対する CSS <code>:before</code> の content プロパティ。</td>
               <td id="ex3">
                 <span tabindex="0" role="link" class="link3" onclick="goToLink(event, 'https://www.w3.org/TR/wai-aria-practices/')" onkeydown="goToLink(event, 'https://www.w3.org/TR/wai-aria-practices/')" aria-label="W3C website"></span>
               </td>
@@ -120,8 +118,8 @@
               <td><code>span</code><br><code>img</code></td>
               <td>
                 <ul>
-                  <li>例 1 及び 3: <code>span</code>要素を<code>link</code>として特定する。</li>
-                  <li>例 2: <code>img</code>要素を<code>link</code>として特定する。</li>
+                  <li>例 1 及び 3: <code>span</code> 要素を <code>link</code> として特定する。</li>
+                  <li>例 2: <code>img</code> 要素を <code>link</code> として特定する。</li>
                 </ul>
               </td>
             </tr>
@@ -135,13 +133,13 @@
               <td></td>
               <th scope="row"><code>alt</code></th>
               <td><code>img</code></td>
-              <td>例 2: リンクのアクセス可能な名前を定義する。</td>
+              <td>例 2: リンクの、アクセシブルな名前を定義する。</td>
             </tr>
             <tr data-test-id="aria-label">
               <td></td>
               <th scope="row"><code>aria-label</code></th>
               <td><code>span</code></td>
-              <td>例 3: リンクのアクセス可能な名前を定義する。</td>
+              <td>例 3: リンクの、アクセシブルな名前を定義する。</td>
             </tr>
           </tbody>
         </table>
@@ -159,7 +157,7 @@
       </section>
 
       <section>
-        <h2>JavaScript及びCSSソースコード</h2>
+        <h2>JavaScript 及び CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>
             CSS:
@@ -173,7 +171,7 @@
       </section>
 
       <section>
-        <h2>HTMLソースコード</h2>
+        <h2>HTML ソースコード</h2>
         <h3 id="sc1_label">リンク 1</h3>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="開始"></div>
         <pre><code id="sc1"></code></pre>
