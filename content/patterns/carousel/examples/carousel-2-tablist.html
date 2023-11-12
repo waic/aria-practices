@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>スライド制御のタブを持つ自動回転イメージカルーセルの例</title>
+    <title>スライドコントロールのタブを持つ自動回転画像カルーセルの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -20,26 +20,26 @@
   <body>
     <nav aria-label="関連リンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/10">関連するIssues</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/10">Related Issues</a></li>
         <li><a href="../carousel-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
-      <h1>スライド制御のタブを持つ自動回転イメージカルーセルの例</h1>
+      <h1>スライドコントロールのタブを持つ自動回転画像カルーセルの例</h1>
       <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section>
         <h2>この例について</h2>
         <p>
           以下の<a href="../carousel-pattern.html">カルーセルパターン</a>の実装例は、ページの読み込み時に自動的に回転を開始するカルーセルのアクセシビリティに不可欠なパターンの特徴を示しています。
-          この例は、シーケンス内のスライドをスキップして直接表示するスライドを選択する方法として、<a href="../../tabs/tabs-pattern.html">タブパターン</a>の使用方法も示しています。
+          この例は、シーケンス内のスライドをスキップして直接表示するスライドを選択する方法として、<a href="../../tabs/tabs-pattern.html">タブパターン</a>を利用する方法を示しています。
           スライド間のナビゲーションは、タブとして機能する一連の円形のボタンによって提供され、回転するスライドの上にレンダリングされます。
-          ユーザーがカルーセル内の任意のコントロールやリンクにフォーカスを移動するか、カルーセルのコンテンツの上にマウスをホバーすると、自動回転が停止します。
-          このデザインの詳細を説明するアクセシビリティ機能のセクションが、例の後に続きます。
+          利用者がカルーセル内の任意のコントロールやリンクにフォーカスを移動するか、カルーセルのコンテンツの上にマウスをホバーすると、自動回転が停止します。
+          例の後に続くアクセシビリティの特徴のセクションでは、これらデザインの側面を詳しく説明しています。
         </p>
         <p>類似の例には以下があります：</p>
         <ul>
-          <li><a href="carousel-1-prev-next.html">スライド制御のボタンを持つ自動回転イメージカルーセル:</a> ページの読み込み時に自動的に回転するカルーセルの必要なアクセシビリティ機能を示す基本的なイメージカルーセルで、前のスライドと次のスライドのボタンで表示するスライドを選択することができます。</li>
+          <li><a href="carousel-1-prev-next.html">スライドコントロールのボタンを持つ自動回転画像カルーセル:</a> ページの読み込み時に自動的に回転するカルーセルに必要なアクセシビリティ機能を示す基本的な画像カルーセルで、前のスライドと次のスライドのボタンで表示するスライドを選択することができます。</li>
         </ul>
       </section>
 
@@ -53,25 +53,25 @@
             <input type="checkbox" id="accessible-controls" value="moreaccessible" aria-describedby="accessible-controls-desc">
             画像の外にコントロールとキャプションを表示
           </label>
-          <p id="accessible-controls-desc">このオプションは、コントロールとキャプションを画像内にレンダリングするよりもアクセシブルであり、コントロールが認識しやすく、回転する画像の背後にないキャプションが読みやすくなります。</p>
+          <p id="accessible-controls-desc">このオプションは、コントロールとキャプションを画像内にレンダリングするよりもアクセシブルです。なぜなら、コントロールは知覚しやすく、背後に回転する画像がなくキャプションは読みやすくなるからです。</p>
 
           <label for="rotation-paused">
             <input type="checkbox" id="rotation-paused" value="paused" aria-describedby="rotation-paused-desc">
-            読み込み時に自動回転を一時停止 (<a href="javascript:history.go(0)"><img class="reload" src="images/reload-icon.png" alt="">再読み込みが必要</a>)
+            読み込み時に自動回転を一時停止（<a href="javascript:history.go(0)"><img class="reload" src="images/reload-icon.png" alt="">再読み込みが必要</a>）
           </label>
           <p id="rotation-paused-desc">
-            このオプションは、ページの読み込み時にカルーセルが一時停止しているか再生中かを制御します。
-            一時停止オプションは、視覚障害のあるユーザーや自動回転によって気が散ったり混乱したりする人々のアクセシビリティを向上させますが、start/stopボタンを使用して自動回転を開始することができます。
+            このオプションは、ページの読み込み時にカルーセルが一時停止しているか再生しているかを制御します。
+            一時停止オプションは、視覚障害のある利用者や自動回転によって混乱や気を散らされる人々のアクセシビリティを向上させますが、利用者が開始/停止ボタンを使用して自動回転を開始できるようにします。
           </p>
-          <p>注: ユーザーがシステム設定で動きを減少させるオプションを選択している場合、読み込み時に自動回転は常に一時停止します。</p>
+          <p>注記: 利用者がシステムの設定で動きを減少させるオプションを選択している場合、読み込み時に自動回転は常に一時停止されます。</p>
 
           <label for="rotation-disabled">
             <input type="checkbox" id="rotation-disabled" value="norotate" aria-describedby="rotation-disabled-desc">
             自動回転を無効にする
           </label>
           <p id="rotation-disabled-desc">
-            このオプションは、自動回転機能を無効にし、ユーザーインターフェースからstart/stopボタンを削除することで、視覚障害のあるユーザーや自動回転によって気が散ったり混乱したりする人々のアクセシビリティを向上させます。
-            ユーザーはタブリストを使用してスライドを手動でナビゲートすることができます。
+            このオプションは、自動回転機能を無効にし、ユーザーインターフェースから開始/停止ボタンを削除することで、視覚障害のある利用者や自動回転によって混乱や気を散らされる人々のアクセシビリティを向上させます。
+            利用者はタブリストを使用して、手動でスライドをナビゲートできます。
           </p>
         </fieldset>
       </section>
@@ -82,7 +82,7 @@
         </div>
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
         <div id="ex1">
-          <section id="myCarousel" class="carousel-tablist" aria-roledescription="カルーセル" aria-label="注目のテレビ番組">
+          <section id="myCarousel" class="carousel-tablist" aria-roledescription="カルーセル" aria-label="ハイライトされたテレビ番組">
             <div class="carousel-inner">
               <div class="controls">
                 <button class="rotation" type="button">
@@ -147,7 +147,7 @@
               </div>
 
               <div id="myCarousel-items" class="carousel-items playing" aria-live="off">
-                <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="スライド" aria-label="1 / 6">
+                <div class="carousel-item active" id="carousel-item-1" role="tabpanel" aria-roledescription="スライド" aria-label="6枚中の1">
                   <div class="carousel-image">
                     <a href="#" id="carousel-image-1">
                       <img src="images/amsterdamslide__800x600.jpg" alt="アムステルダムでのウォーキングツアー">
@@ -160,17 +160,17 @@
                     </h3>
 
                     <div class="hidden-xs hidden-sm">
-                      <p><span class="contrast">3月3日火曜日 7 pm、テレビで</span></p>
+                      <p><span class="contrast">3月3日火曜日、午後7時、テレビで</span></p>
                     </div>
                   </div>
                   <!-- .carousel-caption -->
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="スライド" aria-label="2 / 6">
+                <div class="carousel-item" id="carousel-item-2" role="tabpanel" aria-roledescription="スライド" aria-label="6枚中の2">
                   <div class="carousel-image">
                     <a href="#" id="carousel-image-2">
-                      <img src="images/lands-endslide__800x600.jpg" alt="コーンウォールのランドエンド">
+                      <img src="images/lands-endslide__800x600.jpg" alt="コーンウォールのLand's End">
                     </a>
                   </div>
 
@@ -180,17 +180,17 @@
                     </h3>
 
                     <div>
-                      <p><span class="contrast">9月14日から9月24日または27日まで</span></p>
+                      <p><span class="contrast">9月14日から9月24日又は27日まで</span></p>
                     </div>
                   </div>
                   <!-- .carousel-caption -->
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="スライド" aria-label="3 / 6">
+                <div class="carousel-item" id="carousel-item-3" role="tabpanel" aria-roledescription="スライド" aria-label="6枚中の3">
                   <div class="carousel-image">
                     <a href="#!" id="carousel-image-3">
-                      <img src="images/trustslide-2__800x600.jpg" alt="母と娘がノートパソコンでダニエルタイガーゲームをプレイ。">
+                      <img src="images/trustslide-2__800x600.jpg" alt="母と娘がノートパソコンでダニエルタイガーゲームをプレイ">
                     </a>
                   </div>
 
@@ -205,27 +205,27 @@
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="スライド" aria-label="4 / 6">
+                <div class="carousel-item" id="carousel-item-4" role="tabpanel" aria-roledescription="スライド" aria-label="6枚中の4">
                   <div class="carousel-image">
                     <a href="#" id="carousel-image-4">
-                      <img src="images/foyleswarslide__800x600.jpg" alt="スーツとフェドラ帽をかぶった男と、髪を整えた女がカメラを真剣に見つめている。">
+                      <img src="images/foyleswarslide__800x600.jpg" alt="スーツとフェドラ帽をかぶった男と、髪を整えた女がカメラを厳しく見つめている。">
                     </a>
                   </div>
 
                   <div class="carousel-caption">
                     <h3>
-                      <a href="#"> フォイルの戦争再訪 </a>
+                      <a href="#"> Foyleの戦争再訪 </a>
                     </h3>
 
                     <div>
-                      <p><span class="contrast">3月8日日曜日 8 pm、テレビで: 最終シーズンの先行公開。</span></p>
+                      <p><span class="contrast">3月8日日曜日、午後8時、テレビで: 最終シーズンの先行上映。</span></p>
                     </div>
                   </div>
                   <!-- .carousel-caption -->
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="スライド" aria-label="5 / 6">
+                <div class="carousel-item" id="carousel-item-5" role="tabpanel" aria-roledescription="スライド" aria-label="6枚中の5">
                   <div class="carousel-image">
                     <a href="#" id="carousel-image-5">
                       <img src="images/britcomdavidslide__800x600.jpg" alt="WILL-TVのホスト、デビッド・シールとともに英国の旗。">
@@ -234,7 +234,7 @@
 
                   <div class="carousel-caption">
                     <h3>
-                      <a href="#"> グレートブリテン投票: 土曜日 7 pm </a>
+                      <a href="#"> グレートブリテン投票: 土曜日午後7時 </a>
                     </h3>
 
                     <div></div>
@@ -243,20 +243,20 @@
                 </div>
                 <!-- .item -->
 
-                <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="スライド" aria-label="6 / 6">
+                <div class="carousel-item" id="carousel-item-6" role="tabpanel" aria-roledescription="スライド" aria-label="6枚中の6">
                   <div class="carousel-image">
                     <a href="#" id="carousel-image-6">
-                      <img src="images/mag800-2__800x600.jpg" alt="Mid-American Gardenerのパネリストがセットに">
+                      <img src="images/mag800-2__800x600.jpg" alt="セットでのMid-American Gardenerのパネリスト">
                     </a>
                   </div>
 
                   <div class="carousel-caption">
                     <h3>
-                      <a href="#"> ミッドアメリカンガーデナー: 木曜日 7 pm </a>
+                      <a href="#"> Mid-American Gardener: 木曜日午後7時 </a>
                     </h3>
 
                     <div class="hidden-xs hidden-sm">
-                      <p><span class="contrast">最新のエピソードをご覧ください。</span></p>
+                      <p><span class="contrast">最新のエピソードを見る。</span></p>
                     </div>
                   </div>
                   <!-- .carousel-caption -->
@@ -277,72 +277,73 @@
         <h2>アクセシビリティ機能</h2>
         <h3>自動スライド回転の制御</h3>
         <p>
-          ユーザーはスライドの回転を停止および開始することができ、これはさまざまな障害を持つ人々のカルーセルのアクセシビリティの重要な側面です。
-          視覚的な処理や読書に影響を与える認知障害を持つ低視力者や人々は、スライドの内容を探索するのに十分な時間を持つためにスライドの回転を制御できることで利益を得ることができます。
-          同様に、スクリーンリーダーのユーザーが自動回転を知覚できないため、ページの読み取りが混乱しやすくなります。
-          例えば、スライドが自動的に回転している場合、スクリーンリーダーのユーザーはスライド1の要素を読み、次の要素を読むためのスクリーンリーダーコマンドを実行するかもしれません。そして、スライド1の次の要素を聞く代わりに、完全に新しいコンテキストからの要素を知らずにスライド2からの要素を聞くことになります。
+          利用者はスライドの回転を停止及び開始することができます。これは、障害を持つ様々な人々にとって、カルーセルのアクセシビリティの不可欠な側面です。
+          ロービジョンや、視覚処理や読解に影響を及ぼす認知障害のある人にとって、スライドの回転を制御できることは、スライドの内容を探索するのに十分な時間を確保できることになり、利益を得られます。
+          同様に、スクリーンリーダーの利用者は自動的な回転を知覚できないため、ページを読むことが混乱しやすく、方向感を失わせることがあります。
+          例えば、スライドが自動的に回転しているとき、スクリーンリーダーの利用者はスライド 1 の要素を読んで、次の要素を読むためのスクリーンリーダーのコマンドを実行するかもしれませんが、スライド 1 の次の要素を聞く代わりに、完全に新しいコンテキストからの要素であるスライド 2 の要素を聞くことになり得ます。
         </p>
-        <p>この例には、ユーザーがスライドの回転を制御するための以下の機能が含まれています:</p>
+        <p>この例には、利用者がスライドの回転を制御するための以下の機能が含まれています:</p>
         <ul>
-          <li>オペレーティングシステムの設定が動きの減少またはアニメーションの無効化に設定されている場合、自動回転は初めて一時停止されます。</li>
+          <li>オペレーティングシステムの設定が動きの減少やアニメーションの無効化に設定されている場合、自動回転は初めから一時停止されます。</li>
           <li>
-            カルーセルの任意のコンテンツにマウスをホバーすると、自動回転が一時停止します。
-            キーボードフォーカスなど、回転を防ぐ別の条件がトリガーされていない限り、マウスがカルーセルから移動すると自動回転が再開されます。
+            カルーセルのいずれかのコンテンツにマウスをホバーすると、自動回転が一時停止します。
+            マウスがカルーセルから移動すると、キーボードのフォーカスなど、回転を防ぐ別の条件がトリガーされていない限り、自動回転が再開されます。
           </li>
           <li>
-            タブ要素を含むカルーセルの任意のコンテンツにキーボードフォーカスを移動すると、自動回転が一時停止します。
-            ユーザーが明示的に<q>再生</q>ボタンをアクティブにしない限り、自動回転は再開されません。
+            キーボードのフォーカスをカルーセルの任意のコンテンツ (タブの要素を含む) に移動すると、自動回転が一時停止します。
+            利用者が明示的に<q>再生</q>ボタンを押下したときのみ、自動回転が再開されます。
           </li>
           <li>
-            カルーセルには、自動回転を停止および開始できる回転制御ボタンも含まれています。
+            カルーセルには、自動回転を停止及び再開することができる回転制御ボタンも含まれています。
             <ul>
-              <li>回転制御ボタンは、スクリーンリーダーの読み取り順序の最初の要素です。</li>
-              <li>回転制御ボタンは常に表示されているため、マウス、キーボード、補助技術、またはタッチを介して対話しているすべてのユーザーに利用可能です。</li>
-              <li>カルーセルが回転している場合、ボタンのアクセス可能な名前は<q>自動スライドショーを停止</q>となり、スライドが変更されていることをスクリーンリーダーユーザーに通知するとともに、変更を停止する方法を提供します。</li>
-              <li>カルーセルが回転していない場合、ボタンのアクセス可能な名前は<q>自動スライドショーを開始</q>となります。</li>
-              <li>ユーザーが回転制御ボタンをアクティブにして回転を開始する場合、ユーザーが自動回転をすぐに開始したいと考えていると仮定され、カルーセル内のフォーカスまたはホバー状態は無視されます。回転は、ボタンが再びアクティブにされる場合を除いて、停止することはありません。</li>
+              <li>回転制御ボタンは、スクリーンリーダーの読み取り順序で最初の要素です。</li>
+              <li>回転制御ボタンは常に表示されているため、マウス、キーボード、支援技術、又はタッチを介して操作しているすべての利用者に利用できます。</li>
+              <li>カルーセルが回転している場合、ボタンのアクセシブルな名前は<q>自動スライドショーを停止</q>となり、スライドが変更されていることをスクリーンリーダー利用者に通知するとともに、変更を停止する方法を提供します。</li>
+              <li>カルーセルが回転していない場合、ボタンのアクセシブルな名前は<q>自動スライドショーを開始</q>となります。</li>
+              <li>利用者が回転制御ボタンを活性化して回転を開始する場合、利用者が自動回転をすぐに開始したいと考えていると想定され、カルーセル内のフォーカス又はホバーの状態は無視されます。回転は、再び回転制御ボタンが押下されるまで停止することはありません。
+              </li>
             </ul>
           </li>
           <li>
             この例には、自動スライド回転を完全に無効にするオプションが含まれています。
-            このオプションが選択されると、開始/停止ボタンはレンダリングされず、スライドはタブコントロールのアクティベーションを通じてのみ回転できます。
+            このオプションが選択されると、開始/停止ボタンはレンダリングされず、スライドはタブコントロールの活性化を通じてのみ回転することができます。
           </li>
         </ul>
-        <h3>テキストと回転コントロールのカラーコントラスト</h3>
+        <h3>テキストと回転制御の色のコントラスト</h3>
         <p>
-          このカルーセルのビューでコントロールとキャプションが画像内に表示されている場合、背景画像によってコントロールとテキストのカラーコントラストが不十分になる可能性があります。
-          ただし、このビューには、WCAG 2.1のカラーコントラスト要件を満たすための次の機能が含まれています:
+          このカルーセルのビューでは、コントロールとキャプションが画像内に表示されている場合、背景画像によってコントロールとテキストの色のコントラストが不十分になる可能性があります。
+          しかし、このビューには、この潜在的な問題を防ぐための以下の機能が含まれており、WCAG 2.1 の色のコントラスト要件を満たしています:
         </p>
         <ul>
           <li>
-            スライドのレンダリングを制御するタブが画像内にある場合、タブにはWCAG 2.1のカラーコントラスト要件を満たす前景色と背景色があります。
-            さらに、フォーカススタイリングは、コントロールがキーボードフォーカスを受け取るときにフォーカスインジケーターが非常に目立つようにするSVG画像を使用しています。
+            スライドのレンダリングを制御するタブが画像内にある場合、タブには WCAG 2.1 の色のコントラスト要件を満たす前景色と背景色があります。
+            さらに、フォーカスのスタイリングは、コントロールがキーボードのフォーカスを受け取ったときにフォーカスインジケーターが非常に目立つようにする SVG 画像を使用しています。
           </li>
-          <li>キャプションエリアの透明度が減少して、キャプションテキストがWCAG 2.1のカラーコントラスト要件を満たすようになります。</li>
+          <li>キャプションエリアの透明度が減少しているため、キャプションテキストは WCAG 2.1 の色のコントラスト要件を満たしています。</li>
         </ul>
 
         <p>
-          画像内のコントロールとテキストのカラーコントラストの問題を回避する方法の1つは、それらを画像の外に移動することです。
-          コントロールとテキストを固定背景に移動することで、著者がカラーコントラストを制御し、ユーザーがそれらを知覚するのが容易になります。
-          この技術の例は、ビューオプションの1つです。
+          画像内にあるコントロールとテキストの色のコントラストの問題を回避する一つの方法は、コントロールを画像の外に配置することです。
+          コントロールとテキストを固定背景上に移動にすることで、著者には色のコントラストを制御するのが、利用者にはそれを知覚するのが簡単になります。
+          このテクニックの一例はビューオプションのうちのひとつです。
         </p>
 
-        <h3>TablistとTabsのフォーカススタイリング</h3>
+        <h3>タブリストとタブのフォーカススタイリング</h3>
         <ul>
-          <li>タブがフォーカスを受け取ると、タブリスト全体もボーダーでハイライトされ、ユーザーにグループ内のコントロール間を移動するために矢印キーが使用されることを示す手がかりが提供されます。</li>
-          <li>フォーカススタイリングに使用されるCSSボーダーの幅は、コントロールがフォーカスを受け取るときに0ピクセルから2ピクセルに変更され、オペレーティングシステムの高コントラストオプションが有効になっているときにフォーカスの可視性をサポートします。</li>
+          <li>タブがフォーカスを受け取ると、タブリスト全体もボーダーでハイライトされ、利用者にグループ内のコントロール間を移動するために矢印キーが使用されることを示す手がかりが提供されます。</li>
+          <li>フォーカススタイリングに使用される CSS ボーダーの幅は、コントロールがフォーカスを受け取るときに0ピクセルから2ピクセルに変更され、オペレーティングシステムの高コントラストオプションが有効になっているときのフォーカスの可視性をサポートします。</li>
         </ul>
-        <h3>スライド変更のスクリーンリーダーのアナウンスメント</h3>
+        <h3>スライドの変更のスクリーンリーダーの読み上げ</h3>
         <p>
-          自動回転がオフになっている場合、カルーセルスライドのコンテンツはライブリージョンに含まれています。
-          これにより、スクリーンリーダーのユーザーがカルーセルのスライドをスキャンするのが容易になります。
-          スクリーンリーダーのユーザーが新しいタブをアクティブにすると、新しいスライドのコンテンツがアナウンスされ、ユーザーがコンテンツと対話するかどうかを判断するための即時のフィードバックが提供されます。
-          非常に重要なことに、自動回転がオンになっている場合、ライブリージョンは無効になります。
-          そうでなければ、継続的に変更されるコンテンツのアナウンスメントがユーザーが読んでいる他のものを常に中断するため、ページは使用できなくなります。
+          自動回転がオフになっている場合、カルーセルのスライドコンテンツはライブリージョンに含まれています。
+          これにより、スクリーンリーダーの利用者がカルーセルのスライドをスキャンするのが簡単になります。
+          スクリーンリーダーの利用者が新しいタブを押下すると、新しいスライドのコンテンツが読み上げられ、コンテンツを操作するかどうかを判断するための即時のフィードバックが与えられます。
+          非常に重要なことに、自動回転がオンになっている場合、ライブリージョンは無効になっています。
+          そうでなければ、継続的に変更されるコンテンツの読み上げが利用者が読んでいる他のものを毎回中断するため、ページが使用できなくなります。
         </p>
         <p>
-          タブパネルをライブにすることは、典型的なタブの場合には推奨されません。
-          主な目的がコンテンツのクイックで軽量なスキャンであるカルーセルの使用ケースでは、ライブリージョンは、非スクリーンリーダーユーザーが自動回転で持っているタイプの経験をシミュレートするために使用されます。
+          注記: 通常のタブにおいては、タブパネルをライブ領域にすることは推奨されません。
+          カルーセルの使用例では、コンテンツの迅速かつ軽量なスキャンが主な目的であるため、ライブ領域は自動回転を有する非スクリーンリーダー利用者の体験を模倣するために使用されます。
         </p>
       </section>
 
@@ -363,12 +364,12 @@
                 <td>
                   <ul>
                     <li>カルーセル内のインタラクティブな要素を通してフォーカスを移動します。</li>
-                    <li>回転制御ボタンとタブリストは、<kbd>Tab</kbd>の順序でスライドコンテンツの前に来ます。</li>
+                    <li>回転制御ボタンとタブリストは、<kbd>Tab</kbd> の順序でスライドの内容よりも先に来ます。</li>
                   </ul>
                 </td>
               </tr>
               <tr data-test-id="rotation-enter-or-space-toggle">
-                <th><kbd>Enter</kbd> または <kbd>Space</kbd></th>
+                <th><kbd>Enter</kbd> 又は <kbd>Space</kbd></th>
                 <td>カルーセル内のスライドの自動回転を切り替えます。</td>
               </tr>
             </tbody>
@@ -389,8 +390,8 @@
                 <th><kbd>Tab</kbd></th>
                 <td>
                   <ul>
-                    <li>フォーカスが<code>tablist</code>に移動すると、アクティブな<code>tab</code>要素にフォーカスを置きます。カルーセル内の各スライドは<code>tab</code>によって制御されます。</li>
-                    <li>タブリストがフォーカスを持っている場合、現在表示されているスライドのリンクである<kbd>tab</kbd>の順序で次の要素にフォーカスを移動します。</li>
+                    <li>フォーカスが <code>tablist</code> に移動すると、アクティブな <code>tab</code> 要素にフォーカスを置きます。カルーセル内の各スライドは <code>tab</code> によって制御されます。</li>
+                    <li>タブリストがフォーカスを持っている場合、<kbd>tab</kbd> シーケンスにおける次の要素にフォーカスを移動します。それは現在表示されているスライド内のリンクです。</li>
                   </ul>
                 </td>
               </tr>
@@ -428,7 +429,7 @@
       </section>
 
       <section>
-        <h2 id="rps_label">ロール、プロパティ、ステート、およびtabindex属性</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <section>
           <h3 id="rps_label_1">回転制御</h3>
           <table aria-labelledby="rps_label_1 rps_label" class="data attributes">
@@ -450,7 +451,7 @@
                   <code>button</code>
                 </td>
                 <td>
-                  アクセス可能な名前は、ボタンが実行するアクションを反映して変更されます：
+                  アクセス可能な名前は、ボタンが実行するアクションを反映して変更されます:
                   <ul>
                     <li>自動回転が一時停止している場合、ラベルは「自動スライドショーを開始」です。</li>
                     <li>カルーセルが自動的に回転している場合、ラベルは「自動スライドショーを停止」です。</li>
@@ -473,14 +474,14 @@
             </thead>
             <tbody>
               <tr data-test-id="test-not-required">
-                <th scope="row">暗黙の<code>region</code>ロール</th>
+                <th scope="row">暗黙の <code>region</code> ロール</th>
                 <td></td>
                 <td>
                   <code>section</code>
                 </td>
                 <td>
                   <ul>
-                    <li>アクセス可能な名前がある任意の<code>section</code>要素には<code>region</code>ロールが暗黙的に適用されます。</li>
+                    <li>アクセス可能な名前を持つ任意の <code>section</code> 要素には <code>region</code> ロールが暗示れます。</li>
                     <li>カルーセルとそのコントロールをランドマーク領域として定義します。</li>
                   </ul>
                 </td>
@@ -488,23 +489,23 @@
               <tr data-test-id="carousel-region-aria-roledescription">
                 <td></td>
                 <th scope="row">
-                  <code>aria-roledescription="carousel"</code>
+                  <code>aria-roledescription="カルーセル"</code>
                 </th>
                 <td>
                   <code>section</code>
                 </td>
                 <td>
                   <ul>
-                    <li>要素を「領域」としてではなく「カルーセル」として識別するように支援技術に通知します。</li>
+                    <li>要素を「region」ではなく「カルーセル」として識別するように支援技術に知らせます。</li>
                     <li>ランドマーク領域への移動のような機能には影響せず、支援技術がロールをどのようにレンダリングするかに影響します。</li>
-                    <li>注: <code>aria-roledescription</code>の値はページの言語を使用して定義され、著者によってローカライズされる必要があります。</li>
+                    <li>注記: <code>aria-roledescription</code>の値はページの言語を使用して明示され、著者によってローカライズされる必要があります。</li>
                   </ul>
                 </td>
               </tr>
               <tr data-test-id="carousel-region-aria-label">
                 <td></td>
                 <th scope="row">
-                  <code>aria-label="注目のテレビ番組"</code>
+                  <code>aria-label="ハイライトされたテレビ番組"</code>
                 </th>
                 <td>
                   <code>section</code>
@@ -522,8 +523,8 @@
                 <td>
                   <ul>
                     <li>すべてのスライドを含む<code>div</code>要素に適用されます。</li>
-                    <li>コンテナを「off」状態のライブ領域として識別し、領域の変更が自動的に通知されないことを意味します。</li>
-                    <li>カルーセルが自動的に回転している場合、ライブ領域はオフになります。</li>
+                    <li>コンテナ要素を「off」状態のライブ領域として特定し、支援技術の利用者は領域の変更について通知されません。</li>
+                    <li>カルーセルが自動的に回転しているとき、ライブ領域はオフになります。</li>
                   </ul>
                 </td>
               </tr>
@@ -538,8 +539,8 @@
                 <td>
                   <ul>
                     <li>すべてのスライドを含む<code>div</code>要素に適用されます。</li>
-                    <li>コンテナ要素を「polite」状態のライブ領域として識別し、次の利用可能な機会に領域の変更が通知されることを意味します。</li>
-                    <li>関連するタブがアクティブになると、スクリーンリーダーが自動的にスライドの内容をアナウンスします。</li>
+                    <li>コンテナ要素を「polite」状態のライブ領域として特定し、支援技術の利用者は次の利用可能な機会に領域の変更について通知されます。</li>
+                    <li>これにより、対応するタブが選択されたときにスクリーンリーダーが自動的にスライドの内容を読み上げます。</li>
                   </ul>
                 </td>
               </tr>
@@ -574,7 +575,7 @@
                 <td>
                   <ul>
                     <li>要素がタブ制御として機能することを示します。</li>
-                    <li>フォーカスが当たると、自動的にアクティブになり、関連する<code>tabpanel</code>（すなわち、スライド）が表示されます。</li>
+                    <li>フォーカスが当たると、自動的にアクティブになり、関連する <code>tabpanel</code>（すなわちスライド）が表示されます。</li>
                   </ul>
                 </td>
               </tr>
@@ -613,7 +614,7 @@
                 </td>
                 <td>
                   <ul>
-                    <li>タブ制御がアクティブでなく、関連するパネルが<strong>表示されていない</strong>ことを示します。</li>
+                    <li>タブ制御がアクティブでなく、関連するパネルが表示されて<strong>いない</strong>ことを示します。</li>
                     <li>現在表示されているスライドに関連するタブを除く、タブセット内のすべてのタブ要素に設定されます。</li>
                   </ul>
                 </td>
@@ -628,12 +629,12 @@
                 </td>
                 <td>
                   <ul>
-                    <li>要素をページの<kbd>Tab</kbd>順序から削除します。</li>
-                    <li>選択されていないタブに設定され、ページの<kbd>Tab</kbd>順序に選択されたタブのみが含まれるようにします。</li>
-                    <li>タブ要素がHTMLの<code>button</code>であるため、タブが選択（アクティブ）されたときにはtabindex属性が削除され、<code>tabindex="0"</code>に設定するのではなく。</li>
+                    <li>要素をページの <kbd>Tab</kbd> 順序から削除します。</li>
+                    <li>選択されていないタブに設定され、ページの <kbd>Tab</kbd> 順序には選択されたタブのみが含まれるようにします。</li>
+                    <li>タブ要素は HTML の <code>button</code> であるため、タブが選択 (アクティブに) されたときには <code>tabindex="0"</code> に設定するのではなく、tabindex 属性が削除されます。</li>
                     <li>
                       このフォーカスの管理方法は、
-                      <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">Roving tabindexを使用したコンポーネント内のフォーカスの管理</a>
+                      <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">Roving tabindex を使用したコンポーネント内のフォーカスの管理</a>
                       のセクションで説明されています。
                     </li>
                   </ul>
@@ -647,7 +648,7 @@
                 <td>
                   <code>button</code>
                 </td>
-                <td>タブに関連する<code>tabpanel</code>要素を参照します。</td>
+                <td>タブに関連する <code>tabpanel</code> 要素を参照します。</td>
               </tr>
               <tr data-test-id="tabpanel-role">
                 <th scope="row">
@@ -659,31 +660,31 @@
                 </td>
                 <td>
                   <ul>
-                    <li>要素が、関連するタブ要素によって制御される<code>tabpanel</code>として機能することを示します。</li>
-                    <li>関連する<code>tab</code>制御がアクティブでない限り、非表示になります。</li>
+                    <li>要素が、関連するタブ要素によって制御される <code>tabpanel</code> として機能することを示します。</li>
+                    <li>関連する <code>tab</code> 制御がアクティブでない限り、非表示になります。</li>
                   </ul>
                 </td>
               </tr>
               <tr data-test-id="tabpanel-roledescription">
                 <td></td>
                 <th scope="row">
-                  <code>aria-roledescription="slide"</code>
+                  <code>aria-roledescription="スライド"</code>
                 </th>
                 <td>
                   <code>div</code>
                 </td>
                 <td>
                   <ul>
-                    <li>要素を「tabpanel」としてではなく「slide」として識別するように支援技術に通知します。</li>
+                    <li>要素を「tabpanel」としてではなく「スライド」として識別するように支援技術に知らせます。</li>
                     <li>支援技術の機能には影響せず、支援技術がロールをどのようにレンダリングするかに影響します。</li>
-                    <li>注: <code>aria-roledescription</code>の値はページの言語を使用して定義され、著者によってローカライズされる必要があります。</li>
+                    <li>注記: <code>aria-roledescription</code> の値はページの言語を使用して明示され、著者によってローカライズされる必要があります。</li>
                   </ul>
                 </td>
               </tr>
               <tr data-test-id="tabpanel-aria-label">
                 <td></td>
                 <th scope="row">
-                  <code>aria-label="X of Y"</code>
+                  <code>aria-label="Y枚中のX"</code>
                 </th>
                 <td>
                   <code>div</code>
@@ -691,7 +692,7 @@
                 <td>
                   <ul>
                     <li>スライドのセット内でのスライドの位置を示すタブパネル（スライド）のアクセス可能な名前を提供します。</li>
-                    <li><code>aria-roledescription</code>と組み合わせると、スクリーンリーダーはタブパネルをその位置でアナウンスすることができます。例:「スライド1 of 6」。</li>
+                    <li><code>aria-roledescription</code> と組み合わせると、スクリーンリーダーはタブパネルをスライドとして、位置も含めて読み上げることができます。例:「スライド 6枚中の1」。</li>
                   </ul>
                 </td>
               </tr>
@@ -701,7 +702,7 @@
       </section>
 
       <section>
-        <h2>JavaScriptおよびCSSのソースコード</h2>
+        <h2>JavaScript 及び CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/carousel-tablist.css" type="text/css">carousel-tablist.css</a></li>
           <li>Javascript: <a href="js/carousel-tablist.js" type="text/javascript">carousel-tablist.js</a></li>
@@ -709,7 +710,7 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTMLのソースコード</h2>
+        <h2 id="sc1_label">HTML ソースコード</h2>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
         <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
