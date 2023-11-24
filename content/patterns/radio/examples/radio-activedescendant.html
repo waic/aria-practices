@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>aria-activedescendantを使用したラジオグループの例</title>
+    <title>aria-activedescendant を使用したラジオグループの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -25,19 +25,18 @@
       </ul>
     </nav>
     <main>
-      <h1>aria-activedescendantを使用したラジオグループの例</h1>
+      <h1>aria-activedescendant を使用したラジオグループの例</h1>
       <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section>
         <h2>この例について</h2>
         <p>
-          この例は、ピザのクラストを選ぶためのラジオグループと、配達方法を選ぶためのもう一つのラジオグループの2つのラジオグループに<a href="../radio-group-pattern.html">ラジオグループ パターン</a>の機能を実装しています。
-          この実装では、どのラジオボタンが視覚的にフォーカスされているかを支援技術に知らせるために<code>aria-activedescendant</code>を使用しています。
+          この例では、<a href="../radio-group-pattern.html">ラジオグループ パターン</a>の機能を、二つのラジオグループのために実装しています -- ひとつはピザのクラストを選ぶためで、もうひとつは受け渡しの方法を選ぶためです。この実装では、どのラジオボタンが視覚的にフォーカスされているかを支援技術に伝えるために <code>aria-activedescendant</code> を使用しています。
         </p>
         <p>類似の例には以下があります:</p>
         <ul>
-          <li><a href="radio.html">キーボードフォーカスの管理にroving <code>tabindex</code>を使用するラジオグループの例</a></li>
-          <li><a href="radio-rating.html">五つ星評価尺度の入力を提供するラジオグループの例</a></li>
+          <li><a href="radio.html">「tabindex の移動 (roving tabindex)」を使用したラジオグループの例</a>: キーボードフォーカスを管理するために「tabindex の移動 (roving <code>tabindex</code>)」を使用するラジオボタングループ。</li>
+          <li><a href="radio-rating.html">評価用のラジオグループの例</a>: 五つ星の評価スケールに入力を提供するラジオグループ。</li>
         </ul>
       </section>
 
@@ -47,7 +46,7 @@
         </div>
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
         <div id="ex1">
-          <h3 id="group_label_1">ピザクラスト</h3>
+          <h3 id="group_label_1">ピザのクラスト</h3>
 
           <ul class="radiogroup-activedescendant" role="radiogroup" aria-labelledby="group_label_1" aria-activedescendant="rb11" tabindex="0">
             <li id="rb11" role="radio" aria-checked="false">レギュラークラスト</li>
@@ -55,12 +54,12 @@
             <li id="rb13" role="radio" aria-checked="false">シンクラスト</li>
           </ul>
 
-          <h3 id="group_label_2">ピザ配達</h3>
+          <h3 id="group_label_2">ピザのお受け渡し</h3>
 
           <ul class="radiogroup-activedescendant" role="radiogroup" aria-labelledby="group_label_2" aria-activedescendant="rb21" tabindex="0">
-            <li id="rb21" role="radio" aria-checked="false">ピックアップ</li>
-            <li id="rb22" role="radio" aria-checked="false">ホームデリバリー</li>
-            <li id="rb23" role="radio" aria-checked="false">レストランでの食事</li>
+            <li id="rb21" role="radio" aria-checked="false">お持ち帰り</li>
+            <li id="rb22" role="radio" aria-checked="false">宅配</li>
+            <li id="rb23" role="radio" aria-checked="false">イートイン</li>
           </ul>
         </div>
         <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
@@ -70,38 +69,31 @@
         <h2>アクセシビリティの特徴</h2>
         <ul>
           <li>
-            <code>aria-activedescendant</code>で参照されるラジオボタンは、グラフィカルなレンダリングで見えない場合に表示されます。
-            これは多くの状況で発生しますが、視覚障害のある人がブラウザのズーム機能を使用してコンテンツのサイズを増やす場合が最も一般的です。
+            <code>aria-activedescendant</code> で参照されるラジオボタンは、グラフィカルなレンダリングで視覚的に見えない場合に、スクロールによって見えるようになります。これは多くの状況で生じる可能性がありますが、もっともよくあるのが、視覚障害のある人がブラウザのズーム機能を使用してコンテンツのサイズを拡大している場合です。
           </li>
-          <li><code>aria-checked</code>ステートと視覚的なステートインジケータを同期するためにCSS属性セレクタを使用。</li>
+          <li><code>aria-checked</code> ステートと視覚的な状態表示を同期させるために、CSS の属性セレクタを使用します。</li>
           <li>
-            CSSの<code>:hover</code>及び<code>:focus</code>疑似クラスを使用して、視覚的なキーボードフォーカスとホバーのスタイリングを行います。
+            視覚的なキーボードフォーカス及びホバーのスタイリングに、CSS の <code>:hover</code> 及び <code>:focus</code> 疑似クラスを使用します。
             <ul>
-              <li>フォーカスインジケータはラジオボタン及びラベルの両方を包含し、どのオプションが選ばれているかを認識しやすくします。</li>
-              <li>ホバーはラジオボタン及びラベルの背景を変更し、ラベル又はボタンのいずれかをクリックするとラジオボタンが作動することを認識しやすくします。</li>
-              <li>ラジオボタンの上にマウスを置くと、視覚障害のある人がそれを対話的な要素として識別するのを助けるためにカーソルがポインタに変わります。</li>
+              <li>フォーカスインジケータはラジオボタン及びラベルの両方を囲むため、どのオプションが選ばれているかを、認識しやすくなっています。</li>
+              <li>ホバーはラジオボタン及びラベルの両方の背景を変更するため、ラベルあるいはボタンのいずれをクリックしてもラジオボタンが作動することを、認識しやすくなっています。</li>
+              <li>ラジオボタンの上にホバーすると、カーソルの形状がポインタに変わるため、視覚障害のある人々がそれをインタラクティブな要素であると識別するのに役立ちます。</li>
             </ul>
           </li>
           <li>
-            透明な境界線は、高コントラストが有効なシステムで見えるため、フォーカスされている要素だけが境界線を持っています。
-            フォーカス可能な要素がフォーカスされていない場合、それらは0の幅の境界線と、フォーカスを示すために使用される境界線と同じ幅の追加のパディングを持っています。
+            透明なボーダーは、ハイコントラストが有効になっているシステムの一部で視覚的に見えてしまうことがあるため、フォーカスされた要素にのみ視覚的なボーダーを持たせています。フォーカス可能な要素がフォーカスされていない場合は、その要素に対して幅が 0 のボーダー及び、フォーカスを示すのに使われるボーダーと同じ幅の追加的なパディングを持たせています。
           </li>
           <li>
-            CSSファイル内のインラインSVGラジオボタングラフィックが、高コントラスト設定がテキストコンテンツの色を変更するときに背景と十分なコントラストを持つようにするため、CSSの<code>forced-color-adjust</code>は<code>svg</code>グラフィック上で<code>auto</code>に設定されます。
-            これにより、<code>stroke</code>と<code>fill</code>の円要素の色が高コントラスト色設定によって上書きされます。
-            高コントラスト背景色と<code>circle</code>要素の背景を一致させるために、外側の<code>circle</code>の<code>fill-opacity</code>属性はゼロに設定され、内側の<code>circle</code>の<code>stroke-opacity</code>属性はゼロに設定されます。
-            <code>forced-color-adjust</code>が<code>stroke</code>及び<code>fill</code>プロパティに指定された色を上書きするために使用されなかった場合、これらの色は高コントラストモードで同じままであり、ラジオ円要素と背景との間の不十分なコントラストにつながるか、その色が高コントラストモードの背景と一致して不可視になる可能性があります。<br>
-            注: 一部のブラウザはSVGグラフィックのデフォルト値として<code>auto</code>を使用しないため、<code>forced-color-adjust</code>の明示的な設定が必要です。
+            ハイコントラストの設定によってテキストコンテンツの色が変更されたときに、CSS ファイルの中にあるインライン SVG のラジオボタンのグラフィックが背景と十分なコントラストを持つように、<code>svg</code> のグラフィックにおいて、CSS の <code>forced-color-adjust</code> は <code>auto</code> に設定されています。これにより、<code>circle</code> 要素の <code>stroke</code> 及び <code>fill</code> の色は、ハイコントラストの色設定によって上書きされます。<code>circle</code> 要素の背景をハイコントラスト時の背景色と一致させるために、外側の <code>circle</code> の <code>fill-opacity</code> 属性はゼロに設定され、内側の <code>circle</code> の <code>stroke-opacity</code> 属性もゼロに設定されています。<code>forced-color-adjust</code> が <code>stroke</code> 及び <code>fill</code> 属性で指定された色を上書きするのに用いられない場合、それらの色はハイコントラストモードでも変わらないままとなってしまい、ラジオボタンの circle 要素と背景との間のコントラストが不十分になるか、あるいはそれらの色がハイコントラストモードの背景色と一致する場合、見えなくなる可能性すらあります。<br>
+            注記: <code>forced-color-adjust</code> の明示的な設定は必要です。というのも、一部のブラウザでは SVG のグラフィックにおいて、デフォルト値として <code>auto</code> が用いられないからです。
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="kbd_label">キーボードサポート</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
         <p>
-          <strong>注:</strong> ラジオグループ内のラジオボタンに視覚的なフォーカスがある場合、DOMのフォーカスはラジオグループのコンテナに維持され、ラジオグループ上の<code>aria-activedescendant</code>の値はフォーカスが視覚的に示されているラジオボタンを指します。
-          以下のキーボードコマンドの説明でフォーカスに言及している場合、それは視覚的なフォーカスインジケータを指しており、DOMのフォーカスではありません。
-          このフォーカス管理技術に関する詳細は、<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendantを使用したコンポジットのフォーカス管理</a>を参照してください。
+          <strong>注記:</strong> ラジオグループ内のラジオボタンに視覚的なフォーカスがある場合、DOM のフォーカスはラジオグループのコンテナに維持され、ラジオグループ上の <code>aria-activedescendant</code> の値が、フォーカスされているものとして視覚的に表示されているラジオボタンを指します。以下のキーボードコマンドの説明でフォーカスに言及している場合、それは視覚的なフォーカスインジケータを指しており、DOM のフォーカスではありません。このフォーカス管理のテクニックに関する詳細は、<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">コンポジットにおける aria-activedescendant を使用したフォーカス管理</a>を参照してください。
         </p>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
@@ -115,18 +107,18 @@
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
-                  <li>フォーカスを<code>radiogroup</code>内の選択済みの<code>radio</code>ボタンに移動します。</li>
-                  <li><code>radio</code>ボタンが選択されていない場合、フォーカスはグループの最初の<code>radio</code>ボタンに移動します。</li>
+                  <li><code>radiogroup</code> 内の選択された <code>radio</code> ボタンにフォーカスを移動する。</li>
+                  <li><code>radio</code> ボタンが選択されていない場合、グループ内の最初の <code>radio</code> ボタンにフォーカスを移動する。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="key-space">
-              <th><kbd>Space</kbd></th>
+              <th><kbd>スペース</kbd></th>
               <td>
                 <ul>
-                  <li>フォーカスがある<code>radio</code>ボタンが選択されていない場合、その状態を<code>checked</code>に変更します。</li>
-                  <li>それ以外の場合、何もしません。</li>
-                  <li>注: ラジオが選択されていない状態は、ページの読み込み時にのみ発生します。</li>
+                  <li>フォーカスが当たっている <code>radio</code> ボタンが選択されていない場合、ステートを <code>checked</code> に変更する。</li>
+                  <li>それ以外の場合、何もしない。</li>
+                  <li>注記: ラジオボタンが選択されていない状態は、ページ読み込み時にのみ発生します。</li>
                 </ul>
               </td>
             </tr>
@@ -134,9 +126,9 @@
               <th><kbd>下矢印</kbd><br><kbd>右矢印</kbd></th>
               <td>
                 <ul>
-                  <li>フォーカスを移動し、グループ内の次の<code>radio</code>ボタンを選択します。</li>
-                  <li>フォーカスが最後の<code>radio</code>ボタンにある場合、フォーカスをグループ内の最初の<code>radio</code>ボタンに移動します。</li>
-                  <li>以前に選択されていたラジオボタンの状態は選択解除に変更されます。</li>
+                  <li>グループ内の次の <code>radio</code> ボタンにフォーカスを移動し、選択する。</li>
+                  <li>フォーカスが最後の <code>radio</code> ボタンにある場合、最初の <code>radio</code> ボタンにフォーカスを移動する。</li>
+                  <li>以前に選択されていたラジオボタンのステートは、選択されていない状態に変更される。</li>
                 </ul>
               </td>
             </tr>
@@ -144,9 +136,9 @@
               <th><kbd>上矢印</kbd><br><kbd>左矢印</kbd></th>
               <td>
                 <ul>
-                  <li>フォーカスを移動し、グループ内の前の<code>radio</code>ボタンを選択します。</li>
-                  <li>フォーカスが最初の<code>radio</code>ボタンにある場合、フォーカスを移動し、グループ内の最後の<code>radio</code>ボタンを選択します。</li>
-                  <li>以前に選択されていたラジオボタンの状態は選択解除に変更されます。</li>
+                  <li>グループ内の前の <code>radio</code> ボタンにフォーカスを移動し、選択する。</li>
+                  <li>フォーカスが最初の <code>radio</code> ボタンにある場合、最後の <code>radio</code> ボタンにフォーカスを移動し、選択する。</li>
+                  <li>以前に選択されていたラジオボタンのステートは、選択されていない状態に変更される。</li>
                 </ul>
               </td>
             </tr>
@@ -162,7 +154,7 @@
               <th scope="col">ロール</th>
               <th scope="col">属性</th>
               <th scope="col">要素</th>
-              <th scope="col">使用方法</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -170,7 +162,7 @@
               <th scope="row"><code>radiogroup</code></th>
               <td></td>
               <td><code>ul</code></td>
-              <td><code>radio</code>ボタンのグループのコンテナとしての要素を識別します。</td>
+              <td><code>radio</code> ボタンのグループのコンテナとして要素を特定します。</td>
             </tr>
             <tr data-test-id="radiogroup-aria-labelledby">
               <td></td>
@@ -184,8 +176,21 @@
               <td><code>ul</code></td>
               <td>
                 <ul>
-                  <li>ラジオグループをページの<kbd>Tab</kbd>シーケンスに含めます。</li>
-                  <li>以下で説明されているように、<code>aria-activedescendant</code>属性と組み合わせて使用することで、フォーカスを移動しながら<kbd>Tab</kbd>キーを使用してページのタブシーケンスに含めることができます。</li>
+                  <li>ラジオグループをページの <kbd>Tab</kbd> シーケンスに含めます。</li>
+                  <li>以下で説明するように、<code>aria-activedescendant</code> がフォーカスを管理するのに使用されるため、ラジオグループに適用されます。</li>
+                </ul>
+              </td>
+            </tr>
+            <tr data-test-id="radiogroup-aria-activedescendant">
+              <td></td>
+              <th scope="row"><code>aria-activedescendant="[IDREF]"</code></th>
+              <td><code>ul</code></td>
+              <td>
+                <ul>
+                  <li>ラジオグループ内のラジオボタンが、キーボードでフォーカスされているものとして視覚的に表示されている場合、そのラジオボタンを参照します。</li>
+                  <li>矢印キーが押されると、JavaScript によって値が変更されます。</li>
+                  <li>DOM のフォーカスがラジオグループの要素に維持されている間、アプリケーションがどの要素をフォーカスしていることになっているかを、支援技術に知らせることができます。</li>
+                  <li>このフォーカス管理のテクニックに関する詳細は、<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">コンポジットにおける aria-activedescendant を使用したフォーカス管理</a>を参照してください。</li>
                 </ul>
               </td>
             </tr>
@@ -195,8 +200,8 @@
               <td><code>li</code></td>
               <td>
                 <ul>
-                  <li>要素をARIAの<code>radio</code>ボタンとして識別します。</li>
-                  <li>アクセシブルな名前は要素の子テキストコンテンツから計算されます。</li>
+                  <li>要素を ARIA の <code>radio</code> ボタンとして特定します。</li>
+                  <li>アクセシブルな名前は、要素の子テキストコンテンツから割り出されます。</li>
                 </ul>
               </td>
             </tr>
@@ -206,9 +211,9 @@
               <td><code>li</code></td>
               <td>
                 <ul>
-                  <li><code>radio</code>ボタンで選択されていないものを識別します。</li>
-                  <li>CSS属性セレクタ（例: <code>[aria-checked="false"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期するために使用されます。</li>
-                  <li>CSSの<code>::before</code>疑似要素は、オペレーティングシステムやブラウザの高コントラスト設定で選択されていないラジオボタンの視覚的な状態を示すために使用されます。</li>
+                  <li>選択されていない <code>radio</code> ボタンを特定します。</li>
+                  <li>CSS の属性セレクタ (例: <code>[aria-checked="false"]</code>) を使用して、視覚的な状態と <code>aria-checked</code> 属性の値を同期させます。</li>
+                  <li>オペレーティングシステム及びブラウザのハイコントラスト設定をサポートすべく、CSS の <code>::before</code> 疑似要素が、選択されていないラジオボタンの視覚的な状態を示すために使用されます。</li>
                 </ul>
               </td>
             </tr>
@@ -218,9 +223,9 @@
               <td><code>li</code></td>
               <td>
                 <ul>
-                  <li><code>radio</code>ボタンで選択されているものを識別します。</li>
-                  <li>CSS属性セレクタ（例: <code>[aria-checked="true"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期するために使用されます。</li>
-                  <li>CSSの<code>::before</code>疑似要素は、オペレーティングシステムやブラウザの高コントラスト設定で選択されているラジオボタンの視覚的な状態を示すために使用されます。</li>
+                  <li>選択されている <code>radio</code> ボタンを特定します。</li>
+                  <li>CSS の属性セレクタ (例: <code>[aria-checked="true"]</code>) を使用して、視覚的な状態と <code>aria-checked</code> 属性の値を同期させます。</li>
+                  <li>オペレーティングシステム及びブラウザのハイコントラスト設定をサポートすべく、CSS の <code>::before</code> 疑似要素が、選択されているラジオボタンの視覚的な状態を示すために使用されます。</li>
                 </ul>
               </td>
             </tr>
@@ -240,7 +245,7 @@
       </section>
 
       <section>
-        <h2>JavaScriptとCSSのソースコード</h2>
+        <h2>JavaScript 及び CSSのソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/radio.css" type="tex/css">radio.css</a></li>
           <li>Javascript: <a href="js/radio-activedescendant.js" type="text/javascript">radio-activedescendant.js</a></li>
@@ -248,7 +253,7 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTMLのソースコード</h2>
+        <h2 id="sc1_label">HTML のソースコード</h2>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="開始"></div>
         <pre><code id="sc1"></code></pre>
         <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="終了"></div>

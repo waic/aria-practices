@@ -31,14 +31,13 @@
       <section>
         <h2>この例について</h2>
         <p>
-          以下は、<a href="../radio-group-pattern.html">ラジオグループ パターン</a>を示す評価入力の例です。
-          評価は、利用者が選択した星の数で示されます。
+          以下は、<a href="../radio-group-pattern.html">ラジオグループ パターン</a>のデモンストレーションである、評価入力の例です。評価は、利用者が選択した星の数で示されます。
         </p>
         <p>類似の例には以下があります:</p>
         <ul>
-          <li><a href="../../slider/examples/slider-rating.html">評価スライダーの例</a>: 5つ星の評価尺度に対する評価入力の現在値及び最大値を伝える<code>aria-valuetext</code>を使用する水平スライダーを示しています。</li>
-          <li><a href="radio-activedescendant.html">aria-activedescendantを使用したラジオグループの例</a>: キーボードフォーカスを管理するために<code>aria-activedescendant</code>を使用するラジオボタングループ。</li>
-          <li><a href="radio.html">「tabindex の移動 (roving tabindex)」を使用したラジオグループの例</a>: キーボードフォーカスを管理するために、roving <code>tabindex</code> を使用するラジオボタングループ。</li>
+          <li><a href="../../slider/examples/slider-rating.html">評価用のスライダーの例</a>: 五つ星の評価スケールに対して評価入力の現在値及び最大値を伝えるために <code>aria-valuetext</code> を使用する水平スライダーのデモンストレーション。</li>
+          <li><a href="radio-activedescendant.html">aria-activedescendant を使用したラジオグループの例</a>: キーボードフォーカスを管理するために <code>aria-activedescendant</code> を使用するラジオボタングループ。</li>
+          <li><a href="radio.html">「tabindex の移動 (roving tabindex)」を使用したラジオグループの例</a>: キーボードフォーカスを管理するために「tabindex の移動 (roving <code>tabindex</code>)」を使用するラジオボタングループ。</li>
         </ul>
       </section>
 
@@ -60,27 +59,27 @@
                 </g>
               </defs>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="1" aria-label="1つ星" class="star-1 star-2 star-3 star-4 star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="1" aria-label="一つ星" class="star-1 star-2 star-3 star-4 star-5">
                 <use class="star" xlink:href="#star" x="10" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="8" y="5" />
               </g>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="2" aria-label="2つ星" class="star-2 star-3 star-4 star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="2" aria-label="二つ星" class="star-2 star-3 star-4 star-5">
                 <use class="star" xlink:href="#star" x="50" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="48" y="5" />
               </g>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="3" aria-label="3つ星" class="star-3 star-4 star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="3" aria-label="三つ星" class="star-3 star-4 star-5">
                 <use class="star" xlink:href="#star" x="90" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="88" y="5" />
               </g>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="4" aria-label="4つ星" class="star-4 star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="4" aria-label="四つ星" class="star-4 star-5">
                 <use class="star" xlink:href="#star" x="130" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="128" y="5" />
               </g>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="5" aria-label="5つ星" class="star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="5" aria-label="五つ星" class="star-5">
                 <use class="star" xlink:href="#star" x="170" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="168" y="5" />
               </g>
@@ -91,28 +90,26 @@
       </section>
 
       <section>
-        <h2>アクセシビリティ機能</h2>
+        <h2>アクセシビリティの特徴</h2>
         <ul>
           <li>
-            ラジオを操作する際の知覚を向上させるために、視覚的なキーボードフォーカス及びホバーはCSSを使用してスタイルが設定されています:
+            ラジオを操作する際の知覚可能性を向上させるために、視覚的なキーボードフォーカス及びホバーは CSS を使用してスタイルが設定されています:
             <ul>
-              <li>フォーカスリングは幅が2ピクセルで、星の境界との間に少なくとも2ピクセルの間隔があります。</li>
-              <li>星の上にホバーするとカーソルがポインタに変わり、評価星が対話型であることがより容易に知覚できるようになります。</li>
+              <li>フォーカスリングは幅が 2 ピクセルで、星のボーダーとの間に少なくとも 2 ピクセルの間隔があります。</li>
+              <li>星の上にホバーするとカーソルがポインタに変わるので、評価用の星がインタラクティブであることがより容易に知覚できます。</li>
             </ul>
           </li>
           <li>
-            高コントラスト設定が色を反転させる際に、星とフォーカスリングの境界が背景と十分なコントラストを持つことを確認するために、境界の色はテキストコンテンツの色と同期されています。
-            例えば、フォーカスリング境界の色は、高コントラストモードテキストの前景色と一致するように、インラインSVG<code>polygon</code>の<code>stroke</code>プロパティと、フォーカスリング境界を描画するために使用される<code>rect</code>要素の<code>currentcolor</code>値を指定することで設定されています。
-            <code>polygon</code>及び<code>rect</code>要素の背景を高コントラスト背景色に一致させるために、<code>rect</code>の<code>fill-opacity</code>属性はゼロに設定されています。
-            <code>stroke</code>及び<code>fill</code>プロパティに特定の色を使用していた場合、それらの色は高コントラストモードで同じままであり、星と背景との間に十分なコントラストがなくなるか、色が高コントラストモードの背景と一致する場合にはそれらが見えなくなる可能性があります。<br>
-            注記: SVG要素は<code>currentcolor</code>値が高コントラストモードで更新されるように、CSS<code>forced-color-adjust</code>プロパティを<code>auto</code>に設定する必要があります。
-            一部のブラウザはデフォルト値として<code>auto</code>を使用していません。
+            ハイコントラストの設定で色が反転された際に、星及びフォーカスリングのボーダーが、背景と十分なコントラストを持つことを確実にするために、ボーダーの色はテキストコンテンツの色と同期されています。
+        例えば、星のボーダーを描くためのインライン SVG の <code>polygon</code> 及びフォーカスリングのボーダーを描くのに使用される <code>rect</code> 要素の <code>stroke</code> 属性に、CSS の <code>currentcolor</code> の値を指定することで、フォーカスリングのボーダーの色は、ハイコントラストモードのテキストの前景色と一致するように設定されます。
+        <code>polygon</code>及び<code>rect</code>要素の背景をハイコントラストモードの背景色と一致させるために、<code>rect</code> の <code>fill-opacity</code> 属性はゼロに設定されています。もしもそうせずに、<code>stroke</code> 及び <code>fill</code> 属性を設定するのに特定の色が用いられた場合は、それらの色はハイコントラストモードでも同じままであり、星と背景のコントラストが不十分になってしまったり、あるいは、それらの色がハイコントラストモードの背景と一致する場合には、見えなくなってしまう可能性すらあります。<br>
+            注記: <code>currentcolor</code> の値がハイコントラストモードで更新されるように、SVG 要素では CSS の <code>forced-color-adjust</code> 属性を <code>auto</code> に設定する必要があります。一部のブラウザはデフォルト値に <code>auto</code> を用いていません。
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="kbd_label">キーボードサポート</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
@@ -125,18 +122,18 @@
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
-                  <li><code>radiogroup</code>内の選択された<code>radio</code>ボタンにフォーカスを移動します。</li>
-                  <li>もし<code>radio</code>ボタンが選択されていない場合、グループ内の最初の<code>radio</code>ボタンにフォーカスが移動します。</li>
+                  <li><code>radiogroup</code> 内の選択された <code>radio</code> ボタンにフォーカスを移動する。</li>
+                  <li><code>radio</code> ボタンが選択されていない場合、グループ内の最初の <code>radio</code> ボタンにフォーカスを移動する。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="key-space">
-              <th><kbd>Space</kbd></th>
+              <th><kbd>スペース</kbd></th>
               <td>
                 <ul>
-                  <li>フォーカスが当たっている<code>radio</code>ボタンが選択されていない場合、そのステートを<code>checked</code>に変更します。</li>
-                  <li>それ以外の場合、何もしません。</li>
-                  <li>注記: ラジオボタンが選択されていない状態は、ページロード時にのみ発生します。</li>
+                  <li>フォーカスが当たっている <code>radio</code> ボタンが選択されていない場合、ステートを <code>checked</code> に変更する。</li>
+                  <li>それ以外の場合、何もしない。</li>
+                  <li>注記: ラジオボタンが選択されていない状態は、ページ読み込み時にのみ発生します。</li>
                 </ul>
               </td>
             </tr>
@@ -144,9 +141,9 @@
               <th><kbd>下矢印</kbd><br><kbd>右矢印</kbd></th>
               <td>
                 <ul>
-                  <li>グループ内の次の<code>radio</code>ボタンにフォーカスを移動し、それを選択します。</li>
-                  <li>もしフォーカスが最後の<code>radio</code>ボタンにある場合、最初の<code>radio</code>ボタンにフォーカスを移動します。</li>
-                  <li>以前に選択されたラジオボタンのステートは、選択されていないに変更されます。</li>
+                  <li>グループ内の次の <code>radio</code> ボタンにフォーカスを移動し、選択する。</li>
+                  <li>フォーカスが最後の <code>radio</code> ボタンにある場合、最初の <code>radio</code> ボタンにフォーカスを移動する。</li>
+                  <li>以前に選択されていたラジオボタンのステートは、選択されていない状態に変更される。</li>
                 </ul>
               </td>
             </tr>
@@ -154,9 +151,9 @@
               <th><kbd>上矢印</kbd><br><kbd>左矢印</kbd></th>
               <td>
                 <ul>
-                  <li>グループ内の前の<code>radio</code>ボタンにフォーカスを移動し、それを選択します。</li>
-                  <li>もしフォーカスが最初の<code>radio</code>ボタンにある場合、最後の<code>radio</code>ボタンにフォーカスを移動し、それを選択します。</li>
-                  <li>以前に選択されたラジオボタンのステートは、選択されていないに変更されます。</li>
+                  <li>グループ内の前の <code>radio</code> ボタンにフォーカスを移動し、選択する。</li>
+                  <li>フォーカスが最初の <code>radio</code> ボタンにある場合、最後の <code>radio</code> ボタンにフォーカスを移動し、選択する。</li>
+                  <li>以前に選択されていたラジオボタンのステートは、選択されていない状態に変更される。</li>
                 </ul>
               </td>
             </tr>
@@ -165,7 +162,7 @@
       </section>
 
       <section>
-        <h2 id="rps_label">ロール、プロパティ、ステート、及び Tabindex 属性</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
@@ -184,7 +181,7 @@
               <td>
                 <code>svg</code>
               </td>
-              <td>SVG要素上の<code>none</code>ロールの使用は、支援技術がSVG要素を画像又は他のロールとして解釈しないように保証します。</td>
+              <td>SVG 要素上の <code>none</code> ロールの使用は、支援技術が SVG 要素を画像又は他のロールとして解釈しないように保証します。</td>
             </tr>
             <tr data-test-id="radiogroup-role">
               <th scope="row"><code>radiogroup</code></th>
@@ -192,8 +189,8 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li><code>div</code>要素を<code>radio</code>ボタンのグループのコンテナとして特定します。</li>
-                  <li>フォーカスは以下で説明されているように、roving tabindex戦略を使用して管理されるため、フォーカス可能ではありません。</li>
+                  <li><code>div</code> 要素を <code>radio</code> ボタンのグループのコンテナとして特定します。</li>
+                  <li>以下で説明するように、フォーカスは「tabindex の移動 (roving tabindex)」戦略を使用して管理されるため、フォーカス可能ではありません。</li>
                 </ul>
               </td>
             </tr>
@@ -207,13 +204,13 @@
               <th scope="row"><code>radio</code></th>
               <td></td>
               <td><code>g</code></td>
-              <td><code>g</code>要素をARIA<code>radio</code>ボタンとして特定します。</td>
+              <td><code>g</code> 要素を ARIA の <code>radio</code> ボタンとして特定します。</td>
             </tr>
             <tr data-test-id="radio-aria-label">
               <td></td>
               <th scope="row"><code>aria-label="<em>name</em>"</code></th>
               <td><code>g</code></td>
-              <td>ラジオボタンに関連付けられた星の数を特定するアクセス可能な名前を定義します（例: "one star", "two stars", ..）。</td>
+              <td>ラジオボタンに関連付けられた星の数を特定するための、アクセシブルな名前を定義します (例: 「一つ星」「二つ星」... )。</td>
             </tr>
             <tr data-test-id="radio-tabindex">
               <td></td>
@@ -221,11 +218,11 @@
               <td><code>g</code></td>
               <td>
                 <ul>
-                  <li>要素をフォーカス可能にし、ページの<kbd>Tab</kbd>シーケンスの一部とはしません。</li>
-                  <li>ラジオグループに含まれるすべてのラジオボタンに適用され、ページの<kbd>Tab</kbd>シーケンスに含まれる1つを除きます。</li>
+                  <li>要素をフォーカス可能にしますが、ページの <kbd>Tab</kbd> シーケンスの一部ではありません。</li>
+                  <li>ページの <kbd>Tab</kbd> シーケンスに含まれる一つのラジオボタンを除く、ラジオグループ内のすべてのラジオボタンに適用されます。</li>
                   <li>
-                    このフォーカスの管理方法は、
-                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">Roving tabindexを使用したコンポーネント内のフォーカスの管理</a>の練習で説明されています。
+                    このフォーカス管理のアプローチは、
+                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">「tabindex の移動 (roving tabindex)」を使用したコンポーネント内のフォーカス管理</a>というプラクティスで説明されています。
                   </li>
                 </ul>
               </td>
@@ -235,14 +232,14 @@
               <th scope="row"><code>tabindex="0"</code></th>
               <td><code>g</code></td>
               <td>
-                <ul>
-                  <li>ラジオボタンをフォーカス可能にし、ページの<kbd>Tab</kbd>シーケンスに含めます。</li>
-                  <li>ラジオグループの中の1つのラジオに設定されています。</li>
-                  <li>ページの読み込み時に、ラジオグループの最初のラジオボタンに設定されます。</li>
-                  <li>ラジオグループ内で最も最近フォーカスされたラジオボタンがページの<kbd>Tab</kbd>シーケンスに含まれるように、フォーカスが移動します。</li>
+<ul>
+                  <li>ラジオボタンをフォーカス可能にし、ページの <kbd>Tab</kbd> シーケンスに含めます。</li>
+                  <li>ラジオグループ内で、一つのラジオボタンにのみ設定されます。</li>
+                  <li>ページの読み込み時に、ラジオグループ内の最初のラジオボタンに設定されます。</li>
+                  <li>ラジオグループ内でフォーカスが移動すると、最近にフォーカスされたラジオボタンがページの <kbd>Tab</kbd> シーケンスに含まれるようになります。</li>
                   <li>
-                    このフォーカスの管理方法は、
-                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">Roving tabindexを使用したコンポーネント内のフォーカスの管理</a>の練習で説明されています。
+                    このフォーカス管理のアプローチは、
+                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">「tabindex の移動 (roving tabindex)」を使用したコンポーネント内のフォーカス管理</a>というプラクティスで説明されています。
                   </li>
                 </ul>
               </td>
@@ -253,9 +250,9 @@
               <td><code>g</code></td>
               <td>
                 <ul>
-                  <li>選択されていない<code>radio</code>ボタンを特定します。</li>
-                  <li>CSS属性セレクタ（例: <code>[aria-checked="false"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期させるために使用されます。</li>
-                  <li>CSSの<code>::before</code>疑似要素は、オペレーティングシステムとブラウザの高コントラスト設定で未選択のラジオボタンの視覚的な状態を示すために使用されます。</li>
+                  <li>選択されていない <code>radio</code> ボタンを特定します。</li>
+                  <li>CSS の属性セレクタ (例: <code>[aria-checked="false"]</code>) を使用して、視覚的な状態と <code>aria-checked</code> 属性の値を同期させます。</li>
+                  <li>オペレーティングシステム及びブラウザのハイコントラスト設定をサポートすべく、CSS の <code>::before</code> 疑似要素が、選択されていないラジオボタンの視覚的な状態を示すために使用されます。</li>
                 </ul>
               </td>
             </tr>
@@ -265,9 +262,9 @@
               <td><code>g</code></td>
               <td>
                 <ul>
-                  <li>選択された<code>radio</code>ボタンを特定します。</li>
-                  <li>CSS属性セレクタ（例: <code>[aria-checked="true"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期させるために使用されます。</li>
-                  <li>CSSの<code>::before</code>疑似要素は、オペレーティングシステムとブラウザの高コントラスト設定で選択されたラジオボタンの視覚的な状態を示すために使用されます。</li>
+                  <li>選択されている <code>radio</code> ボタンを特定します。</li>
+                  <li>CSS の属性セレクタ (例: <code>[aria-checked="true"]</code>) を使用して、視覚的な状態と <code>aria-checked</code> 属性の値を同期させます。</li>
+                  <li>オペレーティングシステム及びブラウザのハイコントラスト設定をサポートすべく、CSS の <code>::before</code> 疑似要素が、選択されているラジオボタンの視覚的な状態を示すために使用されます。</li>
                 </ul>
               </td>
             </tr>
@@ -284,7 +281,7 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTMLソースコード</h2>
+        <h2 id="sc1_label">HTML のソースコード</h2>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="開始"></div>
         <pre><code id="sc1"></code></pre>
         <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="終了"></div>
