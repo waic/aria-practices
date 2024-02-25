@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alert Dialog Example</title>
+    <title>アラートダイアログの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -26,53 +26,52 @@
       </ul>
     </nav>
     <main>
-      <h1>Alert Dialog Example</h1>
+      <h1>アラートダイアログの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <p>
-          The below example of a confirmation prompt demonstrates the <a href="../alertdialog-pattern.html">Alert Dialog Pattern</a>.
-          It also includes an example of the <a href="../../alert/alert-pattern.html">Alert Pattern</a> to make comparing the experiences provided by the two patterns easy.
+          以下にある確認プロンプトの例は、<a href="../alertdialog-pattern.html">アラートダイアログのパターン</a>のデモンストレーションです。また、<a href="../../alert/alert-pattern.html">アラートのパターン</a>の例も含まれており、2 つのパターンによって提供されるユーザー体験を簡単に比較することができます。
         </p>
-        <p>To use this example:</p>
+        <p>この例の使用方法：</p>
         <ul>
           <li>
-            Activate the "discard" button to trigger a confirmation dialog that has the <code>alertdialog</code> role.
+            「破棄」ボタンを作動すると、<code>alertdialog</code> ロールを持つ確認ダイアログがトリガーされます。
             <ul>
-              <li>Activating the "yes" button in the confirmation dialog removes the contents of both the "Notes" text area and local storage of the notes.</li>
-              <li data-test-id="save-button">Activating the "no" button or pressing <kbd>escape</kbd> closes the dialog.</li>
-              <li>The "discard" button is disabled if the notes text area does not contain any text.</li>
+              <li>確認ダイアログの「はい」ボタンを作動すると、「ノート」のテキストエリアの内容及びノートのローカルストレージの両方が削除されます。</li>
+              <li data-test-id="save-button">「いいえ」ボタンを作動するか、<kbd>escape</kbd> キーを押すと、ダイアログが閉じます。</li>
+              <li>ノートのテキストエリアにテキストが含まれていない場合、「破棄」ボタンは無効になります。</li>
             </ul>
           </li>
           <li>
-            Activate the "save" button to trigger an alert when the contents of the "Notes" text area is saved to
-            <a href="https://html.spec.whatwg.org/multipage/webstorage.html#the-localstorage-attribute">local storage</a>.
+          「保存」ボタンを作動すると、「ノート」のテキストエリアの内容が<a href="https://html.spec.whatwg.org/multipage/webstorage.html#the-localstorage-attribute">ローカルストレージ</a>に保存されると同時にアラートがトリガーされます。
             <ul>
-              <li>A successful save triggers a short alert to notify the user that the notes have been saved.</li>
-              <li>The "save" button is disabled if the user's local storage value is the same as the "Notes" field.</li>
+              <li>保存が成功することで、ノートが保存されたことを利用者に通知する短いアラートをトリガーします。</li>
+              <li>利用者のローカルストレージの値が「ノート」フィールドと同じ場合、「保存」ボタンは無効になります。</li>
             </ul>
           </li>
-          <li>Modify the "notes" text area as needed to enable and disable the discard and save functions.</li>
+          <li>必要に応じて「ノート」のテキストエリアを変更して、破棄及び保存の機能を有効、無効にします。</li>
         </ul>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下があります：</p>
         <ul>
-          <li><a href="../../alert/examples/alert.html">Alert</a>: a basic alert.</li>
-          <li><a href="../../dialog-modal/examples/dialog.html">Modal Dialog Example</a>: An example demonstrating multiple layers of modal dialogs with both small and large amounts of content.</li>
-          <li><a href="../../dialog-modal/examples/datepicker-dialog.html">Date Picker Dialog example</a>: Demonstrates a dialog containing a calendar grid for choosing a date.</li>
+          <li><a href="../../alert/examples/alert.html">アラート</a>：基本的なアラート。</li>
+          <li><a href="../../dialog-modal/examples/dialog.html">モーダルダイアログの例</a>：コンテンツの量が少ないものと多いもの、両方のモーダルダイアログを複数のレイヤーで示す例です。</li>
+          <li><a href="../../dialog-modal/examples/datepicker-dialog.html">日付選択ダイアログの例</a>：日付を選択するためのカレンダーグリッドを含むダイアログを示します。</li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
         <div id="ex_alertdialog">
-          <label for="notes">Notes</label>
-          <textarea class="notes" name="notes" id="notes" rows="7">This is an example text box, which unsurprisingly contains text. The user is given the option to save this text - which triggers a basic alert - or to discard the text - which triggers an alert dialog that prompts the user for confirmation.</textarea>
+          <label for="notes">ノート</label>
+          <textarea class="notes" name="notes" id="notes" rows="7">これはテキストボックスの例で、その通りテキストが含まれています。利用者はこのテキストを保存するオプションを持っており、これは基本的なアラートをトリガーします。またはテキストを破棄するオプションを持っており、これは利用者に確認を求めるアラートダイアログをトリガーします。</textarea>
           <div class="visually-hidden" id="notes_save_status" role="alert"></div>
           <button type="button" id="notes_save">
-            Save
+            保存
             <svg class="icon spinner" viewBox="0 0 32 32" aria-hidden="true">
               <path d="M16 32c-4.274 0-8.292-1.664-11.314-4.686s-4.686-7.040-4.686-11.314c0-3.026 0.849-5.973 2.456-8.522 1.563-2.478 3.771-4.48 6.386-5.791l1.344 2.682c-2.126 1.065-3.922 2.693-5.192 4.708-1.305 2.069-1.994 4.462-1.994 6.922 0 7.168 5.832 13 13 13s13-5.832 13-13c0-2.459-0.69-4.853-1.994-6.922-1.271-2.015-3.066-3.643-5.192-4.708l1.344-2.682c2.615 1.31 4.824 3.313 6.386 5.791 1.607 2.549 2.456 5.495 2.456 8.522 0 4.274-1.664 8.292-4.686 11.314s-7.040 4.686-11.314 4.686z"></path>
             </svg>
@@ -80,46 +79,44 @@
               <path d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path>
             </svg>
           </button>
-          <button type="button" data-textbox="notes" id="notes_discard" onclick="openAlertDialog('alertdialog', this)">Discard</button>
+          <button type="button" data-textbox="notes" id="notes_discard" onclick="openAlertDialog('alertdialog', this)">破棄</button>
           <div class="dialog-backdrop no-scroll">
             <div id="alertdialog" role="alertdialog" aria-modal="true" aria-labelledby="dialog_label" aria-describedby="dialog_desc" class="hidden">
-              <h2 id="dialog_label" class="dialog_label">Confirmation</h2>
+              <h2 id="dialog_label" class="dialog_label">確認</h2>
               <div id="dialog_desc" class="dialog_desc">
-                <p>Are you sure you want to discard all of your notes?</p>
+                <p>すべてのノートを破棄してもよろしいですか？</p>
               </div>
               <div class="dialog_form_actions">
-                <button type="button" id="notes_cancel" onclick="closeDialog(this)">No</button>
-                <button type="button" id="notes_confirm" onclick="discardInput()">Yes</button>
+                <button type="button" id="notes_cancel" onclick="closeDialog(this)">いいえ</button>
+                <button type="button" id="notes_confirm" onclick="discardInput()">はい</button>
               </div>
             </div>
           </div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="の終了"></div>
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティの特徴</h2>
         <ul>
-          <li>The accessible name of the alert dialog is set to its heading ("Confirmation").</li>
-          <li>The dialog's prompt ("Are you sure...?") is referenced via <code>aria-describedby</code> to ensure that the user is immediately aware of the prompt.</li>
+          <li>アラートダイアログのアクセシブルな名前は、その見出し (「確認」) に設定されています。</li>
+          <li>ダイアログのプロンプト (「すべてのノートを破棄してもよろしいですか？」) は、<code>aria-describedby</code> を使用して参照されているため、利用者はプロンプトをすぐに認識できます。</li>
           <li>
-            Focus is automatically set to the first focusable element inside the dialog, which is the "No" <code>button</code>.
-            This is the least destructive action, so focusing "No" helps prevent users from accidentally confirming the destructive "Discard" action, which cannot be undone.
-          </li>
+            フォーカスは、ダイアログ内の最初のフォーカス可能な要素、つまり「いいえ」の <code>button</code> に自動的に設定されます。これは最も破壊的でないアクションであり、「いいえ」にフォーカスが当たることで、破壊的でやり直しができない「破棄」のアクションを、利用者が誤って確定してしまうのを防ぐのに役立ちます。
+      </li>
           <li>
-            When the buttons are disabled, <code>aria-disabled</code> is used instead of the HTML <code>disabled</code> attribute so the buttons will remain in the page <kbd>Tab</kbd> sequence.
-            This makes it easier for screen reader users to discover the buttons and discern how the interface works.
+            ボタンが無効の場合、HTML の <code>disabled</code> 属性の代わりに <code>aria-disabled</code> が使用されるため、ボタンはページの <kbd>Tab</kbd> シーケンスに残ります。これにより、スクリーンリーダーの利用者がボタンを発見し、インターフェースの動作を判断するのが容易になります。
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
@@ -127,8 +124,8 @@
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to next focusable element inside the dialog.</li>
-                  <li>When focus is on the last focusable element in the dialog, moves focus to the first focusable element in the dialog.</li>
+                  <li>ダイアログ内の次のフォーカス可能な要素にフォーカスを移動します。</li>
+                  <li>フォーカスがダイアログ内の最後のフォーカス可能な要素にある場合、ダイアログ内の最初のフォーカス可能な要素にフォーカスを移動します。</li>
                 </ul>
               </td>
             </tr>
@@ -136,36 +133,36 @@
               <th><kbd>Shift + Tab</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to previous focusable element inside the dialog.</li>
-                  <li>When focus is on the first focusable element in the dialog, moves focus to the last focusable element in the dialog.</li>
+                  <li>ダイアログ内の前のフォーカス可能な要素にフォーカスを移動します。</li>
+                  <li>フォーカスがダイアログ内の最初のフォーカス可能な要素にある場合、ダイアログ内の最後のフォーカス可能な要素にフォーカスを移動します。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="key-escape">
               <th><kbd>Escape</kbd></th>
-              <td>Closes the dialog.</td>
+              <td>ダイアログを閉じます。</td>
             </tr>
             <tr>
               <th><kbd>Command + S</kbd></th>
-              <td>(Mac only) Save the contents of the notes <code>textarea</code> when focused.</td>
+              <td>(Mac のみ) フォーカスがあるときにノートの <code>textarea</code> の内容を保存します。</td>
             </tr>
             <tr data-test-id="key-control-s">
               <th><kbd>Control + S</kbd></th>
-              <td>(Windows only) Save the contents of the notes <code>textarea</code> when focused.</td>
+              <td>(Windows のみ) フォーカスがあるときにノートの <code>textarea</code> の内容を保存します。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -173,59 +170,58 @@
               <th scope="row"><code>alertdialog</code></th>
               <td></td>
               <td><code>div</code></td>
-              <td>Identifies the element that serves as the alert dialog container.</td>
+              <td>アラートダイアログのコンテナとして機能する要素を識別します。</td>
             </tr>
             <tr data-test-id="aria-labelledby">
               <td></td>
               <th scope="row"><code>aria-labelledby="ID_REFERENCE"</code></th>
               <td><code>div</code></td>
-              <td>Gives the alert dialog an accessible name by referring to the element that provides the alert dialog title.</td>
+              <td>アラートダイアログのタイトルを提供する要素を参照して、アラートダイアログにアクセシブルな名前を付けます。</td>
             </tr>
             <tr data-test-id="aria-describedby">
               <td></td>
               <th scope="row"><code>aria-describedby="ID_REFERENCE"</code></th>
               <td><code>div</code></td>
-              <td>Gives the alert dialog an accessible description by referring to the alert dialog content that describes the primary message or purpose of the alert dialog.</td>
+              <td>アラートダイアログの主要なメッセージや目的を説明するアラートダイアログのコンテンツを参照して、アラートダイアログにアクセシブルな説明を付けます。</td>
             </tr>
             <tr data-test-id="aria-modal">
               <td></td>
               <th scope="row"><code>aria-modal="true"</code></th>
               <td><code>div</code></td>
-              <td>Tells assistive technologies that the windows underneath the current alert dialog are not available for interaction (inert).</td>
+              <td>現在のアラートダイアログの下のウィンドウが操作できない（非アクティブ）ことを支援技術に伝えます。</td>
             </tr>
             <tr>
               <th data-test-id="alert-role" scope="row"><code>alert</code></th>
               <td></td>
               <td><code>div</code></td>
-              <td>Identifies the element that serves as the alert notification.</td>
+              <td>アラート通知として機能する要素を識別します。</td>
             </tr>
             <tr>
               <td></td>
               <th scope="row"><code>aria-disabled="true"</code></th>
               <td><code>button</code></td>
-              <td>Tells assistive technology users the button cannot be activated.</td>
+              <td>ボタンが作動できないことを支援技術の利用者に伝えます。</td>
             </tr>
           </tbody>
         </table>
-        <h3>Notes on <code>aria-modal</code> and <code>aria-hidden</code></h3>
+        <h3><code>aria-modal</code> 及び <code>aria-hidden</code> に関する注意</h3>
         <ul>
           <li>
-            The <code>aria-modal</code> property was introduced in ARIA 1.1.
-            As a relatively new property, screen reader users may experience varying degrees of support for it.
+            <code>aria-modal</code> プロパティは ARIA 1.1 で導入されました。比較的新しいプロパティであるため、スクリーンリーダーの利用者はそれに対する異なるサポート度合いを体験するかもしれません。
           </li>
-          <li>Applying the <code>aria-modal</code> property to the <code>dialog</code> element replaces the technique of using <code>aria-hidden</code> on the background for informing assistive technologies that content outside a dialog is inert.</li>
+          <li><code>aria-modal</code> プロパティを <code>dialog</code> 要素に適用することで、ダイアログの背景に <code>aria-hidden</code> を使用してコンテンツが非アクティブであることを支援技術に伝えるテクニックを、置き換えます。</li>
           <li>
-            In legacy dialog implementations where <code>aria-hidden</code> is used to make content outside a dialog inert for assistive technology users, it is important that:
+            <code>aria-hidden</code> を使用してダイアログの外のコンテンツを支援技術の利用者に対して非アクティブにするレガシーなダイアログの実装では、以下が重要です：
             <ul>
-              <li><code>aria-hidden</code> is set to <code>true</code> on each element containing a portion of the inert layer.</li>
-              <li>The dialog element is not a descendant of any element that has <code>aria-hidden</code> set to <code>true</code>.</li>
+              <li>非アクティブなレイヤーの各部分を含む要素で、<code>aria-hidden</code> が <code>true</code> に設定されていること。</li>
+              <li>ダイアログ要素は、<code>aria-hidden</code> が <code>true</code> に設定されている要素の子孫でないこと。</li>
             </ul>
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="src_label">Javascript and CSS Source Code</h2>
+        <h2 id="src_label">Javascript 及び CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/alertdialog.css" type="text/css">alertdialog.css</a></li>
           <li>Javascript: <a href="js/alertdialog.js" type="text/javascript">alertdialog.js</a>, <a href="../../../shared/js/utils.js">utils.js</a></li>
@@ -233,10 +229,10 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2 id="sc1_label">HTML のソースコード</h2>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="の終了"></div>
         <script>
           sourceCode.add('sc1', 'ex_alertdialog', 'ex_label', 'css_js_files');
           sourceCode.make();
