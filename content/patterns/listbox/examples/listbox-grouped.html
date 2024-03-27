@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listbox Example with Grouped Options</title>
+    <title>グループ化されたオプションを持つ Listbox の例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -15,7 +15,6 @@
 
     <!-- JS and CSS for this example -->
     <link href="css/listbox.css" rel="stylesheet">
-    <script src="../../../shared/js/utils.js"></script>
     <script src="js/listbox.js"></script>
     <script src="js/listbox-scrollable.js"></script>
   </head>
@@ -27,127 +26,179 @@
       </ul>
     </nav>
     <main>
-      <h1>Listbox Example with Grouped Options</h1>
+      <h1>グループ化されたオプションを持つ Listbox の例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <p>
-          The following example implementation of the <a href="../listbox-pattern.html">Listbox Pattern</a> demonstrates a single-select listbox widget with grouped options.
-          This widget is functionally similar to an HTML <code>select</code> element with <code>size</code> greater than 1 and options grouped into categories with labeled <code>optgroup</code> elements.
+          次の例の実装は、グループ化されたオプションを持つ単一選択リストボックスウィジェットの<a href="../listbox-pattern.html">リストボックスパターン</a>を示しています。
+          このウィジェットは、<code>size</code>が1より大きく、<code>optgroup</code>要素でラベル付けされたカテゴリ内にオプションがグループ化されているHTML <code>select</code>要素と機能的に似ています。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下があります:</p>
         <ul>
-          <li><a href="listbox-scrollable.html">Scrollable Listbox Example</a>: Single-select listbox that scrolls to reveal more options, similar to HTML <code>select</code> with <code>size</code> attribute greater than one.</li>
-          <li><a href="listbox-rearrangeable.html">Example Listboxes with Rearrangeable Options</a>: Examples of both single-select and multi-select listboxes with accompanying toolbars where options can be added, moved, and removed.</li>
+          <li><a href="listbox-scrollable.html">スクロール可能なリストボックス例</a>: より多くのオプションを表示するためにスクロールする単一選択リストボックスで、<code>size</code>属性が1より大きいHTML <code>select</code>と似ています。</li>
+          <li><a href="listbox-rearrangeable.html">並べ替え可能なオプションのリストボックス例</a>: オプションを追加、移動、及び削除できるツールバーを伴う、単一選択及び複数選択のリストボックスの例。</li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="開始"></div>
         <div id="ex">
           <div class="listbox-area">
             <div>
-              <span id="ss_elem" class="listbox-label">Choose your animal sidekick</span>
+              <span id="ss_elem" class="listbox-label">あなたの動物の相棒を選んでください</span>
               <div id="ss_elem_list" tabindex="0" role="listbox" aria-labelledby="ss_elem">
                 <ul role="group" aria-labelledby="cat1">
-                  <li role="presentation" id="cat1">Land</li>
-                  <li id="ss_elem_1" role="option">Cat</li>
-                  <li id="ss_elem_2" role="option">Dog</li>
-                  <li id="ss_elem_3" role="option">Tiger</li>
-                  <li id="ss_elem_4" role="option">Reindeer</li>
-                  <li id="ss_elem_5" role="option">Raccoon</li>
+                  <li role="presentation" id="cat1">陸</li>
+                  <li id="ss_elem_1" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    猫
+                  </li>
+                  <li id="ss_elem_2" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    犬
+                  </li>
+                  <li id="ss_elem_3" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    虎
+                  </li>
+                  <li id="ss_elem_4" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    トナカイ
+                  </li>
+                  <li id="ss_elem_5" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    アライグマ
+                  </li>
                 </ul>
                 <ul role="group" aria-labelledby="cat2">
-                  <li role="presentation" id="cat2">Water</li>
-                  <li id="ss_elem_6" role="option">Dolphin</li>
-                  <li id="ss_elem_7" role="option">Flounder</li>
-                  <li id="ss_elem_8" role="option">Eel</li>
+                  <li role="presentation" id="cat2">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    水
+                  </li>
+                  <li id="ss_elem_6" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    イルカ
+                  </li>
+                  <li id="ss_elem_7" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    ヒラメ
+                  </li>
+                  <li id="ss_elem_8" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    ウナギ
+                  </li>
                 </ul>
                 <ul role="group" aria-labelledby="cat3">
-                  <li role="presentation" id="cat3">Air</li>
-                  <li id="ss_elem_9" role="option">Falcon</li>
-                  <li id="ss_elem_10" role="option">Winged Horse</li>
-                  <li id="ss_elem_11" role="option">Owl</li>
+                  <li role="presentation" id="cat3">空</li>
+                  <li id="ss_elem_9" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    ハヤブサ
+                  </li>
+                  <li id="ss_elem_10" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    翼のある馬
+                  </li>
+                  <li id="ss_elem_11" role="option">
+                    <span class="checkmark" aria-hidden="true"></span>
+                    フクロウ
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
-        <h3>Notes</h3>
-        <p>This listbox is scrollable; it has more options than its height can accommodate.</p>
-        <ol>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="終了"></div>
+      </section>
+
+
+      <section id="accessibility_features">
+        <h2>アクセシビリティ機能</h2>
+        <ul>
           <li>
-            Scrolling only works as expected if the listbox is the options' <code>offsetParent</code>.
-            The example uses <code>position: relative</code> on the listbox to that effect.
+            このリストボックスの実装はスクロール可能であり、<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用して</a>どのオプションがフォーカスされているかを管理しているため、JavaScript はフォーカスされているオプションが表示されていることを確認しなければならない。
+            したがって、キーボード又はポインタのイベントが <code>aria-activedescendant</code> で参照されるオプションを変更する場合、参照されるオプションが完全に表示されていない場合、JavaScript はリストボックスをスクロールしてオプションを表示位置にします。
           </li>
           <li>
-            When an option is focused that isn't (fully) visible, the listbox's scroll position is updated:
-            <ol>
-              <li>If <kbd>Up Arrow</kbd> or <kbd>Down Arrow</kbd> is pressed, the previous or next option is scrolled into view.</li>
-              <li>If <kbd>Home</kbd> or <kbd>End</kbd> is pressed, the listbox scrolls all the way to the top or to the bottom.</li>
-              <li>If <code>focusItem</code> is called, the focused option will be scrolled to the top of the view if it was located above it or to the bottom if it was below it.</li>
-              <li>If the mouse is clicked on a partially visible option, it will be scrolled fully into view.</li>
-            </ol>
+            リストボックスの操作時の知覚を高めるために、視覚的なキーボードのフォーカスとホバーは CSS の <code>:hover</code> 及び <code>:focus</code> 擬似クラスを使用してスタイルが適用されています:
+            <ul>
+              <li>視覚的な障害を持つ利用者がリストボックスをインタラクティブな要素として特定するのを助けるため、リストの上にホバーするとカーソルがポインタに変わります。</li>
+              <li>選択されたリストボックスのオプションを他のオプションと区別しやすくするため、選択するとオプションの上下に 2 ピクセルの境界線が作成されます。</li>
+            </ul>
           </li>
-          <li>When a fully visible option is focused in any way, no scrolling occurs.</li>
-          <li>
-            Normal scrolling through any scrolling mechanism (including <kbd>Page Up</kbd> and <kbd>Page Down</kbd>) works as expected.
-            The scroll position will jump as described for <code>focusItem</code> if a means other than a mouse click is used to change focus after scrolling.
-          </li>
-        </ol>
+        </ul>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードサポート</h2>
         <p>
-          The example listboxes on this page implement the following keyboard interface.
-          Other variations and options for the keyboard interface are described in the <a href="../listbox-pattern.html#keyboard_interaction">Keyboard Interaction section of the Listbox Pattern.</a>
+          このページの例のリストボックスは、以下のキーボードインターフェースを実装しています。
+          キーボードインターフェースの他のバリエーション及びオプションについては、<a href="../listbox-pattern.html#keyboard_interaction">リストボックスのパターンのキーボードインタラクションセクション</a>で説明されています。
+        </p>
+        <p>
+          <strong>注記:</strong> このリストボックスの実装において視覚的なフォーカスがオプションにある場合、DOM のフォーカスはリストボックス要素に留まり、リストボックス上の <code>aria-activedescendant</code> の値は視覚的にフォーカスが示されている子孫オプションを参照しています。
+          以下のキーボードコマンドの説明でフォーカスに言及している場合、それは視覚的なフォーカスインジケータを指しており、DOM のフォーカスを指していません。
+          このフォーカス管理テクニックに関する詳しい情報については、
+          <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジットのフォーカス管理</a>を参照してください。
         </p>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
+            <tr data-test-id="key-tab">
+              <th><kbd>Tab</kbd></th>
+              <td>リストボックス内及び外へのフォーカスを移動する。</td>
+            </tr>
             <tr data-test-id="key-down-arrow">
-              <th><kbd>Down Arrow</kbd></th>
-              <td>Moves focus to and selects the next option.</td>
+              <th><kbd>↓</kbd></th>
+              <td>次のオプションへのフォーカスを移動し、選択する。</td>
             </tr>
             <tr data-test-id="key-up-arrow">
-              <th><kbd>Up Arrow</kbd></th>
-              <td>Moves focus to and selects the previous option.</td>
+              <th><kbd>↑</kbd></th>
+              <td>前のオプションへのフォーカスを移動し、選択する。</td>
             </tr>
             <tr data-test-id="key-home">
               <th><kbd>Home</kbd></th>
-              <td>Moves focus to and selects the first option.</td>
+              <td>最初のオプションへのフォーカスを移動し、選択する。</td>
             </tr>
             <tr data-test-id="key-end">
               <th><kbd>End</kbd></th>
-              <td>Moves focus to and selects the last option.</td>
+              <td>最後のオプションへのフォーカスを移動し、選択する。</td>
+            </tr>
+            <tr data-test-id="key-character">
+              <th>印刷可能な文字</th>
+              <td>
+                <ul>
+                  <li>文字を入力: フォーカスは入力された文字で始まる名前の次の項目へ移動する。</li>
+                  <li>短い時間内に複数の文字を入力: フォーカスは入力された文字列で始まる名前の次の項目へ移動する。</li>
+                </ul>
+              </td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <p>
-          The example listboxes on this page implement the following ARIA roles, states, and properties.
-          Information about other ways of applying ARIA roles, states, and properties is available in the <a href="../listbox-pattern.html#roles_states_properties">Roles, States, and Properties section of the Listbox Pattern</a>.
+          このページの例示されたリストボックスは、次のARIAのロール、ステート、及びプロパティを実装しています。
+          ARIAのロール、ステート、及びプロパティの他の適用方法については、<a href="../listbox-pattern.html#roles_states_properties">リストボックスパターンのロール、ステート、及びプロパティのセクション</a>で利用可能です。
         </p>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -155,29 +206,34 @@
               <th scope="row"><code>listbox</code></th>
               <td></td>
               <td><code>div</code></td>
-              <td>Identifies the focusable element that has listbox behaviors and contains the listbox options.</td>
+              <td>リストボックスの動作を持ち、リストボックスのオプションを含むフォーカス可能な要素を特定する。</td>
             </tr>
             <tr data-test-id="listbox-aria-labelledby">
               <td></td>
-              <th scope="row"><code>aria-labelledby=&quot;ID_REF&quot;</code></th>
+              <th scope="row"><code>aria-labelledby="ID_REF"</code></th>
               <td><code>div</code></td>
-              <td>Refers to the element containing the listbox label.</td>
+              <td>リストボックスのラベルを含む要素を参照する。</td>
             </tr>
             <tr data-test-id="listbox-tabindex">
               <td></td>
-              <th scope="row"><code>tabindex=&quot;0&quot;</code></th>
+              <th scope="row"><code>tabindex="0"</code></th>
               <td><code>div</code></td>
-              <td>Includes the listbox in the page tab sequence.</td>
+              <td>ページのタブ順序にリストボックスを含める。</td>
             </tr>
             <tr data-test-id="listbox-aria-activedescendant">
               <td></td>
-              <th scope="row"><code>aria-activedescendant=&quot;ID_REF&quot;</code></th>
+              <th scope="row"><code>aria-activedescendant="ID_REF"</code></th>
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Tells assistive technologies which of the options, if any, is visually indicated as having keyboard focus.</li>
-                  <li>DOM focus remains on the <code>ul</code> element and the idref specified for <code>aria-activedescendant</code> refers to the <code>li</code> element that is visually styled as focused.</li>
-                  <li>When navigation keys, such as <kbd>Down Arrow</kbd>, are pressed, the JavaScript changes the value.</li>
+                  <li>リストボックス内のオプションがキーボードフォーカスを持つと視覚的に示されている場合、そのオプションを指す。</li>
+                  <li>DOMのフォーカスがリストボックス要素に留まる間、アプリケーションがフォーカスしているとみなす要素を支援技術が知ることを可能にする。</li>
+                  <li>例えば<kbd>下矢印</kbd>のようなナビゲーションキーが押されると、JavaScriptが値を変更する。</li>
+                  <li>
+                    このフォーカス管理テクニックに関する詳細は、
+                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendantを使用したコンポジットのフォーカス管理</a>
+                    を参照してください。
+                  </li>
                 </ul>
               </td>
             </tr>
@@ -185,30 +241,38 @@
               <th scope="row"><code>group</code></th>
               <td></td>
               <td><code>ul</code></td>
-              <td>Identifies a group of related options</td>
+              <td>関連するオプションのグループを特定する</td>
             </tr>
             <tr data-test-id="group-aria-labelledby">
               <td></td>
-              <th scope="row"><code>aria-labelledby=&quot;ID_REF&quot;</code></th>
+              <th scope="row"><code>aria-labelledby="ID_REF"</code></th>
               <td><code>ul</code></td>
-              <td>Refers to the element containing the option group label.</td>
+              <td>オプショングループのラベルを含む要素を指す。</td>
             </tr>
             <tr data-test-id="option-role">
               <th scope="row"><code>option</code></th>
               <td></td>
               <td><code>li</code></td>
-              <td>Identifies each selectable element containing the name of an option.</td>
+              <td>オプションの名前を含む選択可能な要素を特定する。</td>
             </tr>
             <tr data-test-id="option-aria-selected">
               <td></td>
-              <th scope="row"><code>aria-selected=&quot;true&quot;</code></th>
+              <th scope="row"><code>aria-selected="true"</code></th>
               <td><code>li</code></td>
               <td>
                 <ul>
-                  <li>Indicates that the option is selected.</li>
-                  <li>Applied to the element with role option that is visually styled as selected.</li>
-                  <li>The option with this attribute is always the same as the option that is referenced by aria-activedescendant because it is a single-select listbox where selection follows focus.</li>
+                  <li>オプションが選択されていることを示す。</li>
+                  <li>選択として視覚的にスタイルが適用されたロール option の要素に適用される。</li>
+                  <li>この属性を持つオプションは、選択がフォーカスに従う単一選択リストボックスであるため、常に aria-activedescendant で参照されるオプションと同じである。</li>
                 </ul>
+              </td>
+            </tr>
+            <tr data-test-id="span-aria-hidden">
+              <td></td>
+              <th><code>aria-hidden="true"</code></th>
+              <td><code>span</code></td>
+              <td>
+                チェックマークのアイコン用に使用されるキャラクターエンティティをアクセシビリティツリーから削除し、オプションのアクセシブルな名前に含まれるのを防ぐ。
               </td>
             </tr>
           </tbody>
@@ -216,7 +280,7 @@
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScript 及び CSS ソースコード</h2>
         <ul id="css_js_files">
           <li>
             CSS:
@@ -224,16 +288,16 @@
           </li>
           <li>
             Javascript:
-            <a href="js/listbox.js" type="text/javascript">listbox.js</a>, <a href="js/listbox-scrollable.js" type="text/javascript">listbox-scrollable.js</a>, <a href="../../../shared/js/utils.js">utils.js</a>
+            <a href="js/listbox.js" type="text/javascript">listbox.js</a>, <a href="js/listbox-scrollable.js" type="text/javascript">listbox-scrollable.js</a>
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="sc_label">HTML Source Code</h2>
-        <div id="sc_start_sep" role="separator" aria-labelledby="sc_start_sep sc_label" aria-label="Start of "></div>
+        <h2 id="sc_label">HTML ソースコード</h2>
+        <div id="sc_start_sep" role="separator" aria-labelledby="sc_start_sep sc_label" aria-label="開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div id="sc_end_sep" role="separator" aria-labelledby="sc_end_sep sc_label" aria-label="End of"></div>
+        <div id="sc_end_sep" role="separator" aria-labelledby="sc_end_sep sc_label" aria-label="終了"></div>
         <script>
           sourceCode.add('sc1', 'ex', 'ex_label', 'css_js_files');
           sourceCode.make();

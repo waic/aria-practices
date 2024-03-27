@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Listbox Pattern</title>
+    <title>リストボックス パターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,137 +14,126 @@
   </head>
   <body>
     <main>
-      <h1>Listbox Pattern</h1>
+      <h1>リストボックス パターン</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンについて</h2>
         <p>
-          A <a href="#listbox" class="role-reference">listbox</a> widget presents a list of options and allows a user to select one or more of them.
-          A listbox that allows a single option to be chosen is a single-select listbox; one that allows multiple options to be selected is a multi-select listbox.
+          <a href="#listbox" class="role-reference">listbox</a> ウィジェットは、オプションのリストを表示し、利用者が1つ又は複数のオプションを選択できるようにします。
+          単一のオプションのみを選択できるlistboxは、シングルセレクトlistboxと呼ばれ、複数のオプションを選択できるものはマルチセレクトlistboxと呼ばれます。
         </p>
         <p>
-          When screen readers present a listbox, they may render the name, state, and position of each option in the list.
-          The name of an option is a string calculated by the browser, typically from the content of the option element.
-          As a flat string, the name does not contain any semantic information.
-          Thus, if an option contains a semantic element, such as a heading, screen reader users will not have access to the semantics.
-          In addition, the interaction model conveyed by the listbox role to assistive technologies does not support interacting with elements inside of an option.
-          Because of these traits of the listbox widget, it does not provide an accessible way to present a list of interactive elements, such as links, buttons, or checkboxes.
-          To present a list of interactive elements, see the <a href="../grid/grid-pattern.html">Grid Pattern</a>.
+          スクリーンリーダーがlistboxを提示するとき、リスト内の各オプションの名前、ステート、及び位置をレンダリングすることができます。
+          オプションの名前は、通常オプション要素のコンテンツからブラウザによって計算される文字列です。
+          名前は平坦な文字列として、セマンティック情報を含んでいません。
+          したがって、オプションにセマンティック要素、たとえば見出しが含まれている場合、スクリーンリーダーの利用者はそのセマンティクスにアクセスすることができません。
+          加えて、listboxロールが支援技術に伝えるインタラクションモデルは、オプション内の要素との対話をサポートしていません。
+          listboxウィジェットのこれらの特性のため、リンク、ボタン、又はチェックボックスなどの対話的な要素のリストを提示するアクセス可能な方法を提供しません。
+          対話的な要素のリストを提示するには、<a href="../grid/grid-pattern.html">Grid パターン</a>を参照してください。
         </p>
         <p>
-          Avoiding very long option names facilitates understandability and perceivability for screen reader users.
-          The entire name of an option is spoken as a single unit of speech when the option is read.
-          When too much information is spoken as the result of a single key press, it is difficult to understand.
-          Long names inhibit perception by increasing the impact of interrupted speech because users typically have to re-read the entire option.
-          And, if the user does not understand what is spoken, reading the name by character, word, or phrase may be a difficult operation for many screen reader users in the context of a listbox widget.
+          非常に長いオプション名を避けることで、スクリーンリーダーの利用者の理解性及び知覚性が向上します。
+          オプションの名前全体が、オプションが読み上げられるときに1つの発話ユニットとして話されます。
+          1回のキー押下の結果として話される情報が多すぎると、理解するのが難しくなります。
+          長い名前は、通常、利用者がオプション全体を再読する必要があるため、中断された発話の影響を増大させ、知覚を阻害します。
+          また、利用者が話される内容を理解できない場合、listboxウィジェットの文脈で文字、単語、又はフレーズで名前を読むのは、多くのスクリーンリーダー利用者にとって難しい操作となることがあります。
         </p>
         <p>
-          Sets of options where each option name starts with the same word or phrase can also significantly degrade usability for keyboard and screen reader users.
-          Scrolling through the list to find a specific option becomes inordinately time consuming for a screen reader user who must listen to that word or phrase repeated before hearing what is unique about each option.
-          For example, if a listbox for choosing a city were to contain options where each city name were preceded by a country name, and if many cities were listed for each country, a screen reader user would have to listen to the country name before hearing each city name.
-          In such a scenario, it would be better to have 2 list boxes, one for country and one for city.
+          各オプション名が同じ単語又はフレーズで始まるオプションのセットも、キーボード及びスクリーンリーダーの利用者にとって使い勝手を大幅に低下させることができます。
+          特定のオプションを見つけるためにリストをスクロールすることは、その単語又はフレーズが各オプションについてのユニークな部分を聞く前に繰り返されるので、スクリーンリーダーの利用者にとって非常に時間がかかるようになります。
+          例えば、都市を選択するためのlistboxが、各都市名が国名で先行されるオプションを含む場合、多くの都市が各国でリストされている場合、スクリーンリーダーの利用者は各都市名を聞く前に国名を聞く必要があります。
+          このようなシナリオでは、国と都市の2つのlistboxを持つ方が良いでしょう。
         </p>
       </section>
 
       <section id="examples">
-        <h2>Examples</h2>
+        <h2>例</h2>
         <ul>
-          <li><a href="examples/listbox-scrollable.html">Scrollable Listbox Example</a>: Single-select listbox that scrolls to reveal more options, similar to HTML <code>select</code> with <code>size</code> attribute greater than one.</li>
-          <li><a href="examples/listbox-rearrangeable.html">Example Listboxes with Rearrangeable Options</a>: Examples of both single-select and multi-select listboxes with accompanying toolbars where options can be added, moved, and removed.</li>
-          <li><a href="examples/listbox-grouped.html">Listbox Example with Grouped Options</a>: Single-select listbox with grouped options, similar to an HTML <code>select</code> with <code>optgroup</code> children.</li>
+          <li><a href="examples/listbox-scrollable.html">スクロール可能な Listbox の例</a> : オプションを表示するためにスクロールするシングルセレクトlistbox、HTMLの <code>select</code> に <code>size</code> 属性が1より大きい場合と同様。</li>
+          <li><a href="examples/listbox-rearrangeable.html">並べ替え可能なオプションを持つ例のListboxes</a> : オプションを追加、移動、及び削除できるツールバーを伴うシングルセレクト及びマルチセレクトlistboxesの例。</li>
+          <li><a href="examples/listbox-grouped.html">グループ化されたオプションを持つ Listbox の例</a> : グループ化されたオプションを持つシングルセレクトlistbox、HTMLの <code>select</code> に <code>optgroup</code> 子供と同様。</li>
         </ul>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
-        <p>For a vertically oriented listbox:</p>
+        <h2>キーボード操作</h2>
+        <p>縦方向のリストボックスの場合：</p>
         <ul>
           <li>
-            When a single-select listbox receives focus:
+            シングル選択リストボックスがフォーカスを受け取るとき：
             <ul>
               <li>
-                If none of the options are selected before the listbox receives focus, the first option receives focus.
-                Optionally, the first option may be automatically selected.
+                リストボックスがフォーカスを受け取る前に選択されているオプションがない場合、最初のオプションにフォーカスが移動します。
+                オプションで、最初の選択肢が自動的に選択される場合もあります。
               </li>
-              <li>If an option is selected before the listbox receives focus, focus is set on the selected option.</li>
+              <li>リストボックスがフォーカスを受け取る前に選択されているオプションがある場合、選択されているオプションにフォーカスが設定されます。</li>
             </ul>
           </li>
           <li>
-            When a multi-select listbox receives focus:
+            マルチ選択リストボックスがフォーカスを受け取るとき：
             <ul>
-              <li>If none of the options are selected before the listbox receives focus, focus is set on the first option and there is no automatic change in the selection state.</li>
-              <li>If one or more options are selected before the listbox receives focus, focus is set on the first option in the list that is selected.</li>
+              <li>リストボックスがフォーカスを受け取る前に選択されているオプションがない場合、最初のオプションにフォーカスが設定され、選択状態は自動的に変更されません。</li>
+              <li>リストボックスがフォーカスを受け取る前に一つまたはそれ以上のオプションが選択されている場合、リスト内で最初に選択されているオプションにフォーカスが設定されます。</li>
             </ul>
           </li>
           <li>
-            <kbd>Down Arrow</kbd>: Moves focus to the next option.
-            Optionally, in a single-select listbox, selection may also move with focus.
+            <kbd>下矢印</kbd>：次のオプションにフォーカスを移動します。
+            シングル選択リストボックスの場合、オプションで選択もフォーカスと共に移動することができます。
           </li>
           <li>
-            <kbd>Up Arrow</kbd>: Moves focus to the previous option.
-            Optionally, in a single-select listbox, selection may also move with focus.
+            <kbd>上矢印</kbd>：前のオプションにフォーカスを移動します。
+            シングル選択リストボックスの場合、オプションで選択もフォーカスと共に移動することができます。
           </li>
           <li>
-            <kbd>Home</kbd> (Optional): Moves focus to first option.
-            Optionally, in a single-select listbox, selection may also move with focus.
-            Supporting this key is strongly recommended for lists with more than five options.
+            <kbd>Home</kbd>（オプション）：最初のオプションにフォーカスを移動します。
+            シングル選択リストボックスの場合、オプションで選択もフォーカスと共に移動することができます。
+            5つ以上のオプションがあるリストでは、このキーをサポートすることが強く推奨されます。
           </li>
           <li>
-            <kbd>End</kbd> (Optional): Moves focus to last option.
-            Optionally, in a single-select listbox, selection may also move with focus.
-            Supporting this key is strongly recommended for lists with more than five options.
+            <kbd>End</kbd>（オプション）：最後のオプションにフォーカスを移動します。
+            シングル選択リストボックスの場合、オプションで選択もフォーカスと共に移動することができます。
+            5つ以上のオプションがあるリストでは、このキーをサポートすることが強く推奨されます。
           </li>
           <li>
-            Type-ahead is recommended for all listboxes, especially those with more than seven options:
+            タイプアヘッドは、特に7つ以上のオプションがあるリストボックスで推奨されます：
             <ul>
-              <li>Type a character: focus moves to the next item with a name that starts with the typed character.</li>
-              <li>Type multiple characters in rapid succession: focus moves to the next item with a name that starts with the string of characters typed.</li>
+              <li>文字を入力する：フォーカスは、入力された文字で始まる名前を持つ次の項目に移動します。</li>
+              <li>短時間で複数の文字を入力する：フォーカスは、入力された文字列で始まる名前を持つ次の項目に移動します。</li>
             </ul>
           </li>
           <li>
-            <strong>Multiple Selection</strong>: Authors may implement either of two interaction models to support multiple selection: a recommended model that does not require the user to hold a modifier key, such as <kbd>Shift</kbd> or <kbd>Control</kbd>, while navigating the list or an alternative model that does require modifier keys to be held while navigating in order to avoid losing selection states.
+            <strong>複数選択</strong>：著者は、複数の選択をサポートするための2つのインタラクションモデルのいずれかを実装することができます。一つはリストをナビゲートしながら修飾キー（<kbd>Shift</kbd> や <kbd>Control</kbd> など）を保持する必要がない推奨モデル、もう一つは選択状態を失うのを防ぐためにナビゲーション中に修飾キーを保持する必要がある代替モデルです。
             <ul>
               <li>
-                Recommended selection model -- holding modifier keys is not necessary:
+                推奨される選択モデル - 修飾キーを保持する必要はありません：
                 <ul>
-                  <li><kbd>Space</kbd>: changes the selection state of the focused option.</li>
-                  <li><kbd>Shift + Down Arrow</kbd> (Optional): Moves focus to and toggles the selected state of the next option.</li>
-                  <li><kbd>Shift + Up Arrow</kbd> (Optional): Moves focus to and toggles the selected state of the previous option.</li>
-                  <li><kbd>Shift + Space</kbd> (Optional): Selects contiguous items from the most recently selected item to the focused item.</li>
-                  <li>
-                    <kbd>Control + Shift + Home</kbd> (Optional): Selects the focused option and all options up to the first option.
-                    Optionally, moves focus to the first option.
-                  </li>
-                  <li>
-                    <kbd>Control + Shift + End</kbd> (Optional): Selects the focused option and all options down to the last option.
-                    Optionally, moves focus to the last option.
-                  </li>
-                  <li>
-                    <kbd>Control + A</kbd> (Optional): Selects all options in the list.
-                    Optionally, if all options are selected, it may also unselect all options.
-                  </li>
+                  <li><kbd>Space</kbd>：フォーカスされているオプションの選択状態を変更します。</li>
+                  <li><kbd>Shift + 下矢印</kbd>（オプション）：フォーカスを次のオプションに移動し、その選択状態を切り替えます。</li>
+                  <li><kbd>Shift + 上矢印</kbd>（オプション）：フォーカスを前のオプションに移動し、その選択状態を切り替えます。</li>
+                  <li><kbd>Shift + Space</kbd>（オプション）：最も最近選択されたアイテムからフォーカスされているアイテムまでの範囲内のすべてのアイテムの選択状態を切り替えます。</li>
                 </ul>
               </li>
               <li>
-                Alternative selection model -- moving focus without holding a <kbd>Shift</kbd> or <kbd>Control</kbd> modifier unselects all selected options except the focused option:
+                代替の選択モデル -- <kbd>Shift</kbd>または<kbd>Control</kbd>修飾キーを保持せずにフォーカスを移動すると、フォーカスが当たっているオプションを除くすべての選択されたオプションの選択が解除されます：
                 <ul>
-                  <li><kbd>Shift + Down Arrow</kbd>: Moves focus to and toggles the selection state of the next option.</li>
-                  <li><kbd>Shift + Up Arrow</kbd>: Moves focus to and toggles the selection state of the previous option.</li>
-                  <li><kbd>Control + Down Arrow</kbd>: Moves focus to the next option without changing its selection state.</li>
-                  <li><kbd>Control + Up Arrow</kbd>: Moves focus to the previous option without changing its selection state.</li>
-                  <li><kbd>Control + Space</kbd> Changes the selection state of the focused option.</li>
-                  <li><kbd>Shift + Space</kbd> (Optional): Selects contiguous items from the most recently selected item to the focused item.</li>
+                  <li><kbd>Shift + 下矢印</kbd>: 次のオプションにフォーカスを移動し、その選択状態を切り替えます。</li>
+                  <li><kbd>Shift + 上矢印</kbd>: 前のオプションにフォーカスを移動し、その選択状態を切り替えます。</li>
+                  <li><kbd>Control + 下矢印</kbd>: その選択状態を変更せずに次のオプションにフォーカスを移動します。</li>
+                  <li><kbd>Control + 上矢印</kbd>: その選択状態を変更せずに前のオプションにフォーカスを移動します。</li>
+                  <li><kbd>Control + Space</kbd> フォーカスされているオプションの選択状態を変更します。</li>
+                  <li><kbd>Shift + Space</kbd> (オプション): 最も最近選択されたアイテムからフォーカスされているアイテムまでの範囲内のすべてのアイテムを選択します。</li>
                   <li>
-                    <kbd>Control + Shift + Home</kbd> (Optional): Selects the focused option and all options up to the first option.
-                    Optionally, moves focus to the first option.
+                    <kbd>Control + Shift + Home</kbd> (オプション): フォーカスされているオプションおよび最初のオプションまでのすべてのオプションを選択します。
+                    オプションで、最初のオプションにフォーカスを移動することもできます。
                   </li>
                   <li>
-                    <kbd>Control + Shift + End</kbd> (Optional): Selects the focused option and all options down to the last option.
-                    Optionally, moves focus to the last option.
+                    <kbd>Control + Shift + End</kbd> (オプション): フォーカスされているオプションおよび最後のオプションまでのすべてのオプションを選択します。
+                    オプションで、最後のオプションにフォーカスを移動することもできます。
                   </li>
                   <li>
-                    <kbd>Control + A</kbd> (Optional): Selects all options in the list.
-                    Optionally, if all options are selected, it may also unselect all options.
+                    <kbd>Control + A</kbd> (オプション): リスト内のすべてのオプションを選択します。
+                    オプションで、すべてのオプションが選択されている場合、すべてのオプションの選択を解除することもできます。
                   </li>
                 </ul>
               </li>
@@ -152,28 +141,28 @@
           </li>
         </ul>
         <div class="note">
-          <h3>Note</h3>
+          <h3>注記</h3>
           <ol>
             <li>
-              DOM focus (the active element) is functionally distinct from the selected state.
-              For more details, see <a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_vs_selection">this description of differences between focus and selection</a>.
+              DOM フォーカス（アクティブな要素）は、選択されたステートとは機能的に異なります。
+              詳細は、<a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_vs_selection">フォーカス 及び 選択の違いに関するこの説明</a>を参照してください。
             </li>
             <li>
-              The <code>listbox</code> role supports the <a class="property-reference" href="#aria-activedescendant">aria-activedescendant</a> property, which provides an alternative to moving DOM focus among <code>option</code> elements when implementing keyboard navigation. For details, see
-              <a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">Managing Focus in Composites Using aria-activedescendant</a>.
+              <code>listbox</code> ロールは、<a class="property-reference" href="#aria-activedescendant">aria-activedescendant</a> プロパティをサポートしており、キーボードナビゲーションを実装する際に、<code>option</code> 要素の間で DOM フォーカスを移動する代替手段を提供します。
+              詳細については、<a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカスの管理</a>を参照してください。
             </li>
             <li>
-              In a single-select listbox, moving focus may optionally unselect the previously selected option and select the newly focused option.
-              This model of selection is known as &quot;selection follows focus&quot;.
-              Having selection follow focus can be very helpful in some circumstances and can severely degrade accessibility in others.
-              For additional guidance, see <a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_selection_follows_focus">Deciding When to Make Selection Automatically Follow Focus</a>.
+              単一選択の listbox では、フォーカスを移動することで、以前に選択されたオプションの選択を解除し、新しくフォーカスされたオプションを選択することができます。
+              この選択モデルは、&quot;選択がフォーカスに従う&quot;として知られています。
+              選択がフォーカスに従うことは、ある状況では非常に役立ちますが、他の状況ではアクセシビリティを大幅に低下させる可能性があります。
+              追加のガイダンスについては、<a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_selection_follows_focus">選択を自動的にフォーカスに従わせるかどうかを決定する</a>を参照してください。
             </li>
-            <li>If selecting or unselecting all options is an important function, implementing separate controls for these actions, such as buttons for &quot;Select All&quot; and &quot;Unselect All&quot;, significantly improves accessibility.</li>
+            <li>すべてのオプションを選択 又は 選択解除することが重要な機能である場合、これらのアクションのための別のコントロールを実装すること、例えば &quot;すべて選択&quot; 及び &quot;すべて選択解除&quot; のボタン、はアクセシビリティを大幅に向上させます。</li>
             <li>
-              If the options in a listbox are arranged horizontally:
+              listbox のオプションが水平に配置されている場合:
               <ol>
-                <li><kbd>Down Arrow</kbd> performs as <kbd>Right Arrow</kbd> is described above, and vice versa.</li>
-                <li><kbd>Up Arrow</kbd> performs as <kbd>Left Arrow</kbd> is described above, and vice versa.</li>
+                <li><kbd>下矢印</kbd> は、上記で説明されている <kbd>右矢印</kbd> として動作し、その逆も同様です。</li>
+                <li><kbd>上矢印</kbd> は、上記で説明されている <kbd>左矢印</kbd> として動作し、その逆も同様です。</li>
               </ol>
             </li>
           </ol>
@@ -181,86 +170,85 @@
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties</h2>
+        <h2>WAI-ARIA ロール、ステート、及びプロパティ</h2>
         <ul>
-          <li>An element that contains or owns all the listbox options has role <a href="#listbox" class="role-reference">listbox</a>.</li>
+          <li>すべての listbox オプションを含む又は所有する要素はロール<a href="#listbox" class="role-reference">listbox</a>を持っています。</li>
           <li>
-            Each option in the listbox has role <a href="#option" class="role-reference">option</a> and is contained in or owned by either:
+            listbox 内の各オプションはロール<a href="#option" class="role-reference">option</a>を持ち、以下のいずれかに含まれる又は所有されます:
             <ul>
-              <li>The element with role <code>listbox</code>.</li>
-              <li>An element with role <a href="#group" class="role-reference">group</a> that is contained in or owned by the element with role <code>listbox</code>.</li>
+              <li>ロール<code>listbox</code>を持つ要素。</li>
+              <li>ロール<a href="#group" class="role-reference">group</a>を持ち、ロール<code>listbox</code>を持つ要素に含まれる又はその要素によって所有される要素。</li>
             </ul>
           </li>
           <li>
-            Options contained in a <code>group</code> are referred to as <q>grouped options</q> and form what is called an <q>option group.</q>
-            If a listbox contains grouped options, then:
+            <code>group</code>内に含まれるオプションは<q>グループ化されたオプション</q>と呼ばれ、<q>オプショングループ</q>というものを形成します。
+            listbox がグループ化されたオプションを含む場合、以下が適用されます:
             <ul>
-              <li>All option groups contain at least one option.</li>
-              <li>Each option group has an accessible name provided via <a href="#aria-label" class="property-reference">aria-label</a> or <a href="#aria-labelledby" class="property-reference">aria-labelledby</a>.</li>
+              <li>すべてのオプショングループは少なくとも1つのオプションを含んでいます。</li>
+              <li>各オプショングループは<a href="#aria-label" class="property-reference">aria-label</a>又は<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>を通じてアクセス可能な名前を持っています。</li>
             </ul>
           </li>
-          <li>If the element with role <code>listbox</code> is not part of another widget, such as a combobox, then it has either a visible label referenced by <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> or a value specified for <a href="#aria-label" class="property-reference">aria-label</a>.</li>
+          <li>ロール<code>listbox</code>を持つ要素が、例えば combobox のような他のウィジェットの一部でない場合、<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>によって参照される表示ラベルを持つか、<a href="#aria-label" class="property-reference">aria-label</a>の値が指定されています。</li>
           <li>
-            If the listbox supports selection of more than one option, the element with role <code>listbox</code> has <a class="property-reference" href="#aria-multiselectable">aria-multiselectable</a> set to <code>true</code>.
-            Otherwise, <code>aria-multiselectable</code> is either set to <code>false</code> or the default value of <code>false</code> is implied.
+            listbox が複数のオプションの選択をサポートする場合、ロール<code>listbox</code>を持つ要素は<a class="property-reference" href="#aria-multiselectable">aria-multiselectable</a>を<code>true</code>に設定します。
+            それ以外の場合、<code>aria-multiselectable</code>は<code>false</code>に設定されるか、<code>false</code>のデフォルト値が暗黙的に設定されます。
           </li>
           <li>
-            The selection state of each selectable option is indicated with either <a href="#aria-selected" class="state-reference">aria-selected</a> or <a href="#aria-checked" class="state-reference">aria-checked</a>:
+            選択可能な各オプションの選択ステートは、<a href="#aria-selected" class="state-reference">aria-selected</a>又は<a href="#aria-checked" class="state-reference">aria-checked</a>のいずれかで示されます:
             <ul>
               <li>
-                If the selection state is indicated with <code>aria-selected</code>, then <code>aria-checked</code> is not specified for any options.
-                Alternatively, if the selection state is indicated with <code>aria-checked</code>, then <code>aria-selected</code> is not specified for any options.
-                See notes below regarding considerations for which property to use and for details of the unusual conditions that might allow for both properties in the same listbox.
+                選択ステートが<code>aria-selected</code>で示される場合、<code>aria-checked</code>はどのオプションにも指定されません。
+                逆に、選択ステートが<code>aria-checked</code>で示される場合、<code>aria-selected</code>はどのオプションにも指定されません。
+                どちらのプロパティを使用するかの考慮事項や、同じ listbox で両方のプロパティが許可される可能性のある珍しい条件の詳細については、以下の注記を参照してください。
               </li>
               <li>
-                If any options are selected, each selected option has either <a href="#aria-selected" class="state-reference">aria-selected</a> or <a href="#aria-checked" class="state-reference">aria-checked</a> set to <code>true</code>.
-                No more than one option is selected at a time if the element with role <code>listbox</code> does <em>not</em> have <a class="property-reference" href="#aria-multiselectable">aria-multiselectable</a> set to <code>true</code>.
+                オプションが選択されている場合、各選択されたオプションは、<a href="#aria-selected" class="state-reference">aria-selected</a>又は<a href="#aria-checked" class="state-reference">aria-checked</a>が<code>true</code>に設定されています。
+                ロール<code>listbox</code>が<code>true</code>に設定されていない<a class="property-reference" href="#aria-multiselectable">aria-multiselectable</a>を持つ場合、一度に選択されるオプションは1つだけです。
               </li>
-              <li>All options that are selectable but not selected have either <a href="#aria-selected" class="state-reference">aria-selected</a> or <a href="#aria-checked" class="state-reference">aria-checked</a> set to <code>false</code>.</li>
+              <li>選択可能でありながら選択されていないすべてのオプションは、<a href="#aria-selected" class="state-reference">aria-selected</a>又は<a href="#aria-checked" class="state-reference">aria-checked</a>が<code>false</code>に設定されています。</li>
               <li>
-                Note that except in listboxes where selection follows focus, the selected state is distinct from focus.
-                For more details, see <a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_vs_selection">this description of differences between focus and selection</a>
-                and <a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_selection_follows_focus">Deciding When to Make Selection Automatically Follow Focus</a>.
+                選択がフォーカスに従う listbox を除いて、選択ステートはフォーカスとは異なります。
+                詳細については、<a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_vs_selection">フォーカスと選択の違いの説明</a>及び<a href="../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_selection_follows_focus">選択が自動的にフォーカスに従うタイミングの決定</a>を参照してください。
               </li>
             </ul>
           </li>
-          <li>If the complete set of available options is not present in the DOM due to dynamic loading as the user scrolls, their <a href="#aria-setsize" class="property-reference">aria-setsize</a> and <a href="#aria-posinset" class="property-reference">aria-posinset</a> attributes are set appropriately.</li>
+          <li>利用可能なオプションの完全なセットがDOMに存在しない場合、ユーザーがスクロールすることで動的に読み込まれるため、<a href="#aria-setsize" class="property-reference">aria-setsize</a>及び<a href="#aria-posinset" class="property-reference">aria-posinset</a>属性が適切に設定されています。</li>
           <li>
-            If options are arranged horizontally, the element with role <code>listbox</code> has <a href="#aria-orientation" class="property-reference">aria-orientation</a> set to <code>horizontal</code>.
-            The default value of <code>aria-orientation</code> for <code>listbox</code> is <code>vertical</code>.
+            オプションが水平に配置されている場合、ロール<code>listbox</code>を持つ要素は<a href="#aria-orientation" class="property-reference">aria-orientation</a>を<code>horizontal</code>に設定しています。
+            <code>listbox</code>の<code>aria-orientation</code>のデフォルト値は<code>vertical</code>です。
           </li>
         </ul>
         <div class="note">
-          <h3>Note</h3>
+          <h3>注記</h3>
           <ol>
             <li>
-              Some factors to consider when choosing whether to indicate selection with <code>aria-selected</code> or <code>aria-checked</code> are:
+              <code>aria-selected</code> と <code>aria-checked</code> のどちらを使用して選択を示すかを選ぶ際の考慮事項は以下の通りです:
               <ul>
                 <li>
-                  Some design systems use <code>aria-selected</code> for single-select widgets and <code>aria-checked</code> for multi-select widgets.
-                  In the absence of factors that would make an alternative convention more appropriate, this is a recommended convention.
+                  一部のデザインシステムは、シングルセレクトウィジェットに<code>aria-selected</code>を、マルチセレクトウィジェットに<code>aria-checked</code>を使用しています。
+                  他の慣習がより適切であるとする要因がない場合、これは推奨される慣習です。
                 </li>
                 <li>
-                  The language of instructions and the appearance of the interface might suggest one attribute is more appropriate than the other.
-                  For instance, do instructions say to <q>select</q> items?
-                  Or, is the visual indicator of selection a check mark?
+                  指示の言葉やインターフェースの外観が、一方の属性が他方よりも適切であることを示唆するかもしれません。
+                  例えば、指示はアイテムを<q>選択</q>するようにと言っていますか？
+                  また、選択の視覚的な指標はチェックマークですか？
                 </li>
-                <li>It is important to adopt a consistent convention for selection models across a site or app.</li>
+                <li>サイトやアプリ全体での選択モデルに一貫した慣習を採用することが重要です。</li>
               </ul>
             </li>
             <li>
-              Conditions that would permit a listbox to include both <code>aria-selected</code> and <code>aria-checked</code> are extremely rare.
-              It is strongly recommended to avoid designing a listbox widget that would have the need for more than one type of state.
-              If both states were to be used within a listbox, all the following conditions need to be satisfied:
+              listboxが<code>aria-selected</code>と<code>aria-checked</code>の両方を含む条件は非常にまれです。
+              一つの状態よりも多いニーズがあるlistboxウィジェットの設計を避けることを強く推奨します。
+              listbox内で両方の状態を使用する場合、以下の条件すべてが満たされる必要があります:
               <ul>
-                <li>The meaning and purpose of <code>aria-selected</code> is different from the meaning and purpose of <code>aria-checked</code> in the user interface.</li>
-                <li>The user interface makes the meaning and purpose of each state apparent.</li>
-                <li>The user interface provides a separate method for controlling each state.</li>
+                <li>ユーザーインターフェースにおける<code>aria-selected</code>の意味と目的は、<code>aria-checked</code>の意味と目的とは異なります。</li>
+                <li>ユーザーインターフェースは、各状態の意味と目的を明確にします。</li>
+                <li>ユーザーインターフェースは、各状態を制御するための別々の方法を提供します。</li>
               </ul>
             </li>
             <li>
-              If <a href="#aria-owns" class="property-reference">aria-owns</a> is set on the listbox element to include elements that are not DOM children of the container, those elements will appear in the reading order in the sequence they are referenced and after any items that are DOM children.
-              Scripts that manage focus need to ensure the visual focus order matches this assistive technology reading order.
+              listbox要素に<a href="#aria-owns" class="property-reference">aria-owns</a>が設定され、コンテナのDOM子要素でない要素を含む場合、それらの要素は参照された順序で読み取り順序に表示され、DOM子要素であるアイテムの後に表示されます。
+              フォーカスを管理するスクリプトは、視覚的なフォーカスの順序がこの支援技術の読み取り順序と一致するように確認する必要があります。
             </li>
           </ol>
         </div>
