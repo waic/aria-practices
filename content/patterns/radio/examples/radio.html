@@ -79,7 +79,7 @@
             </ul>
           </li>
           <li>
-            透明なボーダーは、ハイコントラストが有効になっているシステムの一部で視覚的に見えてしまうことがあるため、フォーカスされた要素にのみ視覚的なボーダーを持たせています。フォーカス可能な要素がフォーカスされていない場合は、その要素に対して幅が 0 のボーダー及び、フォーカスを示すのに使われるボーダーと同じ幅の追加的なパディングを持たせています。
+            透明なボーダーは、ハイコントラストが有効になっているシステムで表示されてしまうことがあるため、フォーカスされた要素にのみ可視のボーダーを持たせています。フォーカス可能な要素がフォーカスされていない場合は、その要素に対して幅が 0 のボーダー及び、フォーカスを示すのに使われるボーダーと同じ幅の追加的なパディングを持たせています。
           </li>
           <li>
             ハイコントラストの設定によってテキストコンテンツの色が変更されたときに、CSS ファイルの中にあるインライン SVG のラジオボタンのグラフィックが背景と十分なコントラストを持つように、<code>svg</code> のグラフィックにおいて、CSS の <code>forced-color-adjust</code> は <code>auto</code> に設定されています。これにより、<code>circle</code> 要素の <code>stroke</code> 及び <code>fill</code> の色は、ハイコントラストの色設定によって上書きされます。<code>circle</code> 要素の背景をハイコントラスト時の背景色と一致させるために、外側の <code>circle</code> の <code>fill-opacity</code> 属性はゼロに設定され、内側の <code>circle</code> の <code>stroke-opacity</code> 属性もゼロに設定されています。<code>forced-color-adjust</code> が <code>stroke</code> 及び <code>fill</code> 属性で指定された色を上書きするのに用いられない場合、それらの色はハイコントラストモードでも変わらないままとなってしまい、ラジオボタンの circle 要素と背景との間のコントラストが不十分になるか、あるいはそれらの色がハイコントラストモードの背景色と一致する場合、見えなくなる可能性すらあります。<br>
@@ -159,7 +159,7 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li><code>div</code> 要素を <code>radio</code> ボタンのグループのコンテナとして特定。</li>
+                  <li><code>div</code> 要素を <code>radio</code> ボタンのグループのコンテナとして明示する。</li>
                   <li>以下で説明するように、フォーカスは「tabindex の移動 (roving tabindex)」戦略を使用して管理されるため、フォーカス可能ではない。</li>
                 </ul>
               </td>
@@ -168,7 +168,7 @@
               <td></td>
               <th scope="row"><code>aria-labelledby="[IDREF]"</code></th>
               <td><code>div</code></td>
-              <td>ラジオグループのラベルを含む要素を参照。</td>
+              <td>ラジオグループのラベルを含む要素を参照する。</td>
             </tr>
             <tr data-test-id="radio-role">
               <th scope="row"><code>radio</code></th>
@@ -176,7 +176,7 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li><code>div</code> 要素を ARIA の <code>radio</code> ボタンとして特定。</li>
+                  <li><code>div</code> 要素を ARIA の <code>radio</code> ボタンとして明示する。</li>
                   <li>アクセシブルな名前は、<code>div</code> 要素の子テキストコンテンツから割り出される。</li>
                 </ul>
               </td>
@@ -219,7 +219,7 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>選択されていない <code>radio</code> ボタンを特定。</li>
+                  <li>選択されていない <code>radio</code> ボタンを明示する。</li>
                   <li>CSS の属性セレクタ (例: <code>[aria-checked="false"]</code>) を使用して、視覚的な状態と <code>aria-checked</code> 属性の値を同期させる。</li>
                   <li>オペレーティングシステム及びブラウザのハイコントラスト設定をサポートすべく、CSS の <code>::before</code> 疑似要素が、選択されていないラジオボタンの視覚的な状態を示すために使用される。</li>
                 </ul>
@@ -231,7 +231,7 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>選択されている <code>radio</code> ボタンを特定。</li>
+                  <li>選択されている <code>radio</code> ボタンを明示する。</li>
                   <li>CSS の属性セレクタ (例: <code>[aria-checked="true"]</code>) を使用して、視覚的な状態と <code>aria-checked</code> 属性の値を同期させる。</li>
                   <li>オペレーティングシステム及びブラウザのハイコントラスト設定をサポートすべく、CSS の <code>::before</code> 疑似要素が、選択されているラジオボタンの視覚的な状態を示すために使用される。</li>
                 </ul>
