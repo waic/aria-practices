@@ -20,29 +20,29 @@
       <section id="about">
         <h2>このパターンについて</h2>
         <p>
-          <a class="role-reference" href="#button">ボタン</a>は、フォームの送信、ダイアログのオープン、アクションのキャンセル、削除操作などのアクションやイベントのトリガーを可能にするウィジェットです。
-          ボタンがダイアログを起動することをユーザーに知らせるための一般的な慣例は、ボタンラベルに &quot;&#8230;&quot;（省略記号）を付加することです。例： &quot;名前を付けて保存&#8230;&quot;
+          <a class="role-reference" href="#button">ボタン</a> は、フォームの送信、ダイアログのオープン、アクションのキャンセル、削除操作などの利用者のアクションやイベントのトリガを可能にするウィジェットです。
+          ボタンがダイアログを起動することを利用者に知らせるための一般的な方法は、ボタンラベルに &quot;&#8230;&quot;（省略記号）を付加することです。例： &quot;名前を付けて保存&#8230;&quot;
         </p>
-        <p>通常のボタンウィジェットに加えて、WAI-ARIAは2種類のボタンをサポートしています：</p>
+        <p>通常のボタンウィジェットに加えて、WAI-ARIA は2種類のボタンをサポートしています：</p>
         <ul>
           <li>
-            トグルボタン：オフ（押されていない状態）とオン（押された状態）の2つのステートを持つボタン。
-            ボタンがトグルボタンであることを支援技術に伝えるには、<a href="#aria-pressed" class="state-reference">aria-pressed</a>属性に値を指定します。
-            例えば、オーディオプレーヤーのミュートというラベルのボタンは、押されたステートをtrueに設定することで、音がミュートされていることを示すことができます。
-            <strong>重要：</strong>トグルボタンのラベルは、そのステートが変化しても変化しないことが重要です。
-            この例では、押されたステートがtrueのとき、ラベルは &quot;ミュート&quot; のままなので、スクリーンリーダーは "ミュート トグルボタン 押されています"のように言うでしょう。
-            そうではなく、ボタンのラベルが "ミュート" から "ミュート解除" に変わるようなデザインであれば、aria-pressed属性は必要ありません。
+            トグルボタン：オフ（押されていない状態）とオン（押された状態）の2つの状態を持つボタン。
+            ボタンがトグルボタンであることを支援技術に伝えるには、<a href="#aria-pressed" class="state-reference">aria-pressed</a> 属性に値を指定します。
+            例えば、オーディオプレーヤーのミュートというラベルのボタンは、押された状態を true に設定することで、音がミュートされていることを示すことができます。
+            <strong>重要：</strong>トグルボタンのラベルは、その状態が変化しても変化しないことが重要です。
+            この例では、押された状態が true のとき、ラベルは &quot;ミュート&quot; のままなので、スクリーンリーダーは "ミュート トグルボタン 押されています" のように言うでしょう。
+            そうではなく、ボタンのラベルが "ミュート" から "ミュート解除" に変わるようなデザインであれば、aria-pressed 属性は必要ありません。
           </li>
-          <li>メニューボタン：<a href="../menu-button/menu-button-pattern.html">メニューボタン パターン</a>で説明されているように、ボタンは、プロパティ<a href="#aria-haspopup" class="property-reference">aria-haspopup</a>が<code>menu</code>か<code>true</code>に設定されていれば、メニューボタンとして支援技術に公開されます。</li>
+          <li>メニューボタン： <a href="../menu-button/menu-button-pattern.html">メニューボタン パターン</a> で説明されているように、ボタンが支援技術にメニューボタンとして認識されるためには、<a href="#aria-haspopup" class="property-reference">aria-haspopup</a> プロパティが <code>menu</code> 又は <code>true</code> に設定されている必要があります。</li>
         </ul>
         <div class="note">
           <h3>ノート</h3>
           <p>
-            ボタンによって実行されるアクションのタイプは、リンクの機能（<a href="../link/link-pattern.html">リンクパターン</a>を参照）とは明確に異なる。
-            ウィジェットの外観とロールは、それが提供する機能と一致することが重要です。
+            ボタンによって実行されるアクションの種類は、リンクの機能（ <a href="../link/link-pattern.html">リンクパターン</a> を参照）とは明確に異なります。
+            ウィジェットの外観及び役割は、それが提供する機能と一致することが重要です。
             それにもかかわらず、要素がリンクの視覚的なスタイルを持ちながら、ボタンのアクションを実行することがあります。
-            このような場合、要素に<code>button</code>のロールを与えることは、支援技術ユーザーが要素の機能を理解するのに役立ちます。
-            しかし、より良い解決策は、機能とARIAロールが一致するように視覚デザインを調整することです。
+            このような場合、要素に <code>button</code> の役割を与えることは、支援技術利用者が要素の機能を理解するのに役立ちます。
+            しかし、より良い解決策は、機能と ARIA の役割が一致するように視覚デザインを調整することです。
           </p>
         </div>
       </section>
@@ -50,10 +50,10 @@
       <section id="examples">
         <h2>例</h2>
         <ul>
-          <li><a href="examples/button.html">ボタンの例</a>：クリック可能なHTMLの<code>div</code>と<code>span</code>要素をアクセシブルなコマンドボタンとトグルボタンにした例。</li>
+          <li><a href="examples/button.html">ボタンの例</a> ：クリック可能なHTMLの <code>div</code> 要素及び <code>span</code> 要素を使って、アクセシブルなコマンドボタン及びトグルボタンを作った例。</li>
           <li>
-            <a href="examples/button_idl.html">ボタンの例（IDL）</a>：クリック可能なHTMLの<code>div</code>と<code>span</code>要素をアクセシブルなコマンドとトグルボタンにした例。
-            この例では<a class="specref" href="#idl-interface">IDLインターフェイス</a>を用いています。
+            <a href="examples/button_idl.html">ボタンの例（IDL）</a> ：クリック可能なHTMLの <code>div</code> 要素及び <code>span</code> 要素を使って、アクセシブルなコマンド及びトグルボタンを作った例。
+            この例では <a class="specref" href="#idl-interface">IDLインターフェイス</a> を用いています。
           </li>
         </ul>
       </section>
@@ -62,25 +62,25 @@
         <h2>キーボード操作</h2>
         <p>ボタンにフォーカスがある場合：</p>
         <ul>
-          <li><kbd>Space</kbd>：ボタンをアクティブにします。</li>
-          <li><kbd>Enter</kbd>：ボタンをアクティブにします。</li>
+          <li><kbd>Space</kbd> ：ボタンをアクティブにします。</li>
+          <li><kbd>Enter</kbd> ：ボタンをアクティブにします。</li>
           <li>
-            ボタンをアクティブにした後、ボタンが実行するアクションのタイプに応じてフォーカスが設定されます。例えば：
+            ボタンをアクティブにした後、フォーカスの設定はボタンが実行するアクションの種類によって異なります。例えば：
             <ul>
               <li>
                 ボタンを押すとダイアログが開く場合、フォーカスはダイアログ内に移動します。
-                （<a href="../dialog-modal/dialog-modal-pattern.html">ダイアログ パターン</a>を参照）
+                （ <a href="../dialog-modal/dialog-modal-pattern.html">ダイアログ パターン</a> を参照）
               </li>
               <li>
-                ボタンをクリックするとダイアログが閉じる場合、ダイアログのコンテキストで実行された機能が論理的に別の要素につながらない限り、フォーカスは通常、ダイアログを開いたボタンに戻ります。
+                ボタンを押すとダイアログが閉じる場合、ダイアログのコンテキストで実行された機能が論理的に別の要素につながらない限り、フォーカスは通常、ダイアログを開いたボタンに戻ります。
                 例えば、ダイアログのキャンセルボタンを押すと、フォーカスはダイアログを開いたボタンに戻ります。
                 しかし、ダイアログが開かれたページを削除する操作を確認するものであった場合、フォーカスは論理的に新しいコンテキストに移動します。
               </li>
-              <li>ボタンをクリックしても現在のコンテキストがなくならない場合、フォーカスは通常、クリック後もボタン上に残ります（例：適用ボタンや再計算ボタン）。</li>
-              <li>ボタンのアクションが、ウィザードの次のステップへ移動したり、別の検索条件を追加したりするような、コンテキストの変更を示している場合、そのアクションの開始点にフォーカスを移動させることが適切であることが多いでしょう。</li>
+              <li>ボタンを押しても現在のコンテキストがなくならない場合、フォーカスは通常、押した後もボタン上に残ります（例：適用ボタン又は再計算ボタン）。</li>
+              <li>もしボタンのアクションが、ウィザードで次のステップに進む、または別の検索条件を追加するなどのコンテキスト変更を示している場合、そのアクションの開始点にフォーカスを移動することが適切です。</li>
               <li>
                 ボタンがショートカットキーで起動された場合、フォーカスは通常、ショートカットキーが起動されたコンテキストに残ります。
-                例えば、<kbd>Alt + U</kbd>がリストの現在フォーカスのある項目を1つ上の位置に移動させる &quot;Up&quot; ボタンに割り当てられている場合、フォーカスがリストにあるときに<kbd>Alt + U</kbd>を押しても、フォーカスはリストから移動しません。
+                例えば、<kbd>Alt + U</kbd> がリストの現在フォーカスのある項目を1つ上の位置に移動させる &quot;Up&quot; ボタンに割り当てられている場合、フォーカスがリストにあるときに <kbd>Alt + U</kbd> を押しても、フォーカスはリストから移動しません。
               </li>
             </ul>
           </li>
@@ -88,19 +88,19 @@
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIAのロール、ステート、およびプロパティ</h2>
+        <h2>WAI-ARIAの役割、状態、およびプロパティ</h2>
         <ul>
-          <li>ボタンは<a class="role-reference" href="#button">button</a>のロールを持っています。</li>
+          <li>ボタンは <a class="role-reference" href="#button">button</a> の役割を持っています。</li>
           <li>
-            <code>button</code>はアクセス可能なラベルを持ちます。
-            デフォルトでは、アクセシブルな名前はボタン要素内のテキスト内容から計算されます。
-            しかし、<a href="#aria-labelledby" class="property-reference">aria-labelledby</a>や<a href="#aria-label" class="property-reference">aria-label</a>で指定することもできます。
+            <code>button</code> はアクセシブルなラベルを持ちます。
+            デフォルトでは、アクセシブルな名前はボタン要素内のテキストから計算されます。
+            しかし、<a href="#aria-labelledby" class="property-reference">aria-labelledby</a> 又は <a href="#aria-label" class="property-reference">aria-label</a> で指定することもできます。
           </li>
-          <li>ボタンの機能の説明が存在する場合、ボタン要素の<a href="#aria-describedby" class="property-reference">aria-describedby</a>には、説明を含む要素のIDが設定されます。</li>
-          <li>ボタンに関連するアクションが利用できない場合、ボタンは<a class="state-reference" href="#aria-disabled">aria-disabled</a>に<code>true</code>が設定されます。</li>
+          <li>ボタンの機能に関する説明がある場合、ボタン要素の <a href="#aria-describedby" class="property-reference">aria-describedby</a> には、説明を含む要素のIDが設定されます。</li>
+          <li>ボタンに関連するアクションが利用できない場合、ボタンは <a class="state-reference" href="#aria-disabled">aria-disabled</a> に <code>true</code> が設定されます。</li>
           <li>
-            ボタンがトグルボタンの場合、<a href="#aria-pressed" class="state-reference">aria-pressed</a>ステートを持ちます。
-            ボタンがオンに切り替えられると、このステートの値は<code>true</code>になり、オフに切り替えられると、このステートは<code>false</code>になります。
+            ボタンがトグルボタンの場合、ボタンは <a href="#aria-pressed" class="state-reference">aria-pressed</a> の状態を持ちます。
+            ボタンがオンに切り替えられると、この状態の値は <code>true</code> になり、オフに切り替えられると、この状態の値は <code>false</code> になります。
           </li>
         </ul>
       </section>
