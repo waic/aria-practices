@@ -20,7 +20,7 @@
   <body>
     <nav aria-label="関連リンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/9">関連するIssues</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/9">関連する課題</a></li>
         <li><a href="../checkbox-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
@@ -30,11 +30,11 @@
 
       <section>
         <h2>この例について</h2>
-        <p>この例は、<code>div</code>要素を使用して二つの状態のチェックボックスの<a href="../checkbox-pattern.html">チェックボックス パターン</a>を実装しています。</p>
+        <p>この例は、<code>div</code> 要素を使用して二つの状態のチェックボックスの <a href="../checkbox-pattern.html">チェックボックス パターン</a> を実装しています。</p>
 
         <p>類似の例として以下があります：</p>
         <ul>
-          <li><a href="checkbox-mixed.html">チェックボックス（三つの状態）</a>：HTML <code>fieldset</code>内に含まれる二つの状態のHTMLチェックボックスのグループ内のチェック状態を反映し制御するために、aria-checkedの混合値を使用するチェックボックスを示します。</li>
+          <li><a href="checkbox-mixed.html">チェックボックス（三つの状態）</a> ： HTML <code>fieldset</code> 内に含まれる二つの状態の HTML チェックボックスのグループ内のチェック状態を反映し制御するために、 aria-checked の混合値を使用するチェックボックスのデモンストレーションです。</li>
         </ul>
       </section>
 
@@ -62,22 +62,22 @@
       <section>
         <h2>アクセシビリティの特徴</h2>
         <ul>
-          <li>各チェックボックスが<q>サンドイッチの具材</q>という名前の関連するチェックボックスのセットの一部であることを支援技術のユーザーに理解させるために、チェックボックスは<code>h3</code>見出し要素でラベル付けされた<code>group</code>で包まれています。</li>
-          <li>支援技術のユーザーがチェックボックスのセットを4つのアイテムのリストとして認識するのを容易にするために、チェックボックスとして機能する各<code>div</code>要素は、<code>ul</code>要素に含まれる<code>li</code>要素内にあります。</li>
+          <li>各チェックボックスが<q>サンドイッチの具材</q>という名前の関連するチェックボックスのセットの一部であることを支援技術のユーザーに理解させるために、チェックボックスは <code>h3</code> 見出し要素でラベル付けされた <code>group</code> で括られています。</li>
+          <li>支援技術のユーザーがチェックボックスのセットを4つのアイテムのリストとして認識するのを容易にするために、チェックボックスとして機能する各 <code>div</code> 要素は、 <code>ul</code> 要素に含まれる <code>li</code> 要素内にあります。</li>
           <li>ラベルまたはチェックボックスのいずれかをクリックするとチェックボックスが作動することを容易に認識させるために、ポインタがチェックボックスまたはラベルの上にホバーすると、背景色が変わり、境界線が表示され、カーソルがポインタに変わります。</li>
           <li>
             透明な境界線は、オペレーティングシステムの高コントラスト設定が有効になっている場合に一部のシステムで表示されるため、透明性を使用してフォーカスがある要素と他の要素との視覚的な違いを作ることはできません。
             透明性の代わりに、フォーカスがある要素は境界線が太く、余白が少なくなります。
-            要素がフォーカスを受け取ると、その境界線は0から2ピクセルに変わり、余白は2ピクセル減少します。
-            要素がフォーカスを失うと、その境界線は2ピクセルから0に変わり、余白は2ピクセル増加します。
+            要素がフォーカスを受け取ると、その境界線は 0 から 2ピクセル に変わり、余白は 2ピクセル 減少します。
+            要素がフォーカスを失うと、その境界線は 2ピクセル から 0 に変わり、余白は 2ピクセル 増加します。
           </li>
           <li>
-            高コントラスト設定が色を反転させるときに、CSSのインラインSVGチェックボックスグラフィックスの境界線が背景と十分なコントラストを持つようにするために、境界線の色はテキストコンテンツの色と同期させられます。
-            例えば、チェックボックスを描画するために使用される<code>rect</code>および<code>polyline</code>要素の<code>stroke</code>プロパティの値としてCSSの<code>currentcolor</code>値を指定することで、チェックボックスの境界線の色は、高コントラストモードのテキストの前景色と一致するように設定されます。
-            チェックボックスのグラフィックの背景を高コントラストの背景色と一致させるために、<code>rect</code>要素の<code>fill-opacity</code>属性はゼロに設定されます。
-            <code>stroke</code>および<code>fill</code>プロパティに特定の色を使用して指定する場合、その色は高コントラストモードで同じままとなり、チェックボックスと背景との間に十分なコントラストがないか、色が高コントラストモードの背景と一致する場合、チェックボックスが見えなくなる可能性があります。<br>
-            注：SVG要素は、<code>currentcolor</code>の値が高コントラストモードで更新されるように、CSSの<code>forced-color-adjust</code>プロパティを<code>auto</code>に設定する必要があります。
-            一部のブラウザはデフォルト値として<code>auto</code>を使用しません。
+            高コントラスト設定が色を反転させるときに、CSS のインライン SVG チェックボックスグラフィックスの境界線が背景と十分なコントラストを持つようにするために、境界線の色はテキストコンテンツの色と同期させられます。
+            例えば、チェックボックスを描画するために使用される <code>rect</code> 及び <code>polyline</code> 要素の <code>stroke</code> プロパティの値として CSS の <code>currentcolor</code> 値を指定することで、チェックボックスの境界線の色は、高コントラストモードのテキストの前景色と一致するように設定されます。
+            チェックボックスのグラフィックの背景を高コントラストの背景色と一致させるために、 <code>rect</code> 要素の <code>fill-opacity</code> 属性は 0 に設定されます。
+            <code>stroke</code> 及び <code>fill</code> プロパティに特定の色を使用して指定する場合、その色は高コントラストモードで同じままとなり、チェックボックスと背景との間に十分なコントラストがないか、色が高コントラストモードの背景と一致する場合、チェックボックスが見えなくなる可能性があります。<br>
+            注：SVG要素は、<code>currentcolor</code> の値が高コントラストモードで更新されるように、CSSの <code>forced-color-adjust</code> プロパティを <code>auto</code> に設定する必要があります。
+            一部のブラウザはデフォルト値として <code>auto</code> を使用しません。
           </li>
         </ul>
       </section>
@@ -105,7 +105,7 @@
       </section>
 
       <section>
-        <h2 id="rps_label">ロール、プロパティ、ステート、およびtabindex属性</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
@@ -132,7 +132,7 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>チェックボックスの<code>group</code>コンテナとして<code>div</code>要素を識別します。</li>
+                  <li>チェックボックスの <code>group</code> コンテナとして <code>div</code> 要素を識別します。</li>
                 </ul>
               </td>
             </tr>
@@ -140,7 +140,7 @@
               <td></td>
               <th scope="row"><code>aria-labelledby</code></th>
               <td><code>div</code></td>
-              <td>チェックボックスのグループのアクセシブルな名前を定義するために、<code>h3</code>要素の<code>id</code>属性を参照します。</td>
+              <td>チェックボックスのグループのアクセシブルな名前を定義するために、 <code>h3</code> 要素の <code>id</code> 属性を参照します。</td>
             </tr>
             <tr data-test-id="checkbox-role">
               <th scope="row"><code>checkbox</code></th>
@@ -148,8 +148,8 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li><code>div</code>要素を<code>checkbox</code>として識別します。</li>
-                  <li>この<code>div</code>の子テキストコンテンツは、チェックボックスのアクセシブルな名前を提供します。</li>
+                  <li><code>div</code> 要素を <code>checkbox</code> として識別します。</li>
+                  <li>この <code>div</code> の子テキストコンテンツは、チェックボックスのアクセシブルな名前を提供します。</li>
                 </ul>
               </td>
             </tr>
@@ -165,9 +165,9 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li><code>checkbox</code>が<strong>チェックされていない</strong>ことを示します。</li>
-                  <li>CSS属性セレクタ（例：<code>[aria-checked="false"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期させるために使用されます。</li>
-                  <li>オペレーティングシステムとブラウザの高コントラスト設定をサポートするために、CSSの<code>::before</code>疑似要素と<code>content</code>プロパティが、チェックボックスの状態の視覚的なインジケータを生成するために使用されます。</li>
+                  <li><code>checkbox</code> が<strong>チェックされていない</strong>ことを示します。</li>
+                  <li>CSS属性セレクタ（例： <code>[aria-checked="false"]</code> ）は、<code>aria-checked</code> 属性の値と視覚的な状態を同期させるために使用されます。</li>
+                  <li>オペレーティングシステムとブラウザの高コントラスト設定をサポートするために、CSSの <code>::before</code> 疑似要素と <code>content</code> プロパティが、チェックボックスの状態の視覚的なインジケータを生成するために使用されます。</li>
                 </ul>
               </td>
             </tr>
@@ -178,8 +178,8 @@
               <td>
                 <ul>
                   <li><code>checkbox</code>がチェックされていることを示します。</li>
-                  <li>CSS属性セレクタ（例：<code>[aria-checked="true"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期させるために使用されます。</li>
-                  <li>オペレーティングシステムとブラウザの高コントラスト設定をサポートするために、CSSの<code>::before</code>疑似要素と<code>content</code>プロパティが、チェックボックスの状態の視覚的なインジケータを生成するために使用されます。</li>
+                  <li>CSS属性セレクタ（例： <code>[aria-checked="true"]</code> ）は、 <code>aria-checked</code> 属性の値と視覚的な状態を同期させるために使用されます。</li>
+                  <li>オペレーティングシステムとブラウザの高コントラスト設定をサポートするために、CSSの <code>::before</code> 疑似要素と <code>content</code> プロパティが、チェックボックスの状態の視覚的なインジケータを生成するために使用されます。</li>
                 </ul>
               </td>
             </tr>
@@ -188,7 +188,7 @@
       </section>
 
       <section>
-        <h2>JavaScriptとCSSのソースコード</h2>
+        <h2>JavaScript 及び CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/checkbox.css" type="text/css">checkbox.css</a></li>
           <li>Javascript: <a href="js/checkbox.js" type="text/javascript">checkbox.js</a></li>
@@ -197,7 +197,7 @@
 
       <section>
         <h2>HTMLソースコード</h2>
-        <h3 id="sc1_label">シンプルな2状態のチェックボックスの例</h3>
+        <h3 id="sc1_label">シンプルな二つの状態のチェックボックスの例</h3>
         <div id="sc1_start_sep" role="separator" aria-labelledby="sc1_label sc1_start_sep" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
         <div id="sc1_end_sep" role="separator" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
