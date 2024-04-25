@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ボタンの例（IDLバージョン）</title>
+    <title>ボタンの例（ IDL バージョン）</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -20,23 +20,23 @@
   <body>
     <nav aria-label="Related Links" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/14">関連するIssues</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/14">関連する課題</a></li>
         <li><a href="../button-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
 
     <main>
-      <h1>ボタンの例（IDLバージョン）</h1>
+      <h1>ボタンの例（ IDL バージョン）</h1>
       <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section>
         <h2>この例について</h2>
-        <p>以下の<a href="../button-pattern.html">ボタンパターン</a>の例は、ARIA属性をコーディングするための新しいJavaScriptの構文を示しています。</p>
+        <p>以下の <a href="../button-pattern.html">ボタンパターン</a> の例は、ARIA 属性をコーディングするための新しい JavaScript 構文のデモンストレーションです。</p>
         <p>
-          このページの例のボタンに対するJavaScriptは、<a class="specref" href="#idl-interface">ARIA 1.2で定義されたIDLインターフェイス</a>を使用しています。
-          これらの例の目的は、ARIA属性リフレクションの使用方法を示し、ブラウザと支援技術の相互運用性のテストケースを提供することです。
-          具体的には、<code>role</code>および<code>ariaPressed</code>属性は、<code>setAttribute()</code>および<code>getAttribute()</code>の代わりにドット表記法を使用してアクセスされます。
-          その他の点では、これらの例は<a href="button.html">ボタンの例</a>と同一です。
+          このページの例のボタンに対する JavaScript は、<a class="specref" href="#idl-interface">ARIA 1.2で定義された IDL インターフェイス</a> を使用しています。
+          これらの例の目的は、ARIA 属性リフレクションの使用方法を示し、ブラウザと支援技術の相互運用性のテストケースを提供することです。
+          具体的には、<code>role</code> 及び <code>ariaPressed</code> 属性は、<code>setAttribute()</code> 及び <code>getAttribute()</code> の代わりにドット表記法を使用してアクセスされます。
+          その他の点では、これらの例は <a href="button.html">ボタンの例</a> と同一です。
         </p>
       </section>
 
@@ -51,16 +51,15 @@
           <div class="advisement">
             <h3>重要</h3>
             <p>
-              この例は、ARIA仕様のバージョン1.2まで導入されなかった構文を使用してコーディングされています。
-              <a href="https://github.com/w3c/aria-practices/issues/1692" target="_blank">ARIA属性リフレクションのサポートをまだ提供していないブラウザ</a>を使用する場合、
-              ボタンは正しくスタイルされません。
+              この例は、ARIA 仕様のバージョン 1.2 まで導入されなかった構文を使用してコーディングされています。
+              <a href="https://github.com/w3c/aria-practices/issues/1692" target="_blank"> ARIA 属性リフレクションに対応していないブラウザ</a> を使用する場合、ボタンは正しくスタイル設定されません。
             </p>
           </div>
 
-          <p>この<q>印刷</q>アクションボタンは<code>div</code>要素を使用しています。</p>
+          <p>この<q>印刷</q>アクションボタンは <code>div</code> 要素を使用しています。</p>
           <div tabindex="0" id="action">ページを印刷</div>
 
-          <p>この<q>ミュート</q>トグルボタンは<code>a</code>要素を使用しています。</p>
+          <p>この<q>ミュート</q>トグルボタンは <code>a</code> 要素を使用しています。</p>
           <a tabindex="0" id="toggle">
             ミュート
             <svg aria-hidden="true" focusable="false">
@@ -112,7 +111,7 @@
       </section>
 
       <section>
-        <h2 id="rps_label">ロール、プロパティ、ステート、およびtabindex属性</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
 
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
@@ -130,8 +129,8 @@
               <td><code>div</code>, <code>a</code></td>
               <td>
                 <ul>
-                  <li><code>element.role = 'button';</code>でJavaScriptで設定。</li>
-                  <li>要素を<code>button</code>ウィジェットとして識別します。</li>
+                  <li>JavaScriptで <code>element.role = 'button';</code> と設定します。</li>
+                  <li>この設定は、要素を <code>button</code> ウィジェットとして識別します。</li>
                   <li>ボタンのアクセシブル名は、要素のテキストコンテンツによって定義されます。</li>
                 </ul>
               </td>
@@ -144,8 +143,8 @@
               <td><code>div</code>, <code>a</code></td>
               <td>
                 <ul>
-                  <li>要素をタブ順序に含めます。</li>
-                  <li><code>href</code>属性を持たない<code>a</code>要素に必要です。</li>
+                  <li>要素をタブの順序に含めます。</li>
+                  <li><code>href</code> 属性を持たない <code>a</code> 要素に必要です。</li>
                 </ul>
               </td>
             </tr>
@@ -155,8 +154,8 @@
               <td><code>a</code></td>
               <td>
                 <ul>
-                  <li><code>button.ariaPressed = 'false';</code>でJavaScriptで設定。</li>
-                  <li>ボタンをトグルボタンとして識別します。</li>
+                  <li>JavaScript で <code>button.ariaPressed = 'false';</code> と設定します。</li>
+                  <li>この設定は、ボタンをトグルボタンとして識別します。</li>
                   <li>トグルボタンが押されていないことを示します。</li>
                 </ul>
               </td>
@@ -167,8 +166,8 @@
               <td><code>a</code></td>
               <td>
                 <ul>
-                  <li><code>button.ariaPressed = 'true';</code>でJavaScriptで設定。</li>
-                  <li>ボタンをトグルボタンとして識別します。</li>
+                  <li>JavaScript で<code>button.ariaPressed = 'true';</code> と設定します。</li>
+                  <li>この設定は、ボタンをトグルボタンとして識別します。</li>
                   <li>トグルボタンが押されていることを示します。</li>
                 </ul>
               </td>
@@ -177,14 +176,14 @@
               <td></td>
               <th scope="row"><code>aria-hidden="true"</code></th>
               <td><code>svg</code></td>
-              <td>ボタンのアクセシブル名の計算からSVGを除外します。</td>
+              <td>ボタンのアクセシブルな名前の計算から SVG を除外します。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2>JavaScriptとCSSのソースコード</h2>
+        <h2>JavaScript 及び CSSのソースコード</h2>
 
         <ul id="css_js_files">
           <li>
@@ -199,7 +198,7 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTMLソースコード</h2>
+        <h2 id="sc1_label">HTML ソースコード</h2>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
         <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
