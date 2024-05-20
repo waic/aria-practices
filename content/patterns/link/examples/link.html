@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Examples</title>
+    <title>リンクの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -25,29 +25,28 @@
       </ul>
     </nav>
     <main>
-      <h1>Link Examples</h1>
+      <h1>リンクの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <p>
-          The examples below demonstrate three variations of the <a href="../link-pattern.html">Link Pattern</a>.
-          The link pattern is used when it is necessary for elements other than the HTML <code>a</code> element to have link behaviors.
+          下記の例は、<a href="../link-pattern.html">リンクパターン</a>の三つのバリエーションをデモンストレーションするものです。HTMLの <code>a</code> 以外の要素に対して、リンクの振る舞いを持たせる必要がある場合に、このリンクパターンは用いられます。
         </p>
         <p>
-          <strong>Note:</strong> Use the HTML <code>a</code> element to create links whenever possible.
-          Browsers provide valuable functionality for native HTML links, e.g., open the target in a new window and copy the target URL to the system clipboard.
+          <strong>注記:</strong> 可能な限り HTML の <code>a</code> 要素を使用してリンクを作成してください。ブラウザは、ネイティブな HTML のリンクに対して、例えばリンク先を新しいウィンドウで開く、システムのクリップボードにリンク先 URL をコピーする、といった価値のある機能を提供します。
         </p>
       </section>
 
       <section>
-        <h2 id="ex_label">Examples</h2>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <h2 id="ex_label">例</h2>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="開始"></div>
         <table class="data">
           <thead>
             <tr>
-              <th>Number</th>
-              <th>Description</th>
-              <th>Link</th>
+              <th>番号</th>
+              <th>説明</th>
+              <th>リンク</th>
             </tr>
           </thead>
           <tbody>
@@ -55,16 +54,16 @@
               <th>
                 <div class="example-header"><span id="ex1_label">1</span></div>
               </th>
-              <td><code>span</code> element with text content.</td>
+              <td>テキストコンテンツを持つ <code>span</code> 要素。</td>
               <td id="ex1">
-                <span tabindex="0" role="link" onclick="goToLink(event, 'https://www.w3.org/')" onkeydown="goToLink(event, 'https://www.w3.org/')"> W3C website </span>
+                <span tabindex="0" role="link" onclick="goToLink(event, 'https://www.w3.org/')" onkeydown="goToLink(event, 'https://www.w3.org/')"> W3C website</span>
               </td>
             </tr>
             <tr>
               <th>
                 <div class="example-header"><span id="ex2_label">2</span></div>
               </th>
-              <td><code>img</code> element with <code>alt</code> attribute.</td>
+              <td><code>alt</code> 属性を持つ <code>img</code> 要素。</td>
               <td id="ex2">
                 <img tabindex="0" role="link" onclick="goToLink(event, 'https://www.w3.org/')" onkeydown="goToLink(event, 'https://www.w3.org/')" src="images/w3c-logo.svg" alt="W3C Website">
               </td>
@@ -73,43 +72,43 @@
               <th>
                 <div class="example-header"><span id="ex3_label">3</span></div>
               </th>
-              <td>CSS <code>:before</code> content property on a <code>span</code> element.</td>
+              <td><code>span</code> 要素に対する CSS <code>:before</code> の content プロパティ。</td>
               <td id="ex3">
                 <span tabindex="0" role="link" class="link3" onclick="goToLink(event, 'https://www.w3.org/TR/wai-aria-practices/')" onkeydown="goToLink(event, 'https://www.w3.org/TR/wai-aria-practices/')" aria-label="W3C website"></span>
               </td>
             </tr>
           </tbody>
         </table>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="終了"></div>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
             <tr data-test-id="key-enter">
               <th><kbd>enter</kbd></th>
-              <td>Activates the link.</td>
+              <td>リンクを作動する。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -119,8 +118,8 @@
               <td><code>span</code><br><code>img</code></td>
               <td>
                 <ul>
-                  <li>Examples 1 and 3: Identifies the <code>span</code> element as a <code>link</code>.</li>
-                  <li>Example 2: Identifies the <code>img</code> element as a <code>link</code>.</li>
+                  <li>例 1 及び 3: <code>span</code> 要素を <code>link</code> として特定する。</li>
+                  <li>例 2: <code>img</code> 要素を <code>link</code> として特定する。</li>
                 </ul>
               </td>
             </tr>
@@ -128,26 +127,37 @@
               <td></td>
               <th scope="row"><code>tabindex=&quot;0&quot;</code></th>
               <td><code>span</code>, <br><code>img</code></td>
-              <td>Includes the link element in the page tab sequence.</td>
+              <td>リンク要素をページのタブ順序に含める。</td>
             </tr>
             <tr data-test-id="alt">
               <td></td>
               <th scope="row"><code>alt</code></th>
               <td><code>img</code></td>
-              <td>Example 2: Defines the accessible name of the link.</td>
+              <td>例 2: リンクの、アクセシブルな名前を定義する。</td>
             </tr>
             <tr data-test-id="aria-label">
               <td></td>
               <th scope="row"><code>aria-label</code></th>
               <td><code>span</code></td>
-              <td>Example 3: Defines the accessible name of the link.</td>
+              <td>例 3: リンクの、アクセシブルな名前を定義する。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
+      <section id="at-support">
+        <h2>支援技術のサポート</h2>
+        <iframe
+          class="support-levels-link-span-text"
+          src="https://aria-at.w3.org/embed/reports/link-span-text"
+          height="100"
+          allow="clipboard-write"
+          style="border-style: none; width: 100%;">
+        </iframe>
+      </section>
+
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScript 及び CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>
             CSS:
@@ -161,36 +171,25 @@
       </section>
 
       <section>
-        <h2>HTML Source Code</h2>
-        <h3 id="sc1_label">Link 1</h3>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2>HTML ソースコード</h2>
+        <h3 id="sc1_label">リンク 1</h3>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
-        <h3 id="sc2_label">Link 2</h3>
-        <div role="separator" id="sc2_start_sep" aria-labelledby="sc2_start_sep sc2_label" aria-label="Start of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="終了"></div>
+        <h3 id="sc2_label">リンク 2</h3>
+        <div role="separator" id="sc2_start_sep" aria-labelledby="sc2_start_sep sc2_label" aria-label="開始"></div>
         <pre><code id="sc2"></code></pre>
-        <div role="separator" id="sc2_end_sep" aria-labelledby="sc2_end_sep sc2_label" aria-label="End of"></div>
-        <h3 id="sc3_label">Link 3</h3>
-        <div role="separator" id="sc3_start_sep" aria-labelledby="sc3_start_sep sc3_label" aria-label="Start of"></div>
+        <div role="separator" id="sc2_end_sep" aria-labelledby="sc2_end_sep sc2_label" aria-label="終了"></div>
+        <h3 id="sc3_label">リンク 3</h3>
+        <div role="separator" id="sc3_start_sep" aria-labelledby="sc3_start_sep sc3_label" aria-label="開始"></div>
         <pre><code id="sc3"></code></pre>
-        <div role="separator" id="sc3_end_sep" aria-labelledby="sc3_end_sep sc3_label" aria-label="End of"></div>
+        <div role="separator" id="sc3_end_sep" aria-labelledby="sc3_end_sep sc3_label" aria-label="終了"></div>
         <script>
           sourceCode.add('sc1', 'ex1', 'ex1_label', 'css_js_files');
           sourceCode.add('sc2', 'ex2', 'ex2_label', 'css_js_files');
           sourceCode.add('sc3', 'ex3', 'ex3_label', 'css_js_files');
           sourceCode.make();
         </script>
-      </section>
-
-      <section id="at-support">
-        <h2>Assistive Technology Support</h2>
-        <iframe
-          class="support-levels-link-span-text"
-          src="https://aria-at.w3.org/embed/reports/link-span-text"
-          height="100"
-          allow="clipboard-write"
-          style="border-style: none; width: 100%;">
-        </iframe>
       </section>
 
     </main>
