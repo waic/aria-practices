@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accordion Pattern</title>
+    <title>アコーディオン パターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,83 +14,77 @@
   </head>
   <body>
     <main>
-      <h1>Accordion Pattern (Sections With Show/Hide Functionality)</h1>
+      <h1>アコーディオン パターン（表示/非表示機能付きのセクション）</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
 
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンについて</h2>
         <p>
-          An accordion is a vertically stacked set of interactive headings that each contain a title, content snippet, or thumbnail representing a section of content.
-          The headings function as controls that enable users to reveal or hide their associated sections of content.
-          Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.
+          アコーディオンは、インタラクティブな見出しを垂直に積み重ねたセットで、各見出しは、タイトル、コンテンツのスニペット、又はコンテンツのセクションを表すサムネイルを含みます。これらの見出しはコントロールとして機能し、関連づけられているコンテンツのセクションを利用者が表示又は非表示にすることを可能にします。アコーディオンは一般的に、1ページで複数のコンテンツのセクションを表示する場合に、スクロールの必要性を減少させるために使用されます。
         </p>
-        <p>Terms for understanding accordions include:</p>
+        <p>アコーディオンを理解するための用語には以下があります：</p>
         <dl>
-          <dt>Accordion Header:</dt>
-          <dd>Label for or thumbnail representing a section of content that also serves as a control for showing, and in some implementations, hiding the section of content.</dd>
-          <dt>Accordion Panel:</dt>
-          <dd>Section of content associated with an accordion header.</dd>
+          <dt>アコーディオンヘッダー：</dt>
+          <dd>コンテンツのセクションを表すラベル又はサムネイルで、コンテンツのセクションを表示する、及び一部の実装では非表示にするためのコントロールとして、機能します。</dd>
+          <dt>アコーディオンパネル：</dt>
+          <dd>アコーディオンヘッダーに関連づけられているコンテンツのセクションです。</dd>
         </dl>
         <p>
-          In some accordions, there are additional elements that are always visible adjacent to the accordion header.
-          For instance, a menubutton may accompany each accordion header to provide access to actions that apply to that section. And, in some cases, a snippet of the hidden content may also be visually persistent.
+          一部のアコーディオンには、アコーディオンヘッダーに隣接して常に表示される追加の要素があります。例えば、各アコーディオンヘッダーには、そのセクションに適用されるアクションへのアクセスを提供するためのメニューボタンが付随している場合があります。そして、一部のケースでは、隠されたコンテンツの断片が視覚的に持続する場合もあります。
         </p>
       </section>
 
       <section id="examples">
-        <h2>Example</h2>
-        <p><a href="examples/accordion.html">Accordion Example</a>: demonstrates a form divided into three sections using an accordion to show one section at a time.</p>
+        <h2>例</h2>
+        <p><a href="examples/accordion.html">アコーディオンの例</a>：3 つのセクションに分かれたフォームのデモンストレーションで、アコーディオンを使用して、一度に 1 セクションを表示します。</p>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
+        <h2>キーボードの操作</h2>
         <ul>
           <li>
-            <kbd>Enter</kbd> or <kbd>Space</kbd>:
+            <kbd>Enter</kbd> 又は <kbd>Space</kbd>:
             <ul>
               <li>
-                When focus is on the accordion header for a collapsed panel, expands the associated panel.
-                If the implementation allows only one panel to be expanded, and if another panel is expanded, collapses that panel.
+                折りたたまれたパネルのアコーディオンヘッダーにフォーカスがある場合、関連づけられているパネルを展開します。実装によって 1 つのパネルのみを展開できるようになっていて、別のパネルが展開されている場合は、そのパネルを折りたたみます。
               </li>
               <li>
-                When focus is on the accordion header for an expanded panel, collapses the panel if the implementation supports collapsing.
-                Some implementations require one panel to be expanded at all times and allow only one panel to be expanded; so, they do not support a collapse function.
+               展開されたパネルのアコーディオンヘッダーにフォーカスがある場合、実装によって折りたたみがサポートされている場合は、そのパネルを折りたたみます。一部の実装では、常にパネルを 1 つ展開することが求められ、1 つのパネルのみ展開できるようになっていて、その場合、折りたたむ機能はサポートされません。
               </li>
             </ul>
           </li>
-          <li><kbd>Tab</kbd>: Moves focus to the next focusable element; all focusable elements in the accordion are included in the page <kbd>Tab</kbd> sequence.</li>
-          <li><kbd>Shift + Tab</kbd>: Moves focus to the previous focusable element; all focusable elements in the accordion are included in the page <kbd>Tab</kbd> sequence.</li>
+          <li><kbd>Tab</kbd>: 次のフォーカス可能な要素にフォーカスを移動します。アコーディオン内のすべてのフォーカス可能な要素は、ページの <kbd>Tab</kbd> シーケンスに含まれます。</li>
+          <li><kbd>Shift + Tab</kbd>: 前のフォーカス可能な要素にフォーカスを移動します。アコーディオン内のすべてのフォーカス可能な要素は、ページの <kbd>Tab</kbd> シーケンスに含まれます。</li>
           <li>
-            <kbd>Down Arrow</kbd> (Optional): If focus is on an accordion header, moves focus to the next accordion header.
-            If focus is on the last accordion header, either does nothing or moves focus to the first accordion header.
+            <kbd>下矢印</kbd> (任意): フォーカスがアコーディオンヘッダーにある場合、次のアコーディオンヘッダーにフォーカスを移動します。フォーカスが最後のアコーディオンヘッダーにある場合、何もしないか、最初のアコーディオンヘッダーにフォーカスを移動します。
           </li>
           <li>
-            <kbd>Up Arrow</kbd> (Optional): If focus is on an accordion header, moves focus to the previous accordion header.
-            If focus is on the first accordion header, either does nothing or moves focus to the last accordion header.
+            <kbd>上矢印</kbd> (任意): フォーカスがアコーディオンヘッダーにある場合、前のアコーディオンヘッダーにフォーカスを移動します。フォーカスが最初のアコーディオンヘッダーにある場合、何もしないか、最後のアコーディオンヘッダーにフォーカスを移動します。
           </li>
-          <li><kbd>Home</kbd> (Optional): When focus is on an accordion header, moves focus to the first accordion header.</li>
-          <li><kbd>End</kbd> (Optional): When focus is on an accordion header, moves focus to the last accordion header.</li>
+          <li><kbd>Home</kbd> (任意): フォーカスがアコーディオンヘッダーにある場合、最初のアコーディオンヘッダーにフォーカスを移動します。</li>
+          <li><kbd>End</kbd> (任意): フォーカスがアコーディオンヘッダーにある場合、最後のアコーディオンヘッダーにフォーカスを移動します。</li>
         </ul>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties:</h2>
+        <h2>WAI-ARIA のロール、ステート、及びプロパティ:</h2>
         <ul>
-          <li>The title of each accordion header is contained in an element with role <a href="#button" class="role-reference">button</a>.</li>
+          <li>各アコーディオンヘッダーのタイトルは、<a href="#button" class="role-reference">button</a> ロールの要素に含まれています。</li>
           <li>
-            Each accordion header <code>button</code> is wrapped in an element with role <a href="#heading" class="role-reference">heading</a> that has a value set for <a href="#aria-level" class="property-reference">aria-level</a> that is appropriate for the information architecture of the page.
+            各アコーディオンヘッダーの <code>button</code> は、ページの情報アーキテクチャにふさわしい <a href="#aria-level" class="property-reference">aria-level</a> の値を持った <a href="#heading" class="role-reference">heading</a> ロールの要素に囲まれています。
             <ul>
-              <li>If the native host language has an element with an implicit <code>heading</code> and <code>aria-level</code>, such as an HTML heading tag, a native host language element may be used.</li>
-              <li>The <code>button</code> element is the only element inside the <code>heading</code> element. That is, if there are other visually persistent elements, they are not included inside the <code>heading</code> element.</li>
+              <li>ネイティブのホスト言語が、HTML の見出しタグのように、<code>heading</code> 及び <code>aria-level</code> を暗黙的に持つ要素を持つ場合、ネイティブのホスト言語の要素を使用することができます。</li>
+              <li><code>button</code> 要素は <code>heading</code> 要素内の唯一の要素です。つまり、視覚的に持続する要素が他にある場合、それらは <code>heading</code> 要素の中に含まれません。</li>
             </ul>
           </li>
-          <li>If the accordion panel associated with an accordion header is visible, the header <code>button</code> element has <a href="#aria-expanded" class="state-reference">aria-expanded</a> set to <code>true</code>. If the panel is not visible, <a href="#aria-expanded" class="state-reference">aria-expanded</a> is set to <code>false</code>.</li>
-          <li>The accordion header <code>button</code> element has <a href="#aria-controls" class="property-reference">aria-controls</a> set to the ID of the element containing the accordion panel content.</li>
-          <li>If the accordion panel associated with an accordion header is visible, and if the accordion does not permit the panel to be collapsed, the header <code>button</code> element has <a href="#aria-disabled" class="state-reference">aria-disabled</a> set to <code>true</code>.</li>
+          <li>アコーディオンヘッダーに関連づけられているアコーディオンパネルが表示されている場合、ヘッダーの <code>button</code> 要素では <a href="#aria-expanded" class="state-reference">aria-expanded</a> が <code>true</code> に設定されます。パネルが表示されていない場合、<a href="#aria-expanded" class="state-reference">aria-expanded</a> は <code>false</code> に設定されます。</li>
+          <li>アコーディオンヘッダーの <code>button</code> 要素は、アコーディオンパネルのコンテンツを含む要素の ID に設定された <a href="#aria-controls" class="property-reference">aria-controls</a> を持ちます。</li>
+          <li>アコーディオンヘッダーに関連づけられているアコーディオンパネルが表示されていて、かつアコーディオンがそのパネルを折りたたませない場合、そのヘッダーの <code>button</code> 要素では <a href="#aria-disabled" class="state-reference">aria-disabled</a> が <code>true</code> に設定されます。</li>
           <li>
-            Optionally, each element that serves as a container for panel content has role <a href="#region" class="role-reference">region</a> and <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> with a value that refers to the button that controls display of the panel.
+            パネルのコンテンツのコンテナとして機能する各要素は、<a href="#region" class="role-reference">region</a> ロール及び、パネルの表示を制御するボタンを参照する値が設定された <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> を、任意で持ちます。
             <ul>
-              <li>Avoid using the <code>region</code> role in circumstances that create landmark region proliferation, e.g., in an accordion that contains more than approximately 6 panels that can be expanded at the same time.</li>
-              <li>Role <code>region</code> is especially helpful to the perception of structure by screen reader users when panels contain heading elements or a nested accordion.</li>
+              <li>例えば同時に展開できるパネルをだいたい 6 つより多く含むアコーディオンのような、ランドマークリージョンの増殖を生む状況では、<code>region</code> ロールの使用を避けてください。</li>
+              <li><code>region</code> ロールはとりわけ、パネルに見出し要素やネストされたアコーディオンが含まれているような場合に、スクリーンリーダーの利用者が構造を認識するのに役立ちます。</li>
             </ul>
           </li>
         </ul>
