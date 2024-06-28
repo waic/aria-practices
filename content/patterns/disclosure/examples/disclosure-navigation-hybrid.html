@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example Disclosure Navigation Menu with Top-Level Links</title>
+    <title>トップレベルリンク付きディスクロージャー（表示/非表示）ナビゲーションメニューの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -20,170 +20,163 @@
   <body>
     <nav aria-label="Related Links" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/14">Related Issues</a></li>
-        <li><a href="../disclosure-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/14">関連する Issues</a></li>
+        <li><a href="../disclosure-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
-      <h1>Example Disclosure Navigation Menu with Top-Level Links</h1>
+      <h1>トップレベルリンク付きディスクロージャー（表示/非表示）ナビゲーションメニューの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7f54d9620e32231021aad607b7af7eeee5c24f54 -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <div class="advisement">
-          <h3>Important</h3>
+          <h3>重要</h3>
           <p>
-            Although this example uses the word "menu" in the colloquial sense to refer to a set of navigation links, it does not use the WAI-ARIA menu role.
-            This implementation of site navigation does not use the menu role because it does not provide the complex functionality that assistive technologies expect in a widget that has the menu role.
-            Typical site navigation does not need all the
-            <a href="../../menubar/menu-and-menubar-pattern.html#keyboard_interaction">keyboard interactions specified by the menu and menubar pattern</a>.
+            この例では、ナビゲーションリンクのセットを指すために俗にいう「メニュー」という単語を使用していますが、WAI-ARIA の menu ロールは使用していません。
+            サイトナビゲーションのこの実装は、支援技術が menu ロールを持つウィジェットに期待する複雑な機能を提供しないため、menu ロールを使用していません。
+            典型的なサイトナビゲーションには、<a href="../../menubar/menu-and-menubar-pattern.html#keyboard_interaction">メニューとメニューバーのパターンで指定されたキーボード操作</a>のすべてが必要ありません。
           </p>
         </div>
-
+        <img alt="" class="example-page-example-icon" src="../../../images/pattern-disclosure.svg">
         <p>
-          The following example demonstrates using the <a href="../disclosure-pattern.html">Disclosure Pattern</a> to show and hide dropdown lists of links in a navigation bar for a mythical university web site.
-          Unlike the other <a href="disclosure-navigation.html">disclosure navigation menu example</a>, this example includes top-level links alongside the disclosure buttons.
+          次の例は、架空の大学のウェブサイトのナビゲーションバーにおいて、<a href="../disclosure-pattern.html">ディスクロージャーパターン</a>を使用してリンクのドロップダウンリストを表示及び非表示にする方法を示しています。
+          他の<a href="disclosure-navigation.html">ディスクロージャーナビゲーションメニューの例</a>とは異なり、この例にはディスクロージャーボタンの隣にトップレベルリンクが含まれています。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下が含まれます：</p>
         <ul>
-          <li><a href="disclosure-navigation.html">Example Disclosure Navigation Menu</a></li>
-          <li><a href="disclosure-faq.html">Example Disclosure (Show/Hide) for Answers to Frequently Asked Questions</a></li>
-          <li><a href="disclosure-image-description.html">Example Disclosure (Show/Hide) for an Image Description</a></li>
-          <li><a href="../../menubar/examples/menubar-navigation.html">Navigation Menubar Example</a></li>
+          <li><a href="disclosure-navigation.html">ディスクロージャー（表示/非表示）ナビゲーションメニューの例</a></li>
+          <li><a href="disclosure-faq.html">よくある質問への回答のディスクロージャー（表示/非表示）の例</a></li>
+          <li><a href="disclosure-image-description.html">画像説明のディスクロージャー（表示/非表示）の例</a></li>
+          <li><a href="../../menubar/examples/menubar-navigation.html">ナビゲーションメニューバーの例</a></li>
         </ul>
-        <h2>Example Usage Options</h2>
+        <h2>使用例のオプション</h2>
         <p>
-          This example demonstrates two different ways of implementing keyboard support.
-          Toggle between them with the following checkbox.
+          この例は、キーボードサポートを実装する 2 つの異なる方法を示しています。以下のチェックボックスで切り替えます。
         </p>
         <label for="arrow-behavior-switch">
           <input type="checkbox" id="arrow-behavior-switch" checked>
-          Include optional support for arrow keys, <kbd>Home</kbd>, and <kbd>End</kbd>
+          オプションの矢印キー及び　<kbd>Home</kbd>、並びに　<kbd>End</kbd>　のサポートを含める
         </label>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
         <div id="ex1">
           <header class="sample-header">
-            <div class="title" id="id_website_title">Mythical University</div>
-            <div class="tagline">Using a disclosure + link pattern for navigation</div>
+            <div class="title" id="id_website_title">架空大学</div>
+            <div class="tagline">ナビゲーション用のディスクロージャー + リンクパターンの使用</div>
           </header>
-          <nav aria-label="Mythical University">
+          <nav aria-label="架空大学">
             <ul id="exTest" class="disclosure-nav">
               <li>
-                <a href="#mythical-page-content" class="main-link">About</a>
-                <button type="button" aria-expanded="false" aria-controls="id_about_menu" aria-label="More About pages"></button>
+                <a href="#mythical-page-content" class="main-link">概要</a>
+                <button type="button" aria-expanded="false" aria-controls="id_about_menu" aria-label="概要ページについてもっと"></button>
                 <ul id="id_about_menu" style="display: none">
                   <li>
-                    <a href="#mythical-page-content">Overview</a>
+                    <a href="#mythical-page-content">概観</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Administration</a>
+                    <a href="#mythical-page-content">管理部門</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Facts</a>
+                    <a href="#mythical-page-content">事実</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Campus Tours</a>
+                    <a href="#mythical-page-content">キャンパスツアー</a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#mythical-page-content" class="main-link">Admissions</a>
-                <button type="button" aria-expanded="false" aria-controls="id_admissions_menu" aria-label="More Admissions pages"></button>
+                <a href="#mythical-page-content" class="main-link">入学案内</a>
+                <button type="button" aria-expanded="false" aria-controls="id_admissions_menu" aria-label="入学案内ページについてもっと"></button>
                 <ul id="id_admissions_menu" style="display: none">
                   <li>
-                    <a href="#mythical-page-content">Apply</a>
+                    <a href="#mythical-page-content">申し込み</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Tuition</a>
+                    <a href="#mythical-page-content">授業料</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Sign Up</a>
+                    <a href="#mythical-page-content">サインアップ</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Visit</a>
+                    <a href="#mythical-page-content">訪問</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Photo Tour</a>
+                    <a href="#mythical-page-content">フォトツアー</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Connect</a>
+                    <a href="#mythical-page-content">連絡先</a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#mythical-page-content" class="main-link">Academics</a>
-                <button type="button" aria-expanded="false" aria-controls="id_academics_menu" aria-label="More Academics pages"></button>
+                <a href="#mythical-page-content" class="main-link">学術情報</a>
+                <button type="button" aria-expanded="false" aria-controls="id_academics_menu" aria-label="学術情報ページについてもっと"></button>
                 <ul id="id_academics_menu" style="display: none">
                   <li>
-                    <a href="#mythical-page-content">Colleges &amp; Schools</a>
+                    <a href="#mythical-page-content">学部・学校</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Programs of Study</a>
+                    <a href="#mythical-page-content">学習プログラム</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Honors Programs</a>
+                    <a href="#mythical-page-content">優等学位プログラム</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Online Courses</a>
+                    <a href="#mythical-page-content">オンラインコース</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Course Explorer</a>
+                    <a href="#mythical-page-content">コースエクスプローラー</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Register for Class</a>
+                    <a href="#mythical-page-content">クラス登録</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Academic Calendar</a>
+                    <a href="#mythical-page-content">学術カレンダー</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">Transcripts</a>
+                    <a href="#mythical-page-content">成績証明書</a>
                   </li>
                 </ul>
               </li>
             </ul>
           </nav>
           <div id="mythical-page-content" class="disclosure-page-content" tabindex="-1" role="region" aria-labelledby="mythical-page-heading">
-            <h3 id="mythical-page-heading">Home</h3>
+            <h3 id="mythical-page-heading">ホーム</h3>
             <p>
-              Sample content section.
-              Activating a link above will update and navigate to this region.
+              サンプルコンテンツセクション。
+              上記のリンクを選択すると、この領域が更新されてナビゲートされます。
             </p>
           </div>
-          <footer class="sample-footer">Mythical University footer information</footer>
+          <footer class="sample-footer">架空大学のフッター情報</footer>
         </div>
         <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティ機能</h2>
         <ol>
-          <li>Since this set of links and disclosure buttons provides navigation for the mythical university web site, the list that contains them is wrapped in a navigation landmark named <q>Mythical University</q>.</li>
+          <li>このリンクとディスクロージャーボタンのセットは架空大学ウェブサイトのナビゲーションを提供するため、それらを含むリストは<q>架空大学</q>と名付けられたナビゲーションランドマークでラップされています。</li>
           <li>
-            The semantics of the list structure communicate the hierarchy of the navigation system to assistive technology users.
-            The top-level list has three items where each item contains a top-level link and an associated disclosure button.
-            The set of links controlled by a disclosure button is in a list nested inside the list item that contains the button.
+            リスト構造のセマンティクスは、支援技術の利用者にナビゲーションシステムの階層を伝えます。トップレベルのリストは 3 つのアイテムをもつリストで、それぞれの項目はトップレベルリンク及びそれに関連するディスクロージャーボタンを含みます。ディスクロージャーボタンによって制御されるリンクのセットは、そのボタンを含むリストアイテム内にネストされたリストにあります。
           </li>
           <li>
-            If a dropdown is open and focus is inside the navigation region, pressing <kbd>Esc</kbd> will close the dropdown.
-            Moving focus out of the navigation region also closes an open dropdown.
+            ドロップダウンが開かれ、フォーカスがナビゲーション領域内にある場合、<kbd>Esc</kbd> を押すとドロップダウンが閉じます。ナビゲーション領域からフォーカスを外すことでも、開いているドロップダウンは閉じます。
           </li>
           <li>
-            Optional navigation keys (Arrow keys, <kbd>Home</kbd>, and <kbd>End</kbd>):
+            オプションのナビゲーションキー（矢印キー及び 　<kbd>Home</kbd>、並びに <kbd>End</kbd>）:
             <ol>
-              <li>Enabling the optional arrow key support prevents the default page scroll behavior when focus is contained within the navigation region.</li>
+              <li>オプションの矢印キーのサポートを有効にすると、フォーカスがナビゲーション領域内に含まれる場合、デフォルトのページスクロール動作を防いでいます。</li>
               <li>
-                Optional navigation key support is primarily for the benefit of keyboard users who are not running a screen reader.
-                Screen readers that have both reading and interaction modes intercept these navigation keys and do not pass them to the page when the screen reader is in reading mode.
-                When interacting with this example, such screen readers are typically in reading mode because this example does not use a widget role that triggers screen reader interaction mode.
+                オプションのナビゲーションキーのサポートは、主にスクリーンリーダーを使用していないキーボードユーザーのためのものです。読み取りモードとインタラクションモードの両方を持つスクリーンリーダーは、これらのナビゲーションキーをインターセプトし、スクリーンリーダーが読み取りモードにあるときはこれらのキーをページに渡しません。この例を操作するとき、そのようなスクリーンリーダーは通常、読み取りモードにあります。なぜならば、この例はスクリーンリーダーのインタラクションモードをトリガーするウィジェットロールを使用していないためです。
               </li>
               <li>
-                If implemented, the optional navigation keys supplement, but do not replace, tabbing among buttons and links.
-                This is because the buttons and links are not contained by an element with a widget role, such as <code>grid</code>, that is expected to occupy only one stop in the page <kbd>Tab</kbd> sequence and manage focus for all its descendants.
+                実装された場合、オプションのナビゲーションキーは、ボタンやリンク間のタブ移動を、置き換えるのではなく補います。これは、ボタンとリンクが、ページの <kbd>Tab</kbd> シーケンスの中で 1 つの停止だけを占め、そのすべての子孫のフォーカスを管理することが期待される <code>grid</code> のようなウィジェットロールを持つ要素に含まれていないためです。
               </li>
             </ol>
           </li>
@@ -191,12 +184,12 @@
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2>キーボードサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
@@ -205,22 +198,22 @@
                 <kbd>Tab</kbd><br>
                 <kbd>Shift + Tab</kbd>
               </th>
-              <td>Move keyboard focus among top-level links and buttons, and if a dropdown is open, through links in the dropdown.</td>
+              <td>トップレベルのリンクとボタン間をキーボードフォーカスを移動させる。またドロップダウンが開いている場合は、ドロップダウン内のリンクを通して移動させる。</td>
             </tr>
             <tr data-test-id="key-enter-space">
               <th>
-                <kbd>Space</kbd> or <br>
+                <kbd>Space</kbd> 又は<br>
                 <kbd>Enter</kbd>
               </th>
               <td>
                 <ul>
-                  <li>If focus is on a disclosure button, activates the button, which toggles the visibility of the dropdown.</li>
+                  <li>フォーカスがディスクロージャーボタン上にある場合、ボタンをアクティブにして、ドロップダウンの表示を切り替える。</li>
                   <li>
-                    If focus is on a link:
+                    フォーカスがリンク上にある場合：
                     <ul>
-                      <li>If any link has <code>aria-current</code> set, removes it.</li>
-                      <li>Sets <code>aria-current="page"</code> on the focused link.</li>
-                      <li>Activates the focused link.</li>
+                      <li>任意のリンクに <code>aria-current</code> が設定されている場合は、それを削除する。</li>
+                      <li>フォーカスが当たっているリンクに <code>aria-current="page"</code> を設定する。</li>
+                      <li>フォーカスが当たっているリンクをアクティブにする。</li>
                     </ul>
                   </li>
                 </ul>
@@ -230,50 +223,50 @@
               <th>
                 <kbd>Escape</kbd>
               </th>
-              <td>If a dropdown is open, closes it and sets focus on the button that controls that dropdown.</td>
+              <td>ドロップダウンが開いている場合は閉じ、そのドロップダウンを制御するボタンにフォーカスを設定する。</td>
             </tr>
             <tr data-test-id="key-arrows">
               <th>
-                <kbd>Down Arrow</kbd> or <br>
+                <kbd>Down Arrow</kbd> 又は<br>
                 <kbd>Right Arrow</kbd><br>
-                (Optional)
+                (オプション)
               </th>
               <td>
                 <ul>
-                  <li>If focus is on a top-level link or button with a collapsed dropdown, and it is not the last top-level item, moves focus to the next top-level link or button.</li>
-                  <li>if focus is on a top-level button and its dropdown is expanded, moves focus to the first link in the dropdown.</li>
-                  <li>If focus is on a link within an expanded dropdown, and it is not the last link, moves focus to the next link.</li>
+                  <li>フォーカスがトップレベルのリンク又は折りたたまれたドロップダウンのボタン上にあり、それが最後のトップレベルアイテムではない場合、次のトップレベルのリンク又はボタンにフォーカスを移動する。</li>
+                  <li>フォーカスがトップレベルのボタン上ににあり、そのドロップダウンが展開されている場合、ドロップダウン内の最初のリンクにフォーカスを移動する。</li>
+                  <li>フォーカスが展開されたドロップダウン内のリンク上にあり、それが最後のリンクではない場合、次のリンクにフォーカスを移動する。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="key-arrows">
               <th>
-                <kbd>Up Arrow</kbd> or <br>
+                <kbd>Up Arrow</kbd> 又は<br>
                 <kbd>Left Arrow</kbd><br>
-                (Optional)
+                (オプション)
               </th>
               <td>
                 <ul>
-                  <li>If focus is on a top-level link or button, and it is not the first item, moves focus to the previous link or button.</li>
-                  <li>If focus is on a link within an expanded dropdown, and it is not the first link, moves focus to the previous link.</li>
+                  <li>フォーカスがトップレベルのリンク又はボタン上にあり、それが最初のアイテムではない場合、前のリンク又はボタンにフォーカスを移動する。</li>
+                  <li>フォーカスが展開されたドロップダウン内のリンク上ににあり、それが最初のリンクではない場合、前のリンクにフォーカスを移動する。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="key-home-end">
-              <th><kbd>Home</kbd> (Optional)</th>
+              <th><kbd>Home</kbd> (オプション)</th>
               <td>
                 <ul>
-                  <li>If focus is on a top-level link button, and it is not the first item, moves focus to the first item.</li>
-                  <li>If focus is on a link within an expanded dropdown, and it is not the first link, moves focus to the first link.</li>
+                  <li>フォーカスがトップレベルのリンクボタン上にあり、それが最初のアイテムではない場合、最初のアイテムにフォーカスを移動する。</li>
+                  <li>フォーカスが展開されたドロップダウン内のリンク上にあり、それが最初のリンクではない場合、最初のリンクにフォーカスを移動する。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="key-home-end">
-              <th><kbd>End</kbd> (Optional)</th>
+              <th><kbd>End</kbd> (オプション)</th>
               <td>
                 <ul>
-                  <li>If focus is on a top-level link or button, and it is not the last item, moves focus to the last item.</li>
-                  <li>If focus is on a link within an expanded dropdown, and it is not the last link, moves focus to the last link.</li>
+                  <li>フォーカスがトップレベルのリンク又はボタン上にあり、それが最後のアイテムではない場合、最後のアイテムにフォーカスを移動する。</li>
+                  <li>フォーカスが展開されたドロップダウン内のリンク上にあり、それが最後のリンクではない場合、最後のリンクにフォーカスを移動する。</li>
                 </ul>
               </td>
             </tr>
@@ -282,14 +275,14 @@
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -301,7 +294,7 @@
               <td>
                 <code>button</code>
               </td>
-              <td>Indicates that the disclosure button controls visibility of the container identified by the <code>IDREF</code> value.</td>
+              <td>ディスクロージャーボタンが <code>IDREF</code> 値で識別されるコンテナの表示を制御していることを示す。</td>
             </tr>
             <tr data-test-id="button-aria-expanded">
               <td></td>
@@ -313,9 +306,9 @@
               </td>
               <td>
                 <ul>
-                  <li>Indicates that the container controlled by the disclosure button is <em>hidden</em>.</li>
+                  <li>ディスクロージャーボタンによって制御されるコンテナが<em>非表示</em>であることを示す。</li>
                   <li>
-                    CSS attribute selectors (e.g. <code>[aria-expanded="false"]</code>) are used to synchronize the visual states with the value of the <code>aria-expanded</code> attribute.
+                    CSS 属性セレクター（例: <code>[aria-expanded="false"]</code>）を使用して、<code>aria-expanded</code> 属性の値と視覚的状態を同期する。
                   </li>
                 </ul>
               </td>
@@ -330,9 +323,9 @@
               </td>
               <td>
                 <ul>
-                  <li>Indicates that the container controlled by the disclosure button is <em>visible</em>.</li>
+                  <li>ディスクロージャーボタンによって制御されるコンテナが<em>表示</em>されていることを示す。</li>
                   <li>
-                    CSS attribute selectors (e.g. <code>[aria-expanded="true"]</code>) are used to synchronize the visual states with the value of the <code>aria-expanded</code> attribute.
+                    CSS 属性セレクター（例: <code>[aria-expanded="true"]</code>）を使用して、<code>aria-expanded</code> 属性の値と視覚的状態を同期する。
                   </li>
                 </ul>
               </td>
@@ -345,29 +338,29 @@
               <td>
                 <code>a</code>
               </td>
-              <td>Indicates that the page referenced by the link is currently displayed.</td>
+              <td>リンクによって参照されるページが現在表示されていることを示す。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
-        <!--  After the js and css files are named with the name of this example, change the href and text of the following 2 links to refer to the appropriate js and css files.  -->
+        <h2>JavaScript 及び CSS ソースコード</h2>
+        <!--  jsおよびcssファイルがこの例の名前で命名された後、以下の2つのリンクのhrefとテキストを適切なjsおよびcssファイルを参照するように変更します。  -->
         <ul id="css_js_files">
           <li>
-            CSS:
+            CSS：
             <a href="css/disclosure-navigation.css" type="tex/css">disclosure-navigation.css</a>
           </li>
           <li>
-            Javascript:
+            Javascript：
             <a href="js/disclosureMenu.js" type="text/javascript">disclosureMenu.js</a>
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
+        <h2 id="sc1_label">HTML ソースコード</h2>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
         <pre><code id="sc1"></code></pre>
         <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example Disclosure (Show/Hide) for Answers to Frequently Asked Questions</title>
+    <title>よくある質問への回答のディスクロージャー（表示/非表示）の例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -20,74 +20,70 @@
   <body>
     <nav aria-label="Related Links" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/14">Related Issues</a></li>
-        <li><a href="../disclosure-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/14">関連する Issues</a></li>
+        <li><a href="../disclosure-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
-      <h1>Example Disclosure (Show/Hide) for Answers to Frequently Asked Questions</h1>
+      <h1>よくある質問への回答のディスクロージャー（表示/非表示）の例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7f54d9620e32231021aad607b7af7eeee5c24f54 -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
+        <img alt="" class="example-page-example-icon" src="../../../images/pattern-disclosure.svg">
         <p>
-          The following example demonstrates using the <a href="../disclosure-pattern.html">Disclosure Pattern</a> to create a set of frequently asked questions where the answers may be independently shown or hidden.
+          以下の例では、<a href="../disclosure-pattern.html">ディスクロージャーパターン</a>を使用して、回答を個別に表示または非表示にできるよくある質問のセットを作成する方法を示しています。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下が含まれます：</p>
         <ul>
           <li>
-            <a href="disclosure-image-description.html">Example Disclosure (Show/Hide) for an Image Description</a>
+            <a href="disclosure-image-description.html">画像説明のディスクロージャー（表示/非表示）の例</a>
           </li>
           <li>
-            <a href="disclosure-navigation.html">Example Disclosure Navigation Menu</a>
+            <a href="disclosure-navigation.html">ディスクロージャーナビゲーションメニューの例</a>
           </li>
-          <li><a href="disclosure-navigation-hybrid.html">Example Disclosure Navigation Menu with Top-Level Links</a></li>
+          <li><a href="disclosure-navigation-hybrid.html">トップレベルリンク付きディスクロージャーナビゲーションメニューの例</a></li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
         <div id="ex1">
-          <h3>Parking <abbr title="Frequently Asked Questions">FAQ</abbr>s</h3>
+          <h3>駐車場のよくある質問</h3>
           <dl class="faq">
             <dt>
-              <button type="button" aria-expanded="false" aria-controls="faq1_desc">What do I do if I have a permit for an assigned lot, but can't find a space there?</button>
+              <button type="button" aria-expanded="false" aria-controls="faq1_desc">指定された駐車場にスペースが見つからない場合はどうすればよいですか？</button>
             </dt>
             <dd>
               <div id="faq1_desc" class="desc">
-                Park at the nearest available parking meter without paying the meter and call 999-999-9999 to report the problem.
-                We will note and approve your alternate location and will investigate the cause of the shortage in your assigned facility.
+                最寄りの駐車メーターに料金を支払わずに駐車し、999-999-9999に電話して問題を報告してください。代替の場所を記録して承認し、指定施設の不足の原因を調査します。
               </div>
             </dd>
             <dt>
-              <button type="button" aria-expanded="false" aria-controls="faq2_desc">What do I do if I lose my permit or if my permit is stolen?</button>
+              <button type="button" aria-expanded="false" aria-controls="faq2_desc">パーミットを紛失した場合、またはパーミットが盗まれた場合はどうすればよいですか？</button>
             </dt>
             <dd>
               <div id="faq2_desc" class="desc">
-                You should come to the Parking office and report the loss.
-                There is a fee to replace your lost permit.
-                However, if your permit was stolen, a copy of a police report needs to be submitted along with a stolen parking permit form for a fee replacement exemption.
+                駐車管理オフィスに来て、紛失を報告してください。紛失したパーミットの再発行には手数料がかかります。ただし、パーミットが盗まれた場合は、警察の報告書のコピーを盗難パーミットフォームとともに提出し、手数料の免除を受ける必要があります。
               </div>
             </dd>
             <dt>
-              <button type="button" aria-expanded="false" aria-controls="faq3_desc">Is there free parking on holidays?</button>
+              <button type="button" aria-expanded="false" aria-controls="faq3_desc">休日に無料駐車はありますか？</button>
             </dt>
             <dd>
               <div id="faq3_desc" class="desc">
-                All facilities are restricted from 2:00 am - 6:00 am on all days.
-                No exceptions are made for any holiday or recess except those officially listed as a <q>Holidays</q> in the calendar.
-                Please note: 24-hour rental spaces, 24-hour rental lots, and disabled parking is enforced at all times.
+                すべての施設は、毎日午前2時から午前6時までの間、利用制限があります。カレンダーに正式に<q>休日</q>として記載されている日を除き、いかなる祝日や休会期間についても例外はありません。注意：24時間レンタルスペース、24時間レンタルロットおよび障害者用駐車場は常時適用されます。
               </div>
             </dd>
             <dt>
-              <button type="button" aria-expanded="false" aria-controls="faq4_desc">Do all parking facilities have the same enforcement rules?</button>
+              <button type="button" aria-expanded="false" aria-controls="faq4_desc">すべての駐車施設に同じ規則が適用されますか？</button>
             </dt>
             <dd>
               <div id="faq4_desc" class="desc">
-                Some parking facility restrictions differ from others.
-                Be sure to take note of the signs at each lot entrance.
+                一部の駐車施設の制限は他と異なります。各ロット入口の標識を確認してください。
               </div>
             </dd>
           </dl>
@@ -96,38 +92,29 @@
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティ機能</h2>
         <ul>
           <li>
-            The semantic structure of the FAQ is conveyed with native <code>dl</code>, <code>dt</code> and <code>dd</code> elements.
-            To ensure the list structure is communicated to assistive technologies, instead of applying a button role to the <code>dt</code> element, a <code>button</code> element is contained within the <code>dt</code> element.
-            Similarly, each <code>div</code> element containing answer content that can be shown or hidden by the button is a child of a <code>dd</code> element.
-            Since all the <code>dd</code> elements are present in the DOM even if some answers are hidden, the <code>dl</code> structure is always complete.
+            FAQの意味構造は、ネイティブの <code>dl</code>、<code>dt</code> および <code>dd</code> 要素を使用して伝えられます。リスト構造が支援技術に伝わるようにするため、<code>dt</code> 要素にボタンロールを適用する代わりに、<code>dt</code> 要素内に <code>button</code> 要素が含まれるようにします。同様に、ボタンによって表示または非表示にされる回答コンテンツを含む各 <code>div</code> 要素は <code>dd</code> 要素の子です。一部の回答が非表示であってもすべての <code>dd</code> 要素が DOM に存在するため、<code>dl</code> 構造は常に満たされています。
           </li>
-          <li>To help people with visual impairments identify the disclosure as interactive and make it easier to perceive that clicking either the disclosure button or its label changes the expanded state, when a pointer hovers over the button or its label, the background color changes, a border appears, and the cursor changes to a pointer.</li>
+          <li>視覚障害のある人がディスクロージャーをインタラクティブな要素として識別し、ディスクロージャーボタンまたはそのラベルをクリックすることで展開状態が変わることを認識できるように、ポインターがボタンまたはそのラベルの上にあるときに背景色が変わり、境界線が表示され、カーソルがポインターに変わります。</li>
           <li>
-            Because transparent borders are visible on some systems with operating system high contrast settings enabled, transparency cannot be used to create a visual difference between the element that is focused an other elements.
-            Instead of using transparency, the focused element has a thicker border and less padding.
-            When an element receives focus, its border changes from 0 to 2 pixels and padding is reduced by 2 pixels.
-            When an element loses focus, its border changes from 2 pixels to 0 and padding is increased by 2 pixels.
+            オペレーティングシステムのハイコントラスト設定が有効になっているシステムでは透明な境界線が可視になるため、透明であることを用いてフォーカスされた要素と他の要素との視覚的な違いを作り出すことはできません。透明を用いる代わりに、フォーカスされた要素は境界線が太くなり、パディングが少なくなります。要素がフォーカスを受け取ると、その境界線は 0 から 2 ピクセルに変わり、パディングは 2 ピクセル減少します。要素がフォーカスを失うと、その境界線は 2 ピクセルから 0 に変わり、パディングは 2 ピクセル増加します。
           </li>
           <li>
-            To ensure the inline SVG arrow graphics in the CSS have sufficient contrast with the background when high contrast settings invert colors, the color of the arrows are synchronized with the color of the text content.
-            For example, the color of the arrow is set to match the foreground color of high contrast mode text by specifying the CSS <code>currentcolor</code> value for the <code>stroke</code> and <code>fill</code> properties of the <code>polygon</code> elements used to draw the arrows.
-            If specific colors were instead used to specify the <code>polygon</code> properties, those colors would remain the same in high contrast mode, which could lead to insufficient contrast between the arrows and the background or even make the arrows invisible if the color matched the high contrast mode background.<br>
-            Note: The SVG element needs to have the CSS <code>forced-color-adjust</code> property set to <code>auto</code> for the <code>currentcolor</code> value to be updated in high contrast mode.
-            Some browsers do not use <code>auto</code> for the default value.
+            ハイコントラスト設定で色が反転したときに CSS 内のインライン SVG 矢印グラフィックが背景と十分なコントラストを持つように、矢印の色はテキストコンテンツの色と同期されます。たとえば、矢印を描画するために使われる <code>polygon</code> 要素の <code>stroke</code> および <code>fill</code> プロパティに CSS の <code>currentcolor</code> 値を指定することにより、ハイコントラストモードテキストの前景色に合わせて矢印の色が設定されます。<code>polygon</code> プロパティに特定の色を使用してしまうと、それらの色はハイコントラストモードで同じままになり、矢印と背景の間のコントラストが不十分になるか、色がハイコントラストモードの背景と一致する場合は矢印が見えなくなる可能性があります。<br>
+            注記：SVG 要素は、ハイコントラストモードで <code>currentcolor</code> 値が更新されるように、CSS の <code>forced-color-adjust</code> プロパティを <code>auto</code> に設定する必要があります。一部のブラウザーはデフォルト値として <code>auto</code> を使用しません。
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
@@ -135,28 +122,28 @@
               <th>
                 <kbd>Tab</kbd>
               </th>
-              <td>Moves keyboard focus to the disclosure button.</td>
+              <td>キーボードフォーカスをディスクロージャーボタンに移動する。</td>
             </tr>
             <tr data-test-id="key-enter-or-space">
               <th>
-                <kbd>Space</kbd> or <br>
+                <kbd>Space</kbd> 又は<br>
                 <kbd>Enter</kbd>
               </th>
-              <td>Activates the disclosure button, which toggles the visibility of the answer to the question.</td>
+              <td>ディスクロージャーボタンをアクティベートし、質問への回答を表示するかどうかを切り替える。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -166,7 +153,7 @@
                 <code>aria-controls="ID_REFERENCE"</code>
               </th>
               <td><code>button</code></td>
-              <td>Identifies the element controlled by the disclosure button.</td>
+              <td>ディスクロージャーボタンによって制御される要素を識別する。</td>
             </tr>
             <tr data-test-id="button-aria-expanded">
               <td></td>
@@ -178,11 +165,11 @@
               </td>
               <td>
                 <ul>
-                  <li>Indicates that the container controlled by the disclosure button is <em>hidden</em>.</li>
+                  <li>ディスクロージャーボタンによって制御されるコンテナーが<em>非表示</em>であることを示す。</li>
                   <li>
-                    CSS attribute selectors (e.g. <code>[aria-expanded="false"]</code>) are used to synchronize the visual states with the value of the <code>aria-expanded</code> attribute.
+                    CSS 属性セレクター（例：<code>[aria-expanded="false"]</code>）を使用して、<code>aria-expanded</code> 属性の値と視覚的状態を同期する。
                   </li>
-                  <li>The visual indicator of the show/hide state is created using CSS <code>:before</code> pseudo element and <code>content</code> property so the image is reliably rendered in high contrast mode of operating systems and browsers.</li>
+                  <li>表示/非表示の状態の視覚的インジケーターは、オペレーティングシステム及びブラウザのハイコントラストモードで画像が確実にレンダリングされるよう、CSS の <code>:before</code> 疑似要素と <code>content</code> プロパティを使用して作成されている。</li>
                 </ul>
               </td>
             </tr>
@@ -196,11 +183,11 @@
               </td>
               <td>
                 <ul>
-                  <li>Indicates that the container controlled by the disclosure button is <em>visible</em>.</li>
+                  <li>ディスクロージャーボタンによって制御されるコンテナーが<em>表示</em>されていることを示す。</li>
                   <li>
-                    CSS attribute selectors (e.g. <code>[aria-expanded="true"]</code>) are used to synchronize the visual states with the value of the <code>aria-expanded</code> attribute.
+                    CSS 属性セレクター（例：<code>[aria-expanded="true"]</code>）を使用して、<code>aria-expanded</code> 属性の値と視覚的状態を同期する。
                   </li>
-                  <li>The visual indicator of the show/hide state is created using CSS <code>:before</code> pseudo element and <code>content</code> property so the image is reliably rendered in high contrast mode of operating systems and browsers.</li>
+                  <li>表示/非表示の状態の視覚的インジケーターは、オペレーティングシステム及びブラウザのハイコントラストモードで確実にレンダリングされるよう、CSS の <code>:before</code> 疑似要素と <code>content</code> プロパティを使用して作成されている。</li>
                 </ul>
               </td>
             </tr>
@@ -209,22 +196,22 @@
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScript 及び　CSS のソースコード</h2>
         <!--  After the js and css files are named with the name of this example, change the href and text of the following 2 links to refer to the appropriate js and css files.  -->
         <ul id="css_js_files">
           <li>
-            CSS:
+            CSS：
             <a href="css/disclosure-faq.css" type="tex/css">disclosure-faq.css</a>
           </li>
           <li>
-            Javascript:
+            JavaScript：
             <a href="js/disclosure-button.js" type="text/javascript">disclosureButton.js</a>
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
+        <h2 id="sc1_label">HTML ソースコード</h2>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
         <pre><code id="sc1"></code></pre>
         <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
