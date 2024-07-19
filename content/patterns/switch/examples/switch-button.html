@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Switch Example Using HTML Button</title>
+    <title>HTMLボタンを使用したスイッチの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -25,31 +25,32 @@
       </ul>
     </nav>
     <main>
-      <h1>Switch Example Using HTML Button</h1>
+      <h1>HTMLボタンを使用したスイッチの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <p>
-          This example illustrates implementing the <a href="../switch-pattern.html">Switch Pattern</a> with an HTML <code>button</code> as a switch element and using an <code>SVG</code> element to provide graphical rendering of switch states.
-          It also demonstrates using the <code>group</code> role to present multiple switches in a labeled group.
+          この例は、HTMLの <code>button</code> をスイッチ要素として使用し、<code>SVG</code> 要素を使用してスイッチのステートのグラフィカルなレンダリングを提供する<a href="../switch-pattern.html">スイッチ パターン</a>の実装を示しています。
+          また、ラベル付きのグループ内で複数のスイッチを表示するための <code>group</code> ロールの使用も示しています。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下があります：</p>
         <ul>
-          <li><a href="switch.html">Switch Example</a>: A switch based on a <code>div</code> element that turns a notification preference on and off.</li>
-          <li><a href="switch-checkbox.html">Switch Example Using HTML Checkbox Input</a>: A group of 2 switches based on HTML <code>input[type="checkbox"]</code> elements that turn accessibility preferences on and off.</li>
+          <li><a href="switch.html">スイッチ例</a>：通知の設定をオン及びオフにする <code>div</code> 要素に基づくスイッチ。</li>
+          <li><a href="switch-checkbox.html">HTMLチェックボックス入力を使用したスイッチ例</a>：アクセシビリティ設定をオン及びオフにするHTML <code>input[type="checkbox"]</code> 要素に基づく2つのスイッチのグループ。</li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="開始"></div>
         <div id="ex1">
           <div role="group" aria-labelledby="id-group-label">
-            <h3 id="id-group-label">Environmental Controls</h3>
+            <h3 id="id-group-label">環境コントロール</h3>
             <button type="button" role="switch" aria-checked="false">
-              <span class="label">Living Room Lights</span>
+              <span class="label">リビングルームの照明</span>
               <svg xmlns="http://www.w3.org/2000/svg" height="20" width="36">
                 <rect class="container" x="1" y="1" width="34" height="18" rx="4" />
                 <rect class="off" x="4" y="4" width="12" height="12" rx="4" />
@@ -60,7 +61,7 @@
             </button>
 
             <button type="button" role="switch" aria-checked="false">
-              <span class="label">Outdoor Lights</span>
+              <span class="label">屋外の照明</span>
               <svg xmlns="http://www.w3.org/2000/svg" height="20" width="36">
                 <rect class="container" x="1" y="1" width="34" height="18" rx="4" />
                 <rect class="off" x="4" y="4" width="12" height="12" rx="4" />
@@ -71,49 +72,49 @@
             </button>
           </div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="終了"></div>
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティ機能</h2>
         <ul>
-          <li>To help assistive technology users understand that the <q>Environmental Controls</q> are a group of two switches, the switches are wrapped in a <code>group</code> labeled by the heading that labels the set of switches.</li>
+          <li><q>環境コントロール</q>が2つのスイッチのグループであることを支援技術のユーザーに理解してもらうために、スイッチはそのセットのスイッチをラベル付けする見出しでラベル付けされた<code>group</code>にラップされています。</li>
           <li>
-            To make understanding the state of the switch easier for users with visual or cognitive disabilities, a text equivalent of the state (<q>on</q> or <q>off</q>) is displayed adjacent to the graphical state indicator.
-            CSS attribute selectors ensure the label displayed is synchronized with the value of the <code>aria-checked</code> attribute.<br>
-            <strong>NOTE:</strong> To prevent redundant announcement of the state by screen readers, the text indicators of state are hidden from assistive technologies with <code>aria-hidden</code>.
+            視覚や認知障害のあるユーザーがスイッチの状態を理解しやすくするため、状態(<q>on</q>または<q>off</q>)のテキスト相当がグラフィカルな状態指示器の隣に表示されます。
+            CSS属性セレクタは、表示されるラベルが<code>aria-checked</code>属性の値と同期していることを保証します。<br>
+            <strong>注:</strong>スクリーンリーダーによる状態の冗長なアナウンスを防ぐため、状態のテキスト指示器は<code>aria-hidden</code>で支援技術から隠されています。
           </li>
           <li>
-            Spacing, stroke widths, and fill are important to ensure the graphical states will be visible and discernible to people with visual impairments, including when browser or operating system high contrast settings are enabled:
+            スペーシング、ストロークの幅、及び塗りつぶしは、グラフィカルな状態が視覚障害のある人々にも見えて識別できるようにするため重要です。これには、ブラウザーやオペレーティングシステムのハイコントラスト設定が有効になっている場合も含まれます：
             <ul>
-              <li>To make the graphical representation of the state of a switch readily perceivable, two pixel stroke width is used for the switch state container and a solid color is used to fill the rectangles indicating the on and off states.</li>
-              <li>To ensure users can perceive the difference between the container and the rectangles used to indicate the state of the switch, there are two pixels of space between the container border and the rectangles.</li>
+              <li>スイッチの状態のグラフィカルな表現を容易に知覚できるようにするため、スイッチ状態のコンテナには2ピクセルのストローク幅が使用され、on及びoffの状態を示す長方形は固定色で塗りつぶされます。</li>
+              <li>コンテナとスイッチの状態を示すために使用される長方形との違いをユーザーが知覚できるようにするため、コンテナの境界と長方形の間には2ピクセルのスペースがあります。</li>
             </ul>
           </li>
           <li>
-            To enhance perceivability when operating the switches, visual keyboard focus and hover are styled using the CSS <code>:hover</code> and <code>:focus</code> pseudo-classes:
+            スイッチの操作時の知覚性を向上させるため、CSSの<code>:hover</code>および<code>:focus</code>疑似クラスを使用して、視覚的なキーボードフォーカスとホバーがスタイル設定されています：
             <ul>
-              <li>To make it easier to perceive focus and the relationship between a label and its associated switch, focus creates a border around both the switch and the label and also changes the background color.</li>
-              <li>To make it easier to perceive that clicking either the label or switch will activate the switch, the hover indicator is the same as the focus indicator.</li>
-              <li>To help people with visual impairments identify the switch as an interactive element, the cursor is changed to a pointer when hovering over the switch.</li>
+              <li>フォーカスとラベルとそれに関連するスイッチとの関係を容易に知覚できるようにするため、フォーカスはスイッチとラベルの両方を囲む境界線を作成し、背景色も変更します。</li>
+              <li>ラベルまたはスイッチをクリックするとスイッチがアクティブになることを容易に知覚できるようにするため、ホバーインジケータはフォーカスインジケータと同じです。</li>
+              <li>視覚障害のある人々がスイッチを対話的な要素として識別できるようにするため、スイッチの上にホバーするとカーソルがポインタに変わります。</li>
             </ul>
           </li>
           <li>
-            To ensure the SVG graphics have sufficient contrast with the background when high contrast settings invert colors, the CSS <code>currentcolor</code> value for the <code>stroke</code> and <code>fill</code> properties is used to synchronize the colors with text content.
-            If specific colors were used to specify the <code>stroke</code> and <code>fill</code> properties, the color of these elements would remain the same in high contrast mode, which could lead to insufficient contrast between them and their background or even make them invisible if their color were to match the high contrast mode background.
-            The <code>fill-opacity</code> of the container <code>rect</code> is set to zero for the background color of the page to provide the contrasting color to the <code>stroke</code> and <code>fill</code> colors.<br>
-            NOTE: The SVG elements need to set the CSS <code>forced-color-adjust</code> property to <code>auto</code> for some browsers to support the <code>currentcolor</code> value.
+            ハイコントラスト設定が色を反転させたときにSVGグラフィックスが背景と十分なコントラストを持つようにするため、テキストコンテンツの色と同期させるために<code>stroke</code>および<code>fill</code>プロパティのCSS<code>currentcolor</code>値が使用されます。
+            <code>stroke</code>及び<code>fill</code>プロパティに特定の色を使用して指定すると、これらの要素の色はハイコントラストモードでも変わらないため、それらと背景との間のコントラストが不足する可能性があります。さらに、その色がハイコントラストモードの背景と一致する場合、それらを見えなくする可能性があります。
+            ページの背景色が<code>stroke</code>及び<code>fill</code>の色とのコントラストカラーを提供するため、コンテナの<code>rect</code>の<code>fill-opacity</code>はゼロに設定されています。<br>
+            注: 一部のブラウザで<code>currentcolor</code>値をサポートするためには、SVG要素はCSS<code>forced-color-adjust</code>プロパティを<code>auto</code>に設定する必要があります。
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
@@ -121,7 +122,7 @@
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
-                  <li>Moves keyboard focus to the <code>switch</code>.</li>
+                  <li><code>switch</code>へのキーボードフォーカスを移動します。</li>
                 </ul>
               </td>
             </tr>
@@ -129,7 +130,7 @@
               <th><kbd>Space</kbd>, <kbd>Enter</kbd></th>
               <td>
                 <ul>
-                  <li>Toggle switch between on and off.</li>
+                  <li>スイッチをオンとオフの間で切り替えます。</li>
                 </ul>
               </td>
             </tr>
@@ -138,14 +139,14 @@
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、およびtabindex属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用方法</th>
             </tr>
           </thead>
           <tbody>
@@ -153,7 +154,7 @@
               <th scope="row"><code>switch</code></th>
               <td></td>
               <td><code>button</code></td>
-              <td>Identifies the <code>button</code> element as a <code>switch</code>.</td>
+              <td><code>button</code>要素を<code>switch</code>として識別します。</td>
             </tr>
             <tr data-test-id="switch-aria-checked">
               <td></td>
@@ -161,8 +162,8 @@
               <td><code>button</code></td>
               <td>
                 <ul>
-                  <li>Indicates the <code>switch</code> is off.</li>
-                  <li>CSS attribute selectors (e.g. <code>[aria-checked="false"]</code>) are used to synchronize the visual states with the value of the <code>aria-checked</code> attribute.</li>
+                  <li><code>switch</code>がオフであることを示します。</li>
+                  <li>CSS属性セレクタ（例：<code>[aria-checked="false"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期させるために使用されます。</li>
                 </ul>
               </td>
             </tr>
@@ -172,19 +173,19 @@
               <td><code>button</code></td>
               <td>
                 <ul>
-                  <li>Indicates the <code>switch</code> is on.</li>
-                  <li>CSS attribute selectors (e.g. <code>[aria-checked="true"]</code>) are used to synchronize the visual states with the value of the <code>aria-checked</code> attribute.</li>
+                  <li><code>switch</code>がオンであることを示します。</li>
+                  <li>CSS属性セレクタ（例：<code>[aria-checked="true"]</code>）は、<code>aria-checked</code>属性の値と視覚的な状態を同期させるために使用されます。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="aria-hidden">
               <td></td>
               <th scope="row"><code>aria-hidden="true"</code></th>
-              <td><code>span.on</code> and <code>span.off</code></td>
+              <td><code>span.on</code> および <code>span.off</code></td>
               <td>
                 <ul>
-                  <li>Removes the strings <q>on</q> and <q>off</q> that appear to the right of the switch from the accessible name of the switch.</li>
-                  <li>These strings are included only for enhancing visual comprehension of the state; element states are not permitted in accessible names.</li>
+                  <li>スイッチの右側に表示される<q>on</q>と<q>off</q>の文字列をスイッチのアクセス可能な名前から除去します。</li>
+                  <li>これらの文字列は、状態の視覚的な理解を強化するためだけに含まれています。要素の状態はアクセス可能な名前に許可されていません。</li>
                 </ul>
               </td>
             </tr>
@@ -192,27 +193,27 @@
               <td></td>
               <td></td>
               <td><code>h3</code></td>
-              <td>Provides a grouping label for the group of switches.</td>
+              <td>スイッチのグループのラベルを提供します。</td>
             </tr>
             <tr data-test-id="group-role">
               <th scope="row"><code>group</code></th>
               <td></td>
               <td><code>div</code></td>
-              <td>Identifies the <code>div</code> element as a <code>group</code> container for the switches.</td>
+              <td><code>div</code>要素をスイッチの<code>group</code>コンテナとして識別します。</td>
             </tr>
             <tr data-test-id="group-aria-labelledby">
               <td></td>
               <th scope="row"><code>aria-labelledby</code></th>
               <td><code>div</code></td>
-              <td>References the <code>h3</code> element to define the accessible name for the group of switches.</td>
+              <td><code>h3</code>要素を参照して、スイッチのグループのアクセス可能な名前を定義します。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
-        <!--  After the js and css files are named with the name of this example, change the href and text of the following 2 links to refer to the appropriate js and css files.  -->
+        <h2>JavaScriptとCSSのソースコード</h2>
+        <!-- この例の名前でjsとcssファイルが命名された後、次の2つのリンクのhrefとテキストを適切なjsとcssファイルを参照するように変更します。 -->
         <ul id="css_js_files">
           <li>
             CSS:
@@ -226,10 +227,10 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2 id="sc1_label">HTMLソースコード</h2>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="終了"></div>
         <script>
           sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files');
           sourceCode.make();
