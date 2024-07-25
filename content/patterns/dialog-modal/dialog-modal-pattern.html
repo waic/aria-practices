@@ -1,159 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Dialog (Modal) Pattern</title>
+    <title>ダイアログ（モーダル）パターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
     <link rel="stylesheet" href="../../shared/css/core.css">
     <script src="../../shared/js/highlight.pack.js"></script>
     <script src="../../shared/js/app.js"></script>
-    <script data-skipto="colorTheme:aria; displayOption:popup; containerElement:div" src="../../shared/js/skipto.js"></script>
+    <script src="../../shared/js/skipto.js"></script>
   </head>
   <body>
     <main>
-      <h1>Dialog (Modal) Pattern</h1>
-
+      <h1>ダイアログ（モーダル）パターン</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/39fb654e5146151ee70675af6ae755a72d8f7ff4 -->
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンの概要</h2>
         <p>
-          A <a href="#dialog" class="role-reference">dialog</a> is a window overlaid on either the primary window or another dialog window.
-          Windows under a modal dialog are inert.
-          That is, users cannot interact with content outside an active dialog window.
-          Inert content outside an active dialog is typically visually obscured or dimmed so it is difficult to discern, and in some implementations, attempts to interact with the inert content cause the dialog to close.
+          <a href="#dialog" class="role-reference">dialog</a> は、プライマリウィンドウまたは別のダイアログウィンドウの上に重ねられたウィンドウです。
+          モーダルダイアログの下にあるウィンドウは非アクティブです。
+          つまり、ユーザーはアクティブなダイアログウィンドウ外のコンテンツとやり取りできません。
+          アクティブなダイアログ外の非アクティブなコンテンツは、通常は視覚的に隠されるか、薄暗くなるため識別が難しくなり、実装によっては、非アクティブなコンテンツとのやり取りを試みるとダイアログが閉じることがあります。
         </p>
         <p>
-          Like non-modal dialogs, modal dialogs contain their tab sequence.
-          That is, <kbd>Tab</kbd> and <kbd>Shift + Tab</kbd> do not move focus outside the dialog.
-          However, unlike most non-modal dialogs, modal dialogs do not provide means for moving keyboard focus outside the dialog window without closing the dialog.
+          非モーダルダイアログと同様に、モーダルダイアログは独自のタブ順序を持ちます。
+          つまり、<kbd>Tab</kbd> キーと <kbd>Shift + Tab</kbd> キーを押しても、フォーカスはダイアログの外に移動しません。
+          ただし、ほとんどの非モーダルダイアログとは異なり、モーダルダイアログはダイアログウィンドウを閉じずにキーボードフォーカスをダイアログウィンドウ外に移動させる手段を提供しません。
         </p>
         <p>
-          The <a href="#alertdialog" class="role-reference">alertdialog</a> role is a special-case dialog role designed specifically for dialogs that divert users' attention to a brief, important message.
-          Its usage is described in the <a href="../alertdialog/alertdialog-pattern.html">Alert Dialog Pattern</a>.
+          <a href="#alertdialog" class="role-reference">alertdialog</a> ロールは、ユーザーの注意を簡潔で重要なメッセージに向けるように設計された特殊ケースダイアログロールです。
+          その使用方法については、<a href="../alertdialog/alertdialog-pattern.html">アラートダイアログパターン</a>で説明されています。
         </p>
       </section>
 
       <section id="examples">
-        <img alt="" src="../../images/pattern-dialog-modal.svg">
-        <h2>Examples</h2>
+        <h2>例</h2>
         <ul>
-          <li><a href="examples/dialog.html">Modal Dialog Example</a>: Demonstrates multiple layers of modal dialogs with both small and large amounts of content.</li>
-          <li><a href="examples/datepicker-dialog.html">Date Picker Dialog Example</a>: Demonstrates a dialog containing a calendar grid for choosing a date.</li>
+          <li><a href="examples/dialog.html">モーダルダイアログの例</a>：少量のコンテンツと大量のコンテンツの両方を含む複数のモーダルダイアログのレイヤーを示します。</li>
+          <li><a href="examples/datepicker-dialog.html">日付ピッカーダイアログの例</a>：日付を選択するためのカレンダーグリッドを含むダイアログを示します。</li>
         </ul>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
+        <h2>キーボード操作</h2>
         <p>
-          In the following description, the term <q>tabbable element</q> refers to any element with a <code>tabindex</code> value of zero or greater.
-          Note that values greater than 0 are strongly discouraged.
+          以下の説明では、<q>タブ移動可能な要素</q> という用語は、<code>tabindex</code> 属性の値がゼロ以上の要素を指します。
+          ただし、0より大きい値の使用は強く推奨されません。
         </p>
         <ul>
           <li>
-            When a dialog opens, focus moves to an element inside the dialog.
-            See notes below regarding initial focus placement.
+            ダイアログが開くと、フォーカスはダイアログ内の要素に移動します。
+            初期フォーカス位置に関する注記は以下を参照してください。
           </li>
           <li>
-            <kbd>Tab</kbd>:
+            <kbd>Tab</kbd> キー:
             <ul>
-              <li>Moves focus to the next tabbable element inside the dialog.</li>
-              <li>If focus is on the last tabbable element inside the dialog, moves focus to the first tabbable element inside the dialog.</li>
+              <li>フォーカスをダイアログ内の次のタブ移動可能な要素に移動します。</li>
+              <li>フォーカスがダイアログ内の最後のタブ移動可能な要素にある場合、フォーカスをダイアログ内の最初のタブ移動可能な要素に移動します。</li>
             </ul>
           </li>
           <li>
-            <kbd>Shift + Tab</kbd>:
+            <kbd>Shift + Tab</kbd> キー:
             <ul>
-              <li>Moves focus to the previous tabbable element inside the dialog.</li>
-              <li>If focus is on the first tabbable element inside the dialog, moves focus to the last tabbable element inside the dialog.</li>
+              <li>フォーカスをダイアログ内の前のタブ移動可能な要素に移動します。</li>
+              <li>フォーカスがダイアログ内の最初のタブ移動可能な要素にある場合、フォーカスをダイアログ内の最後のタブ移動可能な要素に移動します。</li>
             </ul>
           </li>
-          <li><kbd>Escape</kbd>: Closes the dialog.</li>
+          <li><kbd>Escape</kbd> キー: ダイアログを閉じます。</li>
         </ul>
         <div class="note">
-          <h3>Note</h3>
+          <h3>注記</h3>
           <ol>
             <li>
-              When a dialog opens, focus moves to an element contained in the dialog.
-              Generally, focus is initially set on the first focusable element.
-              However, the most appropriate focus placement will depend on the nature and size of the content.
-              Examples include:
+              ダイアログが開くと、フォーカスはダイアログ内に含まれる要素に移動します。
+              通常、フォーカスは最初にフォーカス可能な要素に設定されます。
+              ただし、最適なフォーカス位置は、コンテンツの性質やサイズによって異なります。
+              以下に例を示します。
               <ul>
                 <li>
-                  If the dialog content includes semantic structures, such as lists, tables, or multiple paragraphs, that need to be perceived in order to easily understand the content, i.e., if the content would be difficult to understand when announced as a single unbroken string, then it is advisable to add <code>tabindex="-1"</code> to a static element at the start of the content and initially focus that element.
-                  This makes it easier for assistive technology users to read the content by navigating the semantic structures.
-                  Additionally, it is advisable to omit applying <code>aria-describedby</code> to the dialog container in this scenario.
+                  ダイアログの内容が、リスト、テーブル、複数の段落などのセマンティック構造を含んでおり、内容を簡単に理解するために認識する必要がある場合 (つまり、内容を単一の途切れのない文字列として読み上げると理解しづらい場合) は、コンテンツの先頭の静的要素に <code>tabindex="-1"</code> を追加し、最初にその要素にフォーカスを当てることをお勧めします。
+                  これにより、支援技術ユーザーはセマンティック構造をナビゲーションしてコンテンツを読みやすくなります。
+                  さらに、このシナリオでは、ダイアログコンテナに <code>aria-describedby</code> を適用しないことをお勧めします。
                 </li>
-                <li>If content is large enough that focusing the first interactive element could cause the beginning of content to scroll out of view, it is advisable to add <code>tabindex="-1"</code> to a static element at the top of the dialog, such as the dialog title or first paragraph, and initially focus that element.</li>
                 <li>
-                  If a dialog contains the final step in a process that is not easily reversible, such as deleting data or completing a financial transaction, it may be advisable to set focus on the least destructive action, especially if undoing the action is difficult or impossible.
-                  The <a href="../alertdialog/alertdialog-pattern.html">Alert Dialog Pattern</a> is often employed in such circumstances.</li>
-                <li>If a dialog is limited to interactions that either provide additional information or continue processing, it may be advisable to set focus to the element that is likely to be most frequently used, such as an <q>OK</q> or <q>Continue</q> button.</li>
+                  コンテンツが大きく、最初のインタラクティブ要素にフォーカスを合わせるとコンテンツの先頭がスクロールアウトしてしまう場合は、ダイアログの上部 (ダイアログタイトルや最初の段落など) にある静的要素に <code>tabindex="-1"</code> を追加し、最初にその要素にフォーカスを当てることをお勧めします。
+                </li>
+                <li>
+                  ダイアログが、データの削除や金融取引の完了など、簡単に元に戻せないプロセスにおける最終ステップを含む場合、特に操作を元に戻すのが困難または不可能な場合は、破壊的な影響が最も少ないアクションにフォーカスを当てることをお勧めします。
+                  このような状況では、<a href="../alertdialog/alertdialog-pattern.html">アラート ダイアログ パターン</a> がよく使用されます。
+                </li>
+                <li>
+                  ダイアログが、追加情報の提供や処理の継続などのインタラクションに限られる場合、<q>OK</q> ボタンや <q>続行</q> ボタンなど、最も頻繁に使用される可能性のある要素にフォーカスを当てることをお勧めします。
+                </li>
               </ul>
             </li>
             <li>
-              When a dialog closes, focus returns to the element that invoked the dialog unless either:
+              ダイアログが閉じると、フォーカスはダイアログを呼び出した要素に戻ります。ただし、以下のいずれかの場合を除きます。
               <ul>
                 <li>
-                  The invoking element no longer exists.
-                  Then, focus is set on another element that provides logical work flow.
+                  呼び出した要素がもはや存在しない場合。
+                  その場合は、論理的なワークフローを提供する別の要素にフォーカスが設定されます。
                 </li>
                 <li>
-                  The work flow design includes the following conditions that can occasionally make focusing a different element a more logical choice:
+                  次のような条件を含むワークフロー設計では、場合によっては別の要素にフォーカスを当てる方が論理的な選択である場合もあります。
                   <ol>
-                    <li>It is very unlikely users need to immediately re-invoke the dialog.</li>
-                    <li>The task completed in the dialog is directly related to a subsequent step in the work flow.</li>
+                    <li>
+                      ユーザーがすぐに同じダイアログを再度呼び出す可能性が非常に低い。
+                    </li>
+                    <li>
+                      ダイアログで完了したタスクが、ワークフローの次のステップに直接関連している。
+                    </li>
                   </ol>
-                  For example, a grid has an associated toolbar with a button for adding rows.
-                  The Add Rows button opens a dialog that prompts for the number of rows.
-                  After the dialog closes, focus is placed in the first cell of the first new row.
+                  たとえば、グリッドには行を追加するためのボタンを持つ関連するツールバーがあります。
+                  「行の追加」ボタンは、行数を入力するダイアログを開きます。
+                  ダイアログが閉じると、フォーカスは一番目の新しい行の一番目のセルに置かれます。
                 </li>
               </ul>
             </li>
-            <li>It is strongly recommended that the tab sequence of all dialogs include a visible element with role <code>button</code> that closes the dialog, such as a close icon or cancel button.</li>
+            <li>
+              すべてのダイアログのタブシーケンスには、ダイアログを閉じる <code>button</code> ロールの可視要素 (閉じるアイコンやキャンセルボタンなど) を含めることを強くお勧めします。
+            </li>
           </ol>
         </div>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties</h2>
+        <h2>WAI-ARIA ロール、ステート、およびプロパティ</h2>
         <ul>
-          <li>The element that serves as the dialog container has a role of <a href="#dialog" class="role-reference">dialog</a>.</li>
-          <li>All elements required to operate the dialog are descendants of the element that has role <code>dialog</code>.</li>
-          <li>The dialog container element has <a href="#aria-modal" class="property-reference">aria-modal</a> set to <code>true</code>.</li>
           <li>
-            The dialog has either:
+            ダイアログコンテナを提供する要素は、<a href="#dialog" class="role-reference">dialog</a> ロールを持ちます。
+          </li>
+          <li>
+            ダイアログを操作するために必要なすべての要素は、<code>dialog</code> ロールを持つ要素の子孫要素です。
+          </li>
+          <li>
+            ダイアログコンテナ要素は、<a href="#aria-modal" class="property-reference">aria-modal</a> が <code>true</code> に設定されています。
+          </li>
+          <li>
+            ダイアログには、以下のいずれかが設定されています。
             <ul>
               <li>
-                A value set for the <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> property that refers to a visible dialog title.
+                可視なダイアログタイトルを参照する <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> プロパティの値。
               </li>
-              <li>A label specified by <a href="#aria-label" class="property-reference">aria-label</a>.</li>
+              <li>
+                <a href="#aria-label" class="property-reference">aria-label</a> で指定されたラベル。
+              </li>
             </ul>
           </li>
           <li>
-            Optionally, the <a href="#aria-describedby" class="property-reference">aria-describedby</a> property is set on the element with the <code>dialog</code> role to indicate which element or elements in the dialog contain content that describes the primary purpose or message of the dialog.
-            Specifying descriptive elements enables screen readers to announce the description along with the dialog title and initially focused element when the dialog opens, which is typically helpful only when the descriptive content is simple and can easily be understood without structural information.
-            It is advisable to omit specifying <code>aria-describedby</code> if the dialog content includes semantic structures, such as lists, tables, or multiple paragraphs, that need to be perceived in order to easily understand the content, i.e., if the content would be difficult to understand when announced as a single unbroken string.
+            オプションとして、<code>dialog</code> ロールを持つ要素に対して <a href="#aria-describedby" class="property-reference">aria-describedby</a> プロパティを設定し、ダイアログ内のどの要素 (複数可) がダイアログの主要な目的やメッセージを説明する内容を含むかを示すことができます。
+            説明的な要素を指定すると、スクリーンリーダーは、ダイアログが開いたときにダイアログタイトルと最初にフォーカスされた要素と共に説明を読み上げることができ、これは通常、説明内容が単純で、構造情報なしで簡単に理解できる場合にのみ役立ちます。
+            コンテンツがリスト、テーブル、複数の段落などのセマンティック構造を含んでおり、内容を簡単に理解するために認識する必要がある場合 (つまり、内容を単一の途切れのない文字列として読み上げると理解しづらい場合) は、<code>aria-describedby</code> の指定を省略することをお勧めします。
           </li>
         </ul>
         <div class="note">
-          <h3>Note</h3>
+          <h3>注記</h3>
           <ul>
             <li>
-              Because marking a dialog modal by setting <a href="#aria-modal" class="property-reference">aria-modal</a> to <code>true</code> can prevent users of some assistive technologies from perceiving content outside the dialog, users of those technologies will experience severe negative ramifications if a dialog is marked modal but does not behave as a modal for other users.
-              So, mark a dialog modal <strong>only when both:</strong>
+              <a href="#aria-modal" class="property-reference">aria-modal</a> を <code>true</code> に設定してダイアログをモーダルとしてマークすると、一部の支援技術を使用するユーザーがダイアログ外のコンテンツを認識できなくなる可能性があるため、モーダルとしてマークされていても他のユーザーにとってはモーダルとして動作しない場合は、支援技術ユーザーにとって深刻な悪影響が生じます。
+              したがって、ダイアログをモーダルとしてマークするのは、<strong>次の両方の条件が揃っている場合のみにしてください。</strong>
               <ol>
-                <li>Application code prevents all users from interacting in any way with content outside of it.</li>
-                <li>Visual styling obscures the content outside of it.</li>
+                <li>
+                  アプリケーションコードが、すべてのユーザーがダイアログ外のコンテンツと何らかの方法でインタラクションするのを防いでいる。
+                </li>
+                <li>
+                  視覚スタイルがダイアログ外のコンテンツを隠蔽している。
+                </li>
               </ol>
             </li>
             <li>
-              The <code>aria-modal</code> property introduced by ARIA 1.1 replaces <a href="#aria-hidden" class="state-reference">aria-hidden</a> for informing assistive technologies that content outside a dialog is inert.
-              However, in legacy dialog implementations where <code>aria-hidden</code> is used to make content outside a dialog inert for assistive technology users, it is important that:
+              ARIA 1.1 で導入された <code>aria-modal</code> プロパティは、ダイアログ外のコンテンツが非アクティブであることを支援技術に伝えるために、<a href="#aria-hidden" class="state-reference">aria-hidden</a> の代替となります。
+              ただし、過去のダイアログ実装で <code>aria-hidden</code> を使用してダイアログ外のコンテンツを支援技術ユーザーに対して非アクティブにしている場合は、以下の点に注意が必要です。
               <ol>
-                <li><code>aria-hidden</code> is set to <code>true</code> on each element containing a portion of the inert layer.</li>
-                <li>The dialog element is not a descendant of any element that has <code>aria-hidden</code> set to <code>true</code>.</li>
+                <li>
+                  非アクティブなレイヤーの一部を含む各要素に対して <code>aria-hidden</code> を <code>true</code> に設定する。
+                </li>
+                <li>
+                  ダイアログ要素は、<code>aria-hidden</code> が <code>true</code> に設定されている要素の子孫要素ではないこと。
+                </li>
               </ol>
             </li>
           </ul>

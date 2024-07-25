@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modal Dialog Example</title>
+    <title>モーダルダイアログの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -26,133 +26,134 @@
       </ul>
     </nav>
     <main>
-      <h1>Modal Dialog Example</h1>
+      <h1>モーダルダイアログの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/39fb654e5146151ee70675af6ae755a72d8f7ff4 -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-dialog-modal.svg">
         <p>
-          Following is an example implementation of the <a href="../dialog-modal-pattern.html">Dialog (Modal) Pattern</a>.
-          The below <q>Add Delivery Address</q> button opens a modal dialog that contains two buttons that open other dialogs.
-          The accessibility features section explains the rationale for initial focus placement and use of <code>aria-describedby</code> in each dialog.
+          以下は、<a href="../dialog-modal-pattern.html">ダイアログ（モーダル）パターン</a>の実装例です。
+          下記の「配送先住所を追加」ボタンを押すと、モーダルダイアログが開き、その中に他のダイアログを開くボタンが2つ含まれています。
+          アクセシビリティ機能のセクションでは、各ダイアログにおける初期フォーカス位置と<code>aria-describedby</code>の使用に関する理由を説明しています。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下があります。</p>
         <ul>
-          <li><a href="../../alertdialog/examples/alertdialog.html">Alert Dialog Example</a>: A confirmation prompt that demonstrates an alert dialog.</li>
-          <li><a href="datepicker-dialog.html">Date Picker Dialog example</a>: Demonstrates a dialog containing a calendar grid for choosing a date.</li>
+          <li><a href="../../alertdialog/examples/alertdialog.html">アラートダイアログ例</a>：確認プロンプトを示すアラートダイアログの例です。</li>
+          <li><a href="datepicker-dialog.html">日付選択ダイアログ例</a>：日付を選択するためのカレンダーグリッドを含むダイアログを示します。</li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
         <div id="ex1">
           <button type="button" onclick="openDialog('dialog1', this)">Add Delivery Address</button>
           <div id="dialog_layer" class="dialogs">
             <div role="dialog" id="dialog1" aria-labelledby="dialog1_label" aria-modal="true" class="hidden">
-              <h2 id="dialog1_label" class="dialog_label">Add Delivery Address</h2>
+              <h2 id="dialog1_label" class="dialog_label">配送先住所を追加</h2>
               <div class="dialog_form">
                 <div class="dialog_form_item">
                   <label>
-                    <span class="label_text">Street:</span>
+                    <span class="label_text">住所：</span>
                     <input type="text" class="wide_input">
                   </label>
                 </div>
                 <div class="dialog_form_item">
                   <label>
-                    <span class="label_text">City:</span>
+                    <span class="label_text">市区町村：</span>
                     <input type="text" class="city_input">
                   </label>
                 </div>
                 <div class="dialog_form_item">
                   <label>
-                    <span class="label_text">State:</span>
+                    <span class="label_text">都道府県：</span>
                     <input type="text" class="state_input">
                   </label>
                 </div>
                 <div class="dialog_form_item">
                   <label>
-                    <span class="label_text">Zip:</span>
+                    <span class="label_text">郵便番号：</span>
                     <input type="text" class="zip_input">
                   </label>
                 </div>
-
+            
                 <div class="dialog_form_item">
                   <label for="special_instructions">
-                    <span class="label_text">Special instructions:</span>
+                    <span class="label_text">備考：</span>
                   </label>
                   <input id="special_instructions" type="text" aria-describedby="special_instructions_desc" class="wide_input">
-                  <div class="label_info" id="special_instructions_desc">For example, gate code or other information to help the driver find you</div>
+                  <div class="label_info" id="special_instructions_desc">例えば、ゲートコードやその他の配達員が見つけやすい情報</div>
                 </div>
               </div>
               <div class="dialog_form_actions">
-                <button type="button" onclick="openDialog('dialog2', this, 'dialog2_para1')">Verify Address</button>
-                <button type="button" onclick="replaceDialog('dialog3', undefined, 'dialog3_close_btn')">Add</button>
-                <button type="button" onclick="closeDialog(this)">Cancel</button>
+                <button type="button" onclick="openDialog('dialog2', this, 'dialog2_para1')">住所を検証</button>
+                <button type="button" onclick="replaceDialog('dialog3', undefined, 'dialog3_close_btn')">追加</button>
+                <button type="button" onclick="closeDialog(this)">キャンセル</button>
               </div>
-            </div>
+            </div>            
 
             <!--  Second modal to open on top of the first modal  -->
             <div id="dialog2" role="dialog" aria-labelledby="dialog2_label" aria-describedby="dialog2_desc" aria-modal="true" class="hidden">
-              <h2 id="dialog2_label" class="dialog_label">Verification Result</h2>
+              <h2 id="dialog2_label" class="dialog_label">検証結果</h2>
               <div id="dialog2_desc" class="dialog_desc">
                 <p tabindex="-1" id="dialog2_para1">
-                  This is just a demonstration.
-                  If it were a real application, it would provide a message telling whether the entered address is valid.
+                  これは単なるデモです。
+                  実際のアプリケーションであれば、入力されたアドレスが有効かどうかを示すメッセージが表示されます。
                 </p>
                 <p>
-                  For demonstration purposes, this dialog has a lot of text.
-                  It demonstrates a scenario where:
+                  デモのために、このダイアログには多くのテキストがあります。
+                  これは、以下のシナリオを示しています：
                 </p>
                 <ul>
-                  <li>The first interactive element, the help link, is at the bottom of the dialog.</li>
-                  <li>If focus is placed on the first interactive element when the dialog opens, the validation message may not be visible.</li>
-                  <li>If the validation message is visible and the focus is on the help link, then the focus may not be visible.</li>
+                  <li>最初のインタラクティブ要素であるヘルプリンクは、ダイアログの一番下にあります。</li>
+                  <li>ダイアログが開いたときに最初のインタラクティブ要素にフォーカスが置かれると、検証メッセージが表示されない可能性があります。</li>
+                  <li>検証メッセージが表示され、フォーカスがヘルプリンクにある場合、フォーカスが表示されない可能性があります。</li>
                   <li>
-                    When the dialog opens, it is important that both:
+                    ダイアログが開くとき、以下の両方が重要です：
                     <ul>
-                      <li>The beginning of the text is visible so users do not have to scroll back to start reading.</li>
-                      <li>The keyboard focus always remains visible.</li>
+                      <li>テキストの開始部分が見えるようにする必要があります。ユーザーは読み始めるためにスクロールする必要はありません。</li>
+                      <li>キーボードフォーカスは常に表示されるようにする必要があります。</li>
                     </ul>
                   </li>
                 </ul>
-                <p>There are several ways to resolve this issue:</p>
+                <p>この問題を解決するにはいくつかの方法があります：</p>
                 <ul>
-                  <li>Place an interactive element at the top of the dialog, e.g., a button or link.</li>
-                  <li>Make a static element focusable, e.g., the dialog title or the first block of text.</li>
+                  <li>ダイアログの上部にインタラクティブ要素（ボタンやリンクなど）を配置します。</li>
+                  <li>静的な要素をフォーカス可能にします（例：ダイアログタイトルや最初のテキストブロック）。</li>
                 </ul>
-                <p>Please <em>DO NOT </em> make the element with role dialog focusable!</p>
+                <p><em>してはなりません</em> ロール「dialog」を持つ要素をフォーカス可能にすること！</p>
                 <ul>
-                  <li>The larger a focusable element is, the more difficult it is to visually identify the location of focus, especially for users with a narrow field of view.</li>
-                  <li>The dialog has a visual border, so creating a clear visual indicator of focus when the entire dialog has focus is not very feasible.</li>
+                  <li>フォーカス可能な要素が大きいほど、特に視野の狭いユーザーにとって、フォーカスの位置を視覚的に識別するのが難しくなります。</li>
+                  <li>ダイアログには視覚的な境界線があるため、ダイアログ全体にフォーカスがあるときにフォーカスの明確な視覚的インジケーターを作成することはあまり現実的ではありません。</li>
                   <li>
-                    Screen readers read the label and content of focusable elements.
-                    The dialog contains its label and a lot of content! If a dialog like this one has focus, the actual focus is difficult to comprehend.
+                    スクリーンリーダーは、フォーカス可能な要素のラベルとコンテンツを読み上げます。
+                    ダイアログにはラベルと多くのコンテンツが含まれています！このようなダイアログにフォーカスがある場合、実際のフォーカスを理解することは困難です。
                   </li>
                 </ul>
                 <p>
-                  In this dialog, the first paragraph has <code>tabindex=<q>-1</q></code>.
-                  The first paragraph is also contained inside the element that provides the dialog description, i.e., the element that is referenced by <code>aria-describedby</code>.
-                  With some screen readers, this may have one negative but relatively insignificant side effect when the dialog opens -- the first paragraph may be announced twice.
-                  Nonetheless, making the first paragraph focusable and setting the initial focus on it is the most broadly accessible option.
+                  このダイアログでは、最初の段落に<code>tabindex=<q>-1</q></code>があります。
+                  最初の段落は、ダイアログの説明を提供する要素（<code>aria-describedby</code>で参照される要素）内にも含まれています。
+                  一部のスクリーンリーダーでは、これにより、ダイアログが開いたときに、1つのマイナーで比較的取るに足らない副作用が発生する可能性があります。最初の段落が2回アナウンスされる可能性があります。
+                  それにもかかわらず、最初の段落をフォーカス可能にして、そこに初期フォーカスを設定することが、最も広くアクセシブルなオプションです。
                 </p>
               </div>
               <div class="dialog_form_actions">
-                <a href="#" onclick="openDialog('dialog4', this)">link to help</a>
-                <button type="button" onclick="openDialog('dialog4', this)">accepting an alternative form</button>
-                <button type="button" onclick="closeDialog(this)">Close</button>
+                <a href="#" onclick="openDialog('dialog4', this)">ヘルプへのリンク</a>
+                <button type="button" onclick="openDialog('dialog4', this)">代替フォームを受け入れる</button>
+                <button type="button" onclick="closeDialog(this)">閉じる</button>
               </div>
             </div>
 
             <!--  Dialog that replaces dialog 1.  -->
             <div id="dialog3" role="dialog" aria-labelledby="dialog3_label" aria-describedby="dialog3_desc" aria-modal="true" class="hidden">
-              <h2 id="dialog3_label" class="dialog_label">Address Added</h2>
+              <h2 id="dialog3_label" class="dialog_label">住所が追加されました</h2>
               <p id="dialog3_desc" class="dialog_desc">
-                The address you provided has been added to your list of delivery addresses.
-                It is ready for immediate use.
-                If you wish to remove it, you can do so from <a href="#" onclick="openDialog('dialog4', this)">your profile.</a>
+                ご指定の住所が配送先住所リストに追加されました。
+                すぐにご利用いただけます。
+                削除したい場合は、<a href="#" onclick="openDialog('dialog4', this)">プロフィール</a>から行えます。
               </p>
               <div class="dialog_form_actions">
                 <button type="button" id="dialog3_close_btn" onclick="closeDialog(this)">OK</button>
@@ -160,10 +161,10 @@
             </div>
 
             <div id="dialog4" role="dialog" aria-labelledby="dialog4_label" aria-describedby="dialog4_desc" class="hidden" aria-modal="true">
-              <h2 id="dialog4_label" class="dialog_label">End of the Road!</h2>
-              <p id="dialog4_desc" class="dialog_desc">You activated a fake link or button that goes nowhere! The link or button is present for demonstration purposes only.</p>
+              <h2 id="dialog4_label" class="dialog_label">エラー</h2>
+              <p id="dialog4_desc" class="dialog_desc">存在しないリンクまたはボタンがアクティブ化されました。このリンクまたはボタンはデモ目的でのみ表示されています。</p>
               <div class="dialog_form_actions">
-                <button type="button" id="dialog4_close_btn" onclick="closeDialog(this)">Close</button>
+                <button type="button" id="dialog4_close_btn" onclick="closeDialog(this)">閉じる</button>
               </div>
             </div>
           </div>
@@ -172,51 +173,51 @@
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティ機能</h2>
         <ol>
           <li>
-            To make the content easier to read when displayed on small screens, the dialog fills 100% of the screen.
-            Completely covering the background window also hides background movement that occurs on some mobile devices when scrolling content inside the dialog.
+            小さな画面で表示する場合の読みやすさを向上させるため、ダイアログは画面の100%を満たします。
+            背景ウィンドウを完全に覆うことで、一部のモバイルデバイスでダイアログ内のコンテンツをスクロールしたときに発生する背景の動きも隠されます。
           </li>
           <li>
-            Focus and accessible descriptions are set based on the content of each dialog.
+            フォーカスとアクセシブルな説明は、各ダイアログのコンテンツに基づいて設定されます。
             <ol>
               <li>
-                <q>Add Delivery Address</q> dialog (id=dialog1):
+                「配送先住所を追加」ダイアログ (id=dialog1):
                 <ul>
-                  <li>Initial focus is set on the first input, which is the first focusable element.</li>
-                  <li>The dialog does not need <code>aria-describedby</code> since there is no static text that describes it.</li>
-                  <li>When the dialog closes as a result of the <q>Cancel</q> action, the user's point of regard is maintained by returning focus to the <q>Add Delivery Address</q> button.</li>
-                  <li>When the dialog closes as a result of the <q>Add</q> action and the <q>Address Added</q> dialog replaces the <q>Add Delivery Address</q> dialog, the <q>Add Delivery Address</q> dialog passes a reference to the <q>Add Delivery Address</q> button to the <q>Address Added</q> dialog so that it can maintain the user's point of regard when it closes.</li>
+                  <li>最初のフォーカス可能な要素である最初の入力に初期フォーカスが設定されます。</li>
+                  <li>ダイアログを説明する静的なテキストがないため、<code>aria-describedby</code>は必要ありません。</li>
+                  <li>「キャンセル」アクションの結果としてダイアログが閉じると、ユーザーの視点は「配送先住所を追加」ボタンに戻すことで維持されます。</li>
+                  <li>「追加」アクションの結果としてダイアログが閉じ、「配送先住所を追加」ダイアログが「住所が追加されました」ダイアログに置き換わると、「配送先住所を追加」ダイアログは「住所が追加されました」ダイアログに「配送先住所を追加」ボタンへの参照を渡すため、閉じるときにユーザーの視点を維持できます。</li>
                 </ul>
               </li>
               <li>
-                <q>Verification Result</q> dialog (id=dialog2):
+                「検証結果」ダイアログ (id=dialog2):
                 <ul>
-                  <li>Initial focus is set on the first paragraph because the first interactive element is at the bottom, which is out of view due to the length of the text.</li>
-                  <li>To support screen reader user awareness of the dialog text, the dialog text is wrapped in a <code>div</code> that is referenced by <code>aria-describedby</code>.</li>
-                  <li>When the dialog closes, to maintain the user's point of regard, focus returns to the <q>Verify Address</q> button.</li>
-                  <li>The text of this dialog describes design considerations for initial focus and accessible descriptions in dialogs with large amounts of text.</li>
+                  <li>最初のインタラクティブ要素が最下部にあり、テキストの長さにより見られないため、最初の段落に初期フォーカスが設定されます。</li>
+                  <li>スクリーンリーダーユーザーがダイアログテキストを認識できるように、ダイアログテキストは<code>aria-describedby</code>によって参照される<code>div</code>でラップされます。</li>
+                  <li>ダイアログが閉じると、ユーザーの視点は「住所を検証」ボタンに戻すことで維持されます。</li>
+                  <li>このダイアログのテキストは、大量のテキストを含むダイアログでの初期フォーカスとアクセシブルな説明の設計上の考慮事項について説明しています。</li>
                 </ul>
               </li>
               <li>
-                <q>Address Added</q> dialog (id=dialog3):
+                「住所が追加されました」ダイアログ (id=dialog3):
                 <ul>
                   <li>
-                    Initial focus is set on the <q>OK</q> button, which is the last focusable element.
-                    This is for efficiency since most users will simply dismiss the dialog as soon as they have read the message.
-                    Users can press <kbd>Tab</kbd> to focus on the <q>My Profile</q> link.
+                    最後のフォーカス可能な要素である「OK」ボタンに初期フォーカスが設定されます。
+                    これは、ほとんどのユーザーがメッセージを読んだらすぐにダイアログを閉じるため、効率的です。
+                    ユーザーは<kbd>Tab</kbd>キーを押して「マイプロフィール」リンクにフォーカスできます。
                   </li>
-                  <li>The element containing the dialog message is referenced by <code>aria-describedby</code> to hint to screen readers that it should be announced when the dialog opens.</li>
-                  <li>When the dialog closes, the user's point of regard is maintained by setting focus on the <q>Add Delivery Address</q> button.</li>
+                  <li>ダイアログメッセージを含む要素は、<code>aria-describedby</code>によって参照され、スクリーンリーダーにダイアログが開いたときにアナウンスされるべきであることを示唆します。</li>
+                  <li>ダイアログが閉じると、ユーザーの視点は「配送先住所を追加」ボタンにフォーカスを設定することで維持されます。</li>
                 </ul>
               </li>
               <li>
-                <q>End of the Road!</q> dialog (id=dialog4):
+                「道の終わり！」ダイアログ (id=dialog4):
                 <ul>
-                  <li>This dialog has only one focusable element, which receives focus when the dialog opens.</li>
-                  <li>Like dialog3, <code>aria-describedby</code> is used to facilitate message announcement for screen reader users.</li>
-                  <li>Like all other dialogs in this example except for the <q>Address Added</q> confirmation dialog, when it closes, the user's point of regard is maintained by returning focus to the element that triggered display of the dialog.</li>
+                  <li>このダイアログにはフォーカス可能な要素が1つしかなく、ダイアログが開くとフォーカスを受け取ります。</li>
+                  <li>ダイアログ3と同様に、<code>aria-describedby</code>を使用して、スクリーンリーダーユーザーのためのメッセージのアナウンスを容易にします。</li>
+                  <li>この例では「住所が追加されました」確認ダイアログを除く他のすべてのダイアログと同様に、閉じるときは、ダイアログの表示をトリガーした要素にフォーカスを戻すことでユーザーの視点を維持します。</li>
                 </ul>
               </li>
             </ol>
@@ -225,12 +226,12 @@
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボード操作</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
@@ -238,8 +239,8 @@
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to next focusable element inside the dialog.</li>
-                  <li>When focus is on the last focusable element in the dialog, moves focus to the first focusable element in the dialog.</li>
+                  <li>ダイアログ内の次のフォーカス可能な要素にフォーカスを移動します。</li>
+                  <li>ダイアログ内の最後のフォーカス可能な要素にフォーカスがある場合、ダイアログ内の最初のフォーカス可能な要素にフォーカスを移動します。</li>
                 </ul>
               </td>
             </tr>
@@ -247,28 +248,28 @@
               <th><kbd>Shift + Tab</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to previous focusable element inside the dialog.</li>
-                  <li>When focus is on the first focusable element in the dialog, moves focus to the last focusable element in the dialog.</li>
+                  <li>ダイアログ内の前のフォーカス可能な要素にフォーカスを移動します。</li>
+                  <li>ダイアログ内の最初のフォーカス可能な要素にフォーカスがある場合、ダイアログ内の最後のフォーカス可能な要素にフォーカスを移動します。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="key-escape">
               <th><kbd>Escape</kbd></th>
-              <td>Closes the dialog.</td>
+              <td>ダイアログを閉じます。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、状態、およびtabindex属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">用途</th>
             </tr>
           </thead>
           <tbody>
@@ -276,7 +277,7 @@
               <th scope="row"><code>dialog</code></th>
               <td></td>
               <td><code>div</code></td>
-              <td>Identifies the element that serves as the dialog container.</td>
+              <td>ダイアログコンテナとして機能する要素を識別します。</td>
             </tr>
             <tr data-test-id="aria-labelledby">
               <td></td>
@@ -284,7 +285,7 @@
                 <code>aria-labelledby=<q>IDREF</q></code>
               </th>
               <td><code>div</code></td>
-              <td>Gives the dialog an accessible name by referring to the element that provides the dialog title.</td>
+              <td>ダイアログタイトルを提供する要素を参照することで、ダイアログにアクセシブルな名前を与えます。</td>
             </tr>
             <tr data-test-id="aria-describedby">
               <td></td>
@@ -294,10 +295,10 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Gives the dialog an accessible description by referring to the dialog content that describes the primary message or purpose of the dialog.</li>
+                  <li>ダイアログの主要なメッセージまたは目的を説明するダイアログコンテンツを参照することで、ダイアログにアクセシブルな説明を与えます。</li>
                   <li>
-                    Used in three of the four dialogs included in the example.
-                    See the above accessibility features section for an explanation.
+                    例に含まれる4つのダイアログのうち3つで使用されています。
+                    アクセシビリティ機能のセクションを参照してください。
                   </li>
                 </ul>
               </td>
@@ -308,30 +309,30 @@
                 <code>aria-modal=<q>true</q></code>
               </th>
               <td><code>div</code></td>
-              <td>Tells assistive technologies that the windows underneath the current dialog are not available for interaction (inert).</td>
+              <td>支援技術に、現在のダイアログの下のウィンドウはインタラクションに使用できない（不活性）ことを伝えます。</td>
             </tr>
           </tbody>
         </table>
-        <h3>Notes on <code>aria-modal</code> and <code>aria-hidden</code></h3>
+        <h3><code>aria-modal</code>および<code>aria-hidden</code>に関する注記</h3>
         <ol>
           <li>
-            The <code>aria-modal</code> property was introduced in ARIA 1.1.
-            As a new property, screen reader users may experience varying degrees of support for it.
+            <code>aria-modal</code>プロパティはARIA 1.1で導入されました。
+            新しいプロパティであるため、スクリーンリーダーユーザーによるサポートにはさまざまな程度の違いがあります。
           </li>
-          <li>Applying the <code>aria-modal</code> property to the <code>dialog</code> element replaces the technique of using <code>aria-hidden</code> on the background for informing assistive technologies that content outside a dialog is inert.</li>
+          <li><code>aria-modal</code>プロパティを<code>dialog</code>要素に適用すると、支援技術にダイアログ外のコンテンツが不活性であることを通知するための背景での<code>aria-hidden</code>の使用が置き換えられます。</li>
           <li>
-            In legacy dialog implementations where <code>aria-hidden</code> is used to make content outside a dialog inert for assistive technology users, it is important that:
+            レガシーなダイアログ実装で<code>aria-hidden</code>を使用してダイアログ外のコンテンツを支援技術ユーザーにとって不活性にする場合、以下が重要です。
             <ol>
-              <li><code>aria-hidden</code> is set to <code>true</code> on each element containing a portion of the inert layer.</li>
-              <li>The dialog element is not a descendant of any element that has <code>aria-hidden</code> set to <code>true</code>.</li>
+              <li><code>aria-hidden</code>を不活性レイヤーの一部を含む各要素に対して<code>true</code>に設定します。</li>
+              <li>ダイアログ要素は、<code>aria-hidden</code>が<code>true</code>に設定されている要素の子孫ではありません。</li>
             </ol>
           </li>
         </ol>
       </section>
 
       <section id="at-support">
-        <h2>Assistive Technology Support</h2>
-        <p><a href="../../../about/at-support-tables/at-support-tables.html">Learn how to interpret and use assistive technology support data</a></p>
+        <h2>支援技術のサポート</h2>
+        <p><a href="../../../about/at-support-tables/at-support-tables.html">支援技術サポートデータの解釈と使用方法について学ぶ</a></p>
         <iframe
           class="support-levels-modal-dialog"
           src="https://aria-at.w3.org/embed/reports/modal-dialog"
@@ -342,7 +343,7 @@
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScript と CSS ソースコード</h2>
         <ul id="css_js_files">
           <li>
             CSS:
@@ -357,7 +358,7 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
+        <h2 id="sc1_label">HTML ソースコード</h2>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
         <pre><code id="sc1"></code></pre>
         <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
