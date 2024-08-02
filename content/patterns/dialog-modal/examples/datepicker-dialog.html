@@ -19,10 +19,10 @@
     <script src="js/datepicker-dialog.js"></script>
   </head>
   <body>
-    <nav aria-label="Related Links" class="feedback">
+    <nav aria-label="関連リンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/27">Related Issues</a></li>
-        <li><a href="../dialog-modal-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/27">関連イシュー</a></li>
+        <li><a href="../dialog-modal-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
@@ -33,17 +33,17 @@
         <h2>この例の概要</h2>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-dialog-modal.svg">
         <p>
-          以下の例は、日付入力フィールドと、<a href="../dialog-modal-pattern.html">ダイアログ（モーダル）パターン</a>を実装した日付選択欄を開くボタンで構成されています。
-          ダイアログには、カレンダーが含まれており、<a href="../../grid/grid-pattern.html">グリッドパターン</a>を使用して、利用者がカレンダーから日付を選択できるようにするボタンが配置されています。
-          カレンダーから日付を選択すると、ダイアログが閉じられ、日付入力フィールドに選択された日付が入力されます。
-          ダイアログが開かれたときに、入力フィールドが空であるか、有効な日付が入力されていない場合、カレンダー内の現在日にフォーカスがセットされます。
-          そうでない場合は、日付入力フィールドの値と一致するカレンダーの日付にフォーカスがセットされます。
+          以下の例は、日付入力欄と、<a href="../dialog-modal-pattern.html">ダイアログ (モーダル) パターン</a>を実装した日付選択欄を開くボタンで構成されています。
+          ダイアログには、利用者がカレンダーから日付を選択できるようにするボタンを配置するために<a href="../../grid/grid-pattern.html">グリッドパターン</a>を使用したカレンダーが含まれています。
+          カレンダーから日付を選択すると、ダイアログが閉じられ、日付入力欄に選択された日付が入力されます。
+          ダイアログが開かれたとき、入力欄が空であるか、有効な日付が入力されていない場合、カレンダー内の現在日がフォーカスされます。
+          そうでない場合、日付入力欄の値と一致するカレンダー内の日付にフォーカスが配置されます。
         </p>
-        <p>関連する例:</p>
+        <p>類似例:</p>
         <ul>
-          <li><a href="../../alertdialog/examples/alertdialog.html">アラートダイアログの例</a>: アラートダイアログを使用した確認プロンプトの例です。</li>
-          <li><a href="dialog.html">モーダルダイアログの例</a>: 少量と大量のコンテンツを持つ複数のモーダルダイアログのレイヤーをデモンストレーションする例です。</li>
-          <li><a href="../../combobox/examples/combobox-datepicker.html">日付選択 コンボボックス</a>: 編集可能な日付入力コンボボックスで、カレンダー グリッドと月と年を移動するためのボタンを含むダイアログを開きます。</li>
+          <li><a href="../../alertdialog/examples/alertdialog.html">アラートダイアログの例</a>: アラートダイアログをデモンストレーションする確認プロンプトです。</li>
+          <li><a href="dialog.html">モーダルダイアログの例</a>: 少量と大量のコンテンツ両方を持つ複数のモーダルダイアログのレイヤーをデモンストレーションする例です。</li>
+          <li><a href="../../combobox/examples/combobox-datepicker.html">日付選択コンボボックス</a>: カレンダーグリッドと、月と年を移動するためのボタンを含むダイアログを開く、編集可能な日付入力コンボボックスです。</li>
         </ul>
       </section>
 
@@ -51,15 +51,15 @@
         <div class="example-header">
           <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="ここから"></div>
         <div id="example">
           <div id="myDatepicker" class="datepicker">
             <div class="date">
-              <label for="id-textbox-1">Date</label>
+              <label for="id-textbox-1">日付</label>
 
               <div class="group">
-                <input type="text" placeholder="mm/dd/yyyy" id="id-textbox-1" aria-describedby="id-description-1">
-                <span class="desc" id="id-description-1">(<span class="sr-only">date format: </span>mm/dd/yyyy)</span>
+                <input type="text" placeholder="yyyy/mm/dd" id="id-textbox-1" aria-describedby="id-description-1">
+                <span class="desc" id="id-description-1">(<span class="sr-only">日付フォーマット: </span>yyyy/mm/dd)</span>
                 <button type="button" class="icon" aria-label="Choose Date">
                   <span class="fa fa-calendar-alt fa-2x"></span>
                 </button>
@@ -68,21 +68,21 @@
 
             <div id="id-datepicker-1" class="datepicker-dialog" role="dialog" aria-modal="true" aria-label="Choose Date">
               <div class="header">
-                <button type="button" class="prev-year" aria-label="previous year">
+                <button type="button" class="prev-year" aria-label="前の年">
                   <span class="fas fa-angle-double-left fa-lg"></span>
                 </button>
 
-                <button type="button" class="prev-month" aria-label="previous month">
+                <button type="button" class="prev-month" aria-label="前の月">
                   <span class="fas fa-angle-left fa-lg"></span>
                 </button>
 
                 <h2 id="id-grid-label" class="month-year" aria-live="polite">2020年 2月</h2>
 
-                <button type="button" class="next-month" aria-label="next month">
+                <button type="button" class="next-month" aria-label="次の月">
                   <span class="fas fa-angle-right fa-lg"></span>
                 </button>
 
-                <button type="button" class="next-year" aria-label="next year">
+                <button type="button" class="next-year" aria-label="次の年">
                   <span class="fas fa-angle-double-right fa-lg"></span>
                 </button>
               </div>
@@ -90,13 +90,13 @@
               <table class="dates" role="grid" aria-labelledby="id-grid-label">
                 <thead>
                   <tr>
-                    <th scope="col" abbr="Sunday">日</th>
-                    <th scope="col" abbr="Monday">月</th>
-                    <th scope="col" abbr="Tuesday">火</th>
-                    <th scope="col" abbr="Wednesday">水</th>
-                    <th scope="col" abbr="Thursday">木</th>
-                    <th scope="col" abbr="Friday">金</th>
-                    <th scope="col" abbr="Saturday">土</th>
+                    <th scope="col" abbr="日曜日">日</th>
+                    <th scope="col" abbr="月曜日">月</th>
+                    <th scope="col" abbr="火曜日">火</th>
+                    <th scope="col" abbr="水曜日">水</th>
+                    <th scope="col" abbr="木曜日">木</th>
+                    <th scope="col" abbr="金曜日">金</th>
+                    <th scope="col" abbr="土曜日">土</th>
                   </tr>
                 </thead>
 
@@ -166,7 +166,7 @@
             </div>
           </div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="ここまで"></div>
       </section>
 
       <section>
@@ -174,25 +174,26 @@
         <ul>
           <li>日付形式の説明は、<code>aria-describedby</code> を介してテキスト入力と関連付けられているため、支援技術でアクセシブルな説明として利用できます。</li>
           <li>
-            日付が選択されると、「日付を選択」ボタンのアクセシブル名は「日付を変更、日付文字列」に変更されます。ここで、日付文字列は選択された日付です。
-            そのため、ダイアログが閉じられ、フォーカスがボタンに戻ると、スクリーンリーダー 利用者は選択された日付の確認を聞きます。
+            日付が選択されると、「日付を選択」ボタンのアクセシブル名は「日付を変更、{日付文字列}」に変更されます。ここで、日付文字列は選択された日付です。
+            そのため、ダイアログが閉じられ、フォーカスがボタンに戻ったとき、スクリーンリーダー利用者は選択された日付の確認を聞きます。
           </li>
           <li>ダイアログでは、カレンダーに表示される月と年を変更するための追加ボタンにショートカットキーが割り当てられています。</li>
-          <li>月と年を表示するカレンダーの見出しはライブリージョンとしてマークアップされているため、スクリーンリーダー 利用者は、月と年を変更するボタンやキーボードコマンドからのフィードバックを受け取ることができます。</li>
+          <li>月と年を表示するカレンダーの見出しはライブリージョンとしてマークアップされているため、スクリーンリーダー利用者は、月と年を変更するボタンやキーボードコマンドからのフィードバックを受け取ります。</li>
           <li>
             キーボードヘルプはダイアログの下部に表示されます。
-            ライブリージョンを使用して、フォーカスがカレンダー グリッドに移動したときに、スクリーンリーダー 利用者に通知します。
+            フォーカスがカレンダーグリッドに移動したとき、スクリーンリーダー利用者に通知するためにライブリージョンが使われます。
           </li>
           <li>
-            カレンダーでのコンパクトな視覚デザインを容易にするために、列ヘッダーの日付名は 2 文字に省略されています。
-            ただし、これにより、スクリーンリーダー 利用者にとって日付名を理解することが難しくなります。
-            そのため、列ヘッダーの HTML <code>abbr</code> 属性で支援技術に完全な日付名を提供することで、利用者がグリッドをナビゲートするときにスクリーンリーダーが完全な名前を読み上げます。
+            カレンダーでのコンパクトな視覚デザインを容易にするために、列ヘッダーの曜日名は 2 文字に省略されています。
+            ただし、これにより、スクリーンリーダー 利用者にとって曜日名を理解することが難しくなります。
+            そのため、列ヘッダーの HTML <code>abbr</code> 属性で支援技術に完全な曜日名を提供することで、利用者がグリッドを移動するときにスクリーンリーダーが完全な名前を読み上げられるようになります。
+             (訳註: 原文では、 Monday を Mo と表記するような英語の曜日名の省略について解説していますが、日本語の曜日名は 1 文字で表記されるため、省略の問題は軽微でしょう。) 
           </li>
           <li>
-            ダイアログボックスのコントロールのフォーカスとホバーのスタイリングに対する高コントラストサポートは、CSS の border プロパティを使用します。
+            ダイアログボックスのコントロールのフォーカスとホバーのスタイリングに対する高コントラストサポートは、CSS の border プロパティを使用します:
             <ul>
-              <li>ボタン又は日付セルがフォーカスを受けると、ボーダーが追加されます。</li>
-              <li>ポインティングデバイスでボタン又は日付セルの上にホバーすると、ボーダーが追加されます。</li>
+              <li>ボタン又は日付セルがフォーカスを受けたとき、ボーダーが追加されます。</li>
+              <li>ポインティングデバイスでボタン又は日付セルの上にホバーしたとき、ボーダーが追加されます。</li>
               <li>デフォルトでは、ボタンと日付セルにはボーダーがなく、パディングがフォーカスとホバーのスタイリングのために追加されたボーダーのプレースホルダーとして使用されます。</li>
             </ul>
           </li>
@@ -218,7 +219,7 @@
                   <ul>
                     <li>日付選択ダイアログを開きます。</li>
                     <li>
-                      フォーカスを選択された日付、つまり日付入力テキストフィールドに表示される日付に移動します。
+                      選択された日付、つまり日付入力テキスト欄に表示されている日付にフォーカスを移動します。
                       日付が選択されていない場合は、現在の日付にフォーカスを置きます。
                     </li>
                   </ul>
@@ -246,9 +247,9 @@
                 <th><kbd>Tab</kbd></th>
                 <td>
                   <ul>
-                    <li>ダイアログ内の次の要素にフォーカスを移動します。</li>
-                    <li><a href="../../grid/grid-pattern.html">グリッドパターン</a>で指定されているように、カレンダー グリッド内のボタンは 1 つのみが <kbd>Tab</kbd> シーケンス内にあります。</li>
-                    <li>最後のボタン（つまり、「OK」）にフォーカスがある場合、最初のボタン（つまり、「前年」）にフォーカスを移動します。</li>
+                    <li>ダイアログの<kbd>Tab</kbd> シーケンス内の次の要素にフォーカスを移動します。</li>
+                    <li><a href="../../grid/grid-pattern.html">グリッドパターン</a>で定められているように、カレンダーグリッド内のボタンは 1 つのみが <kbd>Tab</kbd> シーケンス内にあります。</li>
+                    <li>最後のボタン (つまり、「OK」) にフォーカスがある場合、最初のボタン (つまり、「前の年」) にフォーカスを移動します。</li>
                   </ul>
                 </td>
               </tr>
@@ -256,9 +257,9 @@
                 <th><kbd>Shift + Tab</kbd></th>
                 <td>
                   <ul>
-                    <li>ダイアログ内の前の要素にフォーカスを移動します。</li>
-                    <li><a href="../../grid/grid-pattern.html">グリッドパターン</a>で指定されているように、カレンダー グリッド内のボタンは 1 つのみが <kbd>Tab</kbd> シーケンス内にあります。</li>
-                    <li>最初のボタン（つまり、「前年」）にフォーカスがある場合、最後のボタン（つまり、「OK」）にフォーカスを移動します。</li>
+                    <li>ダイアログの<kbd>Tab</kbd> シーケンス内の前の要素にフォーカスを移動します。</li>
+                    <li><a href="../../grid/grid-pattern.html">グリッドパターン</a>で定められているように、カレンダー グリッド内のボタンは 1 つのみが <kbd>Tab</kbd> シーケンス内にあります。</li>
+                    <li>最初のボタン (つまり、「前の年」) にフォーカスがある場合、最後のボタン (つまり、「OK」) にフォーカスを移動します。</li>
                   </ul>
                 </td>
               </tr>
@@ -278,7 +279,7 @@
             <tbody>
               <tr data-test-id="month-year-button-space-return">
                 <th><kbd>Space</kbd>、<br><kbd>Enter</kbd></th>
-                <td>カレンダー グリッドに表示される月と年を変更します。</td>
+                <td>カレンダーグリッドに表示される月及び／又は年を変更します。</td>
               </tr>
             </tbody>
           </table>
@@ -299,7 +300,7 @@
                 <td>
                   <ul>
                     <li>日付を選択し、ダイアログを閉じ、「日付を選択」ボタンにフォーカスを移動します。</li>
-                    <li>「日付」入力の値を選択した日付に更新します。</li>
+                    <li>「日付」入力欄の値を選択した日付に更新します。</li>
                     <li>「日付を選択」ボタンのアクセシブル名を、選択した日付を含むように更新します。</li>
                   </ul>
                 </td>
@@ -322,18 +323,18 @@
               </tr>
               <tr data-test-id="grid-home">
                 <th><kbd>Home</kbd></th>
-                <td>現在の週の最初の日（例：日曜日）にフォーカスを移動します。</td>
+                <td>現在の週の最初の日 (例：日曜日) にフォーカスを移動します。</td>
               </tr>
               <tr data-test-id="grid-end">
                 <th><kbd>End</kbd></th>
-                <td>現在の週の最後の日（例：土曜日）にフォーカスを移動します。</td>
+                <td>現在の週の最後の日 (例：土曜日) にフォーカスを移動します。</td>
               </tr>
               <tr data-test-id="grid-pageup">
                 <th><kbd>Page Up</kbd></th>
                 <td>
                   <ul>
                     <li>日付のグリッドを前の月に変更します。</li>
-                    <li>同じ日付の日にフォーカスを移動します。その日がない場合は、その月の最後の日までフォーカスを移動します。</li>
+                    <li>同じ日付の日にフォーカスを移動します。その日がない場合は、その月の最後の日にフォーカスを移動します。</li>
                   </ul>
                 </td>
               </tr>
@@ -342,7 +343,7 @@
                 <td>
                   <ul>
                     <li>日付のグリッドを前年の同じ月に変更します。</li>
-                    <li>同じ日付の日にフォーカスを移動します。その日がない場合は、その月の最後の日までフォーカスを移動します。</li>
+                    <li>同じ日付の日にフォーカスを移動します。その日がない場合は、その月の最後の日にフォーカスを移動します。</li>
                   </ul>
                 </td>
               </tr>
@@ -351,7 +352,7 @@
                 <td>
                   <ul>
                     <li>日付のグリッドを次の月に変更します。</li>
-                    <li>同じ日付の日にフォーカスを移動します。その日がない場合は、その月の最後の日までフォーカスを移動します。</li>
+                    <li>同じ日付の日にフォーカスを移動します。その日がない場合は、その月の最後の日にフォーカスを移動します。</li>
                   </ul>
                 </td>
               </tr>
@@ -360,7 +361,7 @@
                 <td>
                   <ul>
                     <li>日付のグリッドを翌年の同じ月に変更します。</li>
-                    <li>同じ日付の日にフォーカスを移動します。その日がない場合は、その月の最後の日までフォーカスを移動します。</li>
+                    <li>同じ日付の日にフォーカスを移動します。その日がない場合は、その月の最後の日にフォーカスを移動します。</li>
                   </ul>
                 </td>
               </tr>
@@ -383,8 +384,8 @@
                 <td>
                   ボタンを作動します：
                   <ul>
-                    <li>「キャンセル」: ダイアログを閉じ、「日付を選択」ボタンにフォーカスを移動し、日付入力の日付を更新しません。</li>
-                    <li>「OK」: ダイアログを閉じ、「日付を選択」ボタンにフォーカスを移動し、日付入力の日付を更新し、「日付を選択」ボタンのアクセシブル名を選択した日付を含むように更新します。</li>
+                    <li>「キャンセル」: ダイアログを閉じ、「日付を選択」ボタンにフォーカスを移動し、日付入力欄の日付を更新しません。</li>
+                    <li>「OK」: ダイアログを閉じ、「日付を選択」ボタンにフォーカスを移動し、日付入力欄の日付を更新し、「日付を選択」ボタンのアクセシブル名を選択した日付を含むように更新します。</li>
                   </ul>
                 </td>
               </tr>
@@ -437,7 +438,7 @@
                 <td>
                   <ul>
                     <li>アクセシブル名の初期値は「日付を選択」です。</li>
-                    <li>利用者が日付を選択すると、アクセシブル名は「日付を変更、日付文字列」に変更されます。ここで、日付文字列は選択された日付です。</li>
+                    <li>利用者が日付を選択したとき、アクセシブル名は「日付を変更、{日付文字列}」に変更されます。ここで、日付文字列は選択された日付です。</li>
                   </ul>
                 </td>
               </tr>
@@ -460,7 +461,9 @@
               <tr data-test-id="dialog-role">
                 <th scope="row"><code>dialog</code></th>
                 <td></td>
-                <td><code>div</code></td>
+                <td>
+                  <code>div</code>
+                </td>
                 <td>ダイアログとして要素を識別します。</td>
               </tr>
               <tr data-test-id="dialog-aria-modal">
@@ -478,10 +481,12 @@
               <tr data-test-id="change-date-aria-live">
                 <td></td>
                 <th scope="row"><code>aria-live="polite"</code></th>
-                <td><code>h2</code></td>
+                <td>
+                  <code>h2</code>
+                </td>
                 <td>
                   <ul>
-                    <li>月又は年の変更時に、<code>h2</code> 要素の内容が更新されます。</li>
+                    <li>月及び／又は年の変更したとき、<code>h2</code> 要素の内容が更新されます。</li>
                     <li>スクリーンリーダーによって自動的に読み上げられることを示します。</li>
                   </ul>
                 </td>
@@ -492,7 +497,7 @@
                 <td><code>div</code></td>
                 <td>
                   <ul>
-                    <li>グリッドをナビゲートするためのキーボードコマンドに関する情報を表示する要素が、スクリーンリーダーによって自動的に読み上げられることを示します。</li>
+                    <li>グリッドを移動するためのキーボードコマンドに関する情報を表示する要素が、スクリーンリーダーによって自動的に読み上げられるべきであることを示します。</li>
                     <li>スクリプトによって情報の表示がわずかに遅延されるため、スクリーンリーダーはフォーカスの変更に関連する情報を読み上げた後に、この情報をより読みやすくなります。</li>
                   </ul>
                 </td>
@@ -502,7 +507,7 @@
         </section>        
 
         <section>
-          <h3 id="rps_label_4">日付選択ダイアログ: カレンダー ナビゲーションボタン</h3>
+          <h3 id="rps_label_4">日付選択ダイアログ: カレンダーナビゲーションボタン</h3>
           <table aria-labelledby="rps_label_4 rps_label" class="data attributes">
             <thead>
               <tr>
@@ -517,7 +522,7 @@
                 <td></td>
                 <th scope="row"><code>aria-label="String"</code></th>
                 <td><code>button</code></td>
-                <td>ボタンのアクセシブル名を定義します（例：「次年」）。</td>
+                <td>ボタンのアクセシブル名を定義します (例：「次の年」)。</td>
               </tr>
             </tbody>
           </table>
@@ -538,7 +543,9 @@
               <tr data-test-id="grid-role">
                 <th scope="row"><code>grid</code></th>
                 <td></td>
-                <td><code>table</code></td>
+                <td>
+                  <code>table</code>
+                </td>
                 <td>
                   <ul>
                     <li><code>table</code> 要素を <code>grid</code> ウィジェットとして識別します。</li>
@@ -554,26 +561,34 @@
               </tr>
               <tr data-test-id="gridcell-button-tabindex">
                 <td></td>
-                <th scope="row"><code>tabindex="0"</code></th>
-                <td><code>td</code></td>
+                <th scope="row">
+                  <code>tabindex="0"</code>
+                </th>
+                <td>
+                  <code>td</code>
+                </td>
                 <td>
                   <ul>
-                    <li>セルにフォーカスを当て、ダイアログの <kbd>Tab</kbd> シーケンスに含めます。</li>
+                    <li>セルをフォーカス可能にし、ダイアログの <kbd>Tab</kbd> シーケンスに含めます。</li>
                     <li>要素がダイアログの <kbd>Tab</kbd> シーケンスに含まれるときに、JavaScript によって動的に設定されます。</li>
-                    <li>一度にグリッド内の 1 つの <code>gridcell</code> のみ、ダイアログの <kbd>Tab</kbd> シーケンス内にあります。</li>
+                    <li>一度に、グリッド内の 1 つの <code>gridcell</code> のみがダイアログの <kbd>Tab</kbd> シーケンス内にあります。</li>
                     <li>フォーカスの管理に関するこのアプローチは、「<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">Roving tabindex を使用したコンポーネント内のフォーカスの管理</a>」セクションで説明されています。</li>
                   </ul>
                 </td>
               </tr>
               <tr data-test-id="gridcell-button-tabindex">
                 <td></td>
-                <th scope="row"><code>tabindex="-1"</code></th>
-                <td><code>td</code></td>
+                <th scope="row">
+                  <code>tabindex="-1"</code>
+                </th>
+                <td>
+                  <code>td</code>
+                </td>
                 <td>
                   <ul>
-                    <li>セルにフォーカスを当て、ダイアログの <kbd>Tab</kbd> シーケンスから除外します。</li>
+                    <li>セルをフォーカス可能にし、ダイアログの <kbd>Tab</kbd> シーケンスから除外します。</li>
                     <li>セルがダイアログの <kbd>Tab</kbd> シーケンスに含まれるときに、JavaScript によって動的に <code>0</code> に変更されます。</li>
-                    <li>一度にグリッド内の 1 つの <code>gridcell</code> のみ、ダイアログの <kbd>Tab</kbd> シーケンス内にあります。</li>
+                    <li>一度に、グリッド内の 1 つの <code>gridcell</code> のみがダイアログの <kbd>Tab</kbd> シーケンス内にあります。</li>
                     <li>フォーカスの管理に関するこのアプローチは、「<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">Roving tabindex を使用したコンポーネント内のフォーカスの管理</a>」セクションで説明されています。</li>
                   </ul>
                 </td>
@@ -584,7 +599,7 @@
                 <td><code>td</code></td>
                 <td>
                   <ul>
-                    <li>現在選択されている日付、つまり日付入力に存在する日付値を含むセルを識別します。</li>
+                    <li>現在選択されている日付、つまり日付入力欄に存在する日付値を含むセルを識別します。</li>
                     <li>現在選択されているセルにのみ設定され、他のセルには <code>aria-selected</code> は指定されません。</li>
                   </ul>
                 </td>
@@ -595,6 +610,7 @@
             <strong>注:</strong> 列ヘッダーの曜日の名前は 2 文字に省略されているため、スクリーンリーダーで読み上げられると理解しにくくなる可能性があります。
             <code>th</code> 要素に <code>abbr</code> 属性を適用することで、スクリーンリーダーに代替の列ヘッダー名を提供できます。
             そのため、各 <code>th</code> 要素には、その列の曜日の完全なスペルを含む <code>abbr</code> 属性が含まれています。
+            (訳註: 原文では、 Monday を Mo と表記するような英語の曜日名の省略について解説していますが、日本語の曜日名は 1 文字で表記されるため、省略の問題は軽微でしょう。) 
           </p>
         </section>        
       </section>
@@ -615,9 +631,9 @@
       
       <section>
         <h2 id="sc1_label">HTML ソースコード</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="の開始"></div>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="ここから"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="の終了"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="ここまで"></div>
         <script>
           sourceCode.add('sc1', 'example', 'ex_label', 'css_js_files');
           sourceCode.make();
