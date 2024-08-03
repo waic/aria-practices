@@ -33,9 +33,9 @@
         <h2>この例について</h2>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-dialog-modal.svg">
         <p>
-          以下は、<a href="../dialog-modal-pattern.html">ダイアログ（モーダル）パターン</a>の実装例です。
-          下記の「配送先住所を追加」ボタンを押すと、モーダルダイアログが開き、その中に他のダイアログを開くボタンが2つ含まれています。
-          アクセシビリティ機能のセクションでは、各ダイアログにおける初期フォーカス位置と<code>aria-describedby</code>の使用に関する理由を説明しています。
+          以下は、<a href="../dialog-modal-pattern.html">ダイアログ (モーダル) パターン</a>の実装例です。
+          下記の「配送先住所を追加」ボタンを押すと、モーダルダイアログが開き、その中に他のダイアログを開くボタンが 2 つ含まれています。
+          アクセシビリティ機能のセクションでは、各ダイアログにおける初期フォーカス位置と <code>aria-describedby</code> の使用に関する理由を説明しています。
         </p>
         <p>類似の例には以下があります。</p>
         <ul>
@@ -50,21 +50,15 @@
         </div>
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
         <div id="ex1">
-          <button type="button" onclick="openDialog('dialog1', this)">Add Delivery Address</button>
+          <button type="button" onclick="openDialog('dialog1', this)">配送先住所を追加</button>
           <div id="dialog_layer" class="dialogs">
             <div role="dialog" id="dialog1" aria-labelledby="dialog1_label" aria-modal="true" class="hidden">
               <h2 id="dialog1_label" class="dialog_label">配送先住所を追加</h2>
               <div class="dialog_form">
                 <div class="dialog_form_item">
                   <label>
-                    <span class="label_text">住所：</span>
-                    <input type="text" class="wide_input">
-                  </label>
-                </div>
-                <div class="dialog_form_item">
-                  <label>
-                    <span class="label_text">市区町村：</span>
-                    <input type="text" class="city_input">
+                    <span class="label_text">郵便番号：</span>
+                    <input type="text" class="zip_input">
                   </label>
                 </div>
                 <div class="dialog_form_item">
@@ -75,8 +69,14 @@
                 </div>
                 <div class="dialog_form_item">
                   <label>
-                    <span class="label_text">郵便番号：</span>
-                    <input type="text" class="zip_input">
+                    <span class="label_text">市区町村：</span>
+                    <input type="text" class="city_input">
+                  </label>
+                </div>
+                <div class="dialog_form_item">
+                  <label>
+                    <span class="label_text">住所：</span>
+                    <input type="text" class="wide_input">
                   </label>
                 </div>
             
@@ -85,7 +85,7 @@
                     <span class="label_text">備考：</span>
                   </label>
                   <input id="special_instructions" type="text" aria-describedby="special_instructions_desc" class="wide_input">
-                  <div class="label_info" id="special_instructions_desc">例えば、ゲートコードやその他の配達員が見つけやすい情報</div>
+                  <div class="label_info" id="special_instructions_desc">例えば、オートロックの暗証番号や配達員があなたを見つけるためのその他の情報</div>
                 </div>
               </div>
               <div class="dialog_form_actions">
@@ -101,7 +101,7 @@
               <div id="dialog2_desc" class="dialog_desc">
                 <p tabindex="-1" id="dialog2_para1">
                   これは単なるデモです。
-                  実際のアプリケーションであれば、入力されたアドレスが有効かどうかを示すメッセージが表示されます。
+                  実際のアプリケーションであれば、入力されたアドレスが有効かどうかを示すメッセージが提供されます。
                 </p>
                 <p>
                   デモのために、このダイアログには多くのテキストがあります。
@@ -114,17 +114,17 @@
                   <li>
                     ダイアログが開くとき、以下の両方が重要です：
                     <ul>
-                      <li>テキストの開始部分が見えるようにする必要があります。利用者は読み始めるためにスクロールする必要はありません。</li>
+                      <li>テキストの開始部分が見えるようにする必要があります。そうすれば、利用者は読み始めるためにスクロールを戻す必要はありません。</li>
                       <li>キーボードフォーカスは常に表示されるようにする必要があります。</li>
                     </ul>
                   </li>
                 </ul>
                 <p>この問題を解決するにはいくつかの方法があります：</p>
                 <ul>
-                  <li>ダイアログの上部にインタラクティブ要素（ボタンやリンクなど）を配置します。</li>
-                  <li>静的な要素をフォーカス可能にします（例：ダイアログタイトルや最初のテキストブロック）。</li>
+                  <li>ダイアログの上部にインタラクティブ要素 (ボタンやリンクなど) を配置します。</li>
+                  <li>静的な要素をフォーカス可能にします (例：ダイアログタイトルや最初のテキストブロック)。</li>
                 </ul>
-                <p><em>してはなりません</em> ロール「dialog」を持つ要素をフォーカス可能にすること！</p>
+                <p> dialog ロールを持つ要素をフォーカス可能に<em>してはいけません</em>！</p>
                 <ul>
                   <li>フォーカス可能な要素が大きいほど、特に視野の狭い利用者にとって、フォーカスの位置を視覚的に特定するのが難しくなります。</li>
                   <li>ダイアログには視覚的な境界線があるため、ダイアログ全体にフォーカスがあるときにフォーカスの明確な視覚的インジケーターを作成することは余り現実的ではありません。</li>
@@ -134,9 +134,9 @@
                   </li>
                 </ul>
                 <p>
-                  このダイアログでは、最初の段落に<code>tabindex=<q>-1</q></code>があります。
-                  最初の段落は、ダイアログの説明を提供する要素（<code>aria-describedby</code>で参照される要素）内にも含まれています。
-                  一部のスクリーンリーダーでは、これにより、ダイアログが開いたときに、1つのマイナーで比較的取るに足らない副作用が発生する可能性があります。最初の段落が2回アナウンスされる可能性があります。
+                  このダイアログでは、最初の段落に <code>tabindex=<q>-1</q></code> があります。
+                  最初の段落は、ダイアログの説明を提供する要素 (つまり、<code>aria-describedby</code> で参照される要素) 内にも含まれています。
+                  一部のスクリーンリーダーでは、これにより、ダイアログが開いたときに、1 つのネガティブであるものの比較的取るに足らない副作用が発生する可能性――最初の段落が 2 回アナウンスされる可能性があります。
                   それにもかかわらず、最初の段落をフォーカス可能にして、そこに初期フォーカスを設定することが、最も広くアクセシブルなオプションです。
                 </p>
               </div>
@@ -161,8 +161,8 @@
             </div>
 
             <div id="dialog4" role="dialog" aria-labelledby="dialog4_label" aria-describedby="dialog4_desc" class="hidden" aria-modal="true">
-              <h2 id="dialog4_label" class="dialog_label">エラー</h2>
-              <p id="dialog4_desc" class="dialog_desc">存在しないリンク又はボタンがアクティブ化されました。このリンク又はボタンはデモ目的でのみ表示されています。</p>
+              <h2 id="dialog4_label" class="dialog_label">一巻の終わり！</h2>
+              <p id="dialog4_desc" class="dialog_desc">偽のリンク又はボタンがアクティブ化されました！このリンク又はボタンはデモ目的でのみ表示されています。</p>
               <div class="dialog_form_actions">
                 <button type="button" id="dialog4_close_btn" onclick="closeDialog(this)">閉じる</button>
               </div>
@@ -185,18 +185,18 @@
               <li>
                 「配送先住所を追加」ダイアログ (id=dialog1):
                 <ul>
-                  <li>最初のフォーカス可能な要素である最初の入力に初期フォーカスが設定されます。</li>
-                  <li>ダイアログを説明する静的なテキストがないため、<code>aria-describedby</code>は必要ありません。</li>
-                  <li>「キャンセル」アクションの結果としてダイアログが閉じると、利用者の視点は「配送先住所を追加」ボタンに戻すことで維持されます。</li>
-                  <li>「追加」アクションの結果としてダイアログが閉じ、「配送先住所を追加」ダイアログが「住所が追加されました」ダイアログに置き換わると、「配送先住所を追加」ダイアログは「住所が追加されました」ダイアログに「配送先住所を追加」ボタンへの参照を渡すため、閉じるときに利用者の視点を維持できます。</li>
+                  <li>最初のフォーカス可能な要素である最初の入力欄に初期フォーカスが設定されます。</li>
+                  <li>ダイアログを説明する静的なテキストがないため、<code>aria-describedby</code> は必要ありません。</li>
+                  <li>「キャンセル」アクションの結果としてダイアログが閉じられたとき、「配送先住所を追加」ボタンにフォーカスを戻すことで利用者の視点が維持されます。</li>
+                  <li>「追加」アクションの結果としてダイアログが閉じ、「配送先住所を追加」ダイアログが「住所が追加されました」ダイアログに置き換わったとき、「配送先住所を追加」ダイアログは「住所が追加されました」ダイアログに「配送先住所を追加」ボタンへの参照を渡すため、閉じるときに利用者の視点を維持できます。</li>
                 </ul>
               </li>
               <li>
                 「検証結果」ダイアログ (id=dialog2):
                 <ul>
-                  <li>最初のインタラクティブ要素が最下部にあり、テキストの長さにより見られないため、最初の段落に初期フォーカスが設定されます。</li>
-                  <li>スクリーンリーダー利用者がダイアログテキストを認識できるように、ダイアログテキストは<code>aria-describedby</code>によって参照される<code>div</code>でラップされます。</li>
-                  <li>ダイアログが閉じると、利用者の視点は「住所を検証」ボタンに戻すことで維持されます。</li>
+                  <li>最初のインタラクティブ要素が最下部にあり、それがテキストの長さによりビューの外にあるため、最初の段落に初期フォーカスが設定されます。</li>
+                  <li>スクリーンリーダー利用者がダイアログテキストを認識できるように、ダイアログテキストは <code>aria-describedby</code> によって参照される <code>div</code> でラップされます。</li>
+                  <li>ダイアログが閉じたとき、フォーカスを「住所を検証」ボタンに戻すことで利用者の視点が維持されます。</li>
                   <li>このダイアログのテキストは、大量のテキストを含むダイアログでの初期フォーカスとアクセシブルな説明の設計上の考慮事項について説明しています。</li>
                 </ul>
               </li>
@@ -206,18 +206,18 @@
                   <li>
                     最後のフォーカス可能な要素である「OK」ボタンに初期フォーカスが設定されます。
                     これは、ほとんどの利用者がメッセージを読んだらすぐにダイアログを閉じるため、効率的です。
-                    利用者は<kbd>Tab</kbd>キーを押して「マイプロフィール」リンクにフォーカスできます。
+                    利用者は<kbd>Tab</kbd>キーを押すことで「マイプロフィール」リンクにフォーカスできます。
                   </li>
-                  <li>ダイアログメッセージを含む要素は、<code>aria-describedby</code>によって参照され、スクリーンリーダーにダイアログが開いたときにアナウンスされるべきであることを示唆します。</li>
-                  <li>ダイアログが閉じると、利用者の視点は「配送先住所を追加」ボタンにフォーカスを設定することで維持されます。</li>
+                  <li>ダイアログメッセージを含む要素は、<code>aria-describedby</code> によって参照され、ダイアログが開いたときにアナウンスされるべきであることをスクリーンリーダーに示唆します。</li>
+                  <li>ダイアログが閉じたとき、「配送先住所を追加」ボタンにフォーカスを設定することで利用者の視点が維持されます。</li>
                 </ul>
               </li>
               <li>
-                「道の終わり！」ダイアログ (id=dialog4):
+                「一巻の終わり！」ダイアログ (id=dialog4):
                 <ul>
-                  <li>このダイアログにはフォーカス可能な要素が1つしかなく、ダイアログが開くとフォーカスを受け取ります。</li>
-                  <li>ダイアログ3と同様に、<code>aria-describedby</code>を使用して、スクリーンリーダー利用者のためのメッセージのアナウンスを容易にします。</li>
-                  <li>この例では「住所が追加されました」確認ダイアログを除く他のすべてのダイアログと同様に、閉じるときは、ダイアログの表示をトリガした要素にフォーカスを戻すことで利用者の視点を維持します。</li>
+                  <li>このダイアログはフォーカス可能な要素を1つだけ持っていて、ダイアログが開いたときにフォーカスを受け取ります。</li>
+                  <li>ダイアログ3と同様に、<code>aria-describedby</code> を使用して、スクリーンリーダー利用者のためのメッセージのアナウンスを容易にします。</li>
+                  <li>この例の「住所が追加されました」確認ダイアログを除く他のすべてのダイアログと同様に、閉じたときは、ダイアログの表示をトリガした要素にフォーカスを戻すことで利用者の視点が維持されます。</li>
                 </ul>
               </li>
             </ol>
@@ -226,7 +226,7 @@
       </section>
 
       <section>
-        <h2 id="kbd_label">キーボード操作</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
@@ -262,14 +262,14 @@
       </section>
 
       <section>
-        <h2 id="rps_label">ロール、プロパティ、状態、及びtabindex属性</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
               <th scope="col">ロール</th>
               <th scope="col">属性</th>
               <th scope="col">要素</th>
-              <th scope="col">用途</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -309,22 +309,22 @@
                 <code>aria-modal=<q>true</q></code>
               </th>
               <td><code>div</code></td>
-              <td>支援技術に、現在のダイアログの下のウィンドウはインタラクションに使用できない（不活性）ことを伝えます。</td>
+              <td>現在のダイアログの背面のウィンドウはインタラクションに使用できない (不活性) ことを支援技術に伝えます。</td>
             </tr>
           </tbody>
         </table>
-        <h3><code>aria-modal</code>及び<code>aria-hidden</code>に関する注記</h3>
+        <h3><code>aria-modal</code> 及び <code>aria-hidden</code> に関する注記</h3>
         <ol>
           <li>
-            <code>aria-modal</code>プロパティはARIA 1.1で導入されました。
-            新しいプロパティであるため、スクリーンリーダー利用者によるサポートにはさまざまな程度の違いがあります。
+            <code>aria-modal</code> プロパティはARIA 1.1で導入されました。
+            新しいプロパティであるため、スクリーンリーダー利用者はさまざまな程度のサポートを経験するかもしれません。
           </li>
-          <li><code>aria-modal</code>プロパティを<code>dialog</code>要素に適用すると、支援技術にダイアログ外のコンテンツが不活性であることを通知するための背景での<code>aria-hidden</code>の使用が置き換えられます。</li>
+          <li><code>aria-modal</code> プロパティを <code>dialog</code> 要素に適用することは、支援技術にダイアログ外のコンテンツが不活性であることを通知する目的で背景に <code>aria-hidden</code> を使用するテクニックを置き換えます。</li>
           <li>
-            レガシーなダイアログ実装で<code>aria-hidden</code>を使用してダイアログ外のコンテンツを支援技術利用者にとって不活性にする場合、以下が重要です。
+            レガシーなダイアログ実装で <code>aria-hidden</code> を使用してダイアログ外のコンテンツを支援技術利用者にとって不活性にする場合、以下が重要です。
             <ol>
-              <li><code>aria-hidden</code>を不活性レイヤーの一部を含む各要素に対して<code>true</code>に設定します。</li>
-              <li>ダイアログ要素は、<code>aria-hidden</code>が<code>true</code>に設定されている要素の子孫ではありません。</li>
+              <li>不活性レイヤーの一部を含む各要素に対して <code>aria-hidden</code> を <code>true</code> に設定します。</li>
+              <li>ダイアログ要素は、<code>aria-hidden</code> が <code>true</code> に設定されている要素の子孫ではありません。</li>
             </ol>
           </li>
         </ol>
@@ -343,7 +343,7 @@
       </section>
 
       <section>
-        <h2>JavaScript と CSS ソースコード</h2>
+        <h2>JavaScript と CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>
             CSS:
@@ -358,7 +358,7 @@
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML ソースコード</h2>
+        <h2 id="sc1_label">HTML のソースコード</h2>
         <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
         <pre><code id="sc1"></code></pre>
         <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
