@@ -4,38 +4,31 @@
  *
  *   File:   DatePickerDialog.js
  */
+// 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/39fb654e5146151ee70675af6ae755a72d8f7ff4
 
 'use strict';
 
 class DatePickerDialog {
   constructor(cdp) {
-    this.buttonLabelChoose = 'Choose Date';
-    this.buttonLabelChange = 'Change Date';
-    this.dayLabels = [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-    ];
+    this.buttonLabelChoose = '日付を選択';
+    this.buttonLabelChange = '日付を変更';
+    this.dayLabels = ['日', '月', '火', '水', '木', '金', '土'];
     this.monthLabels = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
+      '1月',
+      '2月',
+      '3月',
+      '4月',
+      '5月',
+      '6月',
+      '7月',
+      '8月',
+      '9月',
+      '10月',
+      '11月',
+      '12月',
     ];
 
-    this.messageCursorKeys = 'Cursor keys can navigate dates';
+    this.messageCursorKeys = 'カーソルキーで日付を移動できます';
     this.lastMessage = '';
 
     this.textboxNode = cdp.querySelector('input[type="text"');
@@ -420,15 +413,15 @@ class DatePickerDialog {
     }
 
     this.textboxNode.value =
-      d.getMonth() + 1 + '/' + d.getDate() + '/' + d.getFullYear();
+      d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate();
     this.setDateForButtonLabel();
   }
 
   getDateFromTextbox() {
     const parts = this.textboxNode.value.split('/');
-    const month = parseInt(parts[0]);
-    const day = parseInt(parts[1]);
-    let year = parseInt(parts[2]);
+    let year = parseInt(parts[0]);
+    const month = parseInt(parts[1]);
+    const day = parseInt(parts[2]);
 
     if (
       parts.length === 3 &&
@@ -458,16 +451,16 @@ class DatePickerDialog {
       Number.isInteger(parseInt(parts[2]))
     ) {
       const day = new Date(
-        parseInt(parts[2]),
-        parseInt(parts[0]) - 1,
-        parseInt(parts[1])
+        parseInt(parts[0]),
+        parseInt(parts[1]) - 1,
+        parseInt(parts[2])
       );
 
       let label = this.buttonLabelChange;
-      label += ', ' + this.dayLabels[day.getDay()];
-      label += ' ' + this.monthLabels[day.getMonth()];
-      label += ' ' + day.getDate();
-      label += ', ' + day.getFullYear();
+      label += ' ' + day.getFullYear() + '年';
+      label += ' ' + this.monthLabels[day.getMonth()] + '月';
+      label += ' ' + day.getDate() + '日';
+      label += ' ' + this.dayLabels[day.getDay()] + '曜日';
       this.buttonNode.setAttribute('aria-label', label);
     } else {
       // If not a valid date, initialize with "Choose Date"
