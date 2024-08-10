@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日付ピッカーコンボボックスの例</title>
+    <title>日付選択コンボボックスの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -26,21 +26,21 @@
       </ul>
     </nav>
     <main>
-      <h1>日付ピッカー コンボボックスの例</h1>
+      <h1>日付選択コンボボックスの例</h1>
       <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/2d60c413ec23875a30162364a7e715b26875d9db -->
 
       <section>
         <h2>この例について</h2>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-combobox.svg">
         <p>
-          以下の日付ピッカーは、ダイアログを開く <a href="../combobox-pattern.html">コンボボックスパターン</a> の実装を示しています。
-          日付ピッカーダイアログは、日付を選択するためのダイアログを開くために、日付を選択するボタンをアクティブ化するか、キーボードフォーカスをコンボボックスに移動して <kbd>Down Arrow</kbd> または <kbd>Alt + Down Arrow</kbd> を押すことで開かれます。
+          以下の日付選択は、ダイアログを開く <a href="../combobox-pattern.html">コンボボックスパターン</a> の実装を示しています。
+          日付選択ダイアログは、日付を選択するためのダイアログを開くために、日付を選択するボタンをアクティブ化するか、キーボードフォーカスをコンボボックスに移動して <kbd>Down Arrow</kbd> 又は <kbd>Alt + Down Arrow</kbd> を押すことで開かれます。
           ダイアログには、カレンダーを表示し、日付の選択を可能にするための <a href="../../grid/grid-pattern.html">グリッドパターン</a> の実装が含まれています。
           ダイアログ内の追加のボタンを使用して、グリッドに表示される月と年を変更することもできます。
         </p>
         <p>類似の例には以下があります:</p>
         <ul>
-          <li><a href="../../dialog-modal/examples/datepicker-dialog.html">日付ピッカーダイアログの例</a>: 日付を選択するためのカレンダーグリッドを含むダイアログを示しています。</li>
+          <li><a href="../../dialog-modal/examples/datepicker-dialog.html">日付選択ダイアログの例</a>: 日付を選択するためのカレンダーグリッドを含むダイアログを示しています。</li>
           <li><a href="combobox-select-only.html">単一選択コンボボックス</a>: テキスト入力のない単一選択コンボボックスで、HTMLの <code>select</code> 要素と機能的に似ています。</li>
           <li><a href="combobox-autocomplete-both.html">リストとインラインオートコンプリートを備えた編集可能なコンボボックス</a>: インラインオートコンプリートとして知られるオートコンプリートの動作を示す編集可能なコンボボックスです。</li>
           <li><a href="combobox-autocomplete-list.html">リストオートコンプリートを備えた編集可能なコンボボックス</a>: マニュアル選択として知られるオートコンプリートの動作を示す編集可能なコンボボックスです。</li>
@@ -180,15 +180,15 @@
       <section>
         <h2>アクセシビリティ機能</h2>
         <ul>
-          <li>日付形式の説明は、コンボボックスと <code>aria-describedby</code> を使用して関連付けられ、アシスト技術にアクセス可能な説明として提供されます。</li>
+          <li>日付形式の説明は、コンボボックスと <code>aria-describedby</code> を使用して関連付けられ、支援技術にアクセス可能な説明として提供されます。</li>
           <li>
-            ダウンアローのアイコンは、<code>combobox</code> デザインパターンで指定されているように <kbd>Tab</kbd> シーケンスから除外されますが、アシスト技術には「日付を選択」ボタンとしてアクセス可能になっています。
-            これにより、キーボードを持たないアシスト技術のユーザー（タッチベースのスクリーンリーダーを使用しているユーザーなど）が日付ピッカーダイアログを開くことができます。
+            ダウンアローのアイコンは、<code>combobox</code> デザインパターンで指定されているように <kbd>Tab</kbd> シーケンスから除外されますが、支援技術には「日付を選択」ボタンとしてアクセス可能になっています。
+            これにより、キーボードを持たない支援技術の利用者（タッチベースのスクリーンリーダーを使用している利用者など）が日付選択ダイアログを開くことができます。
           </li>
           <li>ダイアログでは、月と年を変更するための追加のボタンにショートカットキーが割り当てられています。</li>
-          <li>キーボードヘルプはダイアログの下部に表示されます。フォーカスがグリッドに移動すると、ライブリージョンがスクリーンリーダーユーザーにアナウンスされます。</li>
-          <li>月と年を変更するボタンやキーボードコマンドからのフィードバックをスクリーンリーダーユーザーが受け取るため、月と年を表示するカレンダーの見出しはライブリージョンとしてマークアップされています。</li>
-          <li>カレンダーのコンパクトなビジュアルデザインをサポートするため、列ヘッダの曜日名は2文字に省略されています。ただし、これによりスクリーンリーダーユーザーが曜日名を理解するのが困難になります。そのため、列ヘッダのHTMLの <code>abbr</code> 属性に完全な曜日名が提供され、スクリーンリーダーがグリッドをナビゲートする際に完全な名前をアナウンスできるようになっています。</li>
+          <li>キーボードヘルプはダイアログの下部に表示されます。フォーカスがグリッドに移動すると、ライブリージョンがスクリーンリーダー利用者にアナウンスされます。</li>
+          <li>月と年を変更するボタンやキーボードコマンドからのフィードバックをスクリーンリーダー利用者が受け取るため、月と年を表示するカレンダーの見出しはライブリージョンとしてマークアップされています。</li>
+          <li>カレンダーのコンパクトなビジュアルデザインをサポートするため、列ヘッダの曜日名は2文字に省略されています。ただし、これによりスクリーンリーダー利用者が曜日名を理解するのが困難になります。そのため、列ヘッダのHTMLの <code>abbr</code> 属性に完全な曜日名が提供され、スクリーンリーダーがグリッドをナビゲートする際に完全な名前をアナウンスできるようになっています。</li>
           <li>コントロールのフォーカスとホバースタイルは、CSSのボーダープロパティを使用してオペレーティングシステムの高コントラスト設定をサポートしています：
             <ul>
               <li>ボタンや日付セルがフォーカスを受け取ると、ボーダーが追加されます。</li>
@@ -216,7 +216,7 @@
                 <th><kbd>Down Arrow</kbd>,<br><kbd>ALT + Down Arrow</kbd></th>
                 <td>
                   <ul>
-                    <li>日付ピッカーダイアログを開きます。</li>
+                    <li>日付選択ダイアログを開きます。</li>
                     <li>
                       コンボボックスに有効な日付が含まれている場合、カレンダーグリッド内のその日付にフォーカスを移動します。
                       それ以外の場合は、現在の日付（今日の日付）にフォーカスを移動します。
@@ -229,7 +229,7 @@
         </section>
 
         <section>
-          <h3 id="kbd_label_3">日付ピッカーダイアログ</h3>
+          <h3 id="kbd_label_3">日付選択ダイアログ</h3>
           <table aria-labelledby="kbd_label_3 kbd_label" class="def">
             <thead>
               <tr>
@@ -267,7 +267,7 @@
         </section>
 
         <section>
-          <h3 id="kbd_label_4">日付ピッカーダイアログ：カレンダーボタン</h3>
+          <h3 id="kbd_label_4">日付選択ダイアログ：カレンダーボタン</h3>
           <table aria-labelledby="kbd_label_4 kbd_label" class="def">
             <thead>
               <tr>
@@ -281,14 +281,14 @@
                   <kbd>Space</kbd>,<br>
                   <kbd>Enter</kbd>
                 </th>
-                <td>カレンダーグリッドに表示される月と/または年を変更します。</td>
+                <td>カレンダーグリッドに表示される月と/又は年を変更します。</td>
               </tr>
             </tbody>
           </table>
         </section>
 
         <section>
-          <h3 id="kbd_label_5">日付ピッカーダイアログ：日付グリッド</h3>
+          <h3 id="kbd_label_5">日付選択ダイアログ：日付グリッド</h3>
           <table aria-labelledby="kbd_label_5 kbd_label" class="def">
             <thead>
               <tr>
@@ -399,7 +399,7 @@
         </section>
 
         <section>
-          <h3 id="kbd_label_6">日付ピッカーダイアログ：OKとキャンセルボタン</h3>
+          <h3 id="kbd_label_6">日付選択ダイアログ：OKとキャンセルボタン</h3>
           <table aria-labelledby="kbd_label_6 kbd_label" class="def">
             <thead>
               <tr>
@@ -427,7 +427,7 @@
       </section>
 
       <section>
-        <h2 id="rps_label">ロール、プロパティ、ステート、および tabindex 属性</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
 
         <section>
           <h3 id="rps_label_combobox">コンボボックス</h3>
@@ -516,7 +516,7 @@
         </section>
         
         <section>
-          <h3 id="rps_label_3">日付ピッカーダイアログ</h3>
+          <h3 id="rps_label_3">日付選択ダイアログ</h3>
           <table aria-labelledby="rps_label_3 rps_label" class="data attributes">
             <thead>
               <tr>
@@ -573,7 +573,7 @@
         </section>
 
         <section>
-          <h3 id="rps_label_4">日付ピッカーダイアログ: カレンダーナビゲーションボタン</h3>
+          <h3 id="rps_label_4">日付選択ダイアログ: カレンダーナビゲーションボタン</h3>
           <table aria-labelledby="rps_label_4 rps_label" class="data attributes">
             <thead>
               <tr>
@@ -595,7 +595,7 @@
         </section>
         
         <section>
-          <h3 id="rps_label_5">日付ピッカーダイアログ: 日付グリッド</h3>
+          <h3 id="rps_label_5">日付選択ダイアログ: 日付グリッド</h3>
           <table aria-labelledby="rps_label_5 rps_label" class="data attributes">
             <thead>
               <tr>
@@ -615,7 +615,7 @@
                 <td>
                   <ul>
                     <li><code>table</code> 要素を <code>grid</code> ウィジェットとして識別します。</li>
-                    <li><code>grid</code> ロールが <code>table</code> 要素に適用されているため、<code>row</code>、<code>columnheader</code>、および <code>gridcell</code> ロールは <code>tr</code>、<code>th</code>、および <code>td</code> タグによって暗黙的に指定されるため、明示的に指定する必要はありません。</li>
+                    <li><code>grid</code> ロールが <code>table</code> 要素に適用されているため、<code>row</code>、<code>columnheader</code>、及び <code>gridcell</code> ロールは <code>tr</code>、<code>th</code>、及び <code>td</code> タグによって暗黙的に指定されるため、明示的に指定する必要はありません。</li>
                   </ul>
                 </td>
               </tr>
@@ -678,8 +678,8 @@
             </tbody>
           </table>
           <p>
-            <strong>注記:</strong> 列ヘッダーの日の名前が 2 文字に省略されているため、スクリーンリーダーで読み上げられると理解しにくい場合があります。
-            列ヘッダーの名前の代替をスクリーンリーダーに提供するために、<code>th</code> 要素に <code>abbr</code> 属性を適用することができます。
+            <strong>注記:</strong> 列ヘッダの日の名前が 2 文字に省略されているため、スクリーンリーダーで読み上げられると理解しにくい場合があります。
+            列ヘッダの名前の代替をスクリーンリーダーに提供するために、<code>th</code> 要素に <code>abbr</code> 属性を適用することができます。
             したがって、各 <code>th</code> 要素には、その列の日の名前の完全なスペルを含む <code>abbr</code> 属性が含まれています。
           </p>
         </section>
