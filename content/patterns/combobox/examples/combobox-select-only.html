@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>セレクトオンリーコンボボックスの例</title>
+      <title>選択限定コンボボックスの例</title>
 
       <!-- Core JS and CSS shared by all examples -->
       <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -25,24 +25,24 @@
         </ul>
       </nav>
       <main>
-        <h1>セレクトオンリーコンボボックスの例</h1>
+        <h1>選択限定コンボボックスの例</h1>
         <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/2d60c413ec23875a30162364a7e715b26875d9db -->
 
         <section>
           <h2>この例について</h2>
           <img alt="" class="example-page-example-icon" src="../../../images/pattern-combobox.svg">
           <p>
-            次の例は、<a href="../combobox-pattern.html">Combobox Pattern</a> のシングルセレクトコンボボックスウィジェットの実装例を示しています。これは HTML の <code>select</code> 要素と機能的に似ています。
-            編集可能なコンボボックスの例とは異なり、このセレクトオンリーコンボボックスは <code>&lt;input&gt;</code> 要素で作られておらず、自由形式の利用者入力を受け付けません。
-            しかし、HTML の <code>&lt;select&gt;</code> と同様に、利用者は文字を入力して一致するオプションを選択できます。
+            次の例は、<a href="../combobox-pattern.html">コンボボックスパターン</a> の単一選択コンボボックスウィジェットの実装例を示しています。これは HTML の <code>select</code> 要素と機能的に似ています。
+            編集可能コンボボックスの例とは異なり、この選択限定コンボボックスは <code>&lt;input&gt;</code> 要素で作られておらず、自由形式の利用者入力を受け付けません。
+            しかし、HTML の <code>&lt;select&gt;</code> と同様に、利用者は文字を入力して一致する選択肢を選択できます。
           </p>
           <p>類似の例には以下が含まれます:</p>
           <ul>
-            <li><a href="combobox-autocomplete-both.html">リストとインラインオートコンプリートを備えた編集可能なコンボボックス</a>: <q>リストとインラインオートコンプリート</q> として知られるオートコンプリート動作を示す編集可能なコンボボックス。</li>
-            <li><a href="combobox-autocomplete-list.html">リストオートコンプリートを備えた編集可能なコンボボックス</a>: <q>リストと手動選択</q> として知られるオートコンプリート動作を示す編集可能なコンボボックス。</li>
-            <li><a href="combobox-autocomplete-none.html">オートコンプリートなしの編集可能なコンボボックス</a>: <code>aria-autocomplete=none</code> に関連する動作を示す編集可能なコンボボックス。</li>
-            <li><a href="grid-combo.html">グリッドポップアップを備えた編集可能なコンボボックス</a>: 提案をグリッドで表示し、各提案に関する説明情報をナビゲートできる編集可能なコンボボックス。</li>
-            <li><a href="combobox-datepicker.html">日付選択コンボボックス</a>: カレンダーグリッドと月及び年をナビゲートするためのボタンを含むダイアログを開く編集可能な日付入力コンボボックス。</li>
+            <li><a href="combobox-autocomplete-both.html">リストとインラインオートコンプリートの両方を備えた編集可能コンボボックス</a>: 「リストとインラインのオートコンプリート」として知られるオートコンプリートの動作を示す編集可能なコンボボックスです。</li>
+            <li><a href="combobox-autocomplete-list.html">リストオートコンプリート付き編集可能コンボボックス</a>: オートコンプリートの動作である「リストと手動選択」として知られるオートコンプリートを示す編集可能なコンボボックスです。</li>
+            <li><a href="combobox-autocomplete-none.html">オートコンプリートなし編集可能コンボボックス</a>: <code>aria-autocomplete=none</code> に関連する動作を示す編集可能なコンボボックスです。</li>
+            <li><a href="grid-combo.html">グリッドポップアップ付き編集可能コンボボックス</a>: グリッドで提案を表示し、各提案の説明情報をナビゲートできる編集可能なコンボボックスです。</li>
+            <li><a href="combobox-datepicker.html">日付選択コンボボックス</a>: カレンダーグリッドと月と年の移動ボタンを含むダイアログが表示される編集可能な日付入力コンボボックスです。</li>
           </ul>
         </section>
 
@@ -50,10 +50,10 @@
           <div class="example-header">
             <h2 id="ex_label">例</h2>
           </div>
-          <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="例の開始"></div>
+          <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
           <div id="ex1">
+            <label id="combo1-label" class="combo-label">好きな果物</label>
             <div class="combo js-select">
-              <div id="combo1-label" class="combo-label">好きな果物</div>
               <div aria-controls="listbox1" aria-expanded="false" aria-haspopup="listbox" aria-labelledby="combo1-label" id="combo1" class="combo-input" role="combobox" tabindex="0"></div>
               <div class="combo-menu" role="listbox" id="listbox1" aria-labelledby="combo1-label" tabindex="-1">
                 <!-- options are inserted here -->
@@ -61,27 +61,27 @@
               </div>
             </div>
           </div>
-          <div role="separator" id="ex_end_sep" aria-labelledby="ex_label ex_end_sep" aria-label="例の終了"></div>
+          <div role="separator" id="ex_end_sep" aria-labelledby="ex_label ex_end_sep" aria-label="の終了"></div>
         </section>
 
         <section>
           <h2>アクセシビリティ機能</h2>
-          <p>この例の機能と利用者エクスペリエンスは、属性 <code>size="1"</code> を持つ HTML の <code>select</code> 要素とほぼ同等ですが、アクセシビリティと一般的な使いやすさを向上させるために、以下の動作の違いが実装されています。</p>
+          <p>この例の機能と利用者体験は、属性 <code>size="1"</code> を持つ HTML の <code>select</code> 要素とほぼ同等ですが、アクセシビリティと一般的な使いやすさを向上させるために、以下の動作の違いが実装されています。</p>
           <ol>
             <li>
-              コンボボックスが折りたたまれている場合、利用者が印刷可能な文字を入力すると、リストボックスが表示され、<code>aria-activedescendant</code> を介してアクセシビリティフォーカスを受け取ります。
-              これにより、利用者はオプションの存在を認識し、支援技術利用者はオプションのリストのサイズを理解できます。
+              コンボボックスが折りたたまれていて、かつ利用者が印刷可能な文字を入力した場合、リストボックスが表示され、<code>aria-activedescendant</code> を介してアクセシビリティフォーカスを受け取ります。
+              これにより、利用者は選択肢の存在を認識し、支援技術利用者は選択肢のリストのサイズを理解できます。
             </li>
             <li>
-              オプションのリストをナビゲートしても、入力の値は設定されません。
-              これにより、オプションを認識するためにナビゲートする必要があるスクリーンリーダー利用者は、入力の現在の値を失うことなくオプションを探索できます。
-              利用者が <kbd>スペースキー</kbd>、<kbd>Enter</kbd>、又は <kbd>Tab</kbd> を押すか、フォーカスがコンボボックスから外れると、値が設定されます。
-              <kbd>Escape</kbd> キーでリストボックスを閉じるか、入力をクリックしてリストを折りたたむと、現在の値が保持されます。
+              選択肢のリストをナビゲートしても、入力欄の値は設定されません。
+              これにより、選択肢を認識するためにナビゲートする必要があるスクリーンリーダー利用者は、入力欄の現在の値を失うことなく選択肢を探索できます。
+              利用者が <kbd>スペースキー</kbd>、<kbd>Enter</kbd>、又は <kbd>Tab</kbd> を押すか、フォーカスがコンボボックスから外れたとき、値が設定されます。
+              <kbd>Escape</kbd> キーでリストボックスを閉じるか、入力欄をクリックしてリストを折りたたんだとき、現在の値が保持されます。
             </li>
             <li>
               ブラウザは、フォーカスのある要素と同様に <code>aria-activedescendant</code> によって参照される要素の可視性を管理しません。
-              キーボードイベントがリストボックス内のアクティブなオプションを変更すると、JavaScript は <code>aria-activedescendant</code> によって参照されるオプションを表示領域にスクロールします。
-              <code>aria-activedescendant</code> の可視性を管理することは、コンテンツのサイズを大きくするためにブラウザのズーム機能を使用する人々にとってアクセシビリティのために不可欠です。
+              キーボードイベントがリストボックス内のアクティブな選択肢を変更すると、JavaScript は <code>aria-activedescendant</code> によって参照される選択肢を表示領域にスクロールします。
+              <code>aria-activedescendant</code> の可視性を管理することは、コンテンツのサイズを大きくするためにブラウザの拡大機能を使用する人々のアクセシビリティのために不可欠です。
             </li>
           </ol>
       </section>
@@ -105,47 +105,47 @@
               <th><kbd>下矢印</kbd></th>
               <td>
                 <ul>
-                  <li>リストボックスが表示されていない場合にリストボックスを開きますが、フォーカスや選択を変更しません。</li>
+                  <li>リストボックスが表示されていない場合、フォーカスを移動したり選択を変更したりすることなくリストボックスを開きます。</li>
                   <li>DOM フォーカスはコンボボックスに残ります。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="combobox-key-alt-down-arrow">
               <th><kbd>Alt + 下矢印</kbd></th>
-              <td>フォーカスや選択を変更せずにリストボックスを開きます。</td>
+              <td>フォーカスを移動したりや選択を変更したりせずにリストボックスを開きます。</td>
             </tr>
             <tr data-test-id="combobox-key-up-arrow">
               <th><kbd>上矢印</kbd></th>
               <td>
                 <ul>
-                  <li>リストボックスが表示されていない場合にまずリストボックスを開き、次に視覚的フォーカスを最初のオプションに移動します。</li>
+                  <li>リストボックスが表示されていない場合、まずリストボックスを開き、次に視覚的フォーカスを最初の選択肢に移動します。</li>
                   <li>DOM フォーカスはコンボボックスに残ります。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="combobox-key-enter">
               <th><kbd>Enter</kbd></th>
-              <td>フォーカスや選択を変更せずにリストボックスを開きます。</td>
+              <td>フォーカスを移動したり選択を変更したりせずにリストボックスを開きます。</td>
             </tr>
             <tr data-test-id="combobox-key-space">
               <th><kbd>スペースキー</kbd></th>
-              <td>フォーカスや選択を変更せずにリストボックスを開きます。</td>
+              <td>フォーカスを移動したり選択を変更したりせずにリストボックスを開きます。</td>
             </tr>
             <tr data-test-id="combobox-key-home">
               <th><kbd>Home</kbd></th>
-              <td>リストボックスを開き、視覚的フォーカスを最初のオプションに移動します。</td>
+              <td>リストボックスを開き、視覚的なフォーカスを最初の選択肢に移動します。</td>
             </tr>
             <tr data-test-id="combobox-key-end">
               <th><kbd>End</kbd></th>
-              <td>リストボックスを開き、視覚的フォーカスを最後のオプションに移動します。</td>
+              <td>リストボックスを開き、視覚的なフォーカスを最後の選択肢に移動します。</td>
             </tr>
             <tr data-test-id="printable-chars">
               <th>印刷可能な文字</th>
               <td>
                 <ul>
-                  <li>リストボックスが表示されていない場合にまずリストボックスを開き、次に入力された文字に一致する最初のオプションに視覚的フォーカスを移動します。</li>
-                  <li>複数のキーが短時間で連続して入力された場合、視覚的フォーカスは入力された文字列全体に一致する最初のオプションに移動します。</li>
-                  <li>同じ文字が連続して入力された場合、視覚的フォーカスはその文字で始まるオプションの間を循環します。</li>
+                  <li>リストボックスが表示されていない場合、まずリストボックスを開き、次に入力された文字に一致する最初の選択肢に視覚的なフォーカスを移動します。</li>
+                  <li>複数のキーが素早く連続して入力された場合、視覚的フォーカスは入力された文字列全体に一致する最初の選択肢に移動します。</li>
+                  <li>同じ文字が連続して入力された場合、視覚的フォーカスはその文字で始まる選択肢の間を循環します。</li>
                 </ul>
               </td>
             </tr>
@@ -153,7 +153,7 @@
         </table>
         <h3 id="kbd_label_listbox">リストボックスポップアップ</h3>
         <p>
-          <strong>注記:</strong> 視覚的フォーカスがリストボックスにあるとき、DOM フォーカスはコンボボックスに残り、コンボボックスの <code>aria-activedescendant</code> の値は視覚的にフォーカスが示されているリストボックスオプションを参照する値に設定されます。
+          <strong>注記:</strong> 視覚的フォーカスがリストボックスにあるとき、DOM フォーカスはコンボボックスに残り、コンボボックスの <code>aria-activedescendant</code> の値はフォーカスしていると視覚的に示されているリストボックス選択肢を参照する値に設定されます。
           以下のキーボードコマンドの説明でフォーカスに言及している場合、それは視覚的フォーカスインジケーターを指しています。
           このフォーカス管理テクニックの詳細については、
           <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカス管理</a> を参照してください。
@@ -170,7 +170,7 @@
               <th><kbd>Enter</kbd></th>
               <td>
                 <ul>
-                  <li>リストボックス内のフォーカスされたオプションの内容に値を設定します。</li>
+                  <li>リストボックス内のフォーカスされた選択肢の内容に値を設定します。</li>
                   <li>リストボックスを閉じます。</li>
                   <li>視覚的フォーカスをコンボボックスに設定します。</li>
                 </ul>
@@ -180,7 +180,7 @@
               <th><kbd>スペースキー</kbd></th>
               <td>
                 <ul>
-                  <li>リストボックス内のフォーカスされたオプションの内容に値を設定します。</li>
+                  <li>リストボックス内のフォーカスされた選択肢の内容に値を設定します。</li>
                   <li>リストボックスを閉じます。</li>
                   <li>視覚的フォーカスをコンボボックスに設定します。</li>
                 </ul>
@@ -190,10 +190,10 @@
               <th><kbd>Tab</kbd></th>
               <td>
                 <ul>
-                  <li>リストボックス内のフォーカスされたオプションの内容に値を設定します。</li>
+                  <li>リストボックス内のフォーカスされた選択肢の内容に値を設定します。</li>
                   <li>リストボックスを閉じます。</li>
                   <li>
-                    デフォルトの動作を実行し、フォーカスを次のフォーカス可能な要素に移動します。
+                    フォーカスを次のフォーカス可能な要素に移動するというデフォルトの動作を実行します。
                     注記: ネイティブの <code>&lt;select&gt;</code> 要素はリストボックスを閉じますが、タブではフォーカスを移動しません。
                     このパターンは、この場合、ネイティブ要素ではなく他のコンボボックスの動作に一致します。
                   </li>
@@ -210,28 +210,28 @@
               </td>
             </tr>
             <tr data-test-id="listbox-key-down-arrow">
-              <th><kbd>下矢印キー</kbd></th>
+              <th><kbd>下矢印</kbd></th>
               <td>
                 <ul>
-                  <li>視覚的フォーカスを次のオプションに移動します。</li>
-                  <li>視覚的フォーカスが最後のオプションにある場合、視覚的フォーカスは移動しません。</li>
+                  <li>視覚的フォーカスを次の選択肢に移動します。</li>
+                  <li>視覚的フォーカスが最後の選択肢にある場合、視覚的フォーカスは移動しません。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="listbox-key-up-arrow">
-              <th><kbd>上矢印キー</kbd></th>
+              <th><kbd>上矢印</kbd></th>
               <td>
                 <ul>
-                  <li>視覚的フォーカスを前のオプションに移動します。</li>
-                  <li>視覚的フォーカスが最初のオプションにある場合、視覚的フォーカスは移動しません。</li>
+                  <li>視覚的フォーカスを前の選択肢に移動します。</li>
+                  <li>視覚的フォーカスが最初の選択肢にある場合、視覚的フォーカスは移動しません。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="listbox-key-alt-up-arrow">
-              <th><kbd>Alt + 上矢印キー</kbd></th>
+              <th><kbd>Alt + 上矢印</kbd></th>
               <td>
                 <ul>
-                  <li>リストボックス内のフォーカスされたオプションの内容に値を設定します。</li>
+                  <li>リストボックス内のフォーカスされた選択肢の内容に値を設定します。</li>
                   <li>リストボックスを閉じます。</li>
                   <li>視覚的フォーカスをコンボボックスに設定します。</li>
                 </ul>
@@ -239,27 +239,28 @@
             </tr>
             <tr data-test-id="listbox-key-home">
               <th><kbd>Home</kbd></th>
-              <td>視覚的フォーカスを最初のオプションに移動します。</td>
+              <td>視覚的フォーカスを最初の選択肢に移動します。</td>
             </tr>
             <tr data-test-id="listbox-key-end">
               <th><kbd>End</kbd></th>
-              <td>視覚的フォーカスを最後のオプションに移動します。</td>
+              <td>視覚的フォーカスを最後の選択肢に移動します。</td>
             </tr>
             <tr data-test-id="listbox-key-pageup">
               <th><kbd>PageUp</kbd></th>
-              <td>視覚的フォーカスを 10 オプション上にジャンプします (又は最初のオプションに)。</td>
+              <td>視覚的フォーカスを選択肢 10 
+                個分上にジャンプします (又は最初の選択肢に)。</td>
             </tr>
             <tr data-test-id="listbox-key-pagedown">
               <th><kbd>PageDown</kbd></th>
-              <td>視覚的フォーカスを 10 オプション下にジャンプします (又は最後のオプションに)。</td>
+              <td>視覚的フォーカスを選択肢 10 個分下にジャンプします (又は最後の選択肢に)。</td>
             </tr>
             <tr data-test-id="printable-chars">
               <th>印刷可能な文字</th>
               <td>
                 <ul>
-                  <li>まずリストボックスが表示されていない場合はリストボックスを開き、次に入力された文字に一致する最初のオプションに視覚的フォーカスを移動します。</li>
-                  <li>複数のキーが短時間で入力された場合、視覚的フォーカスは入力された文字列全体に一致する最初のオプションに移動します。</li>
-                  <li>同じ文字が連続して入力された場合、視覚的フォーカスはその文字で始まるオプションの間を循環します。</li>
+                  <li>まだリストボックスが表示されていない場合、まずリストボックスを開き、次に入力された文字に一致する最初の選択肢に視覚的フォーカスを移動します。</li>
+                  <li>複数のキーが短時間で入力された場合、視覚的フォーカスはその文字列全体に一致する最初の選択肢に移動します。</li>
+                  <li>同じ文字が連続して入力された場合、視覚的フォーカスはその文字で始まる選択肢の間を循環します。</li>
                 </ul>
               </td>
             </tr>
@@ -314,7 +315,7 @@
                 <code>aria-expanded="false"</code>
               </th>
               <td><code>div</code></td>
-              <td>ポップアップ要素が<strong>表示されていない</strong>ことを示します。</td>
+              <td>ポップアップ要素が表示<strong>されていない</strong>ことを示します。</td>
             </tr>
             <tr data-test-id="combobox-aria-expanded">
               <td></td>
@@ -322,7 +323,7 @@
                 <code>aria-expanded="true"</code>
               </th>
               <td><code>div</code></td>
-              <td>ポップアップ要素が<strong>表示されている</strong>ことを示します。</td>
+              <td>ポップアップ要素が表示<strong>されている</strong>ことを示します。</td>
             </tr>
             <tr data-test-id="combobox-aria-activedescendant">
               <td></td>
@@ -332,12 +333,12 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>リストボックス内のオプションがキーボードフォーカスを持つことを視覚的に示すとき、そのオプションを参照します。</li>
-                  <li><kbd>下矢印キー</kbd>などのナビゲーションキーが押されたとき、JavaScript が値を変更します。</li>
-                  <li>支援技術が、DOM フォーカスが <code>input</code> 要素に残っている間にアプリケーションがフォーカスしている要素を知ることができます。</li>
+                  <li>リストボックス内の選択肢がキーボードフォーカスを持つことを視覚的に示されているとき、その選択肢を参照します。</li>
+                  <li><kbd>下矢印</kbd>などのナビゲーションキーが押されたとき、JavaScript が値を変更します。</li>
+                  <li>DOM のフォーカスが <code>input</code> 要素にある間、アプリケーションがどの要素にフォーカスしているかを支援技術が知れるようにします。</li>
                   <li>
-                    このフォーカスマネジメントテクニックの詳細については、
-                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジットのフォーカス管理</a>をご覧ください。
+                    このフォーカス管理テクニックの詳細については、
+                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカスの管理</a>を参照してください。
                   </li>
                 </ul>
               </td>
@@ -363,7 +364,7 @@
               <td>
                 <code>div</code>
               </td>
-              <td>要素を<code>listbox</code>として特定します。</td>
+              <td>要素を <code>listbox</code> として特定します。</td>
             </tr>
             <tr data-test-id="option-role">
               <th scope="row">
@@ -373,8 +374,8 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>要素を<code>listbox</code>の<code>option</code>として特定します。</li>
-                  <li>要素のテキストコンテンツが<code>option</code>のアクセシブルネームを提供します。</li>
+                  <li>要素を <code>listbox</code> の <code>option</code> として特定します。</li>
+                  <li>要素のテキストコンテンツが <code>option</code> のアクセシブル名を提供します。</li>
                 </ul>
               </td>
             </tr>
@@ -386,8 +387,8 @@
               <td><code>li</code></td>
               <td>
                 <ul>
-                  <li>リストボックス内のオプションが選択されていることを視覚的に強調表示する場合に指定されます。</li>
-                  <li>リスト内のオプションが<code>aria-activedescendant</code>で参照されている場合にのみ発生します。</li>
+                  <li>リストボックス内の選択肢が選択されていると視覚的にハイライトされている場合に指定されます。</li>
+                  <li>リスト内の選択肢が <code>aria-activedescendant</code> で参照されている場合にのみ発生します。</li>
                 </ul>
               </td>
             </tr>
