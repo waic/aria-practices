@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>グリッドポップアップ付き編集可能コンボボックスの例</title>
 
-    <!-- すべての例で共有されるコア JS および CSS -->
+    <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
     <link rel="stylesheet" href="../../../shared/css/core.css">
     <script src="../../../shared/js/examples.js"></script>
@@ -13,7 +13,7 @@
     <script src="../../../shared/js/app.js"></script>
     <script data-skipto="colorTheme:aria; displayOption:popup; containerElement:div" src="../../../shared/js/skipto.js"></script>
 
-    <!-- この例のための JS および CSS -->
+    <!-- JS and CSS for this example -->
     <link href="css/grid-combo.css" rel="stylesheet">
     <script src="../../../shared/js/utils.js"></script>
     <script src="js/grid-combo.js"></script>
@@ -34,24 +34,24 @@
         <h2>この例について</h2>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-combobox.svg">
         <p>
-          以下のコンボボックスの例は、<a href="../combobox-pattern.html">コンボボックスパターン</a>を使用して、提案値のポップアップにグリッドを使用しています。
+          以下のコンボボックスの例は、提案値のポップアップにグリッドを使用した<a href="../combobox-pattern.html">コンボボックスパターン</a>を実装しています。
         </p>
         <p>
           この例では、利用者はボックスに値を入力するか、グリッドポップアップに表示される値のセットから選択することで、果物や野菜の名前を指定することができます。
-          テキストボックスにセット内のアイテム名の先頭文字に一致する文字が含まれると、ポップアップが利用可能になります。
+          テキストボックスが提案値のセット内のアイテム名の先頭文字に一致する文字を含むようになった後に、ポップアップが使用可能になります。
           利用者はテキストボックスに任意の値を入力することができます。この実装では、入力を提案値のセット内の値に制限しません。
         </p>
         <p>
-          提案値を表示するグリッドには 2 列があります。
-          グリッドの各行は 1 つの提案を表し、列 1 には果物や野菜の名前が含まれ、列 2 にはそれが果物か野菜かが記載されています。
+          提案値を表示するグリッドは 2 つの列を持ちます。
+          グリッドの各行は 1 つの提案を表し、列 1 には果物や野菜の名前が含まれ、列 2 はそれが果物か野菜かを識別します。
         </p>
         <p>類似の例には以下があります:</p>
         <ul>
-          <li><a href="combobox-select-only.html">選択のみのコンボボックス</a>: HTML の <code>select</code> 要素に機能的に似た、テキスト入力のない単一選択コンボボックス。</li>
-          <li><a href="combobox-autocomplete-both.html">リスト及びインラインオートコンプリート付き編集可能コンボボックス</a>: <q>リストとインラインオートコンプリート</q>として知られるオートコンプリート動作を示す編集可能コンボボックス。</li>
-          <li><a href="combobox-autocomplete-list.html">リストオートコンプリート付き編集可能コンボボックス</a>: <q>リストと手動選択</q>として知られるオートコンプリート動作を示す編集可能コンボボックス。</li>
-          <li><a href="combobox-autocomplete-none.html">オートコンプリートなしの編集可能コンボボックス</a>: <code>aria-autocomplete=none</code> に関連する動作を示す編集可能コンボボックス。</li>
-          <li><a href="combobox-datepicker.html">日付選択コンボボックス</a>: カレンダーグリッドと月及び年ごとのナビゲーションボタンを含むダイアログを開く編集可能な日付入力コンボボックス。</li>
+          <li><a href="combobox-select-only.html">選択限定コンボボックス</a>: テキスト入力のない単一選択コンボボックスで、HTML の <code>select</code> 要素と機能的に似ています。</li>
+          <li><a href="combobox-autocomplete-both.html">リストとインラインオートコンプリートの両方を備えた編集可能コンボボックス</a>: 「リストとインラインのオートコンプリート」として知られるオートコンプリートの動作を示す編集可能なコンボボックスです。</li>
+          <li><a href="combobox-autocomplete-list.html">リストオートコンプリート付き編集可能コンボボックス</a>: オートコンプリートの動作である「リストと手動選択」として知られるオートコンプリートを示す編集可能なコンボボックスです。</li>
+          <li><a href="combobox-autocomplete-none.html">オートコンプリートなし編集可能コンボボックス</a>: <code>aria-autocomplete=none</code> に関連する動作を示す編集可能なコンボボックスです。</li>
+          <li><a href="combobox-datepicker.html">日付選択コンボボックス</a>: カレンダーグリッドと月と年の移動ボタンを含むダイアログが表示される編集可能な日付入力コンボボックスです。</li>
         </ul>
       </section>
 
@@ -64,7 +64,10 @@
           <label for="ex1-input" id="ex1-label" class="combobox-label"> 果物と野菜 </label>
           <div class="combobox-wrapper">
             <div id="ex1-combobox">
-              <input type="text" role="combobox" aria-haspopup="grid" aria-expanded="false" aria-autocomplete="list" aria-controls="ex1-grid" id="ex1-input">
+              <input type="text" role="combobox"
+                aria-haspopup="grid" aria-expanded="false"
+                aria-autocomplete="list" aria-controls="ex1-grid"
+                id="ex1-input">
             </div>
             <div aria-labelledby="ex1-label" role="grid" id="ex1-grid" class="grid hidden"></div>
           </div>
@@ -76,7 +79,7 @@
         <h2>アクセシビリティ機能</h2>
         <p>
           ブラウザは、フォーカスのある要素のように <code>aria-activedescendant</code> によって参照される要素の可視性を管理しません。
-          キーボードイベントがリストボックス内のアクティブなオプションを変更すると、JavaScript は <code>aria-activedescendant</code> によって参照されるオプションを表示領域にスクロールします。
+          キーボードイベントがリストボックス内のアクティブな選択肢を変更すると、JavaScript は <code>aria-activedescendant</code> によって参照される選択肢を表示領域にスクロールします。
           <code>aria-activedescendant</code> の可視性を管理することは、コンテンツのサイズを拡大するためにブラウザのズーム機能を使用する人々にとってアクセシビリティのために不可欠です。
         </p>
       </section>
@@ -105,7 +108,7 @@
               <td>グリッドが表示されている場合、フォーカスを最後の提案値に移動します。</td>
             </tr>
             <tr data-test-id="textbox-key-escape">
-              <th><kbd>エスケープ</kbd></th>
+              <th><kbd>Escape</kbd></th>
               <td>
                 <ul>
                   <li>グリッドが表示されている場合、それを閉じます。</li>
@@ -119,7 +122,7 @@
                 <ul>
                   <li><kbd>Delete</kbd> や <kbd>Shift + 右矢印</kbd> などのカーソル移動及びテキスト操作に使用されるキー。</li>
                   <li>
-                    テキストボックスには <code>type=<q>text</q></code> の HTML <code>input</code> が使用されているため、ブラウザはプラットフォーム固有の編集キーを提供します。
+                    テキストボックスには <code>type="text"</code> の HTML <code>input</code> が使用されているため、ブラウザはプラットフォーム固有の編集キーを提供します。
                   </li>
                 </ul>
               </td>
@@ -128,10 +131,10 @@
         </table> 
       <h3 id="kbd_label_popup">グリッドポップアップ</h3>
         <p>
-          <strong>注記:</strong> 視覚的フォーカスがグリッド内にある場合、DOM フォーカスはテキストボックスに残り、テキストボックスの <code>aria-activedescendant</code> の値が視覚的にフォーカスされている要素を参照する値に設定されます。
+          <strong>注記:</strong> 視覚的フォーカスがグリッド内にある場合、DOM フォーカスはテキストボックスに残り、テキストボックスの <code>aria-activedescendant</code> の値は、フォーカスされていると視覚的に表示されているグリッド内の要素を参照する値に設定されます。
           以下のキーボードコマンドの説明でフォーカスに言及する場合、それは視覚的フォーカスインジケーターを指します。
-          このフォーカスマネジメントテクニックの詳細については、
-          <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカス管理</a> を参照してください。
+          このフォーカス管理テクニックの詳細については、
+          <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカスの管理</a>を参照してください。
         </p>
         <table aria-labelledby="kbd_label_popup kbd_label" class="def">
           <thead>
@@ -260,7 +263,7 @@
                 <code>aria-expanded="false"</code>
               </th>
               <td><code>input[type="text"]</code></td>
-              <td>ポップアップ要素が<strong>表示されていない</strong>ことを示します。</td>
+              <td>ポップアップ要素が表示<strong>されていない</strong>ことを示します。</td>
             </tr>
             <tr data-test-id="combobox-aria-expanded">
               <td></td>
@@ -268,7 +271,7 @@
                 <code>aria-expanded="true"</code>
               </th>
               <td><code>input[type="text"]</code></td>
-              <td>ポップアップ要素が<strong>表示されている</strong>ことを示します。</td>
+              <td>ポップアップ要素が表示<strong>されている</strong>ことを示します。</td>
             </tr>
             <tr data-test-id="combobox-id">
               <td></td>
@@ -278,7 +281,7 @@
               <td><code>input[type="text"]</code></td>
               <td>
                 <ul>
-                  <li><code>label</code> 要素の <code>for</code> 属性によって参照され、アクセシブルな名前を提供します。</li>
+                  <li>アクセシブル名を提供するために <code>label</code> 要素の <code>for</code> 属性によって参照されます。</li>
                   <li>HTML 入力要素の推奨される命名方法であり、ラベルをクリックすると入力にフォーカスが移動します。</li>
                 </ul>
               </td>
@@ -289,7 +292,7 @@
                 <code>aria-autocomplete="list"</code>
               </th>
               <td><code>input[type="text"]</code></td>
-              <td>入力のオートコンプリート動作がポップアップで可能な値のリストを提案することを示します。</td>
+              <td>入力欄のオートコンプリートの振る舞いがポップアップ内で指定可能な値のリストを提案することを示します。</td>
             </tr>
             <tr data-test-id="combobox-aria-controls">
               <td></td>
@@ -297,7 +300,7 @@
                 <code>aria-controls="IDREF"</code>
               </th>
               <td><code>input[type="text"]</code></td>
-              <td>提案された値をリストするポップアップ要素を特定します。</td>
+              <td>提案値を列挙するポップアップ要素を特定します。</td>
             </tr>
             <tr data-test-id="combobox-aria-activedescendant">
               <td></td>
@@ -308,11 +311,11 @@
               <td>
                 <ul>
                   <li>グリッド内のセルがキーボードフォーカスを持つことを視覚的に示すとき、そのセルを参照します。</li>
-                  <li><kbd>Down Arrow</kbd> などのナビゲーションキーが押されたとき、JavaScript が値を変更します。</li>
-                  <li>支援技術が、DOM フォーカスが <code>input</code> 要素に残っている間にアプリケーションがフォーカスしている要素を知ることができます。</li>
+                  <li><kbd>下矢印</kbd> などのナビゲーションキーが押されたとき、JavaScript が値を変更します。</li>
+                  <li>DOM のフォーカスが <code>input</code> 要素にある間、アプリケーションがどの要素にフォーカスしているかを支援技術が知れるようにします。</li>
                   <li>
-                    このフォーカスマネジメントテクニックの詳細については、
-                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジットのフォーカスマネジメント</a>をご覧ください。
+                    このフォーカス管理テクニックの詳細については、
+                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカスの管理</a>を参照してください。
                   </li>
                 </ul>
               </td>
