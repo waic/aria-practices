@@ -61,7 +61,7 @@
               </div>
             </div>
           </div>
-          <div role="separator" id="ex_end_sep" aria-labelledby="ex_label ex_end_sep" aria-label="の終了"></div>
+          <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="の終了"></div>
         </section>
 
         <section>
@@ -89,8 +89,8 @@
       <section>
         <h2 id="kbd_label">キーボードのサポート</h2>
         <p>
-          このページの例のコンボボックスは、以下のキーボードインターフェースを実装しています。
-          キーボードインターフェースの他のバリエーション及びオプションについては、<a href="../combobox-pattern.html#keyboard_interaction">コンボボックスパターンのキーボードインタラクションセクション</a>を参照してください。
+          このページのコンボボックスの例では、以下のキーボードインターフェースを実装しています。
+          キーボードインターフェースの他のバリエーション及びオプションについては、<a href="../combobox-pattern.html#keyboard_interaction">コンボボックスパターンのキーボードインタラクションセクション</a>で説明されています。
         </p>
         <h3 id="kbd_label_combobox">閉じたコンボボックス</h3>
         <table aria-labelledby="kbd_label_combobox kbd_label" class="def">
@@ -112,13 +112,13 @@
             </tr>
             <tr data-test-id="combobox-key-alt-down-arrow">
               <th><kbd>Alt + 下矢印</kbd></th>
-              <td>フォーカスを移動したりや選択を変更したりせずにリストボックスを開きます。</td>
+              <td>フォーカスを移動したり選択を変更したりせずにリストボックスを開きます。</td>
             </tr>
             <tr data-test-id="combobox-key-up-arrow">
               <th><kbd>上矢印</kbd></th>
               <td>
                 <ul>
-                  <li>リストボックスが表示されていない場合、まずリストボックスを開き、次に視覚的フォーカスを最初の選択肢に移動します。</li>
+                  <li>リストボックスがまだ表示されていない場合、まずリストボックスを開き、次に視覚的フォーカスを最初の選択肢に移動します。</li>
                   <li>DOM フォーカスはコンボボックスに残ります。</li>
                 </ul>
               </td>
@@ -133,17 +133,17 @@
             </tr>
             <tr data-test-id="combobox-key-home">
               <th><kbd>Home</kbd></th>
-              <td>リストボックスを開き、視覚的なフォーカスを最初の選択肢に移動します。</td>
+              <td>リストボックスを開き、視覚的フォーカスを最初の選択肢に移動します。</td>
             </tr>
             <tr data-test-id="combobox-key-end">
               <th><kbd>End</kbd></th>
-              <td>リストボックスを開き、視覚的なフォーカスを最後の選択肢に移動します。</td>
+              <td>リストボックスを開き、視覚的フォーカスを最後の選択肢に移動します。</td>
             </tr>
             <tr data-test-id="printable-chars">
               <th>印刷可能な文字</th>
               <td>
                 <ul>
-                  <li>リストボックスが表示されていない場合、まずリストボックスを開き、次に入力された文字に一致する最初の選択肢に視覚的なフォーカスを移動します。</li>
+                  <li>リストボックスがまだ表示されていない場合、まずリストボックスを開き、次に入力された文字に一致する最初の選択肢に視覚的フォーカスを移動します。</li>
                   <li>複数のキーが素早く連続して入力された場合、視覚的フォーカスは入力された文字列全体に一致する最初の選択肢に移動します。</li>
                   <li>同じ文字が連続して入力された場合、視覚的フォーカスはその文字で始まる選択肢の間を循環します。</li>
                 </ul>
@@ -154,7 +154,7 @@
         <h3 id="kbd_label_listbox">リストボックスポップアップ</h3>
         <p>
           <strong>注記:</strong> 視覚的フォーカスがリストボックスにあるとき、DOM フォーカスはコンボボックスに残り、コンボボックスの <code>aria-activedescendant</code> の値はフォーカスしていると視覚的に示されているリストボックス選択肢を参照する値に設定されます。
-          以下のキーボードコマンドの説明でフォーカスに言及している場合、それは視覚的フォーカスインジケーターを指しています。
+          以下のキーボードコマンドの説明でフォーカスに言及する場合、それは視覚的フォーカスインジケーターを指します。
           このフォーカス管理テクニックの詳細については、
           <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカス管理</a> を参照してください。
         </p>
@@ -258,8 +258,8 @@
               <th>印刷可能な文字</th>
               <td>
                 <ul>
-                  <li>まだリストボックスが表示されていない場合、まずリストボックスを開き、次に入力された文字に一致する最初の選択肢に視覚的フォーカスを移動します。</li>
-                  <li>複数のキーが短時間で入力された場合、視覚的フォーカスはその文字列全体に一致する最初の選択肢に移動します。</li>
+                  <li>リストボックスがまだ表示されていない場合、まずリストボックスを開き、次に入力された文字に一致する最初の選択肢に視覚的フォーカスを移動します。</li>
+                  <li>複数のキーが素早く連続して入力された場合、視覚的フォーカスは入力された文字列全体に一致する最初の選択肢に移動します。</li>
                   <li>同じ文字が連続して入力された場合、視覚的フォーカスはその文字で始まる選択肢の間を循環します。</li>
                 </ul>
               </td>
@@ -271,8 +271,8 @@
       <section>
         <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <p>
-          このページの例のコンボボックスは、以下の ARIA ロール、ステート、及びプロパティを実装しています。
-          他の ARIA ロール、ステート、及びプロパティの適用方法については、<a href="../combobox-pattern.html#roles_states_properties">コンボボックスパターンのロール、ステート、及びプロパティのセクション</a>をご覧ください。
+          このページのコンボボックスの例は、以下の ARIA ロール、ステート、及びプロパティを実装しています。
+          ARIA ロール、ステート、及びプロパティを適用する他の方法についての情報は、<a href="../combobox-pattern.html#roles_states_properties">コンボボックスパターンのロール、ステート、及びプロパティセクション</a>で確認できます。
         </p>
         <h3 id="rps_label_combobox">コンボボックス</h3>
         <table aria-labelledby="rps_label_combobox rps_label" class="data attributes">
@@ -291,7 +291,7 @@
               </th>
               <td></td>
               <td><code>div</code></td>
-              <td>入力をコンボボックスとして特定します。</td>
+              <td>入力欄をコンボボックスとして識別します。</td>
             </tr>
             <tr data-test-id="combobox-aria-labelledby">
               <td></td>
@@ -299,7 +299,7 @@
                 <code>aria-labelledby="#IDREF"</code>
               </th>
               <td><code>div</code></td>
-              <td>コンボボックスをラベル付けする要素を特定します。</td>
+              <td>コンボボックスをラベル付けする要素を識別します。</td>
             </tr>
             <tr data-test-id="combobox-aria-controls">
               <td></td>
@@ -307,7 +307,7 @@
                 <code>aria-controls="#IDREF"</code>
               </th>
               <td><code>div</code></td>
-              <td>ポップアップとして機能する要素を特定します。</td>
+              <td>ポップアップとして機能する要素を識別します。</td>
             </tr>
             <tr data-test-id="combobox-aria-expanded">
               <td></td>
@@ -333,12 +333,12 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>リストボックス内の選択肢がキーボードフォーカスを持つことを視覚的に示されているとき、その選択肢を参照します。</li>
-                  <li><kbd>下矢印</kbd>などのナビゲーションキーが押されたとき、JavaScript が値を変更します。</li>
-                  <li>DOM のフォーカスが <code>input</code> 要素にある間、アプリケーションがどの要素にフォーカスしているかを支援技術が知れるようにします。</li>
+                  <li>リストボックス内の選択肢がキーボードフォーカスを持つことを視覚的に示す場合、その選択肢を参照します。</li>
+                  <li>ナビゲーションキー (例えば <kbd>下矢印</kbd>) が押されたとき、JavaScript が値を変更します。</li>
+                  <li>DOM のフォーカスが <code>input</code> 要素にある間、どの要素がフォーカスされているとアプリケーションがみなすかを支援技術が知れるようにします。</li>
                   <li>
                     このフォーカス管理テクニックの詳細については、
-                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカスの管理</a>を参照してください。
+                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカス管理</a> を参照してください。
                   </li>
                 </ul>
               </td>
@@ -364,7 +364,7 @@
               <td>
                 <code>div</code>
               </td>
-              <td>要素を <code>listbox</code> として特定します。</td>
+              <td>要素を <code>listbox</code> として識別します。</td>
             </tr>
             <tr data-test-id="option-role">
               <th scope="row">
@@ -374,8 +374,8 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>要素を <code>listbox</code> の <code>option</code> として特定します。</li>
-                  <li>要素のテキストコンテンツが <code>option</code> のアクセシブル名を提供します。</li>
+                  <li>要素を <code>listbox</code> の <code>option</code> として識別します。</li>
+                  <li>要素のテキストコンテンツは <code>option</code> のアクセシブル名を提供します。</li>
                 </ul>
               </td>
             </tr>
@@ -387,8 +387,8 @@
               <td><code>li</code></td>
               <td>
                 <ul>
-                  <li>リストボックス内の選択肢が選択されていると視覚的にハイライトされている場合に指定されます。</li>
-                  <li>リスト内の選択肢が <code>aria-activedescendant</code> で参照されている場合にのみ発生します。</li>
+                  <li>リストボックス内の選択肢が選択されているとして視覚的にハイライトされている場合に指定されます。</li>
+                  <li>リスト内の選択肢が <code>aria-activedescendant</code> によって参照される場合にのみ発生します。</li>
                 </ul>
               </td>
             </tr>
@@ -413,9 +413,9 @@
       <section class="example-code">
         <h2 id="sc1_label">HTML のソースコード</h2>
         <p id="sc1_description">以下の HTML コードをコピーするには、CodePen で開いてください。</p>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep" aria-label="の開始"></div>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="の終了"></div>
         <script>
             sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files', 'sc1_description');
             sourceCode.make();

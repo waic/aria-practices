@@ -21,7 +21,7 @@
   <body>
     <nav aria-label="関連リンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/7">関連する問題</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/7">関連する Issues</a></li>
         <li><a href="../combobox-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
@@ -453,7 +453,7 @@
                 <th scope="row"><code>combobox</code></th>
                 <td></td>
                 <td><code>input</code></td>
-                <td><code>input</code> 要素をコンボボックスとして特定します。</td>
+                <td><code>input</code> 要素をコンボボックスとして識別します。</td>
               </tr>
               <tr data-test-id="textbox-aria-haspopup">
                 <td></td>
@@ -483,7 +483,7 @@
                 <td></td>
                 <th scope="row"><code>aria-controls="IDREF"</code></th>
                 <td><code>input</code></td>
-                <td>コンボボックスによって制御される要素を特定します。</td>
+                <td>コンボボックスによって制御される要素を識別します。</td>
               </tr>
               <tr data-test-id="textbox-aria-describedby">
                 <td></td>
@@ -541,7 +541,7 @@
                 <td>
                   <code>div</code>
                 </td>
-                <td>要素をダイアログとして特定します。</td>
+                <td>要素をダイアログとして識別します。</td>
               </tr>
               <tr data-test-id="dialog-aria-modal">
                 <td></td>
@@ -713,9 +713,9 @@
       <section class="example-code">
         <h2 id="sc1_label">HTML のソースコード</h2>
         <p id="sc1_description">以下の HTML コードをコピーするには、CodePen で開いてください。</p>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep" aria-label="の開始"></div>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="の終了"></div>
         <script>
           sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files', 'sc1_description');
           sourceCode.make();
