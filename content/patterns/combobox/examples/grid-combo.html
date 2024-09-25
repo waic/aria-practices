@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editable Combobox with Grid Popup Example</title>
+    <title>グリッドポップアップ付き編集可能コンボボックスの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -11,7 +11,7 @@
     <script src="../../../shared/js/examples.js"></script>
     <script src="../../../shared/js/highlight.pack.js"></script>
     <script src="../../../shared/js/app.js"></script>
-    <script src="../../../shared/js/skipto.js"></script>
+    <script data-skipto="colorTheme:aria; displayOption:popup; containerElement:div" src="../../../shared/js/skipto.js"></script>
 
     <!-- JS and CSS for this example -->
     <link href="css/grid-combo.css" rel="stylesheet">
@@ -20,122 +20,127 @@
     <script src="js/grid-combo-example.js"></script>
   </head>
   <body>
-    <nav aria-label="Related Links" class="feedback">
+    <nav aria-label="関連リンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/7">Related Issues</a></li>
-        <li><a href="../combobox-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/7">関連する Issues</a></li>
+        <li><a href="../combobox-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
-      <h1>Editable Combobox with Grid Popup Example</h1>
+      <h1>グリッドポップアップ付き編集可能コンボボックスの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/2d60c413ec23875a30162364a7e715b26875d9db -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
+        <img alt="" class="example-page-example-icon" src="../../../images/pattern-combobox.svg">
         <p>
-          The following example combobox implements the <a href="../combobox-pattern.html">combobox pattern</a> using a grid for the suggested values popup.
+          以下のコンボボックスの例は、提案値のポップアップにグリッドを使用した<a href="../combobox-pattern.html">コンボボックスパターン</a>を実装しています。
         </p>
         <p>
-          In this example, users can specify the name of a fruit or vegetable by either typing a value in the box or choosing from the set of values presented in a grid popup.
-          The popup becomes available after the textbox contains a character that matches the beginning of the name of one of the items in the set of value suggestions.
-          Users may type any value in the textbox; this implementation does not limit input to values that are in the set of value suggestions.
+          この例では、利用者はボックスに値を入力するか、グリッドポップアップに表示される値のセットから選択することで、果物や野菜の名前を指定することができます。
+          テキストボックスが提案値のセット内のアイテム名の先頭文字に一致する文字を含むようになった後に、ポップアップが使用可能になります。
+          利用者はテキストボックスに任意の値を入力することができます。この実装では、入力を提案値のセット内の値に制限しません。
         </p>
         <p>
-          The grid that presents suggested values has two columns.
-          Each row of the grid represents one suggestion; column one contains the name of the fruit or vegetable and column two identifies whether it is a fruit or vegetable.
+          提案値を表示するグリッドは 2 つの列を持ちます。
+          グリッドの各行は 1 つの提案を表し、列 1 には果物や野菜の名前が含まれ、列 2 はそれが果物か野菜かを識別します。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下があります:</p>
         <ul>
-          <li><a href="combobox-select-only.html">Select-Only Combobox</a>: A single-select combobox with no text input that is functionally similar to an HTML <code>select</code> element.</li>
-          <li><a href="combobox-autocomplete-both.html">Editable Combobox with Both List and Inline Autocomplete</a>: An editable combobox that demonstrates the autocomplete behavior known as <q>list with inline autocomplete</q>.</li>
-          <li><a href="combobox-autocomplete-list.html">Editable Combobox with List Autocomplete</a>: An editable combobox that demonstrates the autocomplete behavior known as <q>list with manual selection</q>.</li>
-          <li><a href="combobox-autocomplete-none.html">Editable Combobox Without Autocomplete</a>: An editable combobox that demonstrates the behavior associated with <code>aria-autocomplete=none</code>.</li>
-          <li><a href="combobox-datepicker.html">Date Picker Combobox</a>: An editable date input combobox that opens a dialog containing a calendar grid and buttons for navigating by month and year.</li>
+          <li><a href="combobox-select-only.html">選択限定コンボボックス</a>: テキスト入力のない単一選択コンボボックスで、HTML の <code>select</code> 要素と機能的に似ています。</li>
+          <li><a href="combobox-autocomplete-both.html">リストとインラインオートコンプリートの両方を備えた編集可能コンボボックス</a>: 「リストとインラインのオートコンプリート」として知られるオートコンプリートの動作を示す編集可能なコンボボックスです。</li>
+          <li><a href="combobox-autocomplete-list.html">リストオートコンプリート付き編集可能コンボボックス</a>: オートコンプリートの動作である「リストと手動選択」として知られるオートコンプリートを示す編集可能なコンボボックスです。</li>
+          <li><a href="combobox-autocomplete-none.html">オートコンプリートなし編集可能コンボボックス</a>: <code>aria-autocomplete=none</code> に関連する動作を示す編集可能なコンボボックスです。</li>
+          <li><a href="combobox-datepicker.html">日付選択コンボボックス</a>: カレンダーグリッドと月と年の移動ボタンを含むダイアログが表示される編集可能な日付入力コンボボックスです。</li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="の開始"></div>
         <div id="ex1">
-          <label for="ex1-input" id="ex1-label" class="combobox-label"> Fruits and vegetables </label>
+          <label for="ex1-input" id="ex1-label" class="combobox-label"> 果物と野菜 </label>
           <div class="combobox-wrapper">
             <div id="ex1-combobox">
-              <input type="text" role="combobox" aria-haspopup="grid" aria-expanded="false" aria-autocomplete="list" aria-controls="ex1-grid" id="ex1-input">
+              <input type="text" role="combobox"
+                aria-haspopup="grid" aria-expanded="false"
+                aria-autocomplete="list" aria-controls="ex1-grid"
+                id="ex1-input">
             </div>
             <div aria-labelledby="ex1-label" role="grid" id="ex1-grid" class="grid hidden"></div>
           </div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="の終了"></div>
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティ機能</h2>
         <p>
-          Browsers do not manage visibility of elements referenced by <code>aria-activedescendant</code> like they do for elements with focus.
-          When a keyboard event changes the active option in the listbox, the JavaScript scrolls the option referenced by <code>aria-activedescendant</code> into view.
-          Managing <code>aria-activedescendant</code> visibility is essential to accessibility for people who use a browser's zoom feature to increase the size of content.
+          ブラウザは、フォーカスのある要素のように <code>aria-activedescendant</code> によって参照される要素の可視性を管理しません。
+          キーボードイベントがリストボックス内のアクティブな選択肢を変更すると、JavaScript は <code>aria-activedescendant</code> によって参照される選択肢を表示領域にスクロールします。
+          <code>aria-activedescendant</code> の可視性を管理することは、コンテンツのサイズを拡大するためにブラウザのズーム機能を使用する人々にとってアクセシビリティのために不可欠です。
         </p>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
         <p>
-          The example combobox on this page implements the following keyboard interface.
-          Other variations and options for the keyboard interface are described in the <a href="../combobox-pattern.html#keyboard_interaction">Keyboard Interaction section of the combobox pattern.</a>
+          このページのコンボボックスの例では、以下のキーボードインターフェースを実装しています。
+          キーボードインターフェースの他のバリエーション及びオプションについては、<a href="../combobox-pattern.html#keyboard_interaction">コンボボックスパターンのキーボードインタラクションセクション</a>で説明されています。
         </p>
-        <h3 id="kbd_label_textbox">Textbox</h3>
+        <h3 id="kbd_label_textbox">テキストボックス</h3>
         <table aria-labelledby="kbd_label_textbox kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
             <tr data-test-id="textbox-key-down-arrow">
-              <th><kbd>Down Arrow</kbd></th>
-              <td>If the grid is displayed, moves focus to the first suggested value.</td>
+              <th><kbd>下矢印</kbd></th>
+              <td>グリッドが表示されている場合、フォーカスを最初の提案値に移動します。</td>
             </tr>
             <tr data-test-id="textbox-key-up-arrow">
-              <th><kbd>Up Arrow</kbd></th>
-              <td>If the grid is displayed, moves focus to the last suggested value.</td>
+              <th><kbd>上矢印</kbd></th>
+              <td>グリッドが表示されている場合、フォーカスを最後の提案値に移動します。</td>
             </tr>
             <tr data-test-id="textbox-key-escape">
               <th><kbd>Escape</kbd></th>
               <td>
                 <ul>
-                  <li>If the grid is displayed, closes it.</li>
-                  <li>If the grid is not displayed, clears the textbox.</li>
+                  <li>グリッドが表示されている場合、それを閉じます。</li>
+                  <li>グリッドが表示されていない場合、テキストボックスをクリアします。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="standard-single-line-editing-keys">
-              <th>Standard single line text editing keys</th>
+              <th>標準の単一行テキスト編集キー</th>
               <td>
                 <ul>
-                  <li>Keys used for cursor movement and text manipulation, such as <kbd>Delete</kbd> and <kbd>Shift + Right Arrow</kbd>.</li>
+                  <li>カーソルの移動やテキストの操作に使用されるキー、例えば <kbd>Delete</kbd> や <kbd>Shift + 右矢印</kbd> など。</li>
                   <li>
-                    An HTML <code>input</code> with <code>type=<q>text</q></code> is used for the textbox so the browser will provide platform-specific editing keys.
+                    テキストボックスには <code>type="text"</code> の HTML <code>input</code> が使用されているため、ブラウザはプラットフォーム固有の編集キーを提供します。
                   </li>
                 </ul>
               </td>
             </tr>
           </tbody>
-        </table>
-        <h3 id="kbd_label_popup">Grid Popup</h3>
+        </table> 
+      <h3 id="kbd_label_popup">グリッドポップアップ</h3>
         <p>
-          <strong>NOTE:</strong> When visual focus is in the grid, DOM focus remains on the textbox and the value of <code>aria-activedescendant</code> on the textbox is set to a value that refers to an element in the grid that is visually indicated as focused.
-          Where the following descriptions of keyboard commands mention focus, they are referring to the visual focus indicator.
-          For more information about this focus management technique, see
-          <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">Managing Focus in Composites Using aria-activedescendant</a>.
+          <strong>注記:</strong> 視覚的フォーカスがグリッド内にある場合、DOM フォーカスはテキストボックスに残り、テキストボックスの <code>aria-activedescendant</code> の値は、フォーカスされていると視覚的に表示されているグリッド内の要素を参照する値に設定されます。
+          以下のキーボードコマンドの説明でフォーカスに言及する場合、それは視覚的フォーカスインジケーターを指します。
+          このフォーカス管理テクニックの詳細については、
+          <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカス管理</a> を参照してください。
         </p>
         <table aria-labelledby="kbd_label_popup kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
@@ -143,9 +148,9 @@
               <th><kbd>Enter</kbd></th>
               <td>
                 <ul>
-                  <li>Sets the textbox value to the content of the first cell in the row containing focus.</li>
-                  <li>Closes the grid popup.</li>
-                  <li>Sets focus on the textbox.</li>
+                  <li>フォーカスがある行の最初のセルの内容をテキストボックスの値に設定します。</li>
+                  <li>グリッドポップアップを閉じます。</li>
+                  <li>テキストボックスにフォーカスを設定します。</li>
                 </ul>
               </td>
             </tr>
@@ -153,65 +158,65 @@
               <th><kbd>Escape</kbd></th>
               <td>
                 <ul>
-                  <li>Closes the grid.</li>
-                  <li>Sets visual focus on the textbox.</li>
+                  <li>グリッドを閉じます。</li>
+                  <li>視覚的フォーカスをテキストボックスに設定します。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="popup-key-down-arrow">
-              <th><kbd>Down Arrow</kbd></th>
+              <th><kbd>下矢印</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to the next row.</li>
-                  <li>If focus is in the last row, moves focus to the first row.</li>
-                  <li>Note: This wrapping behavior is useful when <kbd>Home</kbd> and <kbd>End</kbd> move the editing cursor as described below.</li>
+                  <li>フォーカスを次の行に移動します。</li>
+                  <li>フォーカスが最後の行にある場合、フォーカスを最初の行に移動します。</li>
+                  <li>注記: このラッピング動作は、以下で説明するように <kbd>Home</kbd> 及び <kbd>End</kbd> が編集カーソルを移動する場合に便利です。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="popup-key-up-arrow">
-              <th><kbd>Up Arrow</kbd></th>
+              <th><kbd>上矢印</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to the previous row.</li>
-                  <li>If focus is in the first row, moves focus to the last row.</li>
-                  <li>Note: This wrapping behavior is useful when <kbd>Home</kbd> and <kbd>End</kbd> move the editing cursor as described below.</li>
+                  <li>フォーカスを前の行に移動します。</li>
+                  <li>フォーカスが最初の行にある場合、フォーカスを最後の行に移動します。</li>
+                  <li>注記: このラッピング動作は、以下で説明するように <kbd>Home</kbd> 及び <kbd>End</kbd> が編集カーソルを移動する場合に便利です。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="popup-key-right-arrow">
-              <th><kbd>Right Arrow</kbd></th>
+              <th><kbd>右矢印</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to the next cell.</li>
-                  <li>If focus is in the last cell in a row, moves focus to the first cell in the next row.</li>
-                  <li>If focus is in the last cell in the last row, moves focus to the first cell in the first row.</li>
+                  <li>フォーカスを次のセルに移動します。</li>
+                  <li>フォーカスが行の最後のセルにある場合、フォーカスを次の行の最初のセルに移動します。</li>
+                  <li>フォーカスが最後の行の最後のセルにある場合、フォーカスを最初の行の最初のセルに移動します。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="popup-key-left-arrow">
-              <th><kbd>Left Arrow</kbd></th>
+              <th><kbd>左矢印</kbd></th>
               <td>
                 <ul>
-                  <li>Moves focus to the previous cell.</li>
-                  <li>If focus is in the first cell in a row, moves focus to the last cell in the previous row.</li>
-                  <li>If focus is in the first cell in the first row, moves focus to the last cell in the last row.</li>
+                  <li>フォーカスを前のセルに移動します。</li>
+                  <li>フォーカスが行の最初のセルにある場合、フォーカスを前の行の最後のセルに移動します。</li>
+                  <li>フォーカスが最初の行の最初のセルにある場合、フォーカスを最後の行の最後のセルに移動します。</li>
                 </ul>
               </td>
             </tr>
             <tr data-test-id="popup-key-home">
               <th><kbd>Home</kbd></th>
-              <td>Moves focus to the textbox and places the editing cursor at the beginning of the field.</td>
+              <td>フォーカスをテキストボックスに移動し、編集カーソルをフィールドの先頭に置きます。</td>
             </tr>
             <tr data-test-id="popup-key-end">
               <th><kbd>End</kbd></th>
-              <td>Moves focus to the textbox and places the editing cursor at the end of the field.</td>
+              <td>フォーカスをテキストボックスに移動し、編集カーソルをフィールドの末尾に置きます。</td>
             </tr>
             <tr data-test-id="popup-key-char">
-              <th>Printable Characters</th>
+              <th>印刷可能な文字</th>
               <td>
                 <ul>
-                  <li>Moves focus to the textbox.</li>
-                  <li>Types the character in the textbox.</li>
+                  <li>フォーカスをテキストボックスに移動します。</li>
+                  <li>テキストボックスに文字を入力します。</li>
                 </ul>
               </td>
             </tr>
@@ -220,19 +225,19 @@
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <p>
-          The example comboboxes on this page implement the following ARIA roles, states, and properties.
-          Information about other ways of applying ARIA roles, states, and properties is available in the <a href="../combobox-pattern.html#roles_states_properties">Roles, States, and Properties section of the combobox pattern.</a>
+          このページの例のコンボボックスは、以下の ARIA ロール、ステート、及びプロパティを実装しています。
+          他の ARIA ロール、ステート、及びプロパティの適用方法については、<a href="../combobox-pattern.html#roles_states_properties">コンボボックスパターンのロール、ステート、及びプロパティセクション</a>をご覧ください。
         </p>
-        <h3 id="rps_label_textbox">Textbox</h3>
+        <h3 id="rps_label_textbox">テキストボックス</h3>
         <table aria-labelledby="rps_label_textbox rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -242,7 +247,7 @@
               </th>
               <td></td>
               <td><code>input[type="text"]</code></td>
-              <td>Identifies the element as a combobox.</td>
+              <td>要素をコンボボックスとして識別します。</td>
             </tr>
             <tr data-test-id="combobox-aria-haspopup">
               <td></td>
@@ -250,7 +255,7 @@
                 <code>aria-haspopup="grid"</code>
               </th>
               <td><code>input[type="text"]</code></td>
-              <td>Indicates that the combobox can popup a <code>grid</code> to suggest values.</td>
+              <td>コンボボックスが値を提案するために <code>grid</code> をポップアップできることを示します。</td>
             </tr>
             <tr data-test-id="combobox-aria-expanded">
               <td></td>
@@ -258,7 +263,7 @@
                 <code>aria-expanded="false"</code>
               </th>
               <td><code>input[type="text"]</code></td>
-              <td>Indicates that the popup element <strong>is not</strong> displayed.</td>
+              <td>ポップアップ要素が表示<strong>されていない</strong>ことを示します。</td>
             </tr>
             <tr data-test-id="combobox-aria-expanded">
               <td></td>
@@ -266,7 +271,7 @@
                 <code>aria-expanded="true"</code>
               </th>
               <td><code>input[type="text"]</code></td>
-              <td>Indicates that the popup element <strong>is</strong> displayed.</td>
+              <td>ポップアップ要素が表示<strong>されている</strong>ことを示します。</td>
             </tr>
             <tr data-test-id="combobox-id">
               <td></td>
@@ -276,8 +281,8 @@
               <td><code>input[type="text"]</code></td>
               <td>
                 <ul>
-                  <li>Referenced by <code>for</code> attribute of <code>label</code> element to provide an accessible name.</li>
-                  <li>Recommended naming method for HTML input elements because clicking label focuses input.</li>
+                  <li>アクセシブル名を提供するために <code>label</code> 要素の <code>for</code> 属性によって参照されます。</li>
+                  <li>ラベルをクリックすると入力欄がフォーカスされるため、HTML の input 要素のための推奨される命名方法です。</li>
                 </ul>
               </td>
             </tr>
@@ -287,7 +292,7 @@
                 <code>aria-autocomplete="list"</code>
               </th>
               <td><code>input[type="text"]</code></td>
-              <td>Indicates that the autocomplete behavior of the input is to suggest a list of possible values in a popup.</td>
+              <td>入力欄のオートコンプリートの振る舞いがポップアップ内で指定可能な値のリストを提案することを示します。</td>
             </tr>
             <tr data-test-id="combobox-aria-controls">
               <td></td>
@@ -295,7 +300,7 @@
                 <code>aria-controls="IDREF"</code>
               </th>
               <td><code>input[type="text"]</code></td>
-              <td>Identifies the popup element that lists suggested values.</td>
+              <td>提案値を列挙するポップアップ要素を識別します。</td>
             </tr>
             <tr data-test-id="combobox-aria-activedescendant">
               <td></td>
@@ -305,26 +310,26 @@
               <td><code>input[type="text"]</code></td>
               <td>
                 <ul>
-                  <li>When a cell in the grid is visually indicated as having keyboard focus, refers to that cell.</li>
-                  <li>When navigation keys, such as <kbd>Down Arrow</kbd>, are pressed, the JavaScript changes the value.</li>
-                  <li>Enables assistive technologies to know which element the application regards as focused while DOM focus remains on the <code>input</code> element.</li>
+                  <li>グリッド内のセルがキーボードフォーカスを持つことを視覚的に示すとき、そのセルを参照します。</li>
+                  <li>ナビゲーションキー (例えば <kbd>下矢印</kbd>) が押されたとき、JavaScript が値を変更します。</li>
+                  <li>DOM のフォーカスが <code>input</code> 要素にある間、どの要素がフォーカスされているとアプリケーションがみなすかを支援技術が知れるようにします。</li>
                   <li>
-                    For more information about this focus management technique, see
-                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">Managing Focus in Composites Using aria-activedescendant</a>.
+                    このフォーカス管理テクニックの詳細については、
+                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカス管理</a> を参照してください。
                   </li>
                 </ul>
               </td>
             </tr>
           </tbody>
         </table>
-        <h3 id="rps_label_popup">Grid Popup</h3>
+        <h3 id="rps_label_popup">グリッドポップアップ</h3>
         <table aria-labelledby="rps_label_popup rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -336,7 +341,7 @@
               <td>
                 <code>div</code>
               </td>
-              <td>Identifies the element as a <code>grid</code>.</td>
+              <td>要素を <code>grid</code> として識別します。</td>
             </tr>
             <tr data-test-id="grid-aria-labelledby">
               <td></td>
@@ -344,7 +349,7 @@
                 <code>aria-labelledby="IDREF"</code>
               </th>
               <td><code>div</code></td>
-              <td>Provides a label for the <code>grid</code> element controlled by the combobox.</td>
+              <td>コンボボックスによって制御される <code>grid</code> 要素のラベルを提供します。</td>
             </tr>
             <tr data-test-id="row-role">
               <th scope="row">
@@ -352,7 +357,7 @@
               </th>
               <td></td>
               <td><code>div</code></td>
-              <td>Identifies the element containing all the cells for a row.</td>
+              <td>行のすべてのセルを含む要素を識別します。</td>
             </tr>
             <tr data-test-id="row-aria-selected">
               <td></td>
@@ -362,8 +367,8 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Specified on a cell when the row containing the cell is visually indicated as selected.</li>
-                  <li>Occurs only when a cell in the grid is referenced by <code>aria-activedescendant</code>.</li>
+                  <li>セルを含む行が選択されていることを視覚的に示すときにセルに指定されます。</li>
+                  <li>グリッド内のセルが <code>aria-activedescendant</code> によって参照されているときにのみ発生します。</li>
                 </ul>
               </td>
             </tr>
@@ -371,27 +376,28 @@
               <th scope="row"><code>gridcell</code></th>
               <td></td>
               <td><code>div</code></td>
-              <td>Identifies the element containing the content for a single cell.</td>
+              <td>単一のセルの内容を含む要素を識別します。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScript 及び CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>CSS: <a href="css/grid-combo.css" type="tex/css">grid-combo.css</a></li>
           <li>Javascript: <a href="js/grid-combo.js">grid-combo.js</a>, <a href="js/grid-combo-example.js">grid-combo-example.js</a>, <a href="../../../shared/js/utils.js">utils.js</a></li>
         </ul>
       </section>
-
-      <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+      
+      <section class="example-code">
+        <h2 id="sc1_label">HTML のソースコード</h2>
+        <p id="sc1_description">以下の HTML コードをコピーするには、CodePen で開いてください。</p>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="の終了"></div>
         <script>
-          sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files');
+          sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files', 'sc1_description');
           sourceCode.make();
         </script>
       </section>

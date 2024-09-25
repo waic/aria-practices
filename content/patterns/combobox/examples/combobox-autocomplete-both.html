@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editable Combobox With Both List and Inline Autocomplete Example</title>
+    <title>リストとインラインオートコンプリートの両方を備えた編集可能コンボボックス</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -11,532 +11,534 @@
     <script src="../../../shared/js/examples.js"></script>
     <script src="../../../shared/js/highlight.pack.js"></script>
     <script src="../../../shared/js/app.js"></script>
-    <script src="../../../shared/js/skipto.js"></script>
+    <script data-skipto="colorTheme:aria; displayOption:popup; containerElement:div" src="../../../shared/js/skipto.js"></script>
 
     <!-- JS and CSS for this example -->
     <link rel="stylesheet" href="css/combobox-autocomplete.css">
     <script src="js/combobox-autocomplete.js"></script>
   </head>
   <body>
-    <nav aria-label="Related Links" class="feedback">
+    <nav aria-label="関連リンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/7">Related Issues</a></li>
-        <li><a href="../combobox-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/7">関連する Issues</a></li>
+        <li><a href="../combobox-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
-      <h1>Editable Combobox With Both List and Inline Autocomplete Example</h1>
+      <h1>リストとインラインオートコンプリートの両方を備えた編集可能コンボボックス</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/2d60c413ec23875a30162364a7e715b26875d9db -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
+        <img alt="" class="example-page-example-icon" src="../../../images/pattern-combobox.svg">
         <p>
-          The below combobox for choosing the name of a US state or territory demonstrates the <a href="../combobox-pattern.html">Combobox Pattern</a>.
-          The design pattern describes four types of autocomplete behavior.
-          This example illustrates the autocomplete behavior referred to in the pattern as list with inline completion.
-          If the user types one or more characters in the edit box and the typed characters match the beginning of the name of one or more states or territories, a listbox popup appears containing the matching names, and the first match is automatically selected.
-          In addition, the portion of the selected suggestion that has not been typed by the user, a completion string, appears inline after the input cursor in the textbox.
-          The automatically selected suggestion becomes the value of the textbox when the combobox loses focus unless the user chooses a different suggestion or changes the character string in the textbox.
-          Note that this implementation enables users to input the name of a state or territory, but it does not prevent input of any other arbitrary value.
+          以下の米国の州や地域の名前を選択するためのコンボボックスは、<a href="../combobox-pattern.html">コンボボックスパターン</a>をデモンストレーションします。
+          このデザインパターンは、4 つのオートコンプリートの動作タイプを説明しています。
+          この例では、このパターンの中でリストとインライン補完と呼ばれるオートコンプリートの動作を示しています。
+          利用者が編集ボックスに 1 文字以上の文字を入力し、入力された文字が 1 つ以上の州や地域の名前の先頭と一致する場合、一致する名前を含むリストボックスのポップアップが表示され、その最初のものが自動的に選択されます。
+          更に、選択値のうち利用者によって入力されていない部分、補完文字列がインラインで入力カーソルの後ろに表示されます。
+          自動的に選択された提案は、利用者が異なる提案を選択するか、テキストボックスの文字列を変更しなければ、コンボボックスがフォーカスを失ったときにテキストボックスの値になります。
+          この実装では利用者が州や地域の名前を入力することが可能ですが、他の任意の値の入力を防がないことに注意してください。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下があります:</p>
         <ul>
-          <li><a href="combobox-select-only.html">Select-Only Combobox</a>: A single-select combobox with no text input that is functionally similar to an HTML <code>select</code> element.</li>
-          <li><a href="combobox-autocomplete-list.html">Editable Combobox with List Autocomplete</a>: An editable combobox that demonstrates the autocomplete behavior known as <q>list with manual selection</q>.</li>
-          <li><a href="combobox-autocomplete-none.html">Editable Combobox Without Autocomplete</a>: An editable combobox that demonstrates the behavior associated with <code>aria-autocomplete=none</code>.</li>
-          <li><a href="grid-combo.html">Editable Combobox with Grid Popup</a>: An editable combobox that presents suggestions in a grid, enabling users to navigate descriptive information about each suggestion.</li>
-          <li><a href="combobox-datepicker.html">Date Picker Combobox</a>: An editable date input combobox that opens a dialog containing a calendar grid and buttons for navigating by month and year.</li>
+          <li><a href="combobox-select-only.html">選択限定コンボボックス</a>: テキスト入力のない単一選択コンボボックスで、HTML の <code>select</code> 要素と機能的に似ています。</li>
+          <li><a href="combobox-autocomplete-list.html">リストオートコンプリート付き編集可能コンボボックス</a>: オートコンプリートの動作である「リストと手動選択」として知られるオートコンプリートを示す編集可能なコンボボックスです。</li>
+          <li><a href="combobox-autocomplete-none.html">オートコンプリートなし編集可能コンボボックス</a>: <code>aria-autocomplete=none</code> に関連する動作を示す編集可能なコンボボックスです。</li>
+          <li><a href="grid-combo.html">グリッドポップアップ付き編集可能コンボボックス</a>: グリッドで提案を表示し、各提案の説明情報をナビゲートできる編集可能なコンボボックスです。</li>
+          <li><a href="combobox-datepicker.html">日付選択コンボボックス</a>: カレンダーグリッドと月と年の移動ボタンを含むダイアログが表示される編集可能な日付入力コンボボックスです。</li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
         <div id="ex1">
-          <label for="cb1-input">State</label>
+          <label for="cb1-input">州</label>
           <div class="combobox combobox-list">
             <div class="group">
               <input id="cb1-input" class="cb_edit" type="text" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-controls="cb1-listbox">
-              <button type="button" id="cb1-button" aria-label="States" aria-expanded="false" aria-controls="cb1-listbox" tabindex="-1">
+              <button type="button" id="cb1-button" aria-label="州" aria-expanded="false" aria-controls="cb1-listbox" tabindex="-1">
                 <svg width="18" height="16" aria-hidden="true" focusable="false" style="forced-color-adjust: auto">
                   <polygon class="arrow" stroke-width="0" fill-opacity="0.75" fill="currentcolor" points="3,6 15,6 9,14"></polygon>
                 </svg>
               </button>
             </div>
-            <ul id="cb1-listbox" role="listbox" aria-label="States">
-              <li id="lb1-al" role="option">Alabama</li>
-              <li id="lb1-ak" role="option">Alaska</li>
-              <li id="lb1-as" role="option">American Samoa</li>
-              <li id="lb1-az" role="option">Arizona</li>
-              <li id="lb1-ar" role="option">Arkansas</li>
-              <li id="lb1-ca" role="option">California</li>
-              <li id="lb1-co" role="option">Colorado</li>
-              <li id="lb1-ct" role="option">Connecticut</li>
-              <li id="lb1-de" role="option">Delaware</li>
-              <li id="lb1-dc" role="option">District of Columbia</li>
-              <li id="lb1-fl" role="option">Florida</li>
-              <li id="lb1-ga" role="option">Georgia</li>
-              <li id="lb1-gm" role="option">Guam</li>
-              <li id="lb1-hi" role="option">Hawaii</li>
-              <li id="lb1-id" role="option">Idaho</li>
-              <li id="lb1-il" role="option">Illinois</li>
-              <li id="lb1-in" role="option">Indiana</li>
-              <li id="lb1-ia" role="option">Iowa</li>
-              <li id="lb1-ks" role="option">Kansas</li>
-              <li id="lb1-ky" role="option">Kentucky</li>
-              <li id="lb1-la" role="option">Louisiana</li>
-              <li id="lb1-me" role="option">Maine</li>
-              <li id="lb1-md" role="option">Maryland</li>
-              <li id="lb1-ma" role="option">Massachusetts</li>
-              <li id="lb1-mi" role="option">Michigan</li>
-              <li id="lb1-mn" role="option">Minnesota</li>
-              <li id="lb1-ms" role="option">Mississippi</li>
-              <li id="lb1-mo" role="option">Missouri</li>
-              <li id="lb1-mt" role="option">Montana</li>
-              <li id="lb1-ne" role="option">Nebraska</li>
-              <li id="lb1-nv" role="option">Nevada</li>
-              <li id="lb1-nh" role="option">New Hampshire</li>
-              <li id="lb1-nj" role="option">New Jersey</li>
-              <li id="lb1-nm" role="option">New Mexico</li>
-              <li id="lb1-ny" role="option">New York</li>
-              <li id="lb1-nc" role="option">North Carolina</li>
-              <li id="lb1-nd" role="option">North Dakota</li>
-              <li id="lb1-mp" role="option">Northern Marianas Islands</li>
-              <li id="lb1-oh" role="option">Ohio</li>
-              <li id="lb1-ok" role="option">Oklahoma</li>
-              <li id="lb1-or" role="option">Oregon</li>
-              <li id="lb1-pa" role="option">Pennsylvania</li>
-              <li id="lb1-pr" role="option">Puerto Rico</li>
-              <li id="lb1-ri" role="option">Rhode Island</li>
-              <li id="lb1-sc" role="option">South Carolina</li>
-              <li id="lb1-sd" role="option">South Dakota</li>
-              <li id="lb1-tn" role="option">Tennessee</li>
-              <li id="lb1-tx" role="option">Texas</li>
-              <li id="lb1-ut" role="option">Utah</li>
-              <li id="lb1-ve" role="option">Vermont</li>
-              <li id="lb1-va" role="option">Virginia</li>
-              <li id="lb1-vi" role="option">Virgin Islands</li>
-              <li id="lb1-wa" role="option">Washington</li>
-              <li id="lb1-wv" role="option">West Virginia</li>
-              <li id="lb1-wi" role="option">Wisconsin</li>
-              <li id="lb1-wy" role="option">Wyoming</li>
+            <ul id="cb1-listbox" role="listbox" aria-label="州">
+              <li id="lb1-al" role="option">アラバマ</li>
+              <li id="lb1-ak" role="option">アラスカ</li>
+              <li id="lb1-as" role="option">アメリカ領サモア</li>
+              <li id="lb1-az" role="option">アリゾナ</li>
+              <li id="lb1-ar" role="option">アーカンソー</li>
+              <li id="lb1-ca" role="option">カリフォルニア</li>
+              <li id="lb1-co" role="option">コロラド</li>
+              <li id="lb1-ct" role="option">コネチカット</li>
+              <li id="lb1-de" role="option">デラウェア</li>
+              <li id="lb1-dc" role="option">コロンビア特別区</li>
+              <li id="lb1-fl" role="option">フロリダ</li>
+              <li id="lb1-ga" role="option">ジョージア</li>
+              <li id="lb1-gm" role="option">グアム</li>
+              <li id="lb1-hi" role="option">ハワイ</li>
+              <li id="lb1-id" role="option">アイダホ</li>
+              <li id="lb1-il" role="option">イリノイ</li>
+              <li id="lb1-in" role="option">インディアナ</li>
+              <li id="lb1-ia" role="option">アイオワ</li>
+              <li id="lb1-ks" role="option">カンザス</li>
+              <li id="lb1-ky" role="option">ケンタッキー</li>
+              <li id="lb1-la" role="option">ルイジアナ</li>
+              <li id="lb1-me" role="option">メイン</li>
+              <li id="lb1-md" role="option">メリーランド</li>
+              <li id="lb1-ma" role="option">マサチューセッツ</li>
+              <li id="lb1-mi" role="option">ミシガン</li>
+              <li id="lb1-mn" role="option">ミネソタ</li>
+              <li id="lb1-ms" role="option">ミシシッピ</li>
+              <li id="lb1-mo" role="option">ミズーリ</li>
+              <li id="lb1-mt" role="option">モンタナ</li>
+              <li id="lb1-ne" role="option">ネブラスカ</li>
+              <li id="lb1-nv" role="option">ネバダ</li>
+              <li id="lb1-nh" role="option">ニューハンプシャー</li>
+              <li id="lb1-nj" role="option">ニュージャージー</li>
+              <li id="lb1-nm" role="option">ニューメキシコ</li>
+              <li id="lb1-ny" role="option">ニューヨーク</li>
+              <li id="lb1-nc" role="option">ノースカロライナ</li>
+              <li id="lb1-nd" role="option">ノースダコタ</li>
+              <li id="lb1-mp" role="option">北マリアナ諸島</li>
+              <li id="lb1-oh" role="option">オハイオ</li>
+              <li id="lb1-ok" role="option">オクラホマ</li>
+              <li id="lb1-or" role="option">オレゴン</li>
+              <li id="lb1-pa" role="option">ペンシルベニア</li>
+              <li id="lb1-pr" role="option">プエルトリコ</li>
+              <li id="lb1-ri" role="option">ロードアイランド</li>
+              <li id="lb1-sc" role="option">サウスカロライナ</li>
+              <li id="lb1-sd" role="option">サウスダコタ</li>
+              <li id="lb1-tn" role="option">テネシー</li>
+              <li id="lb1-tx" role="option">テキサス</li>
+              <li id="lb1-ut" role="option">ユタ</li>
+              <li id="lb1-ve" role="option">バーモント</li>
+              <li id="lb1-va" role="option">バージニア</li>
+              <li id="lb1-vi" role="option">バージン諸島</li>
+              <li id="lb1-wa" role="option">ワシントン</li>
+              <li id="lb1-wv" role="option">ウェストバージニア</li>
+              <li id="lb1-wi" role="option">ウィスコンシン</li>
+              <li id="lb1-wy" role="option">ワイオミング</li>
             </ul>
+            </div>
           </div>
-        </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
-      </section>
+          <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="の終了"></div>
+          </section>
 
-      <section>
-        <h2>Accessibility Features</h2>
-        <ul>
-          <li>
-            Browsers do not manage visibility of elements referenced by aria-activedescendant like they do for elements with focus.
-            When a keyboard event changes the active option in the listbox, the JavaScript scrolls the option referenced by aria-activedescendant into view.
-            Managing aria-activedescendant visibility is essential to accessibility for people who use a browser's zoom feature to increase the size of content.
-          </li>
-          <li>
-            To enhance perceivability when operating the combobox, visual keyboard focus and hover are styled using the CSS <code>:hover</code> pseudo-class, and <code>focus</code> and <code>blur</code> event handlers:
+          <section>
+          <h2>アクセシビリティ機能</h2>
+          <ul>
+            <li>
+            ブラウザは、フォーカスを持つ要素の表示を管理するのとは異なり、aria-activedescendant で参照される要素の表示を管理しません。
+            キーボードイベントがリストボックス内のアクティブな選択肢を変更したとき、 JavaScript は aria-activedescendant で参照される選択肢を表示領域にスクロールします。
+            aria-activedescendant の表示を管理することは、コンテンツのサイズを拡大するためにブラウザのズーム機能を使用する人々のアクセシビリティにとって重要です。
+            </li>
+            <li>
+            コンボボックスを操作するときの知覚可能性を向上させるために、視覚的キーボードフォーカスとホバーは CSS の <code>:hover</code> 疑似クラスと <code>focus</code> 及び <code>blur</code> イベントハンドラーを使用してスタイリングされます：
             <ul>
-              <li>To make it easier to perceive when the combobox receives focus, focus creates a 2 pixel focus ring around both the <code>input</code> and <code>button</code> elements with 2 pixels of space between the focus ring and the combobox.</li>
-              <li>To make it easier to perceive that either the input or button can be clicked to open the listbox, hover causes the same styling as focus.</li>
-              <li>To help people with visual impairments identify the combobox as an interactive element, the cursor is changed to a pointer when hovering over the combobox or list.</li>
-              <li>To make it easier to distinguish the selected listbox option from other options, selection creates a 2 pixel border above and below the option.</li>
+              <li>コンボボックスがフォーカスを受け取ったときに認識しやすくするために、フォーカスは <code>input</code> 要素と <code>button</code> 要素それぞれの周りに 2 ピクセルのスペースを空けて 2 ピクセルのフォーカスリングを作成します。</li>
+              <li>リストボックスを開くために入力欄又はボタンをクリックできることをわかりやすくするため、ホバーはフォーカスと同じスタイリングをします。</li>
+              <li>視覚障害を持つ人々がコンボボックスを対話型要素として識別できるように、コンボボックス又はリスト上にホバーすると、カーソルがポインターに変わります。</li>
+              <li>選択されたリストボックスの選択肢を他の選択肢と区別しやすくするため、選択するとその選択肢の上下に 2 ピクセルのボーダーを作成します。</li>
               <li>
-                Note: Because transparent borders are visible on some systems with operating system high contrast settings enabled, transparency cannot be used to create a visual difference between the element that is focused an other elements.
-                Instead of using transparency, the focused element has a thicker border and less padding.
-                When an element receives focus, its border changes from zero to two pixels and padding is reduced by two pixels.
-                When an element loses focus, its border changes from two pixels to two and padding is increased by two pixels.
+                注記: 透明なボーダーは、オペレーティングシステムの高コントラスト設定が有効な一部のシステムで表示されるため、フォーカスされた要素と他の要素との視覚的な違いを作成するために透明度を使用することはできません。
+                透明度の代わりに、フォーカスされた要素はより太いボーダーとより少ないパディングを持ちます。
+                要素がフォーカスを受け取るとき、ボーダーはゼロから 2 ピクセルに変更され、パディングは 2 ピクセル減少します。
+                要素がフォーカスを失ったとき、ボーダーは 2 ピクセルからゼロに変更され、パディングは 2 ピクセル増加します。
               </li>
             </ul>
-          </li>
-          <li>
-            To ensure the inline SVG graphic used for the arrow in the open button has sufficient contrast with the background when high contrast settings change the color of text content, CSS <code>forced-color-adjust</code> is set to <code>auto</code> on the <code>svg</code> element and and the <code>fill</code> attribute of the <code>polygon</code> element is set to <code>currentcolor</code>.
-            This causes the colors of the <code>fill</code> of the polygon elements to be overridden by the high contrast color setting.
-            If <code>forced-color-adjust</code> were not used to override the colors specified for the <code>fill</code> property, the color would remain the same in high contrast mode, which could lead to insufficient contrast between the arrow and the background or even make it invisible if the color matched the high contrast mode background.<br>
-            Note: The explicit setting of <code>forced-color-adjust</code> is necessary because some browsers do not use <code>auto</code> as the default value for SVG graphics.
-          </li>
-        </ul>
-      </section>
+            </li>
+            <li>
+            高コントラスト設定がテキストコンテンツの色を変更する場合、開くボタンの矢印として使われるインライン SVG グラフィックがその背景と十分なコントラストを持つようにするために、<code>svg</code> 要素の CSS <code>forced-color-adjust</code> は <code>auto</code> に設定され、かつ <code>polygon</code> 要素の <code>fill</code> 属性は <code>currentcolor</code> に設定されます。
+            これにより、<code>polygon</code> 要素の <code>fill</code> の色は高コントラストカラー設定によって上書きされます。
+            <code>forced-color-adjust</code> を使用して <code>fill</code> プロパティの指定された色を上書きしない場合、色は高コントラストモードでも同じままになり、矢印と背景との間の十分なコントラストが得られないか、色が高コントラストモードの背景と一致して見えなくなる可能性があります。<br>
+            注記: <code>forced-color-adjust</code> の明示的な設定は、一部のブラウザが SVG グラフィックのデフォルト値として <code>auto</code> を使用しないため必要です。
+            </li>
+          </ul>
+          </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
         <p>
-          The example combobox on this page implements the following keyboard interface.
-          Other variations and options for the keyboard interface are described in the <a href="../combobox-pattern.html#keyboard_interaction">Keyboard Interaction section of the Combobox Pattern</a>.
+          このページのコンボボックスの例では、以下のキーボードインターフェースを実装しています。
+          キーボードインターフェースの他のバリエーションやオプションについては、<a href="../combobox-pattern.html#keyboard_interaction">コンボボックスパターンのキーボードインタラクションセクション</a>で説明されています。
         </p>
-        <h3 id="kbd_label_textbox">Textbox</h3>
+        <h3 id="kbd_label_textbox">テキストボックス</h3>
         <table aria-labelledby="kbd_label_textbox kbd_label" class="def">
           <thead>
-            <tr>
-              <th>Key</th>
-              <th>Function</th>
-            </tr>
+        <tr>
+          <th>キー</th>
+          <th>機能</th>
+        </tr>
           </thead>
           <tbody>
-            <tr data-test-id="textbox-key-down-arrow">
-              <th><kbd>Down Arrow</kbd></th>
-              <td>
-                <ul>
-                  <li>If the listbox is displayed and a suggestion is selected, moves visual focus to the next suggested value.</li>
-                  <li>If the textbox is empty and the listbox is not displayed, opens the listbox and moves visual focus to the first option.</li>
-                  <li>In both cases DOM focus remains on the textbox.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="textbox-key-alt-down-arrow">
-              <th><kbd>Alt + Down Arrow</kbd></th>
-              <td>Opens the listbox without moving focus or changing selection.</td>
-            </tr>
-            <tr data-test-id="textbox-key-up-arrow">
-              <th><kbd>Up Arrow</kbd></th>
-              <td>
-                <ul>
-                  <li>If the listbox is displayed and a suggestion is selected, moves visual focus to the last suggested value.</li>
-                  <li>If the textbox is empty, first opens the listbox if it is not already displayed and then moves visual focus to the last option.</li>
-                  <li>In both cases DOM focus remains on the textbox.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="textbox-key-enter">
-              <th><kbd>Enter</kbd></th>
-              <td>
-                <ul>
-                  <li>Sets the textbox value to the content of the selected option.</li>
-                  <li>Closes the listbox.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="textbox-key-escape">
-              <th><kbd>Escape</kbd></th>
-              <td>
-                <ul>
-                  <li>If the listbox is displayed, closes it.</li>
-                  <li>If the listbox is not displayed, clears the textbox.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="standard-single-line-editing-keys">
-              <th>Standard single line text editing keys</th>
-              <td>
-                <ul>
-                  <li>Keys used for cursor movement and text manipulation, such as <kbd>Delete</kbd> and <kbd>Shift + Right Arrow</kbd>.</li>
-                  <li>An HTML <code>input</code> with <code>type="text"</code> is used for the textbox so the browser will provide platform-specific editing keys.</li>
-                </ul>
-              </td>
-            </tr>
+        <tr data-test-id="textbox-key-down-arrow">
+          <th><kbd>下矢印</kbd></th>
+          <td>
+            <ul>
+              <li>リストボックスが表示され、かつ提案が選択されている場合、視覚的フォーカスを次の提案値に移動します。</li>
+              <li>テキストボックスが空であり、かつリストボックスが表示されていない場合、リストボックスを開き、視覚的フォーカスを最初の選択肢に移動します。</li>
+              <li>いずれの場合も、DOM のフォーカスはテキストボックスに残ります。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="textbox-key-alt-down-arrow">
+          <th><kbd>Alt + 下矢印</kbd></th>
+          <td>フォーカスを移動したり選択を変更したりせずにリストボックスを開きます。</td>
+        </tr>
+        <tr data-test-id="textbox-key-up-arrow">
+          <th><kbd>上矢印</kbd></th>
+          <td>
+            <ul>
+              <li>リストボックスが表示され、かつ提案が選択されている場合、最後の提案値に視覚的フォーカスを移動します。</li>
+              <li>テキストボックスが空の場合、リストボックスがまだ表示されていない場合はまずリストボックスを開き、そして視覚的フォーカスを最後の選択肢に移動します。</li>
+              <li>いずれの場合も、DOM のフォーカスはテキストボックスに残ります。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="textbox-key-enter">
+          <th><kbd>Enter</kbd></th>
+          <td>
+            <ul>
+              <li>選択された選択肢の内容でテキストボックスの値を設定します。</li>
+              <li>リストボックスを閉じます。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="textbox-key-escape">
+          <th><kbd>Escape</kbd></th>
+          <td>
+            <ul>
+              <li>リストボックスが表示されている場合、リストボックスを閉じます。</li>
+              <li>リストボックスが表示されていない場合、テキストボックスをクリアします。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="standard-single-line-editing-keys">
+          <th>標準の単一行テキスト編集キー</th>
+          <td>
+            <ul>
+              <li>カーソルの移動やテキストの操作に使用されるキー、例えば <kbd>Delete</kbd> や <kbd>Shift + 右矢印</kbd> など。</li>
+              <li>テキストボックスには <code>type="text"</code> のついた HTML <code>input</code> が使用されているため、ブラウザがプラットフォーム固有の編集キーを提供します。</li>
+            </ul>
+          </td>
+        </tr>
           </tbody>
         </table>
-        <h3 id="kbd_label_listbox">Listbox Popup</h3>
+        <h3 id="kbd_label_listbox">リストボックスポップアップ</h3>
         <p>
-          <strong>NOTE:</strong> When visual focus is in the listbox, DOM focus remains on the textbox and the value of <code>aria-activedescendant</code> on the textbox is set to a value that refers to the listbox option that is visually indicated as focused.
-          Where the following descriptions of keyboard commands mention focus, they are referring to the visual focus indicator.
-          For more information about this focus management technique, see
-          <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">Managing Focus in Composites Using aria-activedescendant</a>.
+          <strong>注記:</strong> リストボックスに視覚的フォーカスがある場合、DOM のフォーカスはテキストボックスに残り、かつテキストボックスの <code>aria-activedescendant</code> の値は、視覚的にフォーカス表示されているリストボックスの選択肢の値に設定されます。
+          キーボードコマンドの以下の説明でフォーカスと言及している場合、視覚的フォーカスインジケータを指しています。
+          このフォーカス管理テクニックの詳細については、<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカス管理</a> を参照してください。
         </p>
         <table aria-labelledby="kbd_label_listbox kbd_label" class="def">
           <thead>
-            <tr>
-              <th>Key</th>
-              <th>Function</th>
-            </tr>
+        <tr>
+          <th>キー</th>
+          <th>機能</th>
+        </tr>
           </thead>
           <tbody>
-            <tr data-test-id="listbox-key-enter">
-              <th><kbd>Enter</kbd></th>
-              <td>
-                <ul>
-                  <li>Sets the textbox value to the content of the focused option in the listbox.</li>
-                  <li>Closes the listbox.</li>
-                  <li>Sets visual focus on the textbox.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="listbox-key-escape">
-              <th><kbd>Escape</kbd></th>
-              <td>
-                <ul>
-                  <li>Closes the listbox.</li>
-                  <li>Sets visual focus on the textbox.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="listbox-key-down-arrow">
-              <th><kbd>Down Arrow</kbd></th>
-              <td>
-                <ul>
-                  <li>Moves visual focus to the next option.</li>
-                  <li>If visual focus is on the last option, moves visual focus to the first option.</li>
-                  <li>Note: This wrapping behavior is useful when <kbd>Home</kbd> and <kbd>End</kbd> move the editing cursor as described below.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="listbox-key-up-arrow">
-              <th><kbd>Up Arrow</kbd></th>
-              <td>
-                <ul>
-                  <li>Moves visual focus to the previous option.</li>
-                  <li>If visual focus is on the first option, moves visual focus to the last option.</li>
-                  <li>Note: This wrapping behavior is useful when <kbd>Home</kbd> and <kbd>End</kbd> move the editing cursor as described below.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="listbox-key-right-arrow">
-              <th><kbd>Right Arrow</kbd></th>
-              <td>Moves visual focus to the textbox and moves the editing cursor one character to the right.</td>
-            </tr>
-            <tr data-test-id="listbox-key-left-arrow">
-              <th><kbd>Left Arrow</kbd></th>
-              <td>Moves visual focus to the textbox and moves the editing cursor one character to the left.</td>
-            </tr>
-            <tr data-test-id="listbox-key-home">
-              <th><kbd>Home</kbd></th>
-              <td>Moves visual focus to the textbox and places the editing cursor at the beginning of the field.</td>
-            </tr>
-            <tr data-test-id="listbox-key-end">
-              <th><kbd>End</kbd></th>
-              <td>Moves visual focus to the textbox and places the editing cursor at the end of the field.</td>
-            </tr>
-            <tr data-test-id="listbox-characters">
-              <th>Printable Characters</th>
-              <td>
-                <ul>
-                  <li>Moves visual focus to the textbox.</li>
-                  <li>Types the character in the textbox.</li>
-                  <li>Options in the listbox are filtered based on characters in the textbox.</li>
-                </ul>
-              </td>
-            </tr>
+        <tr data-test-id="listbox-key-enter">
+          <th><kbd>Enter</kbd></th>
+          <td>
+            <ul>
+              <li>テキストボックスの値をリストボックス内のフォーカスされた選択肢の内容に設定します。</li>
+              <li>リストボックスを閉じます。</li>
+              <li>視覚的フォーカスをテキストボックスに設定します。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="listbox-key-escape">
+          <th><kbd>Escape</kbd></th>
+          <td>
+            <ul>
+              <li>リストボックスを閉じます。</li>
+              <li>視覚的フォーカスをテキストボックスに設定します。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="listbox-key-down-arrow">
+          <th><kbd>下矢印</kbd></th>
+          <td>
+            <ul>
+              <li>視覚的フォーカスを次の選択肢に移動します。</li>
+              <li>視覚的フォーカスが最後の選択肢にある場合、視覚的フォーカスを最初の選択肢に移動します。</li>
+              <li>注記: このラッピング動作は、以下で説明するように <kbd>Home</kbd> 及び <kbd>End</kbd> が編集カーソルを移動する場合に便利です。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="listbox-key-up-arrow">
+          <th><kbd>上矢印</kbd></th>
+          <td>
+            <ul>
+              <li>視覚的フォーカスを前の選択肢に移動します。</li>
+              <li>視覚的フォーカスが最初の選択肢にある場合、視覚的フォーカスを最後の選択肢に移動します。</li>
+              <li>注記: このラッピング動作は、以下で説明するように <kbd>Home</kbd> 及び <kbd>End</kbd> が編集カーソルを移動する場合に便利です。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="listbox-key-right-arrow">
+          <th><kbd>右矢印</kbd></th>
+          <td>視覚的フォーカスをテキストボックスに移動し、編集カーソルを右に 1 文字移動します。</td>
+        </tr>
+        <tr data-test-id="listbox-key-left-arrow">
+          <th><kbd>左矢印</kbd></th>
+          <td>視覚的フォーカスをテキストボックスに移動し、編集カーソルを左に 1 文字移動します。</td>
+        </tr>
+        <tr data-test-id="listbox-key-home">
+          <th><kbd>Home</kbd></th>
+          <td>視覚的フォーカスをテキストボックスに移動し、編集カーソルをフィールドの先頭に移動します。</td>
+        </tr>
+        <tr data-test-id="listbox-key-end">
+          <th><kbd>End</kbd></th>
+          <td>視覚的フォーカスをテキストボックスに移動し、編集カーソルをフィールドの末尾に移動します。</td>
+        </tr>
+        <tr data-test-id="listbox-characters">
+          <th>印刷可能な文字</th>
+          <td>
+            <ul>
+              <li>視覚的フォーカスをテキストボックスに移動します。</li>
+              <li>テキストボックスに文字を入力します。</li>
+              <li>リストボックスの選択肢は、テキストボックス内の文字に基づいてフィルタリングされます。</li>
+            </ul>
+          </td>
+        </tr>
           </tbody>
         </table>
-        <h3 id="kbd_label_button">Button</h3>
-        <p>The button has been removed from the tab sequence of the page, but is still important to assistive technologies for mobile devices that use touch events to open the list of options.</p>
+        <h3 id="kbd_label_button">ボタン</h3>
+        <p>このボタンはページのタブ順序から除外されていますが、タッチイベントを使用して選択肢のリストを開くモバイルデバイスの支援技術にとって依然として重要です。</p>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <p>
-          The example combobox on this page implements the following ARIA roles, states, and properties.
-          Information about other ways of applying ARIA roles, states, and properties is available in the <a href="../combobox-pattern.html#roles_states_properties">Roles, States, and Properties section of the Combobox Pattern</a>.
+          このページのコンボボックスの例は、以下の ARIA ロール、ステート、及びプロパティを実装しています。
+          ARIA ロール、ステート、及びプロパティを適用する他の方法についての情報は、<a href="../combobox-pattern.html#roles_states_properties">コンボボックスパターンのロール、ステート、及びプロパティセクション</a>で確認できます。
         </p>
-        <h3 id="rps_label_textbox">Textbox</h3>
+        <h3 id="rps_label_textbox">テキストボックス</h3>
         <table aria-labelledby="rps_label_textbox rps_label" class="data attributes">
           <thead>
-            <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
-            </tr>
+        <tr>
+          <th scope="col">ロール</th>
+          <th scope="col">属性</th>
+          <th scope="col">要素</th>
+          <th scope="col">使用法</th>
+        </tr>
           </thead>
           <tbody>
-            <tr data-test-id="combobox-role">
-              <th scope="row">
-                <code>combobox</code>
-              </th>
-              <td></td>
-              <td><code>input[type="text"]</code></td>
-              <td>Identifies the input as a combobox.</td>
-            </tr>
-            <tr data-test-id="combobox-aria-autocomplete">
-              <td></td>
-              <th scope="row">
-                <code>aria-autocomplete="both"</code>
-              </th>
-              <td><code>input[type="text"]</code></td>
-              <td>Indicates that the autocomplete behavior of the text input is to both show an inline completion string and suggest a list of possible values in a popup where the suggestions are related to the string that is present in the textbox.</td>
-            </tr>
-            <tr data-test-id="combobox-aria-controls">
-              <td></td>
-              <th scope="row">
-                <code>aria-controls="ID_REF"</code>
-              </th>
-              <td><code>input[type="text"]</code></td>
-              <td>Identifies the element that serves as the popup.</td>
-            </tr>
-            <tr data-test-id="combobox-aria-expanded">
-              <td></td>
-              <th scope="row">
-                <code>aria-expanded="false"</code>
-              </th>
-              <td><code>input[type="text"]</code></td>
-              <td>Indicates that the popup element <strong>is not</strong> displayed.</td>
-            </tr>
-            <tr data-test-id="combobox-aria-expanded">
-              <td></td>
-              <th scope="row">
-                <code>aria-expanded="true"</code>
-              </th>
-              <td><code>input[type="text"]</code></td>
-              <td>Indicates that the popup element <strong>is</strong> displayed.</td>
-            </tr>
-            <tr data-test-id="combobox-id">
-              <td></td>
-              <th scope="row">
-                <code>id="string"</code>
-              </th>
-              <td><code>input[type="text"]</code></td>
-              <td>
-                <ul>
-                  <li>Referenced by <code>for</code> attribute of <code>label</code> element to provide an accessible name.</li>
-                  <li>Recommended naming method for HTML input elements because clicking label focuses input.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="combobox-aria-activedescendant">
-              <td></td>
-              <th scope="row">
-                <code>aria-activedescendant="ID_REF"</code>
-              </th>
-              <td><code>input[type="text"]</code></td>
-              <td>
-                <ul>
-                  <li>When an option in the listbox is visually indicated as having keyboard focus, refers to that option.</li>
-                  <li>When navigation keys, such as <kbd>Down Arrow</kbd>, are pressed, the JavaScript changes the value.</li>
-                  <li>Enables assistive technologies to know which element the application regards as focused while DOM focus remains on the <code>input</code> element.</li>
-                  <li>
-                    For more information about this focus management technique, see
-                    <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">Managing Focus in Composites Using aria-activedescendant</a>.
-                  </li>
-                </ul>
-              </td>
-            </tr>
+        <tr data-test-id="combobox-role">
+          <th scope="row">
+            <code>combobox</code>
+          </th>
+          <td></td>
+          <td><code>input[type="text"]</code></td>
+          <td>入力欄をコンボボックスとして識別します。</td>
+        </tr>
+        <tr data-test-id="combobox-aria-autocomplete">
+          <td></td>
+          <th scope="row">
+            <code>aria-autocomplete="both"</code>
+          </th>
+          <td><code>input[type="text"]</code></td>
+          <td>テキスト入力欄のオートコンプリートの動作が、インラインの補完文字列を表示することと、テキストボックス内に存在する文字列に関連する入力可能値のリストをポップアップで提案することの両方であることを示します。</td>
+        </tr>
+        <tr data-test-id="combobox-aria-controls">
+          <td></td>
+          <th scope="row">
+            <code>aria-controls="ID_REF"</code>
+          </th>
+          <td><code>input[type="text"]</code></td>
+          <td>ポップアップとして機能する要素を識別します。</td>
+        </tr>
+        <tr data-test-id="combobox-aria-expanded">
+          <td></td>
+          <th scope="row">
+            <code>aria-expanded="false"</code>
+          </th>
+          <td><code>input[type="text"]</code></td>
+          <td>ポップアップ要素が表示<strong>されていない</strong>ことを示します。</td>
+        </tr>
+        <tr data-test-id="combobox-aria-expanded">
+          <td></td>
+          <th scope="row">
+            <code>aria-expanded="true"</code>
+          </th>
+          <td><code>input[type="text"]</code></td>
+          <td>ポップアップ要素が表示<strong>されている</strong>ことを示します。</td>
+        </tr>
+        <tr data-test-id="combobox-id">
+          <td></td>
+          <th scope="row">
+            <code>id="string"</code>
+          </th>
+          <td><code>input[type="text"]</code></td>
+          <td>
+            <ul>
+              <li>アクセシブル名を提供するために <code>label</code> 要素の <code>for</code> 属性によって参照されます。</li>
+              <li>ラベルをクリックすると入力欄がフォーカスされるため、HTML の input 要素のための推奨される命名方法です。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="combobox-aria-activedescendant">
+          <td></td>
+          <th scope="row">
+            <code>aria-activedescendant="ID_REF"</code>
+          </th>
+          <td><code>input[type="text"]</code></td>
+          <td>
+            <ul>
+              <li>リストボックス内の選択肢がキーボードフォーカスを持つことを視覚的に示す場合、その選択肢を参照します。</li>
+              <li>ナビゲーションキー (例えば <kbd>下矢印</kbd>) が押されたとき、JavaScript が値を変更します。</li>
+              <li>DOM のフォーカスが <code>input</code> 要素にある間、どの要素がフォーカスされているとアプリケーションがみなすかを支援技術が知れるようにします。</li>
+              <li>
+                このフォーカス管理テクニックの詳細については、
+                <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_focus_activedescendant">aria-activedescendant を使用したコンポジット内のフォーカス管理</a> を参照してください。
+              </li>
+            </ul>
+          </td>
+        </tr>
           </tbody>
         </table>
-        <h3 id="rps_label_listbox">Listbox Popup</h3>
+        <h3 id="rps_label_listbox">リストボックスポップアップ</h3>
         <table aria-labelledby="rps_label_listbox rps_label" class="data attributes">
           <thead>
-            <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
-            </tr>
+        <tr>
+          <th scope="col">ロール</th>
+          <th scope="col">属性</th>
+          <th scope="col">要素</th>
+          <th scope="col">使用法</th>
+        </tr>
           </thead>
           <tbody>
-            <tr data-test-id="listbox-role">
-              <th scope="row">
-                <code>listbox</code>
-              </th>
-              <td></td>
-              <td>
-                <code>ul</code>
-              </td>
-              <td>Identifies the <code>ul</code> element as a <code>listbox</code>.</td>
-            </tr>
-            <tr data-test-id="listbox-aria-label">
-              <td></td>
-              <th scope="row">
-                <code>aria-label="States"</code>
-              </th>
-              <td><code>ul</code></td>
-              <td>Provides a label for the <code>listbox</code>.</td>
-            </tr>
-            <tr data-test-id="option-role">
-              <th scope="row">
-                <code>option</code>
-              </th>
-              <td></td>
-              <td><code>li</code></td>
-              <td>
-                <ul>
-                  <li>Identifies the element as a <code>listbox</code> <code>option</code>.</li>
-                  <li>The text content of the element provides the accessible name of the <code>option</code>.</li>
-                </ul>
-              </td>
-            </tr>
-            <tr data-test-id="option-aria-selected">
-              <td></td>
-              <th scope="row">
-                <code>aria-selected="true"</code>
-              </th>
-              <td><code>li</code></td>
-              <td>
-                <ul>
-                  <li>Specified on an option in the listbox when it is visually highlighted as selected.</li>
-                  <li>Occurs when an option in the list is referenced by <code>aria-activedescendant</code> and when focus is in the textbox and the first option is automatically selected.</li>
-                </ul>
-              </td>
-            </tr>
+        <tr data-test-id="listbox-role">
+          <th scope="row">
+            <code>listbox</code>
+          </th>
+          <td></td>
+          <td>
+            <code>ul</code>
+          </td>
+          <td><code>ul</code> 要素を <code>listbox</code> として識別します。</td>
+        </tr>
+        <tr data-test-id="listbox-aria-label">
+          <td></td>
+          <th scope="row">
+            <code>aria-label="States"</code>
+          </th>
+          <td><code>ul</code></td>
+          <td><code>listbox</code> のためのラベルを提供します。</td>
+        </tr>
+        <tr data-test-id="option-role">
+          <th scope="row">
+            <code>option</code>
+          </th>
+          <td></td>
+          <td><code>li</code></td>
+          <td>
+            <ul>
+              <li>要素を <code>listbox</code> の <code>option</code> として識別します。</li>
+              <li>要素のテキストコンテンツは <code>option</code> のアクセシブル名を提供します。</li>
+            </ul>
+          </td>
+        </tr>
+        <tr data-test-id="option-aria-selected">
+          <td></td>
+          <th scope="row">
+            <code>aria-selected="true"</code>
+          </th>
+          <td><code>li</code></td>
+          <td>
+            <ul>
+              <li>リストボックス内の選択肢が選択されているとして視覚的にハイライトされている場合に指定されます。</li>
+              <li>リスト内の選択肢が <code>aria-activedescendant</code> で参照され、かつテキストボックス内にフォーカスがあり、かつ最初の選択肢が自動的に選択される場合に発生します。</li>
+            </ul>
+          </td>
+        </tr>
           </tbody>
         </table>
 
-        <h3 id="rps_label_button">Button</h3>
+        <h3 id="rps_label_button">ボタン</h3>
         <table aria-labelledby="rps_label_button rps_label" class="data attributes">
           <thead>
-            <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
-            </tr>
+        <tr>
+          <th scope="col">ロール</th>
+          <th scope="col">属性</th>
+          <th scope="col">要素</th>
+          <th scope="col">使用法</th>
+        </tr>
           </thead>
           <tbody>
-            <tr data-test-id="button-tabindex">
-              <td></td>
-              <th scope="row">
-                <code>tabindex="-1"</code>
-              </th>
-              <td><code>button</code></td>
-              <td>Removes the button from the tab sequence of the page because its function is redundant with the keyboard operation of the combobox.</td>
-            </tr>
-            <tr data-test-id="button-aria-label">
-              <td></td>
-              <th scope="row">
-                <code>aria-label="States"</code>
-              </th>
-              <td><code>button</code></td>
-              <td>Provides a label for the <code>button</code>.</td>
-            </tr>
-            <tr data-test-id="button-aria-controls">
-              <td></td>
-              <th scope="row">
-                <code>aria-controls="ID_REF"</code>
-              </th>
-              <td><code>button</code></td>
-              <td>Identifies the element that serves as the popup.</td>
-            </tr>
-            <tr data-test-id="button-aria-expanded">
-              <td></td>
-              <th scope="row">
-                <code>aria-expanded="false"</code>
-              </th>
-              <td><code>button</code></td>
-              <td>Indicates that the popup element <strong>is not</strong> displayed.</td>
-            </tr>
-            <tr data-test-id="button-aria-expanded">
-              <td></td>
-              <th scope="row">
-                <code>aria-expanded="true"</code>
-              </th>
-              <td><code>button</code></td>
-              <td>Indicates that the popup element <strong>is</strong> displayed.</td>
-            </tr>
+        <tr data-test-id="button-tabindex">
+          <td></td>
+          <th scope="row">
+            <code>tabindex="-1"</code>
+          </th>
+          <td><code>button</code></td>
+          <td>コンボボックスのキーボード操作と重複するため、ボタンをページのタブ順序から除外します。</td>
+        </tr>
+        <tr data-test-id="button-aria-label">
+          <td></td>
+          <th scope="row">
+            <code>aria-label="States"</code>
+          </th>
+          <td><code>button</code></td>
+          <td><code>button</code> のためのラベルを提供します。</td>
+        </tr>
+        <tr data-test-id="button-aria-controls">
+          <td></td>
+          <th scope="row">
+            <code>aria-controls="ID_REF"</code>
+          </th>
+          <td><code>button</code></td>
+          <td>ポップアップとして機能する要素を識別します。</td>
+        </tr>
+        <tr data-test-id="button-aria-expanded">
+          <td></td>
+          <th scope="row">
+            <code>aria-expanded="false"</code>
+          </th>
+          <td><code>button</code></td>
+          <td>ポップアップ要素が表示<strong>されていない</strong>ことを示します。</td>
+        </tr>
+        <tr data-test-id="button-aria-expanded">
+          <td></td>
+          <th scope="row">
+            <code>aria-expanded="true"</code>
+          </th>
+          <td><code>button</code></td>
+          <td>ポップアップ要素が表示<strong>されている</strong>ことを示します。</td>
+        </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScript 及び CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>
             CSS:
             <a href="css/combobox-autocomplete.css" type="text/css">combobox-autocomplete.css</a>
           </li>
           <li>
-            Javascript:
+            JavaScript:
             <a href="js/combobox-autocomplete.js" type="text/javascript">combobox-autocomplete.js</a>
           </li>
         </ul>
       </section>
-
-      <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+      
+      <section class="example-code">
+        <h2 id="sc1_label">HTML のソースコード</h2>
+        <p id="sc1_description">以下の HTML コードをコピーするには、CodePen で開いてください。</p>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="の終了"></div>
         <script>
-          sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files');
+          sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files', 'sc1_description');
           sourceCode.make();
         </script>
       </section>

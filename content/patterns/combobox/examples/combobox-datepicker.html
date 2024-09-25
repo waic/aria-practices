@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date Picker Combobox Example</title>
+    <title>日付選択コンボボックスの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -11,7 +11,7 @@
     <script src="../../../shared/js/examples.js"></script>
     <script src="../../../shared/js/highlight.pack.js"></script>
     <script src="../../../shared/js/app.js"></script>
-    <script src="../../../shared/js/skipto.js"></script>
+    <script data-skipto="colorTheme:aria; displayOption:popup; containerElement:div" src="../../../shared/js/skipto.js"></script>
 
     <!-- JS and CSS for this example -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -19,51 +19,53 @@
     <script src="js/combobox-datepicker.js"></script>
   </head>
   <body>
-    <nav aria-label="Related Links" class="feedback">
+    <nav aria-label="関連リンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/7">Related Issues</a></li>
-        <li><a href="../combobox-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/7">関連する Issues</a></li>
+        <li><a href="../combobox-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
-      <h1>Date Picker Combobox Example</h1>
+      <h1>日付選択コンボボックスの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/2d60c413ec23875a30162364a7e715b26875d9db -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
+        <img alt="" class="example-page-example-icon" src="../../../images/pattern-combobox.svg">
         <p>
-          The below date picker demonstrates an implementation of the <a href="../combobox-pattern.html">Combobox Pattern</a> that opens a dialog.
-          The date picker dialog is opened by activating the choose date button or by moving keyboard focus to the combobox and pressing <kbd>Down Arrow</kbd> or <kbd>Alt + Down Arrow</kbd>.
-          The dialog contains an implementation of the <a href="../../grid/grid-pattern.html">grid pattern</a> for displaying a calendar and enabling selection of a date.
-          Additional buttons in the dialog are available for changing the month and year shown in the grid.
+          以下の日付選択は、ダイアログを開く<a href="../combobox-pattern.html">コンボボックスパターン</a>の実装を示しています。
+          日付選択ダイアログは、日付を選択するボタンをアクティブ化するか、キーボードフォーカスをコンボボックスに移動して <kbd>Down Arrow</kbd> 又は <kbd>Alt + Down Arrow</kbd> を押すことで開かれます。
+          ダイアログには、カレンダーを表示し、日付の選択を可能にするための <a href="../../grid/grid-pattern.html">グリッドパターン</a> の実装が含まれています。
+          グリッドに表示される月と年を変更するために、ダイアログ内の追加のボタンを使用できます。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例には以下があります:</p>
         <ul>
-          <li><a href="../../dialog-modal/examples/datepicker-dialog.html">Date Picker Dialog example</a>: Demonstrates a dialog containing a calendar grid for choosing a date.</li>
-          <li><a href="combobox-select-only.html">Select-Only Combobox</a>: A single-select combobox with no text input that is functionally similar to an HTML <code>select</code> element.</li>
-          <li><a href="combobox-autocomplete-both.html">Editable Combobox with Both List and Inline Autocomplete</a>: An editable combobox that demonstrates the autocomplete behavior known as &quot;list with inline autocomplete&quot;.</li>
-          <li><a href="combobox-autocomplete-list.html">Editable Combobox with List Autocomplete</a>: An editable combobox that demonstrates the autocomplete behavior known as &quot;list with manual selection&quot;.</li>
-          <li><a href="combobox-autocomplete-none.html">Editable Combobox Without Autocomplete</a>: An editable combobox that demonstrates the behavior associated with <code>aria-autocomplete=none</code>.</li>
-          <li><a href="grid-combo.html">Editable Combobox with Grid Popup</a>: An editable combobox that presents suggestions in a grid, enabling users to navigate descriptive information about each suggestion.</li>
+          <li><a href="../../dialog-modal/examples/datepicker-dialog.html">日付選択ダイアログの例</a>: 日付を選択するためのカレンダーグリッドを含むダイアログを示しています。</li>
+          <li><a href="combobox-select-only.html">選択限定コンボボックス</a>: テキスト入力のない単一選択コンボボックスで、HTML の <code>select</code> 要素と機能的に似ています。</li>
+          <li><a href="combobox-autocomplete-both.html">リストとインラインオートコンプリートの両方を備えた編集可能コンボボックス</a>: 「リストとインラインのオートコンプリート」として知られるオートコンプリートの動作を示す編集可能なコンボボックスです。</li>
+          <li><a href="combobox-autocomplete-list.html">リストオートコンプリート付き編集可能コンボボックス</a>: オートコンプリートの動作である「リストと手動選択」として知られるオートコンプリートを示す編集可能なコンボボックスです。</li>
+          <li><a href="combobox-autocomplete-none.html">オートコンプリートなし編集可能コンボボックス</a>: <code>aria-autocomplete=none</code> に関連する動作を示す編集可能なコンボボックスです。</li>
+          <li><a href="grid-combo.html">グリッドポップアップ付き編集可能コンボボックス</a>: グリッドで提案を表示し、各提案の説明情報をナビゲートできる編集可能なコンボボックスです。</li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+      
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="の開始"></div>
         <div id="ex1">
           <div id="myDatepicker" class="combobox-datepicker">
             <div class="label">
-              <label id="id-label-1" for="cb-textbox-1"> Date </label>
+              <label id="id-label-1" for="cb-textbox-1"> 日付 </label>
             </div>
-
+      
             <div class="group">
               <input type="text" id="cb-textbox-1" aria-autocomplete="none" role="combobox" aria-expanded="false" aria-haspopup="dialog" aria-controls="cb-dialog-1" aria-describedby="cb-description-1">
-
-              <span class="desc" id="cb-description-1">(date format: mm/dd/yyyy)</span>
-              <button type="button" class="arrow" tabindex="-1" aria-label="Choose Date">
+      
+              <span class="desc" id="cb-description-1">(日付形式: yyyy/mm/dd)</span>
+              <button type="button" class="arrow" tabindex="-1" aria-label="日付を選択">
                 <span>
                   <svg width="18" height="16" aria-hidden="true" focusable="false">
                     <polygon points="2,4 16,4 9,14"></polygon>
@@ -71,38 +73,38 @@
                 </span>
               </button>
             </div>
-
-            <div id="cb-dialog-1" class="dialog" role="dialog" aria-modal="true" aria-label="Choose Date">
+      
+            <div id="cb-dialog-1" class="dialog" role="dialog" aria-modal="true" aria-label="日付を選択">
               <div class="header">
-                <button type="button" class="prev-year" aria-label="previous year">
+                <button type="button" class="prev-year" aria-label="前年">
                   <span class="fas fa-angle-double-left fa-lg"></span>
                 </button>
-
-                <button type="button" class="prev-month" aria-label="previous month">
+      
+                <button type="button" class="prev-month" aria-label="前月">
                   <span class="fas fa-angle-left fa-lg"></span>
                 </button>
-
-                <h2 id="cb-grid-label" class="month-year" aria-live="polite">December 2020</h2>
-
-                <button type="button" class="next-month" aria-label="next month">
+      
+                <h2 id="cb-grid-label" class="month-year" aria-live="polite">2020年12月</h2>
+      
+                <button type="button" class="next-month" aria-label="次月">
                   <span class="fas fa-angle-right fa-lg"></span>
                 </button>
-
-                <button type="button" class="next-year" aria-label="next year">
+      
+                <button type="button" class="next-year" aria-label="次年">
                   <span class="fas fa-angle-double-right fa-lg"></span>
                 </button>
               </div>
-
+      
               <table class="dates" role="grid" aria-labelledby="cb-grid-label">
                 <thead>
                   <tr>
-                    <th scope="col" abbr="Sunday">Su</th>
-                    <th scope="col" abbr="Monday">Mo</th>
-                    <th scope="col" abbr="Tuesday">Tu</th>
-                    <th scope="col" abbr="Wednesday">We</th>
-                    <th scope="col" abbr="Thursday">Th</th>
-                    <th scope="col" abbr="Friday">Fr</th>
-                    <th scope="col" abbr="Saturday">Sa</th>
+                    <th scope="col" abbr="日曜日">日</th>
+                    <th scope="col" abbr="月曜日">月</th>
+                    <th scope="col" abbr="火曜日">火</th>
+                    <th scope="col" abbr="水曜日">水</th>
+                    <th scope="col" abbr="木曜日">木</th>
+                    <th scope="col" abbr="金曜日">金</th>
+                    <th scope="col" abbr="土曜日">土</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -162,59 +164,59 @@
                   </tr>
                 </tbody>
               </table>
-
+      
               <div class="dialog-ok-cancel-group">
-                <button class="dialog-button" value="cancel">Cancel</button>
+                <button class="dialog-button" value="cancel">キャンセル</button>
                 <button class="dialog-button" value="ok">OK</button>
               </div>
-
+      
               <div class="dialog-message" aria-live="polite"></div>
             </div>
           </div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="の終了"></div>
       </section>
 
       <section>
-        <h2>Accessibility Features</h2>
+        <h2>アクセシビリティ機能</h2>
         <ul>
-          <li>The description of the date format is associated with the combobox via <code>aria-describedby</code>, making it available to assistive technologies as an accessible description.</li>
+          <li>日付形式の説明は、コンボボックスと <code>aria-describedby</code> を使用して関連付けられ、支援技術にアクセス可能な説明として提供されます。</li>
           <li>
-            While the down arrow icon is excluded from the <kbd>Tab</kbd> sequence as specified in the <code>combobox</code> design pattern, it is made accessible to assistive technologies as the Choose Date button.
-            This enables assistive technology users who might not have a keyboard, e.g., someone using a touch-based screen reader, to open the date picker dialog.
+            下矢印のアイコンは、<code>combobox</code> デザインパターンで指定されているように <kbd>Tab</kbd> シーケンスから除外されていますが、支援技術には「日付を選択」ボタンとしてアクセス可能になっています。
+            これにより、キーボードを持たない支援技術の利用者 (タッチベースのスクリーンリーダーを使用している利用者など) が日付選択ダイアログを開くことができます。
           </li>
-          <li>In the dialog, shortcut keys are assigned to the additional buttons for changing the month and year displayed in the calendar.</li>
+          <li>ダイアログでは、カレンダーに表示されている月と年を変更するための追加のボタンにショートカットキーが割り当てられています。</li>
           <li>
-            Keyboard help is displayed at the bottom of the dialog.
-            A live region is used to announce it to screen reader users when focus moves into the grid.
+            キーボードヘルプはダイアログの下部に表示されます。フォーカスがグリッドに移動すると、ライブリージョンがスクリーンリーダー利用者にアナウンスされます。
           </li>
-          <li>The calendar heading displaying the month and year is marked up as a live region so screen reader users get feedback from the buttons and keyboard commands that change the month and year.</li>
+          <li>月と年を表示するカレンダーの見出しはライブリージョンとしてマークアップされているため、スクリーンリーダー利用者はボタン及びキーボードコマンドが月及び年を変更するフィードバックを受け取ります。</li>
           <li>
-            To facilitate compact visual design in the calendar, the day names in the column headers are abbreviated to two characters.
-            However, this makes it more difficult for screen reader users to understand the day names.
-            So, full day names are provided to assistive technologies in the HTML <code>abbr</code> attribute on the column headers, enabling screen readers to announce the full names when users navigate the grid.
+            カレンダーのコンパクトなビジュアルデザインを容易にするため、列ヘッダの曜日名は 2 文字に省略されています。
+            ただし、これによりスクリーンリーダー利用者が曜日名を理解するのが困難になります。
+            そのため、列ヘッダの HTML の <code>abbr</code> 属性に完全な曜日名が提供され、スクリーンリーダーがグリッドをナビゲートする際に完全な名前をアナウンスできるようになっています。
+            (訳註: 原文は英語であり、"Sunday" を "Su" と表すようなケースについて言及しています。)
           </li>
           <li>
-            Focus and hover styling of the controls support operating system high contrast settings via the CSS border property:
+            コントロールのフォーカス及びホバースタイルは、CSS のボーダープロパティを使用してオペレーティングシステムの高コントラスト設定をサポートしています: 
             <ul>
-              <li>When a button or date cell receives focus a border is added.</li>
-              <li>When hovering over a button or date cell with a pointing device a border is added.</li>
-              <li>By default, buttons and date cells do not have a border; padding provides a placeholder space for focus and hover styling.</li>
+              <li>ボタンや日付セルがフォーカスを受け取ったとき、ボーダーが追加されます。</li>
+              <li>ポインティングデバイスでボタンや日付セルにホバーしたとき、ボーダーが追加されます。</li>
+              <li>デフォルトでは、ボタン及び日付セルにはボーダーがありません。フォーカスとホバースタイルのプレースホルダースペースとしてパディングが提供されます。</li>
             </ul>
           </li>
         </ul>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
 
         <section>
-          <h3 id="kbd_label_1">Combobox</h3>
+          <h3 id="kbd_label_1">コンボボックス</h3>
           <table aria-labelledby="kbd_label_1 kbd_label" class="def">
             <thead>
               <tr>
-                <th>Key</th>
-                <th>Function</th>
+                <th>キー</th>
+                <th>機能</th>
               </tr>
             </thead>
             <tbody>
@@ -222,10 +224,10 @@
                 <th><kbd>Down Arrow</kbd>,<br><kbd>ALT + Down Arrow</kbd></th>
                 <td>
                   <ul>
-                    <li>Open the date picker dialog.</li>
+                    <li>日付選択ダイアログを開きます。</li>
                     <li>
-                      If the combobox contains a valid date, moves focus to that date in the calendar grid.
-                      Otherwise, moves focus to current date, i.e., today's date.
+                      コンボボックスに有効な日付が含まれている場合、カレンダーグリッド内のその日付にフォーカスを移動します。
+                      それ以外の場合は、現在の日付 (つまり、今日の日付) にフォーカスを移動します。
                     </li>
                   </ul>
                 </td>
@@ -235,26 +237,26 @@
         </section>
 
         <section>
-          <h3 id="kbd_label_3">Date Picker Dialog</h3>
+          <h3 id="kbd_label_3">日付選択ダイアログ</h3>
           <table aria-labelledby="kbd_label_3 kbd_label" class="def">
             <thead>
               <tr>
-                <th>Key</th>
-                <th>Function</th>
+                <th>キー</th>
+                <th>機能</th>
               </tr>
             </thead>
             <tbody>
               <tr data-test-id="dialog-esc">
                 <th><kbd>ESC</kbd></th>
-                <td>Closes the dialog and moves focus to the combobox.</td>
+                <td>ダイアログを閉じ、フォーカスをコンボボックスに移動します。</td>
               </tr>
               <tr data-test-id="dialog-tab">
                 <th><kbd>TAB</kbd></th>
                 <td>
                   <ul>
-                    <li>Moves focus to next element in the dialog <kbd>Tab</kbd> sequence.</li>
-                    <li>Note that, as specified in the <a href="../../grid/grid-pattern.html">Grid Pattern</a>, only one element in the calendar grid is in the <kbd>Tab</kbd> sequence.</li>
-                    <li>If focus is on the last button (i.e., &quot;OK&quot;), moves focus to the first button (i.e. &quot;Previous Year&quot;).</li>
+                    <li>ダイアログの <kbd>Tab</kbd> シーケンス内の次の要素にフォーカスを移動します </li>
+                    <li>ただし、<a href="../../grid/grid-pattern.html">グリッドパターン</a> で指定されているように、カレンダーグリッド内の要素は 1 つだけが <kbd>Tab</kbd> シーケンスに含まれます。</li>
+                    <li>フォーカスが最後のボタン (つまり、「OK」) にある場合、最初のボタン (つまり、「前の年」) にフォーカスを移動します。</li>
                   </ul>
                 </td>
               </tr>
@@ -262,9 +264,9 @@
                 <th><kbd>Shift + TAB</kbd></th>
                 <td>
                   <ul>
-                    <li>Moves focus to previous element in the dialog <kbd>Tab</kbd> sequence.</li>
-                    <li>Note that, as specified in the <a href="../../grid/grid-pattern.html">Grid Pattern</a>, only one element in the calendar grid is in the <kbd>Tab</kbd> sequence.</li>
-                    <li>If focus is on the first button (i.e., &quot;Previous Year&quot;), moves focus to the last button (i.e. &quot;OK&quot;).</li>
+                    <li>ダイアログの <kbd>Tab</kbd> シーケンス内の前の要素にフォーカスを移動します。</li>
+                    <li>ただし、<a href="../../grid/grid-pattern.html">グリッドパターン</a> で指定されているように、カレンダーグリッド内の要素は 1 つだけが <kbd>Tab</kbd> シーケンスに含まれます。</li>
+                    <li>フォーカスが最初のボタン (つまり、「前の年」) にある場合、最後のボタン (つまり、「OK」) にフォーカスを移動します。</li>
                   </ul>
                 </td>
               </tr>
@@ -273,12 +275,12 @@
         </section>
 
         <section>
-          <h3 id="kbd_label_4">Date Picker Dialog: Calendar Buttons</h3>
+          <h3 id="kbd_label_4">日付選択ダイアログ: カレンダーボタン</h3>
           <table aria-labelledby="kbd_label_4 kbd_label" class="def">
             <thead>
               <tr>
-                <th>Key</th>
-                <th>Function</th>
+                <th>キー</th>
+                <th>機能</th>
               </tr>
             </thead>
             <tbody>
@@ -287,19 +289,19 @@
                   <kbd>Space</kbd>,<br>
                   <kbd>Enter</kbd>
                 </th>
-                <td>Change the month and/or year displayed in the calendar grid.</td>
+                <td>カレンダーグリッドに表示される月及び/又は年を変更します。</td>
               </tr>
             </tbody>
           </table>
         </section>
 
         <section>
-          <h3 id="kbd_label_5">Date Picker Dialog: Date Grid</h3>
+          <h3 id="kbd_label_5">日付選択ダイアログ: 日付グリッド</h3>
           <table aria-labelledby="kbd_label_5 kbd_label" class="def">
             <thead>
               <tr>
-                <th>Key</th>
-                <th>Function</th>
+                <th>キー</th>
+                <th>機能</th>
               </tr>
             </thead>
             <tbody>
@@ -307,8 +309,8 @@
                 <th><kbd>Space</kbd></th>
                 <td>
                   <ul>
-                    <li>Selects the date.</li>
-                    <li>Updates the value of the <code>combobox</code> with the selected date.</li>
+                    <li>日付を選択します。</li>
+                    <li>選択した日付で <code>combobox</code> の値を更新します。</li>
                   </ul>
                 </td>
               </tr>
@@ -316,44 +318,44 @@
                 <th><kbd>Enter</kbd></th>
                 <td>
                   <ul>
-                    <li>Selects the date.</li>
-                    <li>Updates the value of the <code>combobox</code> with the selected date.</li>
-                    <li>Closes the dialog and moves focus to the <code>combobox</code>.</li>
+                    <li>日付を選択します。</li>
+                    <li>選択した日付で <code>combobox</code> の値を更新します。</li>
+                    <li>ダイアログを閉じ、フォーカスを <code>combobox</code> に移動します。</li>
                   </ul>
                 </td>
               </tr>
               <tr data-test-id="grid-up-arrow">
-                <th><kbd>Up Arrow</kbd></th>
-                <td>Moves focus to the same day of the previous week.</td>
+                <th><kbd>上矢印</kbd></th>
+                <td>前の週の同じ日にフォーカスを移動します。</td>
               </tr>
               <tr data-test-id="grid-down-arrow">
-                <th><kbd>Down Arrow</kbd></th>
-                <td>Moves focus to the same day of the next week.</td>
+                <th><kbd>下矢印</kbd></th>
+                <td>次の週の同じ日にフォーカスを移動します。</td>
               </tr>
               <tr data-test-id="grid-right-arrow">
-                <th><kbd>Right Arrow</kbd></th>
-                <td>Moves focus to the next day.</td>
+                <th><kbd>右矢印</kbd></th>
+                <td>次の日にフォーカスを移動します。</td>
               </tr>
               <tr data-test-id="grid-left-arrow">
-                <th><kbd>Left Arrow</kbd></th>
-                <td>Moves focus to the previous day.</td>
+                <th><kbd>左矢印</kbd></th>
+                <td>前の日にフォーカスを移動します。</td>
               </tr>
               <tr data-test-id="grid-home">
                 <th><kbd>Home</kbd></th>
-                <td>Moves focus to the first day (e.g. Sunday) of the current week.</td>
+                <td>現在の週の最初の日 (例：日曜日) にフォーカスを移動します。</td>
               </tr>
               <tr data-test-id="grid-end">
                 <th><kbd>End</kbd></th>
-                <td>Moves focus to the last day (e.g. Saturday) of the current week.</td>
+                <td>現在の週の最後の日 (例：土曜日) にフォーカスを移動します。</td>
               </tr>
               <tr data-test-id="grid-pageup">
                 <th><kbd>PageUp</kbd></th>
                 <td>
                   <ul>
-                    <li>Changes the grid of dates to the previous month.</li>
+                    <li>日付グリッドを前の月に変更します。</li>
                     <li>
-                      Moves focus to the day of the month that has the same number.
-                      If that day does not exist, moves focus to the last day of the month.
+                      同じ数字の日にフォーカスを移動します。
+                      その日が存在しない場合は、その月の最後の日にフォーカスを移動します。
                     </li>
                   </ul>
                 </td>
@@ -365,10 +367,10 @@
                 </th>
                 <td>
                   <ul>
-                    <li>Changes the grid of dates to the same month in the previous year.</li>
+                    <li>日付グリッドを前の年の同じ月に変更します。</li>
                     <li>
-Moves focus to the day of the month that has the same number.
-                      If that day does not exist, moves focus to the last day of the month.
+                      同じ数字の日にフォーカスを移動します。
+                      その日が存在しない場合は、その月の最後の日にフォーカスを移動します。
                     </li>
                   </ul>
                 </td>
@@ -377,10 +379,10 @@ Moves focus to the day of the month that has the same number.
                 <th><kbd>PageDown</kbd></th>
                 <td>
                   <ul>
-                    <li>Changes the grid of dates to the next month.</li>
+                    <li>日付グリッドを次の月に変更します。</li>
                     <li>
-                      Moves focus to the day of the month that has the same number.
-                      If that day does not exist, moves focus to the last day of the month.
+                      同じ数字の日にフォーカスを移動します。
+                      その日が存在しない場合は、その月の最後の日にフォーカスを移動します。
                     </li>
                   </ul>
                 </td>
@@ -392,10 +394,10 @@ Moves focus to the day of the month that has the same number.
                 </th>
                 <td>
                   <ul>
-                    <li>Changes the grid of dates to the same month in the next year.</li>
+                    <li>日付グリッドを次の年の同じ月に変更します。</li>
                     <li>
-                      Moves focus to the day of the month that has the same number.
-                      If that day does not exist, moves focus to the last day of the month.
+                      同じ数字の日にフォーカスを移動します。
+                      その日が存在しない場合は、その月の最後の日にフォーカスを移動します。
                     </li>
                   </ul>
                 </td>
@@ -405,12 +407,12 @@ Moves focus to the day of the month that has the same number.
         </section>
 
         <section>
-          <h3 id="kbd_label_6">Date Picker Dialog: OK and Cancel Buttons</h3>
+          <h3 id="kbd_label_6">日付選択ダイアログ: OK とキャンセルボタン</h3>
           <table aria-labelledby="kbd_label_6 kbd_label" class="def">
             <thead>
               <tr>
-                <th>Key</th>
-                <th>Function</th>
+                <th>キー</th>
+                <th>機能</th>
               </tr>
             </thead>
             <tbody>
@@ -420,10 +422,10 @@ Moves focus to the day of the month that has the same number.
                   <kbd>Enter</kbd>
                 </th>
                 <td>
-                  Activates the button:
+                  ボタンをアクティブ化します: 
                   <ul>
-                    <li>&quot;Cancel&quot;: Closes the dialog, moves focus to combobox, does not update combobox value.</li>
-                    <li>&quot;OK&quot;: Closes the dialog, moves focus to combobox, updates date in combobox.</li>
+                    <li>「キャンセル」: ダイアログを閉じ、コンボボックスにフォーカスを移動し、コンボボックスの値を更新しません。</li>
+                    <li>「OK」: ダイアログを閉じ、コンボボックスにフォーカスを移動し、コンボボックスの日付を更新します。</li>
                   </ul>
                 </td>
               </tr>
@@ -433,17 +435,17 @@ Moves focus to the day of the month that has the same number.
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
 
         <section>
-          <h3 id="rps_label_combobox">Combobox</h3>
+          <h3 id="rps_label_combobox">コンボボックス</h3>
           <table aria-labelledby="rps_label_combobox rps_label" class="data attributes">
             <thead>
               <tr>
-                <th scope="col">Role</th>
-                <th scope="col">Attribute</th>
-                <th scope="col">Element</th>
-                <th scope="col">Usage</th>
+                <th scope="col">ロール</th>
+                <th scope="col">属性</th>
+                <th scope="col">要素</th>
+                <th scope="col">使用法</th>
               </tr>
             </thead>
             <tbody>
@@ -451,57 +453,57 @@ Moves focus to the day of the month that has the same number.
                 <th scope="row"><code>combobox</code></th>
                 <td></td>
                 <td><code>input</code></td>
-                <td>Identifies the <code>input</code> element as a combobox.</td>
+                <td><code>input</code> 要素をコンボボックスとして識別します。</td>
               </tr>
               <tr data-test-id="textbox-aria-haspopup">
                 <td></td>
                 <th scope="row"><code>aria-haspopup="dialog"</code></th>
                 <td><code>input</code></td>
-                <td>Indicates that the combobox opens a dialog.</td>
+                <td>コンボボックスがダイアログを開くことを示します。</td>
               </tr>
               <tr data-test-id="textbox-aria-expanded-false">
                 <td></td>
                 <th scope="row"><code>aria-expanded="false"</code></th>
                 <td><code>input</code></td>
-                <td>Indicates that the combobox is collapsed, i.e., the &quot;Choose Date&quot; dialog is not displayed.</td>
+                <td>コンボボックスが折りたたまれていること、つまり「日付を選択」ダイアログが表示されていないことを示します。</td>
               </tr>
               <tr data-test-id="textbox-aria-expanded-true">
                 <td></td>
                 <th scope="row"><code>aria-expanded="true"</code></th>
                 <td><code>input</code></td>
-                <td>Indicates that the combobox is expanded, i.e., the &quot;Choose Date&quot; dialog is open.</td>
+                <td>コンボボックスが展開されていること、つまり「日付を選択」ダイアログが開いていることを示します。</td>
               </tr>
               <tr data-test-id="textbox-aria-autocomplete">
                 <td></td>
                 <th scope="row"><code>aria-autocomplete="none"</code></th>
                 <td><code>input</code></td>
-                <td>Indicates the combobox does not support autocomplete.</td>
+                <td>コンボボックスがオートコンプリートをサポートしていないことを示します。</td>
               </tr>
               <tr data-test-id="textbox-aria-controls">
                 <td></td>
                 <th scope="row"><code>aria-controls="IDREF"</code></th>
                 <td><code>input</code></td>
-                <td>Identifies the element controlled by the combobox.</td>
+                <td>コンボボックスによって制御される要素を識別します。</td>
               </tr>
               <tr data-test-id="textbox-aria-describedby">
                 <td></td>
                 <th scope="row"><code>aria-describedby="IDREF"</code></th>
                 <td><code>input</code></td>
-                <td>Identifies the element that provides an accessible description for the combobox, enabling assistive technologies to associate the date format description with the input.</td>
+                <td>コンボボックスのアクセシブルな説明を提供する要素を特定し、支援技術が日付形式の説明を入力欄と関連付けることを可能にします。</td>
               </tr>
             </tbody>
           </table>
         </section>
 
         <section>
-          <h3 id="rps_label_2">Choose Date Button</h3>
+          <h3 id="rps_label_2">日付選択ボタン</h3>
           <table aria-labelledby="rps_label_2 rps_label" class="data attributes">
             <thead>
               <tr>
-                <th scope="col">Role</th>
-                <th scope="col">Attribute</th>
-                <th scope="col">Element</th>
-                <th scope="col">Usage</th>
+                <th scope="col">ロール</th>
+                <th scope="col">属性</th>
+                <th scope="col">要素</th>
+                <th scope="col">使用法</th>
               </tr>
             </thead>
             <tbody>
@@ -509,27 +511,27 @@ Moves focus to the day of the month that has the same number.
                 <td></td>
                 <th scope="row"><code>tabindex="-1"</code></th>
                 <td><code>button</code></td>
-                <td>Excludes the button (i.e., the down arrow icon) from the <kbd>Tab</kbd> sequence as specified by the combobox design pattern.</td>
+                <td>コンボボックスのデザインパターンで指定されているように、ボタン (つまり、下矢印アイコン) を <kbd>Tab</kbd> シーケンスから除外します。</td>
               </tr>
               <tr data-test-id="calendar-button-aria-label">
                 <td></td>
                 <th scope="row"><code>aria-label="string"</code></th>
                 <td><code>button</code></td>
-                <td>Defines the accessible name as &quot;Choose Date&quot;, which matches the title of the dialog opened by activating the button.</td>
+                <td>アクセシブルな名前を「日付を選択」と定義し、ボタンを作動することで開かれるダイアログのタイトルと一致させます。</td>
               </tr>
             </tbody>
           </table>
         </section>
-
+        
         <section>
-          <h3 id="rps_label_3">Date Picker Dialog</h3>
+          <h3 id="rps_label_3">日付選択ダイアログ</h3>
           <table aria-labelledby="rps_label_3 rps_label" class="data attributes">
             <thead>
               <tr>
-                <th scope="col">Role</th>
-                <th scope="col">Attribute</th>
-                <th scope="col">Element</th>
-                <th scope="col">Usage</th>
+                <th scope="col">ロール</th>
+                <th scope="col">属性</th>
+                <th scope="col">要素</th>
+                <th scope="col">使用法</th>
               </tr>
             </thead>
             <tbody>
@@ -539,19 +541,19 @@ Moves focus to the day of the month that has the same number.
                 <td>
                   <code>div</code>
                 </td>
-                <td>Identifies the element as a dialog.</td>
+                <td>要素をダイアログとして識別します。</td>
               </tr>
               <tr data-test-id="dialog-aria-modal">
                 <td></td>
                 <th scope="row"><code>aria-modal="true"</code></th>
                 <td><code>div</code></td>
-                <td>Indicates the dialog is modal.</td>
+                <td>ダイアログがモーダルであることを示します。</td>
               </tr>
               <tr data-test-id="dialog-aria-label">
                 <td></td>
-                <th scope="row"><code>aria-label="Choose Date"</code></th>
+                <th scope="row"><code>aria-label="日付を選択"</code></th>
                 <td><code>div</code></td>
-                <td>Defines the accessible name for the dialog.</td>
+                <td>ダイアログのアクセシブルな名前を定義します。</td>
               </tr>
               <tr data-test-id="calendar-navigation-aria-live">
                 <td></td>
@@ -559,8 +561,8 @@ Moves focus to the day of the month that has the same number.
                 <td><code>h2</code></td>
                 <td>
                   <ul>
-                    <li>Indicates that screen readers should automatically announce the element containing the currently displayed month and year when they change.</li>
-                    <li>The <code>polite</code> value indicates that other announcements should not be interrupted.</li>
+                    <li>現在表示されている月と年が変更されたときに、スクリーンリーダーが自動的に要素をアナウンスすることを示します。</li>
+                    <li><code>polite</code> 値は、他のアナウンスが中断されるべきでないことを示します。</li>
                   </ul>
                 </td>
               </tr>
@@ -570,9 +572,9 @@ Moves focus to the day of the month that has the same number.
                 <td><code>div</code></td>
                 <td>
                   <ul>
-                    <li>Indicates the element that displays information about keyboard commands for navigating the grid should be automatically announced by screen readers.</li>
-                    <li>The script slightly delays display of the information, so screen readers are more likely to announce it after announcing focus change events.</li>
-                    <li>The <code>polite</code> value indicates that other announcements should not be interrupted.</li>
+                    <li>グリッドのナビゲーションに関するキーボードコマンドの情報を表示する要素が、スクリーンリーダーによって自動的にアナウンスされるべきであることを示します。</li>
+                    <li>スクリプトは情報の表示を少し遅らせるため、スクリーンリーダーがフォーカス変更イベントのアナウンスの後にアナウンスする可能性が高くなります。</li>
+                    <li><code>polite</code> 値は、他のアナウンスが中断されるべきでないことを示します。</li>
                   </ul>
                 </td>
               </tr>
@@ -581,36 +583,36 @@ Moves focus to the day of the month that has the same number.
         </section>
 
         <section>
-          <h3 id="rps_label_4">Date Picker Dialog: Calendar Navigation Buttons</h3>
+          <h3 id="rps_label_4">日付選択ダイアログ: カレンダーナビゲーションボタン</h3>
           <table aria-labelledby="rps_label_4 rps_label" class="data attributes">
             <thead>
               <tr>
-                <th scope="col">Role</th>
-                <th scope="col">Attribute</th>
-                <th scope="col">Element</th>
-                <th scope="col">Usage</th>
+                <th scope="col">ロール</th>
+                <th scope="col">属性</th>
+                <th scope="col">要素</th>
+                <th scope="col">使用法</th>
               </tr>
             </thead>
             <tbody>
               <tr data-test-id="calendar-navigation-button-aria-label">
                 <td></td>
-                <th scope="row"><code>aria-label="<em>String</em>"</code></th>
+                <th scope="row"><code>aria-label="<em>文字列</em>"</code></th>
                 <td><code>button</code></td>
-                <td>Defines the accessible name of the button (e.g. "Next Year").</td>
+                <td>ボタンのアクセシブルな名前を定義します (例: "次の年") 。</td>
               </tr>
             </tbody>
           </table>
         </section>
-
+        
         <section>
-          <h3 id="rps_label_5">Date Picker Dialog: Date Grid</h3>
+          <h3 id="rps_label_5">日付選択ダイアログ: 日付グリッド</h3>
           <table aria-labelledby="rps_label_5 rps_label" class="data attributes">
             <thead>
               <tr>
-                <th scope="col">Role</th>
-                <th scope="col">Attribute</th>
-                <th scope="col">Element</th>
-                <th scope="col">Usage</th>
+                <th scope="col">ロール</th>
+                <th scope="col">属性</th>
+                <th scope="col">要素</th>
+                <th scope="col">使用法</th>
               </tr>
             </thead>
             <tbody>
@@ -622,8 +624,8 @@ Moves focus to the day of the month that has the same number.
                 </td>
                 <td>
                   <ul>
-                    <li>Identifies the <code>table</code> element as a <code>grid</code> widget.</li>
-                    <li>Since the <code>grid</code> role is applied to a <code>table</code> element, the <code>row</code>, <code>columnheader</code>, and <code>gridcell</code> roles do not need to be specified because they are implied by <code>tr</code>, <code>th</code>, and <code>td</code> tags.</li>
+                    <li><code>table</code> 要素を <code>grid</code> ウィジェットとして識別します。</li>
+                    <li><code>grid</code> ロールが <code>table</code> 要素に適用されているため、<code>row</code>、<code>columnheader</code>、及び <code>gridcell</code> ロールは <code>tr</code>、<code>th</code>、及び <code>td</code> タグによって暗黙的に指定されるため、明示的に指定する必要はありません。</li>
                   </ul>
                 </td>
               </tr>
@@ -631,7 +633,7 @@ Moves focus to the day of the month that has the same number.
                 <td></td>
                 <th scope="row"><code>aria-labelledby="IDREF"</code></th>
                 <td><code>table</code></td>
-                <td>Identifies the element that provides the accessible name for the <code>grid</code>, which is the <code>h2</code> that shows the month and year of the dates displayed in the grid.</td>
+                <td><code>grid</code> のアクセシブルな名前を提供する要素を識別します。これは、グリッドに表示される月と年を示す <code>h2</code> です。</td>
               </tr>
               <tr data-test-id="gridcell-tabindex">
                 <td></td>
@@ -643,12 +645,11 @@ Moves focus to the day of the month that has the same number.
                 </td>
                 <td>
                   <ul>
-                    <li>Makes the gridcell focusable and includes it in the dialog <kbd>Tab</kbd> sequence.</li>
-                    <li>Set dynamically by the JavaScript when the element is to be included in the dialog <kbd>Tab</kbd> sequence.</li>
-                    <li>At any given time, only one gridcell within the grid is in the dialog <kbd>Tab</kbd> sequence.</li>
+                    <li>グリッドセルをフォーカス可能にし、ダイアログの <kbd>Tab</kbd> シーケンスに含めます。</li>
+                    <li>要素がダイアログの <kbd>Tab</kbd> シーケンスに含まれるときに JavaScript によって動的に設定されます。</li>
+                    <li>任意の時点で、グリッド内の 1 つのグリッドセルのみがダイアログの <kbd>Tab</kbd> シーケンスに含まれます。</li>
                     <li>
-                      This approach to managing focus is described in the section on
-                      <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">Managing Focus Within Components Using a Roving tabindex</a>.
+                      このフォーカス管理のアプローチは、<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">動き回る tabindex を使用したコンポーネント内のフォーカス管理</a> のセクションで説明されています。
                     </li>
                   </ul>
                 </td>
@@ -664,12 +665,11 @@ Moves focus to the day of the month that has the same number.
                 </td>
                 <td>
                   <ul>
-                    <li>Makes the gridcell focusable and excludes it from the dialog <kbd>Tab</kbd> sequence.</li>
-                    <li>Changed dynamically to <code>0</code> by the JavaScript when the gridcell is to be included in the dialog <kbd>Tab</kbd> sequence.</li>
-                    <li>At any given time, only one gridcell within the grid is in the dialog <kbd>Tab</kbd> sequence.</li>
+                    <li>グリッドセルをフォーカス可能にし、ダイアログの <kbd>Tab</kbd> シーケンスから除外します。</li>
+                    <li>グリッドセルがダイアログの <kbd>Tab</kbd> シーケンスに含まれるときに JavaScript によって動的に <code>0</code> に変更されます。</li>
+                    <li>任意の時点で、グリッド内の 1 つのグリッドセルのみがダイアログの <kbd>Tab</kbd> シーケンスに含まれます。</li>
                     <li>
-                      This approach to managing focus is described in the section on
-                      <a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">Managing Focus Within Components Using a Roving tabindex</a>.
+                      このフォーカス管理のアプローチは、<a href="../../../practices/keyboard-interface/keyboard-interface-practice.html#kbd_roving_tabindex">動き回る tabindex を使用したコンポーネント内のフォーカス管理</a> のセクションで説明されています。
                     </li>
                   </ul>
                 </td>
@@ -680,23 +680,24 @@ Moves focus to the day of the month that has the same number.
                 <td><code>td</code></td>
                 <td>
                   <ul>
-                    <li>Indicates the cell is selected.</li>
-                    <li>Set on the gridcell representing the current value of the combobox; no other gridcells have <code>aria-selected</code> specified.</li>
+                    <li>セルが選択されていることを示します。</li>
+                    <li>コンボボックスの現在の値を表すグリッドセルに設定されます。他のグリッドセルには <code>aria-selected</code> が指定されていません。</li>
                   </ul>
                 </td>
               </tr>
             </tbody>
           </table>
           <p>
-            <strong>Note:</strong> Since the names of the days of the week in the column headers are abbreviated to two characters, they may be difficult to understand when announced by a screen reader.
-            An alternative column header name can be provided to screen readers by applying the <code>abbr</code> attribute to the <code>th</code> elements.
-            So, each <code>th</code> element includes an <code>abbr</code> attribute containing the full spelling of the name of the day for that column.
+            <strong>注記:</strong> 列ヘッダの曜日の名前が 2 文字に省略されているため、スクリーンリーダーで読み上げられると理解しにくい場合があります。
+            列ヘッダの名前の代替をスクリーンリーダーに提供するために、<code>th</code> 要素に <code>abbr</code> 属性を適用することができます。
+            したがって、各 <code>th</code> 要素には、その列の日の名前の完全なスペルを含む <code>abbr</code> 属性が含まれています。
+            (訳註: 原文は英語であり、"Sunday" を "Su" と表すようなケースについて言及しています。)
           </p>
         </section>
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScript 及び CSS のソースコード</h2>
         <ul id="css_js_files">
           <li>
             CSS:
@@ -709,13 +710,14 @@ Moves focus to the day of the month that has the same number.
         </ul>
       </section>
 
-      <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+      <section class="example-code">
+        <h2 id="sc1_label">HTML のソースコード</h2>
+        <p id="sc1_description">以下の HTML コードをコピーするには、CodePen で開いてください。</p>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="の終了"></div>
         <script>
-          sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files');
+          sourceCode.add('sc1', 'ex1', 'ex_label', 'css_js_files', 'sc1_description');
           sourceCode.make();
         </script>
       </section>
