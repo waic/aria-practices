@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Tooltip Pattern</title>
+    <title>ツールチップ パターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,49 +14,50 @@
   </head>
   <body>
     <main>
-      <h1>Tooltip Pattern</h1>
+      <h1>ツールチップ パターン</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/7fb7c8e28b55a2804bda682c36945a1154d1096a -->
 
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンについて</h2>
         <p>
-          <strong>NOTE:</strong> This design pattern is work in progress; it does not yet have task force consensus.
-          Progress and discussions are captured in <a href="https://github.com/w3c/aria-practices/issues/128">issue 128.</a>
+          <strong>注記:</strong> このデザインパターンは作業中です。まだタスクフォースの合意は得られていません。
+          進行状況及び議論は <a href="https://github.com/w3c/aria-practices/issues/128">issue 128</a> で確認できます。
         </p>
         <p>
-          A tooltip is a popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
-          It typically appears after a small delay and disappears when <kbd>Escape</kbd> is pressed or on mouse out.
+          ツールチップは、要素にキーボードフォーカスが当たったとき又はマウスがその上にホバーしたときに、その要素に関連する情報を表示するポップアップです。
+          通常、少しの遅延の後に表示され、<kbd>エスケープ</kbd> が押されたとき又はマウスが外れたときに消えます。
         </p>
         <p>
-          Tooltip widgets do not receive focus.
-          A hover that contains focusable elements can be made using a non-modal dialog.
+          ツールチップウィジェットはフォーカスを受け取りません。
+          フォーカス可能な要素を含むホバーは、非モーダルダイアログを使用して作成できます。
         </p>
       </section>
 
       <section id="examples">
-        <h2>Example</h2>
-        <p>Work to develop a tooltip example is tracked by <a href="https://github.com/w3c/aria-practices/issues/127">issue 127.</a></p>
+        <h2>例</h2>
+        <p>ツールチップの例の開発作業は <a href="https://github.com/w3c/aria-practices/issues/127">issue 127</a> で追跡されています。</p>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
-        <p><kbd>Escape</kbd>: Dismisses the Tooltip.</p>
+        <h2>キーボード操作</h2>
+        <p><kbd>エスケープ</kbd>: ツールチップを閉じます。</p>
         <div class="note">
-          <h3>Note</h3>
+          <h3>注記</h3>
           <ol>
-            <li>Focus stays on the triggering element while the tooltip is displayed.</li>
+            <li>ツールチップが表示されている間、フォーカスはトリガ要素に留まります。</li>
             <li>
-              If the tooltip is invoked when the trigger element receives focus, then it is dismissed when it no longer has focus (onBlur).
-              If the tooltip is invoked with mouseIn, then it is dismissed with on mouseOut.
+              トリガ要素がフォーカスを受け取ったときにツールチップが呼び出される場合、フォーカスがなくなったとき (onBlur) に閉じられます。
+              ツールチップが mouseIn で呼び出される場合、on mouseOut で閉じられます。
             </li>
           </ol>
         </div>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties</h2>
+        <h2>WAI-ARIA ロール、ステート、及びプロパティ</h2>
         <ul>
-          <li>The element that serves as the tooltip container has role <a href="#tooltip" class="role-reference">tooltip</a>.</li>
-          <li>The element that triggers the tooltip references the tooltip element with <a href="#aria-describedby" class="property-reference">aria-describedby</a>.</li>
+          <li>ツールチップのコンテナとして機能する要素はロール <a href="#tooltip" class="role-reference">tooltip</a> を持っています。</li>
+          <li>ツールチップをトリガする要素は <a href="#aria-describedby" class="property-reference">aria-describedby</a> でツールチップ要素を参照します。</li>
         </ul>
       </section>
     </main>
