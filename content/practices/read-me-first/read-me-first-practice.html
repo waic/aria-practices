@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Read Me First</title>
+    <title>最初にお読みください</title>
 
     <!-- Core JS and CSS shared by all practices -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,80 +14,79 @@
   </head>
   <body>
     <main>
-      <h1>Read Me First</h1>
+      <h1>最初にお読みください</h1>
       <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/b606e347d1dd1a70d35f80655c232725173314ba -->
       <section id="no_aria_better_bad_aria">
         <h2>No ARIA is better than Bad ARIA</h2>
         <p>
-          Functionally, ARIA roles, states, and properties are analogous to a CSS for assistive technologies.
-          For screen reader users, ARIA controls the rendering of their non-visual experience.
-          Incorrect ARIA misrepresents visual experiences, with potentially devastating effects on their corresponding non-visual experiences.
+          機能的には、ARIA のロール、状態、およびプロパティは支援技術のための CSS に類似しています。
+          スクリーンリーダー利用者にとって、ARIA は非視覚的な体験のレンダリングを制御します。
+          不正確な ARIA は視覚的な体験を誤って表現し、それに対応する非視覚的な体験に壊滅的な影響を与える可能性があります。
         </p>
-        <p>Before using ARIA or any of the guidance in this document, please take time to understand the following two essential principles.</p>
-        <h3>Principle 1: A role is a promise</h3>
-        <p>This code:</p>
-        <pre><code>&lt;div role=&quot;button&quot;&gt;Place Order&lt;/div&gt;</code></pre>
+        <p>ARIA またはこの文書のガイダンスを使用する前に、次の 2 つの重要な原則を理解するための時間を取ってください。</p>
+        <h3>原則 1: ロールは約束です</h3>
+        <p>このコード:</p>
+        <pre><code>&lt;div role=&quot;button&quot;&gt;注文する&lt;/div&gt;</code></pre>
         <p>
-          Is a promise that the author of that <code>&lt;div&gt;</code> has also incorporated JavaScript that provides the keyboard interactions expected for a button.
-          Unlike HTML input elements, ARIA roles do not cause browsers to provide keyboard behaviors or styling.
+          この <code>&lt;div&gt;</code> のコンテンツ制作者が、ボタンに期待されるキーボード操作を提供する JavaScript を組み込んでいるという約束です。
+          HTML の input 要素とは異なり、ARIA のロールはブラウザがキーボードの動作やスタイリングを提供することを引き起こしません。
         </p>
-        <p>Using a role without fulfilling the promise of that role is similar to making a &quot;Place Order&quot; button that abandons an order and empties the shopping cart.</p>
-        <p>One of the objectives of this guide is to define expected behaviors for each ARIA role.</p>
-        <h3>Principle 2: ARIA Can Both Cloak and Enhance, Creating Both Power and Danger</h3>
+        <p>ロールの約束を果たさずにロールを使用することは、注文を放棄し、ショッピングカートを空にする「注文する」ボタンを作ることに似ています。</p>
+        <p>このガイドの目的の 1 つは、各 ARIA ロールの期待される動作を定義することです。</p>
+        <h3>原則 2: ARIA は隠蔽と強化の両方を行い、力と危険の両方を生み出します</h3>
         <p>
-          The information assistive technologies need about the meaning and purpose of user interface elements is called accessibility semantics.
-          From the perspective of assistive technologies, ARIA gives authors the ability to dress up HTML and SVG elements with critical accessibility semantics that the assistive technologies would not otherwise be able to reliably derive.
+          ユーザーインターフェース要素の意味と目的に関する支援技術が必要とする情報はアクセシビリティセマンティクスと呼ばれます。
+          支援技術の観点から、ARIA は支援技術が信頼できる方法で解釈できない HTML および SVG 要素に重要なアクセシビリティセマンティクスを追加する能力をコンテンツ制作者に与えます。
         </p>
-        <p>Some of ARIA is like a cloak; it covers up, or overrides, the original semantics or content.</p>
-        <pre><code>&lt;a role=&quot;menuitem&quot;&gt;Assistive tech users perceive this element as an item in a menu, not a link.&lt;/a&gt;
-  &lt;a aria-label=&quot;Assistive tech users can only perceive the contents of this aria-label, not the link text&quot;&gt;Link Text&lt;/a&gt;</code></pre>
-        <p>On the other hand, some uses of ARIA are more like suspenders or belts; they add meaning that provides essential support to the original content.</p>
-        <pre><code>&lt;button aria-pressed=&quot;false&quot;&gt;Mute&lt;/button&gt;</code></pre>
+        <p>ARIA の一部は隠蔽のようなもので、元のセマンティクスやコンテンツを覆い隠します。</p>
+        <pre><code>&lt;a role=&quot;menuitem&quot;&gt;支援技術の利用者はこの要素をリンクではなくメニューの項目として認識します。&lt;/a&gt;
+  &lt;a aria-label=&quot;支援技術の利用者はリンクテキストではなくこの aria-label の内容のみを認識します&quot;&gt;リンクテキスト&lt;/a&gt;</code></pre>
+        <p>一方、ARIA の一部の使用はサスペンダーやベルトのようなもので、元のコンテンツに重要なサポートを提供する意味を追加します。</p>
+        <pre><code>&lt;button aria-pressed=&quot;false&quot;&gt;ミュート&lt;/button&gt;</code></pre>
         <p>
-          This is the power of ARIA.
-          It enables authors to describe nearly any user interface component in ways that assistive technologies can reliably interpret, thus making components accessible to assistive technology users.
+          これが ARIA の力です。
+          それは、コンテンツ制作者がほぼすべてのユーザーインターフェースコンポーネントを支援技術が信頼できる方法で解釈できるように記述することを可能にし、したがって支援技術利用者にコンポーネントをアクセス可能にします。
         </p>
         <p>
-          This is also the danger of ARIA.
-          Authors can inadvertently override accessibility semantics.
+          これが ARIA の危険でもあります。
+          コンテンツ制作者は誤ってアクセシビリティセマンティクスを上書きする可能性があります。
         </p>
         <pre><code>&lt;table role=&quot;log&quot;&gt;
   &lt;!--
-    Table that assistive technology users will not perceive as a table.
-    The log role tells browser this is a log, not a table.
+    支援技術の利用者がテーブルとして認識しないテーブル。
+    log ロールはブラウザにこれはテーブルではなくログであることを伝えます。
   --&gt;
 &lt;/table&gt;
 &lt;ul role=&quot;navigation&quot;&gt;
-  &lt;!-- This is a navigation region, not a list. --&gt;
-  &lt;li&gt;&lt;a href=&quot;uri1&quot;&gt;nav link 1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;uri2&quot;&gt;nav link 2&lt;/a&gt;&lt;/li&gt;
-  &lt;!-- ERROR! Previous list items are not in a list! --&gt;
+  &lt;!-- これはリストではなくナビゲーション領域です。 --&gt;
+  &lt;li&gt;&lt;a href=&quot;uri1&quot;&gt;ナビリンク 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;uri2&quot;&gt;ナビリンク 2&lt;/a&gt;&lt;/li&gt;
+  &lt;!-- エラー！前のリスト項目はリストに含まれていません！ --&gt;
 &lt;/ul&gt;</code></pre>
       </section>
       <section id="browser_and_AT_support">
-        <h2>Browser and Assistive Technology Support</h2>
+        <h2>ブラウザ及び支援技術のサポート</h2>
         <p>
-          <strong>Testing assistive technology interoperability is essential before using code from this guide in production.</strong>
-          Because the purpose of this guide is to illustrate appropriate use of ARIA 1.2 as defined in the ARIA specification, the design patterns, reference examples, and sample code intentionally <strong>do not</strong> describe and implement coding techniques for working around problems caused by gaps in support for ARIA 1.2 in browsers and assistive technologies.
-          It is thus advisable to test implementations thoroughly with each browser and assistive technology combination that is relevant within a target audience.
+          <strong>このガイドのコードを本番環境で使用する前に、支援技術の相互運用性をテストすることが不可欠です。</strong>
+          このガイドの目的は、ARIA 1.2 の適切な使用方法を ARIA 仕様で定義された通りに示すことです。そのため、デザインパターン、参考例、およびサンプルコードは、ブラウザおよび支援技術における ARIA 1.2 のサポートのギャップによって引き起こされる問題を回避するためのコーディングテクニックを意図的に<strong>説明および実装していません</strong>。
+          したがって、ターゲットオーディエンス内の各ブラウザおよび支援技術の組み合わせで実装を徹底的にテストすることをお勧めします。
         </p>
         <p>
-          Similarly, JavaScript and CSS in this guide is written to be compatible with the most recent version of Chrome, Firefox, and Safari at the time of writing.
+          同様に、このガイドの JavaScript および CSS は、執筆時点での最新の Chrome、Firefox、および Safari のバージョンと互換性があるように書かれています。
         </p>
         <p>
-          Except in cases where the ARIA Working Group and other contributors have overlooked an error,
-          examples in this guide that do not function well in a particular browser or with a specific assistive technology are demonstrating browser or assistive technology bugs.
-          Browser and assistive technology developers can thus utilize code in this guide to help assess the quality of their support for ARIA 1.2.
+          ARIA ワーキンググループおよび他の貢献者がエラーを見落とした場合を除き、このガイドの例が特定のブラウザまたは特定の支援技術でうまく機能しない場合、それはブラウザまたは支援技術のバグを示しています。
+          ブラウザおよび支援技術の開発者は、このガイドのコードを利用して、ARIA 1.2 のサポートの品質を評価するのに役立てることができます。
         </p>
       </section>
       <section id="mobile_and_touch_support">
-        <h2>Mobile and Touch Support</h2>
+        <h2>モバイルおよびタッチサポート</h2>
         <p>
-          Currently, this guide does not indicate which examples are compatible with mobile browsers or touch interfaces.
-          While some of the examples include specific features that enhance mobile and touch support, some ARIA features are not supported in any mobile browser.
-          In addition, there is not yet a standardized approach for providing touch interactions that work across mobile browsers.
+          現在、このガイドはモバイルブラウザまたはタッチインターフェースと互換性のある例を示していません。
+          一部の例にはモバイルおよびタッチサポートを強化する特定の機能が含まれていますが、一部の ARIA 機能はどのモバイルブラウザでもサポートされていません。
+          さらに、モバイルブラウザ全体で機能するタッチインタラクションを提供するための標準化されたアプローチはまだありません。
         </p>
-        <p>More guidance about touch and mobile support is planned for future releases of the guide.</p>
+        <p>タッチおよびモバイルサポートに関するさらなるガイダンスは、ガイドの将来のリリースで計画されています。</p>
       </section>
     </main>
   </body>
