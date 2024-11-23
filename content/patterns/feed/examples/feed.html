@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Scrolling Feed Example</title>
+    <title>無限スクロールフィードの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -21,30 +21,31 @@
       </ul>
     </nav>
     <main>
-      <h1>Infinite Scrolling Feed Example</h1>
+      <h1>無限スクロールフィードの例</h1>
+      <!-- 翻訳元リビジョン: b606e347d1dd1a70d35f80655c232725173314ba -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-feed.svg">
         <p>
-          <strong>NOTE:</strong> The feed role was introduced by WAI-ARIA 1.1.
-          Since native desktop operating systems offer only a few conventions that are applicable to the feed pattern, the implementation of a feed illustrated by this example is intended to serve as as a proposal.
-          Feedback is welcome in <a href="https://github.com/w3c/aria-practices/issues/565">issue 565.</a>
+          <strong>注記:</strong> フィードロールは WAI-ARIA 1.1 によって導入されました。
+          ネイティブデスクトップオペレーティングシステムはフィードパターンに適用できる規約がほとんどないため、この例で示されているフィードの実装は提案として機能することを意図しています。
+          フィードバックは <a href="https://github.com/w3c/aria-practices/issues/565">issue 565</a> で歓迎します。
         </p>
         <p>
-          The example below implements the <a href="../feed-pattern.html">Feed Pattern</a> for a restaurant review site.
-          To imitate an infinitely scrolling set of data, information about ten restaurants is repeatedly loaded as the user reads the feed.
-          This example includes an article load time selector that simulates data fetch delays.
+          以下の例はレストランレビューサイトのための <a href="../feed-pattern.html">フィードパターン</a> を実装しています。
+          無限にスクロールするデータセットを模倣するために、利用者がフィードを読むときに 10 件のレストラン情報が繰り返し読み込まれます。
+          この例にはデータ取得の遅延をシミュレートする記事読み込み時間セレクターが含まれています。
         </p>
       </section>
 
       <section>
-        <h2>Example Usage Option</h2>
+        <h2>例の使用オプション</h2>
         <p id="feed-controls-desc">
-          The following article loading delay time selector enables simulation of different amounts of latency introduced by data fetches.
-          Such latency can affect assistive technology behavior when using assistive technology functions for navigating by article.
+          次の記事読み込み遅延時間セレクターは、データ取得によって導入されるさまざまな量の遅延をシミュレートすることを可能にします。
+          そのような遅延は、支援技術機能を使用して記事ごとにナビゲートする際に支援技術の動作に影響を与える可能性があります。
         </p>
-        <label for="delay-time-select"> Loading delay</label>
+        <label for="delay-time-select"> 読み込み遅延</label>
         <select id="delay-time-select" name="delay_time" aria-describedby="feed-controls-desc">
           <option value="200">200 ms</option>
           <option value="400">400 ms</option>
@@ -52,55 +53,55 @@
       </section>
 
       <section>
-        <h2 id="ex_label">Example</h2>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <h2 id="ex_label">例</h2>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="例の開始"></div>
         <div id="ex1">
-          <p>The example feed experience below is presented in an iframe in order not to obstruct from the rest of the content of the page.</p>
-          <iframe id="feed_frame" src="./feed-display.html" height="500" title="Feed example" style="width: 100%"></iframe>
-          <button id="terms-of-use" onclick="alert('This is just for demo purposes')">Terms of use</button>
+          <p>以下の例のフィード体験は、ページの残りのコンテンツを妨げないように iframe で表示されています。</p>
+          <iframe id="feed_frame" src="./feed-display.html" height="500" title="フィードの例" style="width: 100%"></iframe>
+          <button id="terms-of-use" onclick="alert('これはデモ用です')">利用規約</button>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="例の終了"></div>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
             <tr data-test-id="key-page-down">
               <th><kbd>Page Down</kbd></th>
-              <td>Move focus to next article.</td>
+              <td>次の記事にフォーカスを移動します。</td>
             </tr>
             <tr data-test-id="key-page-up">
               <th><kbd>Page Up</kbd></th>
-              <td>Move focus to previous article.</td>
+              <td>前の記事にフォーカスを移動します。</td>
             </tr>
             <tr data-test-id="key-control-end">
               <th><kbd>Control</kbd> + <kbd>End</kbd></th>
-              <td>Move focus to the first focusable element after the feed.</td>
+              <td>フィードの後の最初のフォーカス可能な要素にフォーカスを移動します。</td>
             </tr>
             <tr data-test-id="key-control-home">
               <th><kbd>Control</kbd> + <kbd>Home</kbd></th>
-              <td>Move focus to the first focusable element in the feed.</td>
+              <td>フィード内の最初のフォーカス可能な要素にフォーカスを移動します。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -110,8 +111,8 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Identifies the element that contains the set of feed articles.</li>
-                  <li>The feed element is a structural container that it is not focusable.</li>
+                  <li>フィード記事のセットを含む要素を特定します。</li>
+                  <li>フィード要素は構造的なコンテナであり、フォーカス可能ではありません。</li>
                 </ul>
               </td>
             </tr>
@@ -119,7 +120,7 @@
               <td></td>
               <th scope="row"><code>aria-labelledby="IDREF"</code></th>
               <td><code>div</code></td>
-              <td>Provides an accessible name for the feed element.</td>
+              <td>フィード要素にアクセシブルな名前を提供します。</td>
             </tr>
             <tr data-test-id="feed-aria-busy">
               <td></td>
@@ -127,9 +128,9 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Set during the process of loading additional articles.</li>
-                  <li>Removed when the article load process is complete.</li>
-                  <li>Enables assistive technologies to ignore DOM changes during the load process and then render the changes when the DOM is stable.</li>
+                  <li>追加の記事を読み込むプロセス中に設定されます。</li>
+                  <li>記事の読み込みプロセスが完了すると削除されます。</li>
+                  <li>支援技術が読み込みプロセス中の DOM 変更を無視し、DOM が安定したときに変更をレンダリングできるようにします。</li>
                 </ul>
               </td>
             </tr>
@@ -139,8 +140,8 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Identifies an element that contains content for a feed article.</li>
-                  <li>Feed articles and their content are Dynamically created in the JavaScript.</li>
+                  <li>フィード記事のコンテンツを含む要素を特定します。</li>
+                  <li>フィード記事とそのコンテンツは JavaScript で動的に作成されます。</li>
                 </ul>
               </td>
             </tr>
@@ -150,9 +151,9 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Makes the article element focusable and includes it in the page <kbd>Tab</kbd> sequence.</li>
-                  <li>As the user reads, the feed loads additional articles based on either focus position or scroll position.</li>
-                  <li>Assistive technologies can ensure new articles are loaded and correctly visually positioned by ensuring that the article containing the assistive technology reading cursor has or contains DOM focus.</li>
+                  <li>記事要素をフォーカス可能にし、ページの <kbd>Tab</kbd> シーケンスに含めます。</li>
+                  <li>利用者が読むと、フィードはフォーカス位置又はスクロール位置に基づいて追加の記事を読み込みます。</li>
+                  <li>支援技術は、支援技術の読み取りカーソルを含む記事が DOM フォーカスを持つか含むことを確認することで、新しい記事が読み込まれ、正しく視覚的に配置されることを保証できます。</li>
                 </ul>
               </td>
             </tr>
@@ -162,9 +163,9 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Identifies one or more elements in the article that provide a distinguishing label.</li>
-                  <li>In this example, the restaurant name sufficiently identifies each article.</li>
-                  <li>Note: due to the nature of feeds, labels are often not unique.</li>
+                  <li>記事内の識別ラベルを提供する 1 つ以上の要素を特定します。</li>
+                  <li>この例では、レストラン名が各記事を十分に識別します。</li>
+                  <li>注記: フィードの性質上、ラベルはしばしば一意ではありません。</li>
                 </ul>
               </td>
             </tr>
@@ -174,9 +175,9 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Refers to the list of elements that provide the main content of the article.</li>
-                  <li>Does not include elements that are identically repeated in every article, e.g., does not include the &quot;Bookmark&quot; button.</li>
-                  <li>Enables assistive technology users to skim the feed.</li>
+                  <li>記事の主要なコンテンツを提供する要素のリストを参照します。</li>
+                  <li>すべての記事で同一に繰り返される要素は含まれません。例: 「ブックマーク」ボタンは含まれません。</li>
+                  <li>支援技術利用者がフィードをスキミングできるようにします。</li>
                 </ul>
               </td>
             </tr>
@@ -186,9 +187,9 @@
               <td><code>div</code></td>
               <td>
                 <ul>
-                  <li>Indicates the position of the article in the feed.</li>
-                  <li>Numbering starts with 1.</li>
-                  <li>Note: If articles are added to the beginning of the feed, all articles are renumbered.</li>
+                  <li>フィード内の記事の位置を示します。</li>
+                  <li>番号付けは 1 から始まります。</li>
+                  <li>注記: 記事がフィードの先頭に追加される場合、すべての記事が再番号付けされます。</li>
                 </ul>
               </td>
             </tr>
@@ -196,24 +197,24 @@
               <td></td>
               <th scope="row"><code>aria-setsize="INTEGER"</code></th>
               <td><code>div</code></td>
-              <td>Set to the total number of articles currently contained by the feed element.</td>
+              <td>現在フィード要素に含まれている記事の総数を設定します。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
-        <p>The following Javascript and CSS is used by the feed-display.html page:</p>
+        <h2>JavaScript 及び CSS のソースコード</h2>
+        <p>以下の JavaScript 及び CSS は feed-display.html ページで使用されています:</p>
         <ul id="css_js_files">
           <li>CSS: <a href="css/feedDisplay.css" type="tex/css">feedDisplay.css</a></li>
-          <li>Javascript: <a href="js/feed.js" type="text/javascript">feed.js</a>, <a href="js/feedDisplay.js" type="text/javascript">feedDisplay.js</a>, <a href="js/main.js" type="text/javascript">main.js</a>, <a href="../../../shared/js/utils.js">utils.js</a></li>
+          <li>JavaScript: <a href="js/feed.js" type="text/javascript">feed.js</a>, <a href="js/feedDisplay.js" type="text/javascript">feedDisplay.js</a>, <a href="js/main.js" type="text/javascript">main.js</a>, <a href="../../../shared/js/utils.js">utils.js</a></li>
         </ul>
       </section>
 
       <section>
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <p>Please open <a href="feed-display.html">feed-display.html</a> and view source.</p>
+        <h2 id="sc1_label">HTML のソースコード</h2>
+        <p><a href="feed-display.html">feed-display.html</a> を開いてソースを表示してください。</p>
       </section>
     </main>
   </body>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Feed Pattern</title>
+    <title>フィードパターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,119 +14,119 @@
   </head>
   <body>
     <main>
-      <h1>Feed Pattern</h1>
-
+      <h1>フィードパターン</h1>
+      <!-- 翻訳元リビジョン: b606e347d1dd1a70d35f80655c232725173314ba -->
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンについて</h2>
         <p>
-          A <a href="#feed" class="role-reference">feed</a> is a section of a page that automatically loads new sections of content as the user scrolls.
-          The sections of content in a feed are presented in <a href="#article" class="role-reference">article</a> elements.
-          So, a feed can be thought of as a dynamic list of articles that often appears to scroll infinitely.
+          <a href="#feed" class="role-reference">フィード</a>は、利用者がスクロールするにつれて自動的に新しいコンテンツセクションを読み込むページのセクションです。
+          フィード内のコンテンツセクションは、<a href="#article" class="role-reference">article</a>要素で表示されます。
+          したがって、フィードは無限にスクロールする動的な記事リストと考えることができます。
         </p>
         <p>
-          The feature that most distinguishes feed from other ARIA patterns that support loading data as users scroll, e.g., a <a href="../grid/grid-pattern.html">grid</a>, is that a feed is a structure, not a widget.
-          Consequently, assistive technologies with a reading mode, such as screen readers, default to reading mode when interacting with feed content.
-          However, unlike most other WAI-ARIA structures, a feed establishes an interoperability contract between the web page and assistive technologies.
-          The contract governs scroll interactions so that assistive technology users can read articles, jump forward and backward by article, and reliably trigger new articles to load while in reading mode.
+          利用者がスクロールする際にデータを読み込む他の ARIA パターン（例：<a href="../grid/grid-pattern.html">グリッド</a>）とフィードを区別する最も顕著な特徴は、フィードがウィジェットではなく構造であることです。
+          そのため、スクリーンリーダーなどの読み取りモードを持つ支援技術は、フィードコンテンツと対話する際にデフォルトで読み取りモードになります。
+          しかし、他のほとんどの WAI-ARIA 構造とは異なり、フィードはウェブページと支援技術の間に相互運用性契約を確立します。
+          この契約は、支援技術の利用者が記事を読み、記事ごとに前後にジャンプし、読み取りモードの中で新しい記事の読み込みを確実にトリガするためのスクロール操作を管理します。
         </p>
         <p>
-          For example, a product page on a shopping site may have a related products section that displays five products at a time.
-          As the user scrolls, more products are requested and loaded into the DOM.
-          While a static design might include a next button for loading five more products, a dynamic implementation that automatically loads more data as the user scrolls simplifies the user experience and reduces the inertia associated with viewing more than the first five product suggestions.
-          But, unfortunately when web pages load content dynamically based on scroll events, it can cause usability and interoperability difficulties for users of assistive technologies.
+          例えば、ショッピングサイトの商品ページには、関連商品セクションがあり、一度に 5 つの商品を表示します。
+          利用者がスクロールすると、更に多くの商品がリクエストされ、DOM に読み込まれます。
+          静的なデザインでは、5 つの商品を更に読み込むための次のボタンが含まれるかもしれませんが、利用者がスクロールするにつれて自動的にデータを読み込む動的な実装は、利用者エクスペリエンスを簡素化し、最初の 5 つの商品提案を超えて表示する際の慣性を減少させます。
+          しかし、スクロールイベントに基づいて動的にコンテンツを読み込むウェブページは、支援技術の利用者にとって使いやすさと相互運用性の問題を引き起こす可能性があります。
         </p>
-        <p>The feed pattern enables reliable assistive technology reading mode interaction by establishing the following interoperability agreement between the web page and assistive technologies:</p>
+        <p>フィードパターンは、ウェブページと支援技術の間の以下の相互運用性契約を確立することにより、支援技術の読み取りモードの操作を確実にします：</p>
         <ol>
           <li>
-            In the context of a feed, the web page code is responsible for:
+            フィードのコンテキストでは、ウェブページのコードは次のことを担当します：
             <ul>
-              <li>Appropriate visual scrolling of the content based on which article contains DOM focus.</li>
-              <li>Loading or removing feed articles based on which article contains DOM focus.</li>
+              <li>DOM フォーカスを含む記事に基づいてコンテンツの適切な視覚的スクロール。</li>
+              <li>DOM フォーカスを含む記事に基づいてフィード記事の読み込み又は削除。</li>
             </ul>
           </li>
           <li>
-            In the context of a feed, assistive technologies with a reading mode are responsible for:
+            フィードのコンテキストでは、読み取りモードを持つ支援技術は次のことを担当します：
             <ul>
-              <li>Indicating which article contains the reading cursor by ensuring the article element or one of its descendants has DOM focus.</li>
-              <li>providing reading mode keys that move DOM focus to the next and previous articles.</li>
-              <li>Providing reading mode keys for moving the reading cursor and DOM focus past the end and before the start of the feed.</li>
+              <li>読み取りカーソルを含む記事を示すために、記事要素又はその子孫のいずれかが DOM フォーカスを持つことを保証する。</li>
+              <li>DOM フォーカスを次の記事及び前の記事に移動する読み取りモードキーを提供する。</li>
+              <li>フィードの終わりを超えて、又はフィードの開始前に読み取りカーソルと DOM フォーカスを移動するための読み取りモードキーを提供する。</li>
             </ul>
           </li>
         </ol>
-        <p>Thus, implementing the feed pattern allows a screen reader to reliably read and trigger the loading of feed content while staying in its reading mode.</p>
+        <p>したがって、フィードパターンを実装することで、スクリーンリーダーは読み取りモードのままフィードコンテンツを確実に読み取り、トリガすることができます。</p>
         <p>
-          Another feature of the feed pattern is its ability to facilitate skim reading for assistive technology users.
-          Web page authors may provide both an accessible name and description for each article.
-          By identifying the elements inside of an article that provide the title and the primary content, assistive technologies can provide functions that enable users to jump from article to article and efficiently discern which articles may be worthy of more attention.
+          フィードパターンのもう一つの特徴は、支援技術の利用者がスキムリーディングを容易にする能力です。
+          ウェブページの作成者は、各記事に対してアクセシブルな名前と説明の両方を提供することができます。
+          記事内のタイトルと主要コンテンツを提供する要素を特定することにより、支援技術は利用者が記事から記事へジャンプし、どの記事がより注目に値するかを効率的に特定する機能を提供できます。
         </p>
       </section>
 
       <section id="examples">
         <img alt="" src="../../images/pattern-feed.svg">
-        <h2>Example</h2>
+        <h2>例</h2>
         <p>
-          <a href="examples/feed.html">Infinite Scrolling Feed Example</a>
+          <a href="examples/feed.html">無限スクロールフィードの例</a>
         </p>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
+        <h2>キーボードインタラクション</h2>
         <p>
-          The feed pattern is not based on a desktop GUI widget so the <code>feed</code> role is not associated with any well-established keyboard conventions.
-          Supporting the following, or a similar, interface is recommended.
+          フィードパターンはデスクトップ GUI ウィジェットに基づいていないため、<code>feed</code> ロールは確立されたキーボードの慣例に関連付けられていません。
+          以下のようなインターフェースをサポートすることが推奨されます。
         </p>
-        <p>When focus is inside the feed:</p>
+        <p>フォーカスがフィード内にある場合：</p>
         <ul>
-          <li><kbd>Page Down</kbd>: Move focus to next article.</li>
-          <li><kbd>Page Up</kbd>: Move focus to previous article.</li>
-          <li><kbd>Control</kbd> + <kbd>End</kbd>: Move focus to the first focusable element after the feed.</li>
-          <li><kbd>Control</kbd> + <kbd>Home</kbd>: Move focus to the first focusable element before the feed.</li>
+          <li><kbd>Page Down</kbd>: フォーカスを次の記事に移動します。</li>
+          <li><kbd>Page Up</kbd>: フォーカスを前の記事に移動します。</li>
+          <li><kbd>Control</kbd> + <kbd>End</kbd>: フィードの後の最初のフォーカス可能な要素にフォーカスを移動します。</li>
+          <li><kbd>Control</kbd> + <kbd>Home</kbd>: フィードの前の最初のフォーカス可能な要素にフォーカスを移動します。</li>
         </ul>
         <div class="note">
-          <h3>Note</h3>
+          <h3>注記</h3>
           <ol>
-            <li>Due to the lack of convention, providing easily discoverable keyboard interface documentation is especially important.</li>
+            <li>慣例がないため、発見しやすいキーボードインターフェースのドキュメントを提供することが特に重要です。</li>
             <li>
-              In some cases, a feed may contain a nested feed.
-              For example, an article in a social media feed may contain a feed of comments on that article.
-              To navigate the nested feed, users first move focus inside the nested feed.
-              Options for supporting nested feed navigation include:
+              場合によっては、フィードにネストされたフィードが含まれることがあります。
+              例えば、ソーシャルメディアフィードの記事には、その記事に対するコメントのフィードが含まれることがあります。
+              ネストされたフィードをナビゲートするには、まずネストされたフィード内にフォーカスを移動します。
+              ネストされたフィードのナビゲーションをサポートするオプションには次のものがあります：
               <ul>
                 <li>
-                  Users move focus into the nested feed from the content of the containing article with <kbd>Tab</kbd>.
-                  This may be slow if the article contains a significant number of links, buttons, or other widgets.
+                  含まれている記事のコンテンツから <kbd>Tab</kbd> を使用してネストされたフィードにフォーカスを移動します。
+                  この記事に多数のリンク、ボタン、その他のウィジェットが含まれている場合、これは遅くなる可能性があります。
                 </li>
-                <li>Provide a key for moving focus from the elements in the containing article to the first item in the nested feed, e.g., <kbd>Alt</kbd> + <kbd>Page Down</kbd>.</li>
-                <li>To continue reading the outer feed, <kbd>Control</kbd> + <kbd>End</kbd> moves focus to the next article in the outer feed.</li>
+                <li>含まれている記事の要素からネストされたフィードの最初の項目にフォーカスを移動するキーを提供します。例：<kbd>Alt</kbd> + <kbd>Page Down</kbd>。</li>
+                <li>外部フィードの読み取りを続けるには、<kbd>Control</kbd> + <kbd>End</kbd> を使用して外部フィードの次の記事にフォーカスを移動します。</li>
               </ul>
             </li>
-            <li>In the rare circumstance that a feed article contains a widget that uses the above suggested keys, the feed navigation key will operate the contained widget, and the user needs to move focus to an element that does not utilize the feed navigation keys in order to navigate the feed.</li>
+            <li>フィードの記事に上記のキーを使用するウィジェットが含まれている場合、フィードナビゲーションキーは含まれているウィジェットを操作し、利用者はフィードナビゲーションキーを使用しない要素にフォーカスを移動してフィードをナビゲートする必要があります。</li>
           </ol>
         </div>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties</h2>
+        <h2>WAI-ARIA ロール、ステート、及びプロパティ</h2>
         <ul>
-          <li>The element that contains the set of feed articles has role <a href="#feed" class="role-reference">feed</a>.</li>
+          <li>フィード記事のセットを含む要素には、<a href="#feed" class="role-reference">feed</a> ロールがあります。</li>
           <li>
-            If the feed has a visible label, the <code>feed</code> element has <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> referring to the element containing the title.
-            Otherwise, the <code>feed</code> element has a label specified with <a href="#aria-label" class="property-reference">aria-label</a>.
+            フィードに可視ラベルがある場合、<code>feed</code> 要素にはタイトルを含む要素を参照する <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> があります。
+            そうでない場合、<code>feed</code> 要素には <a href="#aria-label" class="property-reference">aria-label</a> で指定されたラベルがあります。
           </li>
           <li>
-            Each unit of content in a feed is contained in an element with role <a href="#article" class="role-reference">article</a>.
-            All content inside the feed is contained in an <code>article</code> element.
+            フィード内の各コンテンツユニットは、<a href="#article" class="role-reference">article</a> ロールを持つ要素に含まれています。
+            フィード内のすべてのコンテンツは <code>article</code> 要素に含まれています。
           </li>
-          <li>Each <code>article</code> element has <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> referring to elements inside the article that can serve as a distinguishing label.</li>
-          <li>It is optional but strongly recommended for each <code>article</code> element to have <a href="#aria-describedby" class="property-reference">aria-describedby</a> referring to one or more elements inside the article that serve as the primary content of the article.</li>
-          <li>Each <code>article</code> element has <a href="#aria-posinset" class="property-reference">aria-posinset</a> set to a value that represents its position in the feed.</li>
+          <li>各 <code>article</code> 要素には、記事内の識別ラベルとして機能する要素を参照する <a href="#aria-labelledby" class="property-reference">aria-labelledby</a> があります。</li>
+          <li>各 <code>article</code> 要素には、記事の主要コンテンツとして機能する 1 つ以上の要素を参照する <a href="#aria-describedby" class="property-reference">aria-describedby</a> があることが推奨されます。</li>
+          <li>各 <code>article</code> 要素には、フィード内の位置を表す値が設定された <a href="#aria-posinset" class="property-reference">aria-posinset</a> があります。</li>
           <li>
-            Each <code>article</code> element has <a href="#aria-setsize" class="property-reference">aria-setsize</a> set to a value that represents either the total number of articles that have been loaded or the total number in the feed, depending on which value is deemed more helpful to users.
-            If the total number in the feed is undetermined, it can be represented by a <code>aria-setsize</code> value of <code>-1</code>.
+            各 <code>article</code> 要素には、読み込まれた記事の総数又はフィード内の総数を表す値が設定された <a href="#aria-setsize" class="property-reference">aria-setsize</a> があります。
+            フィード内の総数が不明な場合、<code>aria-setsize</code> の値を <code>-1</code> として表すことができます。
           </li>
           <li>
-            When <code>article</code> elements are being added to or removed from the <code>feed</code> container, and if the operation requires multiple DOM operations, the <code>feed</code> element has <a href="#aria-busy" class="state-reference">aria-busy</a> set to <code>true</code> during the update operation.
-            Note that it is extremely important that <code>aria-busy</code> is set to <code>false</code> when the operation is complete or the changes may not become visible to some assistive technology users.
+            <code>article</code> 要素が <code>feed</code> コンテナに追加又は削除されている場合、操作に複数の DOM 操作が必要な場合、更新操作中に <code>feed</code> 要素には <a href="#aria-busy" class="state-reference">aria-busy</a> が <code>true</code> に設定されます。
+            操作が完了したときに <code>aria-busy</code> が <code>false</code> に設定されないと、一部の支援技術利用者には変更が表示されない可能性があるため、これを設定することが非常に重要です。
           </li>
         </ul>
       </section>
