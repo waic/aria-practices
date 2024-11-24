@@ -23,18 +23,18 @@
     <main>
       <h1>無限スクロールフィードの例</h1>
       <!-- 翻訳元リビジョン: b606e347d1dd1a70d35f80655c232725173314ba -->
-
+ 
       <section>
         <h2>この例について</h2>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-feed.svg">
         <p>
           <strong>注記:</strong> フィードロールは WAI-ARIA 1.1 によって導入されました。
-          ネイティブデスクトップオペレーティングシステムはフィードパターンに適用できる規約がほとんどないため、この例で示されているフィードの実装は提案として機能することを意図しています。
+          ネイティブデスクトップオペレーティングシステムはフィードパターンに適用できる規約がほとんどないため、この例で示されているフィードの実装は提案として提供することを意図しています。
           フィードバックは <a href="https://github.com/w3c/aria-practices/issues/565">issue 565</a> で歓迎します。
         </p>
         <p>
           以下の例はレストランレビューサイトのための <a href="../feed-pattern.html">フィードパターン</a> を実装しています。
-          無限にスクロールするデータセットを模倣するために、利用者がフィードを読むときに 10 件のレストラン情報が繰り返し読み込まれます。
+          無限にスクロールするデータセットを模倣するために、利用者がフィードを読むにつれて 10 件のレストラン情報が繰り返し読み込まれます。
           この例にはデータ取得の遅延をシミュレートする記事読み込み時間セレクターが含まれています。
         </p>
       </section>
@@ -54,13 +54,13 @@
 
       <section>
         <h2 id="ex_label">例</h2>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="例の開始"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="の開始"></div>
         <div id="ex1">
           <p>以下の例のフィード体験は、ページの残りのコンテンツを妨げないように iframe で表示されています。</p>
           <iframe id="feed_frame" src="./feed-display.html" height="500" title="フィードの例" style="width: 100%"></iframe>
           <button id="terms-of-use" onclick="alert('これはデモ用です')">利用規約</button>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="例の終了"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="の終了"></div>
       </section>
 
       <section>
@@ -83,7 +83,7 @@
             </tr>
             <tr data-test-id="key-control-end">
               <th><kbd>Control</kbd> + <kbd>End</kbd></th>
-              <td>フィードの後の最初のフォーカス可能な要素にフォーカスを移動します。</td>
+              <td>フィードの後ろにある最初のフォーカス可能な要素にフォーカスを移動します。</td>
             </tr>
             <tr data-test-id="key-control-home">
               <th><kbd>Control</kbd> + <kbd>Home</kbd></th>
@@ -152,7 +152,7 @@
               <td>
                 <ul>
                   <li>記事要素をフォーカス可能にし、ページの <kbd>Tab</kbd> シーケンスに含めます。</li>
-                  <li>利用者が読むと、フィードはフォーカス位置又はスクロール位置に基づいて追加の記事を読み込みます。</li>
+                  <li>利用者が読むにつれて、フィードはフォーカス位置又はスクロール位置に基づいて追加の記事を読み込みます。</li>
                   <li>支援技術は、支援技術の読み取りカーソルを含む記事が DOM フォーカスを持つか含むことを確認することで、新しい記事が読み込まれ、正しく視覚的に配置されることを保証できます。</li>
                 </ul>
               </td>
@@ -177,7 +177,7 @@
                 <ul>
                   <li>記事の主要なコンテンツを提供する要素のリストを参照します。</li>
                   <li>すべての記事で同一に繰り返される要素は含まれません。例: 「ブックマーク」ボタンは含まれません。</li>
-                  <li>支援技術利用者がフィードをスキミングできるようにします。</li>
+                  <li>支援技術利用者がフィードにざっと目を通せるようにします。</li>
                 </ul>
               </td>
             </tr>
