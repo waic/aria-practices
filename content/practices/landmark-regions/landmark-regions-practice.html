@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../shared/css/core.css">
     <script src="../../shared/js/highlight.pack.js"></script>
     <script src="../../shared/js/app.js"></script>
-    <script src="../../shared/js/skipto.js"></script>
+    <script data-skipto="colorTheme:aria; displayOption:popup; containerElement:div" src="../../shared/js/skipto.js"></script>
   </head>
   <body>
     <main>
@@ -103,10 +103,13 @@
 
         <ul>
           <li>領域内のコンテンツの種類に基づいてランドマークロールを割り当てます。</li>
-
           <li><code>banner</code>、<code>main</code>、<code>complementary</code>、<code>contentinfo</code>ランドマークは、トップレベルのランドマークであるべきです。</li>
-
           <li>ランドマークロールは、提示される情報の親子関係を識別するためにネストできます。</li>
+          <li>
+            モーダルダイアログのコンテンツをランドマーク領域で囲むことは不要であることに注意してください。
+            モーダルコンテンツを囲むランドマークは、モーダルが開いていない限り知覚できないため、利用者にいかなる利点も提供しません。
+            さらに、モーダルが開いている場合、モーダル自体が名前と境界を提供するコンテナであるため、そのコンテンツを含むランドマークは冗長です。
+          </li>
         </ul>
 
         <p id="aria_lh_step3"><strong>ステップ3: 領域にラベルを付ける</strong></p>
