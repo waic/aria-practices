@@ -67,20 +67,6 @@
     "*.css": "stylelint --fix",
     "*.js": [
       "eslint --fix"
-    ],
-    "content/patterns/**/examples/*.html": [
-      "npm run reference-tables",
-      "git add content/index/index.html",
-      "npm run coverage-report",
-      "git add content/about/coverage-and-quality/"
-    ],
-    "scripts/reference-tables.*": [
-      "npm run reference-tables",
-      "git add content/index/index.html"
-    ],
-    "scripts/coverage-report.*": [
-      "npm run coverage-report",
-      "git add content/about/coverage-and-quality/"
     ]
   },
   "ava": {
