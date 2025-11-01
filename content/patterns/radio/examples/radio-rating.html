@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rating Radio Group Example</title>
+    <title>評価ラジオグループの例</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -25,31 +25,33 @@
       </ul>
     </nav>
     <main>
-      <h1>Rating Radio Group Example</h1>
+      <h1>評価ラジオグループの例</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/962f6e771dccd4e3bbf8b83da717fb8d75b861da -->
 
       <section>
-        <h2>About This Example</h2>
+        <h2>この例について</h2>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-radio.svg">
         <p>
-          Following is an example of a rating input that demonstrates the <a href="../radio-group-pattern.html">Radio Group Pattern.</a>
-          The rating is indicated by the number of stars selected by the user.
+          以下は、<a href="../radio-group-pattern.html">ラジオグループパターン</a>を示す評価入力の例です。
+          評価は、利用者が選択した星の数によって示されます。
         </p>
-        <p>Similar examples include:</p>
+        <p>類似の例は次のとおりです。</p>
         <ul>
-          <li><a href="../../slider/examples/slider-rating.html">Rating Slider Example</a>: Horizontal slider that demonstrates using <code>aria-valuetext</code> to make it easy for assistive technology users to understand the meaning of the current value chosen on a ten-point satisfaction scale.</li>
-          <li><a href="radio-activedescendant.html">Radio Group Example Using aria-activedescendant</a>: Radio button group that uses <code>aria-activedescendant</code> for managing keyboard focus.</li>
-          <li><a href="radio.html">Radio Group Example Using Roving tabindex</a>: A radio button group that uses roving <code>tabindex</code> for managing keyboard focus.</li>
+          <li><a href="../../slider/examples/slider-rating.html">評価スライダーの例</a>: <code>aria-valuetext</code> を使用して、支援技術の利用者が 10 段階の満足度スケールで選択された現在の値の意味を理解しやすくする方法を示す水平スライダー。</li>
+          <li><a href="radio-activedescendant.html"><code>aria-activedescendant</code> を使用したラジオグループの例</a>: キーボードフォーカスを管理するために <code>aria-activedescendant</code> を使用するラジオボタングループ。</li>
+          <li><a href="radio.html">ロービング tabindex を使用したラジオグループの例</a>: キーボードフォーカスを管理するためにロービング <code>tabindex</code> を使用するラジオボタングループ。</li>
         </ul>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
-        <div id="ex1">
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="の開始"></div>
+
+        <div id="example">
           <div class="rating-radio" role="radiogroup" aria-labelledby="id-rating-label" data-rating-value="">
-            <div id="id-rating-label" class="label">Rating</div>
+            <div id="id-rating-label" class="label">評価</div>
             <svg role="none" xmlns="http://www.w3.org/2000/svg" width="264" height="48">
               <defs>
                 <g id="star">
@@ -60,34 +62,34 @@
                 </g>
               </defs>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="1" aria-label="one star" class="star-1 star-2 star-3 star-4 star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="1" aria-label="星 1 つ" class="star-1 star-2 star-3 star-4 star-5">
                 <use class="star" xlink:href="#star" x="10" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="8" y="5" />
               </g>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="2" aria-label="two stars" class="star-2 star-3 star-4 star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="2" aria-label="星 2 つ" class="star-2 star-3 star-4 star-5">
                 <use class="star" xlink:href="#star" x="50" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="48" y="5" />
               </g>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="3" aria-label="three stars" class="star-3 star-4 star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="3" aria-label="星 3 つ" class="star-3 star-4 star-5">
                 <use class="star" xlink:href="#star" x="90" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="88" y="5" />
               </g>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="4" aria-label="four stars" class="star-4 star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="4" aria-label="星 4 つ" class="star-4 star-5">
                 <use class="star" xlink:href="#star" x="130" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="128" y="5" />
               </g>
 
-              <g role="radio" aria-checked="false" tabindex="-1" data-rating="5" aria-label="five stars" class="star-5">
+              <g role="radio" aria-checked="false" tabindex="-1" data-rating="5" aria-label="星 5 つ" class="star-5">
                 <use class="star" xlink:href="#star" x="170" y="7" />
                 <use class="focus-ring" xlink:href="#focus-ring" x="168" y="5" />
               </g>
             </svg>
           </div>
         </div>
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="の終了"></div>
       </section>
 
       <section>
