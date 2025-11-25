@@ -88,11 +88,11 @@
             フォーカス可能な要素がフォーカスされていない場合、それらは幅 0 の境界線と、フォーカスを示すために使用される境界線と同じ幅の追加のパディングを持ちます。
           </li>
           <li>
-            CSS ファイル内のインライン SVG ラジオボタングラフィックが、ハイコントラスト設定でテキストコンテンツの色が変更されたときに背景と十分なコントラストを持つことを保証するために、<code>svg</code> グラフィックの <code>forced-color-adjust</code> は <code>auto</code> に設定されます。
-            これにより、円要素の <code>stroke</code> 及び <code>fill</code> の色がハイコントラストの色設定によって上書きされます。
-            外側の <code>circle</code> の背景をハイコントラストの背景色と一致させるために、外側の <code>circle</code> の <code>fill-opacity</code> 属性はゼロに設定され、内側の <code>circle</code> の <code>stroke-opacity</code> 属性はゼロに設定されます。
-            <code>forced-color-adjust</code> を使用して <code>stroke</code> 及び <code>fill</code> プロパティに指定された色を上書きしない場合、これらの色はハイコントラストモードでも同じままであり、ラジオ円要素と背景のコントラストが不十分になったり、色がハイコントラストモードの背景と一致するとアイコンが見えなくなったりする可能性があります。<br>
-            注: 一部のブラウザでは SVG グラフィックのデフォルト値として <code>auto</code> を使用しないため、<code>forced-color-adjust</code> の明示的な設定が必要です。
+            ハイコントラスト設定がテキストコンテンツの色を変更したときに、CSS ファイル内のインライン SVG ラジオボタングラフィックが背景と十分なコントラストを持つことを保証するために、<code>svg</code> グラフィックの CSS <code>forced-color-adjust</code> は <code>auto</code> に設定されます。
+            これにより、circle 要素の <code>stroke</code> 及び <code>fill</code> の色がハイコントラストの色設定によって上書きされます。
+            <code>circle</code> 要素の背景をハイコントラストの背景色と一致させるために、外側の <code>circle</code> の <code>fill-opacity</code> 属性はゼロに設定され、内側の <code>circle</code> の <code>stroke-opacity</code> 属性はゼロに設定されます。
+            <code>forced-color-adjust</code> を使用せずに <code>stroke</code> 及び <code>fill</code> プロパティに指定された色を上書きしない場合、これらの色はハイコントラストモードでも同じままであり、ラジオボタンの circle 要素と背景のコントラストが不十分になったり、色がハイコントラストモードの背景と一致した場合にアイコンが見えなくなったりする可能性があります。<br>
+            注記: 一部のブラウザでは SVG グラフィックのデフォルト値として <code>auto</code> を使用しないため、<code>forced-color-adjust</code> の明示的な設定が必要です。
           </li>
         </ul>
       </section>
