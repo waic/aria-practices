@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Examples (IDL Version)</title>
+    <title>ボタンの例（IDL バージョン）</title>
 
     <!-- Core JS and CSS shared by all examples -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -18,52 +18,52 @@
     <script src="js/button_idl.js"></script>
   </head>
   <body>
-    <nav aria-label="Related Links" class="feedback">
+    <nav aria-label="関連するリンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/14">Related Issues</a></li>
-        <li><a href="../button-pattern.html">Design Pattern</a></li>
+        <li><a href="https://github.com/w3c/aria-practices/projects/14">関連する Issues</a></li>
+        <li><a href="../button-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
 
     <main>
-      <h1>Button Examples (IDL Version)</h1>
+      <h1>ボタンの例（IDL バージョン）</h1>
+      <!-- af8f4c1d97ead402022d704754c3d382c4a2cef2 -->
 
       <section>
-        <h2>About This example</h2>
+        <h2>この例について</h2>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-button.svg">
-        <p>The following examples of the <a href="../button-pattern.html">Button Pattern</a> demonstrate a new JavaScript syntax for coding ARIA attributes.</p>
+        <p><a href="../button-pattern.html">ボタンパターン</a>の以下の例は、ARIA 属性をコーディングするための新しい JavaScript 構文を示しています。</p>
         <p>
-          The JavaScript for the example buttons on this page uses the <a class="specref" href="#idl-interface">IDL Interface defined in ARIA 1.2</a>.
-          The purpose of these examples is to illustrate how to use ARIA Attribute Reflection and provide a test case for browser and assistive technology interoperability.
-          Specifically, the <code>role</code> and <code>ariaPressed</code> attributes are accessed using dot notation instead of <code>setAttribute()</code> and <code>getAttribute()</code>.
-          In all other respects, these examples are identical to the <a href="button.html">Button Examples</a>.
+          このページの例の JavaScript は、<a class="specref" href="#idl-interface">ARIA 1.2 で定義されている IDL インターフェース</a>を使用しています。
+          これらの例の目的は、ARIA 属性リフレクションの使用方法を説明し、ブラウザと支援技術の相互運用性のテストケースを提供することです。
+          具体的には、<code>setAttribute()</code> 及び <code>getAttribute()</code> の代わりにドット表記を使用して <code>role</code> 及び <code>ariaPressed</code> 属性にアクセスします。
+          その他の点では、これらの例は <a href="button.html">ボタンの例</a>と同一です。
         </p>
       </section>
 
       <section>
         <div class="example-header">
-          <h2 id="ex_label">Example</h2>
+          <h2 id="ex_label">例</h2>
         </div>
 
-        <div role="separator" id="ex_start_sep" aria-labelledby="ex_start_sep ex_label" aria-label="Start of"></div>
+        <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
 
         <div id="example">
           <div class="advisement">
-            <h3>Important</h3>
+            <h3>重要</h3>
             <p>
-              This example is coded using syntax that was not introduced until version 1.2 of the ARIA specification.
-              When using a
-              <a href="https://github.com/w3c/aria-practices/issues/1692" target="_blank">browser that does not yet provide support for ARIA attribute reflection</a>,
-              the buttons will not be styled correctly.
+              この例は、ARIA 仕様のバージョン 1.2 まで導入されなかった構文を使用してコーディングされています。
+              <a href="https://github.com/w3c/aria-practices/issues/1692" target="_blank">ARIA 属性リフレクションのサポートをまだ提供していないブラウザ</a>を使用している場合、
+              ボタンは正しくスタイルされません。
             </p>
           </div>
 
-          <p>This <q>Print</q> action button uses a <code>div</code> element.</p>
-          <div tabindex="0" id="action">Print Page</div>
+          <p>この <q>印刷</q> アクションボタンは <code>div</code> 要素を使用しています。</p>
+          <div tabindex="0" id="action">ページを印刷</div>
 
-          <p>This <q>Mute</q> toggle button uses an <code>a</code> element.</p>
+          <p>この <q>ミュート</q> トグルボタンは <code>a</code> 要素を使用しています。</p>
           <a tabindex="0" id="toggle">
-            Mute
+            ミュート
             <svg aria-hidden="true" focusable="false">
               <use xlink:href="#icon-sound"></use>
             </svg>
@@ -86,42 +86,42 @@
           </svg>
         </div>
 
-        <div role="separator" id="ex_end_sep" aria-labelledby="ex_end_sep ex_label" aria-label="End of"></div>
+        <div role="separator" id="ex_end_sep" aria-labelledby="ex_label ex_end_sep" aria-label="の終了"></div>
       </section>
 
       <section>
-        <h2 id="kbd_label">Keyboard Support</h2>
+        <h2 id="kbd_label">キーボードのサポート</h2>
 
         <table aria-labelledby="kbd_label" class="def">
           <thead>
             <tr>
-              <th>Key</th>
-              <th>Function</th>
+              <th>キー</th>
+              <th>機能</th>
             </tr>
           </thead>
           <tbody>
             <tr data-test-id="key-enter">
               <th><kbd>Enter</kbd></th>
-              <td>Activates the button.</td>
+              <td>ボタンを動作させる。</td>
             </tr>
             <tr data-test-id="key-space">
               <th><kbd>Space</kbd></th>
-              <td>Activates the button.</td>
+              <td>ボタンを動作させる。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2 id="rps_label">Role, Property, State, and Tabindex Attributes</h2>
+        <h2 id="rps_label">ロール、プロパティ、ステート、及び tabindex 属性</h2>
 
         <table aria-labelledby="rps_label" class="data attributes">
           <thead>
             <tr>
-              <th scope="col">Role</th>
-              <th scope="col">Attribute</th>
-              <th scope="col">Element</th>
-              <th scope="col">Usage</th>
+              <th scope="col">ロール</th>
+              <th scope="col">属性</th>
+              <th scope="col">要素</th>
+              <th scope="col">使用法</th>
             </tr>
           </thead>
           <tbody>
@@ -131,9 +131,9 @@
               <td><code>div</code>, <code>a</code></td>
               <td>
                 <ul>
-                  <li>Set in javascript with <code>element.role = 'button';</code>.</li>
-                  <li>Identifies the element as a <code>button</code> widget.</li>
-                  <li>Accessible name for the button is defined by the text content of the element.</li>
+                  <li>JavaScript で <code>element.role = 'button';</code> を使用して設定します。</li>
+                  <li>要素を <code>button</code> ウィジェットとして識別します。</li>
+                  <li>ボタンの、アクセシブルな名前は、要素のテキストコンテンツによって定義されます。</li>
                 </ul>
               </td>
             </tr>
@@ -145,8 +145,8 @@
               <td><code>div</code>, <code>a</code></td>
               <td>
                 <ul>
-                  <li>Includes the element in the tab sequence.</li>
-                  <li>Needed on the <code>a</code> element because it does not have a <code>href</code> attribute.</li>
+                  <li>要素をタブシーケンスに含めます。</li>
+                  <li><code>a</code> 要素に <code>href</code> 属性がないため必要です。</li>
                 </ul>
               </td>
             </tr>
@@ -156,9 +156,9 @@
               <td><code>a</code></td>
               <td>
                 <ul>
-                  <li>Set in javascript with <code>button.ariaPressed = 'false';</code>.</li>
-                  <li>Identifies the button as a toggle button.</li>
-                  <li>Indicates the toggle button is not pressed.</li>
+                  <li>JavaScript で <code>button.ariaPressed = 'false';</code> を使用して設定します。</li>
+                  <li>ボタンをトグルボタンとして識別します。</li>
+                  <li>トグルボタンが押されていないことを示します。</li>
                 </ul>
               </td>
             </tr>
@@ -168,9 +168,9 @@
               <td><code>a</code></td>
               <td>
                 <ul>
-                  <li>Set in javascript with <code>button.ariaPressed = 'true';</code>.</li>
-                  <li>Identifies the button as a toggle button.</li>
-                  <li>Indicates the toggle button is pressed.</li>
+                  <li>JavaScript で <code>button.ariaPressed = 'true';</code> を使用して設定します。</li>
+                  <li>ボタンをトグルボタンとして識別します。</li>
+                  <li>トグルボタンが押されていることを示します。</li>
                 </ul>
               </td>
             </tr>
@@ -178,14 +178,14 @@
               <td></td>
               <th scope="row"><code>aria-hidden="true"</code></th>
               <td><code>svg</code></td>
-              <td>Excludes SVG from accessible name calculation for the button.</td>
+              <td>ボタンのアクセシブルな名前の算出から、SVG を除外します。</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section>
-        <h2>JavaScript and CSS Source Code</h2>
+        <h2>JavaScript 及び CSS のソースコード</h2>
 
         <ul id="css_js_files">
           <li>
@@ -200,16 +200,17 @@
       </section>
 
       <section class="example-code">
-        <h2 id="sc1_label">HTML Source Code</h2>
-        <p id="sc1_description">To copy the following HTML code, please open it in CodePen.</p>
-        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_start_sep sc1_label" aria-label="Start of"></div>
+        <h2 id="sc1_label">HTML のソースコード</h2>
+        <p id="sc1_description">以下の HTML コードをコピーするには、CodePen で開いてください。</p>
+        <div role="separator" id="sc1_start_sep" aria-labelledby="sc1_label sc1_start_sep" aria-label="の開始"></div>
         <pre><code id="sc1"></code></pre>
-        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_end_sep sc1_label" aria-label="End of"></div>
+        <div role="separator" id="sc1_end_sep" aria-labelledby="sc1_label sc1_end_sep" aria-label="の終了"></div>
         <script>
           sourceCode.add('sc1', 'example', 'ex_label', 'css_js_files', 'sc1_description');
           sourceCode.make();
         </script>
       </section>
+
     </main>
   </body>
 </html>
