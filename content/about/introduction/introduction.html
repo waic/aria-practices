@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Introduction</title>
+    <title>概説</title>
 
     <!-- Core JS and CSS shared by all About content -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,166 +14,167 @@
   </head>
   <body>
     <main>
-      <h1>Introduction</h1>
+      <h1>概説</h1>
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/db21f7d55b88a5d693d3b4d72d3e61d8d599a31f -->
       <p>
-        This introduction to the ARIA Authoring Practices Guide (APG) describes the purpose of the APG, the prerequisite knowledge it assumes, and how it is organized.
+        この ARIA Authoring Practices Guide (APG) の概説では、APG の目的、前提とする知識、及び構成について説明します。
       </p>
 
       <section id="purpose">
-        <h2>Purpose of the APG</h2>
+        <h2>APG の目的</h2>
         <p>
-          The APG synthesizes requirements from multiple accessibility and web technology specifications into guidance for developing web experiences for people who rely on assistive technologies and keyboard interfaces.
-          It includes a library of accessible user interface patterns, example implementations of the patterns, and guidance sections that explain how to:
+          APG は、支援技術やキーボードインタフェースに依存する人々のためのウェブ体験を開発するためのガイダンスとして、複数のアクセシビリティ及びウェブ技術仕様の要件を統合しています。
+          APG には、アクセシブルなユーザインタフェースパターンのライブラリ、パターンの実装例、及び以下の方法を説明するガイダンスセクションが含まれます:
         </p>
         <ul>
           <li>
-            Make common user interface patterns accessible by using features of the
-            <a class="specref" href="#abstract">Accessible Rich Internet Application (ARIA) specification</a>
-            in combination with HTML, CSS, JavaScript, and other web technologies.
+            <a class="specref" href="#abstract">Accessible Rich Internet Application (ARIA) 仕様</a>の機能を
+            HTML、CSS、JavaScript、及びほかのウェブ技術と組合せて使用することで、
+            一般的なユーザインタフェースパターンをアクセシブルにする。
           </li>
           <li>
-            Use ARIA, HTML, and CSS to implement fundamental accessibility practices, such as providing accessible names, enabling keyboard interaction, conveying page structure to assistive technologies, and supporting high contrast operating system settings.
+            ARIA、HTML、及び CSS を使用して、アクセシブルな名前の提供、キーボード操作の有効化、支援技術へのページ構造の伝達、ハイコントラストのオペレーティングシステム設定のサポートなど、基本的なアクセシビリティの実践を実装する。
           </li>
         </ul>
         <p>
-          The primary aim of the APG is to increase the availability of robust accessible experiences by building broad understanding  and encouraging adoption of web accessibility practices that:
+          APG の主な目的は、以下のようなウェブアクセシビリティの実践に対する幅広い理解を構築し、採用を促進することで、堅牢でアクセシブルな体験の利用可能性を高めることです:
         </p>
         <ul>
-          <li>Are consistent with the intent of ARIA, HTML, CSS, and related specifications.</li>
-          <li>Support assistive technology interoperability, which is assessed by the <a href="https://aria-at.w3.org/">ARIA and Assistive Technologies Project</a>.</li>
-          <li>Promote practical techniques for developing modern GUIs that both support usability for people with disabilities and conform with <a href="https://www.w3.org/TR/WCAG21/">WCAG</a> requirements.</li>
+          <li>ARIA、HTML、CSS、及び関連仕様の意図と一致していること。</li>
+          <li><a href="https://aria-at.w3.org/">ARIA and Assistive Technologies Project</a> によって評価される、支援技術の相互運用性をサポートしていること。</li>
+          <li>障害のある人々のユーザビリティをサポートし、<a href="https://www.w3.org/TR/WCAG21/">WCAG</a> 要件に適合する最新の GUI を開発するための実践的な技術を促進していること。</li>
         </ul>
       </section>
 
       <section id="apg-is--not-normative">
-        <h2>APG is Not a Normative Standard</h2>
+        <h2>APG は規定標準ではない</h2>
         <p>
-          The accessibility guidance in the APG is different from accessibility requirements specified by <a href="https://www.w3.org/TR/WCAG21/">WCAG</a> and <a class="specref" href="#abstract">ARIA</a>.
-          WCAG and ARIA are "W3C normative technical standards" while the APG is an "informative" resource.
-          W3C normative technical standards, which are formally known as "W3C Recommendations", have conformance models that define how to comply with the requirements documented in the standard.
-          Those requirements are developed using a rigorous process defined by
-          The <a href="https://www.w3.org/Consortium/Process#rec-track">W3C Recommendation Track</a>.
+          APG のアクセシビリティガイダンスは、<a href="https://www.w3.org/TR/WCAG21/">WCAG</a> 及び <a class="specref" href="#abstract">ARIA</a> で規定されたアクセシビリティ要件とは異なります。
+          WCAG 及び ARIA は「W3C 規定技術標準」であるのに対し、APG は「参考」リソースです。
+          正式には「W3C 勧告」として知られる W3C 規定技術標準は、標準に文書化された要件に適合する方法を定義する適合モデルを持っています。
+          これらの要件は、
+          <a href="https://www.w3.org/Consortium/Process#rec-track">W3C 勧告トラック</a>によって定義された厳格なプロセスを使用して策定されます。
         </p>
         <p>
-          The APG does not specify normative requirements and thus does not have a conformance model.
-          The <a href="https://www.w3.org/groups/tf/aria-practices">ARIA Authoring Practices Task Force</a>, which is part of the <a href="https://www.w3.org/groups/wg/aria">ARIA Working Group</a>,
-          uses consensus to ensure APG guidance is consistent with all relevant specifications, including ARIA, but its process for doing so is not bound by the W3C Recommendation Track process.
+          APG は規定要件を規定しておらず、したがって適合モデルを持っていません。
+          <a href="https://www.w3.org/groups/wg/aria">ARIA ワーキンググループ</a>の一部である <a href="https://www.w3.org/groups/tf/aria-practices">ARIA Authoring Practices タスクフォース</a>は、
+          APG ガイダンスが ARIA を含むすべての関連仕様と一致することを確保するためにコンセンサスを使用しますが、そのプロセスは W3C 勧告トラックプロセスに拘束されません。
         </p>
         <p>
-          Some of the guidance in the APG is not covered by a normative specification.
-          For example, the patterns include keyboard interaction models that combine a normative requirement specified by ARIA with conventions established by popular operating systems and software.
-          In the section on <a class="specref" href="#managingfocus">Managing focus</a>, ARIA includes normative language stating that the <kbd>Tab</kbd> key should not move focus inside of certain types of widgets.
-          However, ARIA does not specify how specific keys should move focus inside of those widgets.
-          So, the APG Task Force relies on broadly utilized keyboard conventions to provide each pattern with a list of keyboard commands for navigation and operation.
-          While those lists are not normative, the majority of such conventions are so well established that it is advisable to treat them as requirements.
-          Where that is not the case, the guidance is clearly marked as optional.
-          Note that there are some keyboard commands where users could be better served if a web widget were to dynamically adjust to mirror the users' operating system conventions.
-          It is a <a href="https://github.com/w3c/aria-practices/issues/1438">known issue</a> that some APG keyboard interaction models do not yet provide sufficient macOS-specific guidance.        </p>
+          APG のガイダンスの一部は、規定仕様でカバーされていません。
+          たとえば、パターンには、ARIA で規定された規定要件と、一般的なオペレーティングシステムやソフトウェアによって確立された慣習を組合せたキーボード操作モデルが含まれています。
+          <a class="specref" href="#managingfocus">フォーカスの管理</a>のセクションでは、ARIA は <kbd>Tab</kbd> キーが特定の種類のウィジェット内でフォーカスを移動してはならないと規定する言語を含んでいます。
+          しかし、ARIA は特定のキーがこれらのウィジェット内でどのようにフォーカスを移動するべきかを規定していません。
+          そのため、APG タスクフォースは、ナビゲーション及び操作のためのキーボードコマンドのリストを各パターンに提供するために、広く利用されているキーボード慣習に依存しています。
+          これらのリストは規定ではありませんが、そのような慣習の大部分は十分に確立されているため、要件として扱うことが望ましいです。
+          そうでない場合、ガイダンスはオプションとして明確にマークされています。
+          なお、ウェブウィジェットが利用者のオペレーティングシステムの慣習を動的に反映するように調整すれば、利用者により良いサービスを提供できるキーボードコマンドがいくつかあることに注意してください。
+          一部の APG キーボード操作モデルが macOS 固有のガイダンスをまだ十分に提供していないことは<a href="https://github.com/w3c/aria-practices/issues/1438">既知の課題</a>です。</p>
       </section>
 
       <section id="caution-when-deviating">
-        <h2>Exercise Caution If Deviating from APG Patterns</h2>
+        <h2>APG パターンから逸脱する場合は注意</h2>
         <p>
-          While APG is not a standard, its patterns and practices do convey requirements from normative standards.
-          To help authors address a wide variety of UI design needs, the patterns and practices describe ranges of possibilities and options that satisfy those standards.
-          The examples each represent a specific way of implementing one or more patterns; they are intended to be illustrative, not prescriptive.
+          APG は標準ではありませんが、そのパターン及び実践は規定標準からの要件を伝えています。
+          コンテンツ制作者が幅広い UI デザインニーズに対応できるように、パターン及び実践は、これらの標準を満たす可能性の範囲とオプションを説明しています。
+          例はそれぞれ、1 つ以上のパターンを実装する特定の方法を表しています。これらは例示的であることを意図しており、規定的ではありません。
         </p>
         <p>
-          It is important to understand, however, that the APG pattern library is not intended to serve as a catalog of all possible, valid, and potentially usable ways of building accessible user interfaces.
-          Consequently, some developers may find it necessary to go beyond  simply combining various APG patterns to create an experience that supports their UI requirements.
-          If building UI that deviates from APG patterns, ensure the design and behavior of the UI:
+          しかし、APG パターンライブラリは、アクセシブルなユーザインタフェースを構築するための可能で、有効で、潜在的に使用可能なすべての方法のカタログとして機能することを意図していないことを理解することが重要です。
+          したがって、一部の開発者は、UI 要件をサポートする体験を作成するために、様々な APG パターンを単に組合せるだけでは不十分だと感じる場合があります。
+          APG パターンから逸脱する UI を構築する場合は、UI のデザイン及び動作が以下を確保してください:
         </p>
         <ul>
-          <li>Are consistent with relevant guidance covered by <a href="../../practices/practices.html">APG practices</a>.</li>
-          <li>Comply with normative requirements of the <a class="specref" href="#abstract">ARIA specification</a>.</li>
-          <li>Follow or mimic keyboard conventions in similar APG patterns or native operating system widgets.</li>
+          <li><a href="../../practices/practices.html">APG 実践</a>でカバーされている関連ガイダンスと一致していること。</li>
+          <li><a class="specref" href="#abstract">ARIA 仕様</a>の規定要件に準拠していること。</li>
+          <li>類似の APG パターン又はネイティブオペレーティングシステムウィジェットのキーボード慣習に従うか、模倣していること。</li>
         </ul>
       </section>
 
       <section id="not-design-system">
-        <h2>APG is not a UI Design System</h2>
+        <h2>APG は UI デザインシステムではない</h2>
         <p>
-          While the APG includes a library of patterns and functional examples, it's objectives do not include providing a comprehensive design system or production-ready code.
-          Not only would developing a production-ready design system be beyond the capacity of the Authoring Practices Task Force, developing examples that satisfy requirements of a unified design system would inhibit its primary aim of building broad understanding of relevant practices.
-          APG examples, including  code style, are designed to facilitate learning the accessibility concepts they illustrate.
-          To show how different approaches to design can satisfy accessibility requirements, the styles and behaviors of examples are sometimes intentionally inconsistent from one another.
-          Additionally, the examples are intended to be reasonably realistic and utilize modern coding techniques, but their purpose is not to teach other dimensions of web engineering, e.g., localization and robust platform interoperability.
-          Further information about platform and browser support is conveyed in the
-          <a href="../../practices/read-me-first/read-me-first-practice.html">Read Me First</a>.
+          APG はパターンのライブラリと機能的な例を含んでいますが、その目的は包括的なデザインシステムや本番環境対応のコードを提供することを含んでいません。
+          本番環境対応のデザインシステムを開発することは Authoring Practices タスクフォースの能力を超えるだけでなく、統一されたデザインシステムの要件を満たす例を開発することは、関連する実践の幅広い理解を構築するという主要な目的を妨げることになります。
+          APG の例は、コードスタイルを含め、それらが説明するアクセシビリティの概念を学ぶことを容易にするように設計されています。
+          設計への様々なアプローチがアクセシビリティ要件をどのように満たすことができるかを示すために、例のスタイル及び動作は意図的に互いに一貫性がない場合があります。
+          更に、例は合理的に現実的で最新のコーディング技術を利用することを意図していますが、その目的は、ローカライゼーションや堅牢なプラットフォーム相互運用性など、ウェブエンジニアリングのほかの側面を教えることではありません。
+          プラットフォーム及びブラウザサポートに関する詳細情報は、
+          <a href="../../practices/read-me-first/read-me-first-practice.html">最初にお読みください</a>で伝えられています。
         </p>
       </section>
 
       <section id="prerequisite-knowledge">
-        <h2>Important Prerequisite Knowledge</h2>
+        <h2>重要な前提知識</h2>
         <p>
-          The APG Task Force strives to make the APG welcoming to a broad audience by using plain and simple language wherever possible.
-          Consequently, even readers with minimal understanding of web development or accessibility can benefit from a significant portion of the guidance, e.g., the keyboard interaction patterns.
-          At the same time, many topics addressed by the APG are inherently complex and call for technically precise terminology.
-          Additionally, some important aspects of creating accessible experiences fall outside the scope of the APG.
-          This section describes the types of prerequisite knowledge and supporting resources that may enable readers to derive maximum benefit from the APG.
+          APG タスクフォースは、可能な限り平易でシンプルな言葉を使用することで、APG を幅広い読者に歓迎されるものにするよう努めています。
+          そのため、ウェブ開発やアクセシビリティについて最小限の理解しかない読者でも、キーボード操作パターンなど、ガイダンスのかなりの部分から恩恵を受けることができます。
+          同時に、APG で扱われている多くのトピックは本質的に複雑であり、技術的に正確な用語を必要とします。
+          更に、アクセシブルな体験を作成する上での重要な側面の一部は、APG の範囲外です。
+          このセクションでは、読者が APG から最大限の恩恵を得ることを可能にする可能性のある前提知識の種類とサポートリソースについて説明します。
         </p>
         <p>
-          Broadly speaking, the APG blends accessibility, UI design, and web engineering.
-          To successfully utilize the APG, it is not necessary for readers to have working knowledge in all three disciplines.
-          Accessibility specialists will find the APG more beneficial with at least a rudimentary understanding of HTML and CSS while designers and engineers will need familiarity with some accessibility fundamentals.
-          All readers will need a firm grasp of some basic ARIA concepts.
+          大まかに言えば、APG はアクセシビリティ、UI デザイン、及びウェブエンジニアリングを融合しています。
+          APG をうまく活用するために、読者が 3 つの分野すべてで実務知識を持つ必要はありません。
+          アクセシビリティ専門家は、少なくとも HTML 及び CSS の基本的な理解があれば、APG がより有益であることがわかるでしょう。一方、デザイナー及びエンジニアは、いくつかのアクセシビリティの基礎に精通している必要があります。
+          すべての読者は、いくつかの基本的な ARIA の概念をしっかりと把握する必要があります。
         </p>
         <p>
-          People who understand web design or engineering but are not familiar with accessibility and assistive technologies may be able to implement much of the guidance provided by the patterns and example code.
-          However, because many aspects of the guidance are neither prescriptive nor comprehensive, readers may need to make decisions that require assessing tradeoffs that could impact users with disabilities.
-          In addition to having some understanding of the needs of people with disabilities and the role of assistive technologies in satisfying them, it is essential that developers can perform some testing.
-          Relevant resources for developing an understanding of accessibility and assistive technologies include:
+          ウェブデザインやエンジニアリングを理解しているが、アクセシビリティや支援技術に精通していない人々は、パターン及び例のコードによって提供されるガイダンスの多くを実装できる可能性があります。
+          しかし、ガイダンスの多くの側面は規定的でも包括的でもないため、読者は障害のある利用者に影響を与える可能性のあるトレードオフを評価する必要がある決定を下す必要がある場合があります。
+          障害のある人々のニーズと、それらを満たす上での支援技術の役割についてある程度理解することに加えて、開発者がいくつかのテストを実行できることが不可欠です。
+          アクセシビリティ及び支援技術の理解を深めるための関連リソースには以下が含まれます:
         </p>
         <ul>
           <li><a href="https://www.w3.org/WAI/fundamentals/">WAI Accessibility Fundamentals</a></li>
           <li><a href="https://www.w3.org/WAI/design-develop/">WAI Overview of Design and Development</a></li>
         </ul>
         <p>
-          Readers who already have sufficient familiarity with accessibility and assistive technologies also need an understanding the purpose of ARIA and what accessibility semantics are.
-          These topics are covered by <a href="../aria-basics/aria-basics.html">ARIA Basics</a>.
+          アクセシビリティ及び支援技術に十分に精通している読者は、ARIA の目的とアクセシビリティセマンティクスが何であるかについての理解も必要とします。
+          これらのトピックは <a href="../aria-basics/aria-basics.html">ARIA の基本</a>でカバーされています。
         </p>
       </section>
 
       <section id="organization">
-        <h2>How the APG is Organized</h2>
+        <h2>APG の構成</h2>
         <p>
-          The APG is organized into the following major sections.
-          Note that as advised in several places throughout the APG, it is important to understand the information presented in the
-          <a href="../../practices/read-me-first/read-me-first-practice.html">Read Me First</a>
-          before utilizing any of the patterns or practices.
+          APG は以下の主要セクションに構成されています。
+          APG 全体のいくつかの場所でアドバイスされているように、パターンや実践を利用する前に、
+          <a href="../../practices/read-me-first/read-me-first-practice.html">最初にお読みください</a>
+          で提示されている情報を理解することが重要であることに注意してください。
         </p>
         <table>
           <thead>
             <tr>
-              <th>Section</th>
-              <th>Description</th>
+              <th>セクション</th>
+              <th>説明</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><a href="../../patterns/patterns.html">Patterns</a></td>
+              <td><a href="../../patterns/patterns.html">パターン</a></td>
               <td>
-                A library of more than 30 common user interface patterns, ranging from typical buttons and popup menus to complex tree grids.
-                Each pattern describes its purpose, keyboard interaction model, accessibility semantics, and is complemented by one or more illustrative functional example implementations.
+                典型的なボタンやポップアップメニューから複雑なツリーグリッドまで、30 を超える一般的なユーザインタフェースパターンのライブラリです。
+                各パターンは、その目的、キーボード操作モデル、アクセシビリティセマンティクスを説明し、1 つ以上の説明的な機能実装例によって補完されています。
               </td>
             </tr>
             <tr>
-              <td><a href="../../practices/practices.html">Practices</a></td>
+              <td><a href="../../practices/practices.html">実践</a></td>
               <td>
-                Gives in-depth explanation of how to satisfy a variety of accessibility needs that surface when making rich internet application experiences accessible, such as providing accessible names, enabling keyboard interaction, conveying page structure to assistive technologies, and supporting high contrast operating system settings.
-                For instance, the practices section on providing accessible names and descriptions gives detailed descriptions of seven different naming techniques as well as a table providing guidance for naming more than 80 types of elements.
+                アクセシブルな名前の提供、キーボード操作の有効化、支援技術へのページ構造の伝達、ハイコントラストのオペレーティングシステム設定のサポートなど、リッチインターネットアプリケーション体験をアクセシブルにする際に生じる様々なアクセシビリティニーズを満たす方法についての詳細な説明を提供します。
+                たとえば、アクセシブルな名前と説明の提供に関する実践セクションでは、7 つの異なる命名技術の詳細な説明と、80 を超えるタイプの要素の命名に関するガイダンスを提供する表が含まれています。
               </td>
             </tr>
             <tr>
-              <td><a href="../../index/index.html">Index</a></td>
+              <td><a href="../../index/index.html">索引</a></td>
               <td>
-                Provides multiple indexes of example implementations of patterns, e.g., examples listed by ARIA role, state, and property.
+                ARIA ロール、ステート、及びプロパティ別にリストされた例など、パターンの実装例の複数の索引を提供します。
               </td>
             </tr>
             <tr>
-              <td><a href="../about.html">About</a></td>
+              <td><a href="../about.html">APG について</a></td>
               <td>
-                Provides information about the APG, such as the introduction, acknowledgements, coverage and quality reports, and more.
+                概説、謝辞、カバレッジ及び品質レポートなど、APG に関する情報を提供します。
               </td>
             </tr>
           </tbody>
