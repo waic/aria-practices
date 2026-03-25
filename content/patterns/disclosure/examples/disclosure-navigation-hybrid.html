@@ -35,7 +35,7 @@
           <p>
             この例では、口語的な意味で「メニュー」という言葉を使用してナビゲーションリンクのセットを参照していますが、WAI-ARIA のメニューロールは使用していません。
             このサイトナビゲーションの実装では、支援技術がメニューロールを持つウィジェットに期待する複雑な機能を提供しないため、メニューロールは使用しません。
-            典型的なサイトナビゲーションには、<a href="../../menubar/menu-and-menubar-pattern.html#keyboard_interaction">メニュー及びメニューバーのパターンで指定されているすべてのキーボードインタラクション</a>は必要ありません。
+            典型的なサイトナビゲーションには、<a href="../../menubar/menu-and-menubar-pattern.html#keyboard_interaction">メニュー及びメニューバーのパターンで指定されているキーボードインタラクション</a>のすべては必要ありません。
           </p>
         </div>
         <img alt="" class="example-page-example-icon" src="../../../images/pattern-disclosure.svg">
@@ -75,7 +75,7 @@
             <ul id="exTest" class="disclosure-nav">
               <li>
                 <a href="#mythical-page-content" class="main-link">大学について</a>
-                <button type="button" aria-expanded="false" aria-controls="id_about_menu" aria-label="その他の「大学について」のページ"></button>
+                <button type="button" aria-expanded="false" aria-controls="id_about_menu" aria-label="その他の大学についてのページ"></button>
                 <ul id="id_about_menu" style="display: none">
                   <li>
                     <a href="#mythical-page-content">概要</a>
@@ -84,7 +84,7 @@
                     <a href="#mythical-page-content">管理</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">大学の概要</a>
+                    <a href="#mythical-page-content">大学データ</a>
                   </li>
                   <li>
                     <a href="#mythical-page-content">キャンパスツアー</a>
@@ -93,7 +93,7 @@
               </li>
               <li>
                 <a href="#mythical-page-content" class="main-link">入学案内</a>
-                <button type="button" aria-expanded="false" aria-controls="id_admissions_menu" aria-label="その他の「入学案内」のページ"></button>
+                <button type="button" aria-expanded="false" aria-controls="id_admissions_menu" aria-label="その他の入学案内のページ"></button>
                 <ul id="id_admissions_menu" style="display: none">
                   <li>
                     <a href="#mythical-page-content">応募</a>
@@ -111,13 +111,13 @@
                     <a href="#mythical-page-content">フォトツアー</a>
                   </li>
                   <li>
-                    <a href="#mythical-page-content">接続</a>
+                    <a href="#mythical-page-content">つながる</a>
                   </li>
                 </ul>
               </li>
               <li>
                 <a href="#mythical-page-content" class="main-link">学術情報</a>
-                <button type="button" aria-expanded="false" aria-controls="id_academics_menu" aria-label="その他の「学術情報」のページ"></button>
+                <button type="button" aria-expanded="false" aria-controls="id_academics_menu" aria-label="その他の学術情報のページ"></button>
                 <ul id="id_academics_menu" style="display: none">
                   <li>
                     <a href="#mythical-page-content">大学と学校</a>
@@ -170,7 +170,7 @@
           </li>
           <li>
             ドロップダウンが開いていて、フォーカスがナビゲーションリージョン内にある場合、<kbd>Esc</kbd> を押すとドロップダウンが閉じます。
-            フォーカスをナビゲーションリージョンから移動すると、開いているドロップダウンも閉じます。
+            フォーカスをナビゲーションリージョンから移動しても、開いているドロップダウンが閉じます。
           </li>
           <li>
             任意のナビゲーションキー（矢印キー、<kbd>Home</kbd>、及び <kbd>End</kbd>）：
@@ -183,7 +183,7 @@
               </li>
               <li>
                 実装されている場合、任意のナビゲーションキーは、ボタンとリンク間のタブ移動を補足しますが、置き換えるものではありません。
-                これは、ボタンとリンクが、ページの <kbd>Tab</kbd> シーケンスで 1 つのストップのみを占有し、すべての子孫のフォーカスを管理することが期待される <code>grid</code> などのウィジェットロールを持つ要素に含まれていないためです。
+                これは、ボタンとリンクが、<code>grid</code> などのウィジェットロールを持つ要素に含まれていないためです。そのような要素は、ページの <kbd>Tab</kbd> シーケンス上ひとまとまりとして扱われ、すべての子孫のフォーカスを管理することが期待されます。
               </li>
             </ol>
           </li>
@@ -220,7 +220,7 @@
                     <ul>
                       <li>いずれかのリンクに <code>aria-current</code> が設定されている場合は、それを削除します。</li>
                       <li>フォーカスされたリンクに <code>aria-current="page"</code> を設定します。</li>
-                      <li>フォーカスされたリンクを作動させます。</li>
+                      <li>フォーカスされたリンクを動作させます。</li>
                     </ul>
                   </li>
                 </ul>
