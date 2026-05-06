@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Disclosure (Show/Hide) Pattern</title>
+    <title>ディスクロージャー（表示/非表示）パターン</title>
 
     <!-- Core JS and CSS shared by all patterns -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -14,48 +14,49 @@
   </head>
   <body>
     <main>
-      <h1>Disclosure (Show/Hide) Pattern</h1>
+      <h1>ディスクロージャー（表示/非表示）パターン</h1>
+      <!-- af8f4c1d97ead402022d704754c3d382c4a2cef2 -->
 
       <section id="about">
-        <h2>About This Pattern</h2>
+        <h2>このパターンについて</h2>
         <p>
-          A disclosure is a widget that enables content to be either collapsed (hidden) or expanded (visible).
-          It has two elements: a disclosure <a href="../button/button-pattern.html">button</a> and a section of content whose visibility is controlled by the button.
-          When the controlled content is hidden, the button is often styled as a typical push button with a right-pointing arrow or triangle to hint that activating the button will display additional content.
-          When the content is visible, the arrow or triangle typically points down.
+          ディスクロージャーは、コンテンツを折りたたんだり（非表示）、展開したり（表示）できるウィジェットです。
+          ディスクロージャー<a href="../button/button-pattern.html">ボタン</a>と、そのボタンによって表示/非表示が制御されるコンテンツのセクションの 2 つの要素があります。
+          制御されたコンテンツが非表示の場合、ボタンは通常、右向きの矢印又は三角形の付いた典型的なプッシュボタンとしてスタイル設定され、ボタンを作動させると追加のコンテンツが表示されることを示唆します。
+          コンテンツが表示されている場合、矢印又は三角形は通常下を向いています。
         </p>
       </section>
 
       <section id="examples">
         <img alt="" src="../../images/pattern-disclosure.svg">
-        <h2>Examples</h2>
+        <h2>例</h2>
         <ul>
-          <li><a href="examples/disclosure-image-description.html">Disclosure (Show/Hide) of Image Description</a></li>
-          <li><a href="examples/disclosure-faq.html">Disclosure (Show/Hide) of Answers to Frequently Asked Questions</a></li>
-          <li><a href="examples/disclosure-navigation.html">Disclosure (Show/Hide) Navigation Menu</a></li>
-          <li><a href="examples/disclosure-navigation-hybrid.html">Disclosure (Show/Hide) Navigation Menu with Top-Level Links</a></li>
+          <li><a href="examples/disclosure-image-description.html">画像説明用ディスクロージャー（表示/非表示）の例</a></li>
+          <li><a href="examples/disclosure-faq.html">よくある質問の回答用ディスクロージャー（表示/非表示）の例</a></li>
+          <li><a href="examples/disclosure-navigation.html">ディスクロージャーナビゲーションメニューの例</a></li>
+          <li><a href="examples/disclosure-navigation-hybrid.html">トップレベルリンク付きディスクロージャーナビゲーションメニューの例</a></li>
         </ul>
       </section>
 
       <section id="keyboard_interaction">
-        <h2>Keyboard Interaction</h2>
-        <p>When the disclosure control has focus:</p>
+        <h2>キーボード操作</h2>
+        <p>ディスクロージャーコントロールにフォーカスがある場合：</p>
         <ul>
-          <li><kbd>Enter</kbd>: activates the disclosure control and toggles the visibility of the disclosure content.</li>
-          <li><kbd>Space</kbd>: activates the disclosure control and toggles the visibility of the disclosure content.</li>
+          <li><kbd>Enter</kbd>: ディスクロージャーコントロールを作動させ、ディスクロージャーコンテンツの表示/非表示を切り替えます。</li>
+          <li><kbd>Space</kbd>: ディスクロージャーコントロールを作動させ、ディスクロージャーコンテンツの表示/非表示を切り替えます。</li>
         </ul>
       </section>
 
       <section id="roles_states_properties">
-        <h2>WAI-ARIA Roles, States, and Properties</h2>
+        <h2>WAI-ARIA ロール、ステート、及びプロパティ</h2>
         <ul>
-          <li>The element that shows and hides the content has role <a href="#button" class="role-reference">button</a>.</li>
+          <li>コンテンツを表示及び非表示にする要素には、<a href="#button" class="role-reference">button</a> ロールがあります。</li>
           <li>
-            When the content is visible, the element with role <code>button</code> has <a href="#aria-expanded" class="state-reference">aria-expanded</a> set to <code>true</code>.
-            When the content area is hidden, it is set to <code>false</code>.
+            コンテンツが表示されている場合、<code>button</code> ロールを持つ要素の <a href="#aria-expanded" class="state-reference">aria-expanded</a> は <code>true</code> に設定されます。
+            コンテンツ領域が非表示の場合、<code>false</code> に設定されます。
           </li>
           <li>
-            Optionally, the element with role <code>button</code> has a value specified for <a href="#aria-controls" class="property-reference">aria-controls</a> that refers to the element that contains all the content that is shown or hidden.
+            任意で、<code>button</code> ロールを持つ要素は、表示又は非表示にされるすべてのコンテンツを含む要素を参照する <a href="#aria-controls" class="property-reference">aria-controls</a> 向けに指定された値を持っています。
           </li>
         </ul>
       </section>
