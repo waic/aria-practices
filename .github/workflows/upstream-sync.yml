@@ -1,0 +1,140 @@
+name: Sync from w3c/aria-practices
+
+on:
+  schedule:
+    - cron: '0 15 1 * *'   # 毎月 1 日 15:00 UTC（JST 2 日 0:00）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write           # ラベル作成に必要
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      # --- ガード 1: 既存の open な sync PR があれば何もしない ---
+      - name: Guard - skip if open sync PR exists
+        id: guard_pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          OPEN=$(gh pr list \
+            --repo ${{ github.repository }} \
+            --label upstream-sync \
+            --state open \
+            --json number --jq 'length')
+          echo "open=$OPEN" >> "$GITHUB_OUTPUT"
+          if [ "$OPEN" -gt 0 ]; then
+            echo "::notice::Open sync PR exists. Skipping this run."
+          fi
+
+      - name: Checkout waic-main
+        if: steps.guard_pr.outputs.open == '0'
+        uses: actions/checkout@v4
+        with:
+          ref: waic-main
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git
+        if: steps.guard_pr.outputs.open == '0'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream remote and fetch
+        if: steps.guard_pr.outputs.open == '0'
+        run: |
+          git remote add upstream https://github.com/w3c/aria-practices.git
+          git fetch upstream main --no-tags
+
+      # --- ガード 2: 取り込むべき新規コミットが無ければ何もしない ---
+      - name: Guard - skip if no new upstream commits
+        if: steps.guard_pr.outputs.open == '0'
+        id: guard_commits
+        run: |
+          COUNT=$(git rev-list --count HEAD..upstream/main)
+          echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+          if [ "$COUNT" = "0" ]; then
+            echo "::notice::No new upstream commits. Skipping."
+          fi
+
+      - name: Prepare sync branch
+        if: steps.guard_pr.outputs.open == '0' && steps.guard_commits.outputs.count != '0'
+        id: branch
+        run: |
+          MONTH=$(date -u +%Y%m)
+          BRANCH="sync/upstream-${MONTH}"
+          git checkout -B "$BRANCH"
+          echo "name=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "short=$(git rev-parse --short upstream/main)" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse upstream/main)" >> "$GITHUB_OUTPUT"
+
+      - name: Merge upstream (allow conflicts)
+        if: steps.guard_pr.outputs.open == '0' && steps.guard_commits.outputs.count != '0'
+        id: merge
+        run: |
+          set +e
+          git merge --no-ff --no-edit upstream/main
+          STATUS=$?
+          set -e
+          if [ "$STATUS" -ne 0 ]; then
+            echo "conflict=true" >> "$GITHUB_OUTPUT"
+            # コンフリクト一覧を PR 本文用に保存
+            git diff --name-only --diff-filter=U > /tmp/conflicts.txt
+            git add -A
+            # lint-staged はコンフリクトマーカー入り HTML を通せないので --no-verify
+            git -c core.editor=true commit --no-verify \
+              -m "chore: merge upstream w3c/main (CONFLICTS — please resolve)"
+          else
+            echo "conflict=false" >> "$GITHUB_OUTPUT"
+            : > /tmp/conflicts.txt
+          fi
+
+      - name: Ensure labels exist
+        if: steps.guard_pr.outputs.open == '0' && steps.guard_commits.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create upstream-sync --color BFD4F2 --description "Automated upstream sync PR" 2>/dev/null || true
+          gh label create conflicts     --color D93F0B --description "Has unresolved merge conflicts" 2>/dev/null || true
+          gh label create clean         --color 0E8A16 --description "Clean merge, no conflicts" 2>/dev/null || true
+
+      - name: Push branch and open draft PR
+        if: steps.guard_pr.outputs.open == '0' && steps.guard_commits.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push -u origin "${{ steps.branch.outputs.name }}"
+
+          STATE_LABEL=clean
+          [ "${{ steps.merge.outputs.conflict }}" = "true" ] && STATE_LABEL=conflicts
+
+          {
+            echo "本家 \`w3c/aria-practices\` の最新を \`waic-main\` に取り込む自動 PR です。"
+            echo ""
+            echo "- upstream HEAD: \`${{ steps.branch.outputs.sha }}\`"
+            echo "- 取り込みコミット数: ${{ steps.guard_commits.outputs.count }}"
+            echo "- コンフリクト: **${{ steps.merge.outputs.conflict }}**"
+            echo ""
+            if [ -s /tmp/conflicts.txt ]; then
+              echo "### コンフリクト発生ファイル"
+              echo ""
+              while read -r f; do echo "- \`$f\`"; done < /tmp/conflicts.txt
+              echo ""
+              echo "コンフリクトマーカーがそのままコミットされています。手元で解消後 force-push してください。"
+            else
+              echo "コンフリクトなし。CI 通過後そのままマージ可能です。"
+            fi
+          } > /tmp/pr_body.md
+
+          gh pr create \
+            --base waic-main \
+            --head "${{ steps.branch.outputs.name }}" \
+            --title "chore(sync): upstream w3c/aria-practices @ ${{ steps.branch.outputs.short }}" \
+            --body-file /tmp/pr_body.md \
+            --label upstream-sync \
+            --label "$STATE_LABEL" \
+            --draft
