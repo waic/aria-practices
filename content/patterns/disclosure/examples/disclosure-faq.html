@@ -53,66 +53,33 @@
         </div>
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
         <div id="ex1">
-<<<<<<< HEAD
           <h3>パーキング<abbr title="Frequently Asked Questions">FAQ</abbr></h3>
-          <dl class="faq">
-            <dt>
-              <button type="button" aria-expanded="false" aria-controls="faq1_desc">割り当てられた区画の許可証を持っていますが、その区画に空いている場所が見つからない場合はどうすればよいですか？</button>
-            </dt>
-            <dd>
-=======
-          <h3>Parking <abbr title="Frequently Asked Questions">FAQ</abbr>s</h3>
           <ul class="faq">
             <li>
-              <button type="button" aria-expanded="false" aria-controls="faq1_desc">What do I do if I have a permit for an assigned lot, but can't find a space there?</button>
->>>>>>> w3c/main
+              <button type="button" aria-expanded="false" aria-controls="faq1_desc">割り当てられた区画の許可証を持っていますが、その区画に空いている場所が見つからない場合はどうすればよいですか？</button>
               <div id="faq1_desc" class="desc">
                 メーターを支払わずに最寄りの利用可能なパーキングメーターに駐車し、999-999-9999 に電話して問題を報告してください。
                 代替場所を記録して承認し、割り当てられた施設での不足の原因を調査します。
               </div>
-<<<<<<< HEAD
-            </dd>
-            <dt>
-              <button type="button" aria-expanded="false" aria-controls="faq2_desc">許可証を紛失した場合、又は許可証が盗まれた場合はどうすればよいですか？</button>
-            </dt>
-            <dd>
-=======
             </li>
             <li>
-              <button type="button" aria-expanded="false" aria-controls="faq2_desc">What do I do if I lose my permit or if my permit is stolen?</button>
->>>>>>> w3c/main
+              <button type="button" aria-expanded="false" aria-controls="faq2_desc">許可証を紛失した場合、又は許可証が盗まれた場合はどうすればよいですか？</button>
               <div id="faq2_desc" class="desc">
                 パーキングオフィスに来て、紛失を報告するべきです。
                 紛失した許可証を交換するには料金がかかります。
                 ただし、許可証が盗まれた場合は、料金交換免除のために、盗難された駐車許可証についての申告書類とともに警察の報告書のコピーを提出する必要があります。
               </div>
-<<<<<<< HEAD
-            </dd>
-            <dt>
-              <button type="button" aria-expanded="false" aria-controls="faq3_desc">休日に無料駐車場はありますか？</button>
-            </dt>
-            <dd>
-=======
             </li>
             <li>
-              <button type="button" aria-expanded="false" aria-controls="faq3_desc">Is there free parking on holidays?</button>
->>>>>>> w3c/main
+              <button type="button" aria-expanded="false" aria-controls="faq3_desc">休日に無料駐車場はありますか？</button>
               <div id="faq3_desc" class="desc">
                 すべての施設は、毎日午前 2 時から午前 6 時まで制限されています。
                 カレンダーに<q>休日</q>として公式に記載されているものを除き、休日や休憩の例外はありません。
                 注意：24 時間レンタルのスペース、24 時間レンタルの駐車場、及び障害者用駐車場は常に実施されます。
               </div>
-<<<<<<< HEAD
-            </dd>
-            <dt>
-              <button type="button" aria-expanded="false" aria-controls="faq4_desc">すべての駐車施設に同じ実施規則がありますか？</button>
-            </dt>
-            <dd>
-=======
             </li>
             <li>
-              <button type="button" aria-expanded="false" aria-controls="faq4_desc">Do all parking facilities have the same enforcement rules?</button>
->>>>>>> w3c/main
+              <button type="button" aria-expanded="false" aria-controls="faq4_desc">すべての駐車施設に同じ実施規則がありますか？</button>
               <div id="faq4_desc" class="desc">
                 一部の駐車施設の制限は他の施設とは異なります。
                 各駐車場の入り口にある標識に注意してください。
@@ -127,15 +94,8 @@
         <h2>アクセシビリティ機能</h2>
         <ul>
           <li>
-<<<<<<< HEAD
-            FAQ のセマンティックな構造は、ネイティブの <code>dl</code>、<code>dt</code>、及び <code>dd</code> 要素で伝えられます。
-            リスト構造が支援技術に伝達されるようにするために、<code>dt</code> 要素にボタンロールを適用する代わりに、<code>button</code> 要素が <code>dt</code> 要素内に配置されています。
-            同様に、ボタンで表示又は非表示にできる回答コンテンツを含む各 <code>div</code> 要素は、<code>dd</code> 要素の子です。
-            一部の回答が非表示になっていても、すべての <code>dd</code> 要素が DOM に存在するため、<code>dl</code> 構造は常に完全です。
-=======
-            The semantic structure of the FAQ list is conveyed with native <code>ul</code> and <code> li</code> elements.
-            To ensure the list structure is communicated to assistive technologies, a <code>button</code> element containing the question and a <code>div</code> element containing answer are children of an <code>li</code> element.  NOTE: The <code>button</code> actions are used to hide and show the <code>div</code> element with the answer.
->>>>>>> w3c/main
+            FAQ リストのセマンティックな構造は、ネイティブの <code>ul</code> 及び <code>li</code> 要素で伝えられます。
+            リスト構造が支援技術に伝達されるようにするために、質問を含む <code>button</code> 要素と回答を含む <code>div</code> 要素が <code>li</code> 要素の子として配置されています。注記： <code>button</code> のアクションは、回答を含む <code>div</code> 要素の表示・非表示のために使用されます。
           </li>
           <li>視覚障害のある人がディスクロージャーをインタラクティブなものとして識別し、ディスクロージャーボタン又はそのラベルをクリックすると展開状態が変化することを認識しやすくするために、ポインターがボタン又はそのラベルにホバーすると、背景色が変わります。境界線が表示され、カーソルがポインターに変わります。</li>
           <li>
