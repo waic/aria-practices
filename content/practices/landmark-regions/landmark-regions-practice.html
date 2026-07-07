@@ -15,7 +15,7 @@
   <body>
     <main>
       <h1>ランドマーク領域</h1>
-      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/d6cf9d8db772603a456e7d7ef52e409d39124301 -->
+      <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/18c1a2fca626f7aeb33270e23ae9b18833e2164d -->
 
       <section id="introduction">
         <h2>はじめに</h2>
@@ -30,57 +30,45 @@
 
       <section>
         <h2>HTMLセクショニング要素</h2>
-        <p>
-          いくつかのHTMLセクショニング要素は、自動的にARIAランドマーク領域を作成します。
-          よって、支援技術の利用者にページの論理的なビューを提供するためには、HTMLセクショニング要素を使用する際の効果を理解することが重要です。
-          [[HTML-ARIA]]には、HTML要素のロールマッピングに関する詳細な情報が含まれています。
-        </p>
+        <p>次の HTML セクショニング要素は ARIA ランドマーク領域を作成します。</p>
         <table class="widget-features">
           <caption>
-            HTMLセクショニング要素のデフォルトランドマークロール
+            HTML セクショニング要素で生成されるランドマークロール
           </caption>
           <thead>
             <tr>
               <th>HTML要素</th>
-              <th>デフォルトランドマークロール</th>
+              <th>暗黙のランドマークロール</th>
             </tr>
           </thead>
-
           <tbody>
             <tr>
               <td><code>aside</code></td>
-
               <td><code>complementary</code></td>
             </tr>
-
             <tr>
-              <td><code>footer</code></td>
-
-              <td><code>contentinfo</code>（<code>body</code>要素のコンテキスト内の場合）</td>
+              <td><code>footer</code>（<code>body</code>要素のコンテキスト内の場合）</td>
+              <td><code>contentinfo</code></td>
             </tr>
-
             <tr>
-              <td><code>header</code></td>
-
-              <td><code>banner</code>（<code>body</code>要素のコンテキスト内の場合）</td>
+              <td><code>header</code>（<code>body</code>要素のコンテキスト内の場合）</td>
+              <td><code>banner</code></td>
             </tr>
-
             <tr>
               <td><code>main</code></td>
-
               <td><code>main</code></td>
             </tr>
-
             <tr>
               <td><code>nav</code></td>
-
               <td><code>navigation</code></td>
             </tr>
-
             <tr>
-              <td><code>section</code></td>
-
-              <td><code>region</code>（<code>aria-labelledby</code>または<code>aria-label</code>を使用してアクセシブルな名前がある場合）</td>
+              <td><code>section</code>（<code>aria-labelledby</code>または<code>aria-label</code>を使用してアクセシブルな名前がある場合）</td>
+              <td><code>region</code></td>
+            </tr>
+            <tr>
+              <td><code>search</code></td>
+              <td><code>search</code></td>
             </tr>
           </tbody>
         </table>
@@ -381,7 +369,7 @@
 
             <li>ページに<code>region</code>ランドマークが複数含まれる場合、それぞれに一意のラベルがあるべきです（上記の<a href="#aria_lh_step3">ステップ3</a>参照）。</li>
 
-            <li>名前付きランドマークでは適切に言い表せないコンテンツを識別するために<code>region</code>ランドマークを使用できます。</li>
+            <li><code>region</code>ランドマークは、名前付きランドマークでは適切に説明できないコンテンツを識別するために使用できます。</li>
           </ul>
 
           <section>
@@ -414,11 +402,12 @@
 
           <section>
             <h4>HTMLテクニック</h4>
-            <p><code>search</code>ランドマークを明示するHTML要素はありません。</p>
+
+            <p>HTML の<code>search</code>要素を使用して<code>search</code>ランドマークを定義してください。</p>
 
             <h4>ARIAテクニック</h4>
 
-            <p><code>role=&quot;search&quot;</code>属性は<code>search</code>ランドマークを明示します。</p>
+            <p>HTML の<code>search</code>要素テクニックを使用していない場合は、<code>role=&quot;search&quot;</code>属性を使用して<code>search</code>ランドマークを定義してください。</p>
           </section>
 
           <section>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja"><head>
-  <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/962f6e771dccd4e3bbf8b83da717fb8d75b861da -->
+  <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/18c1a2fca626f7aeb33270e23ae9b18833e2164d -->
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>インデックス</title>
@@ -49,7 +49,12 @@
           </tr>
           <tr>
             <td><code>article</code></td>
-            <td><a href="../patterns/feed/examples/feed.html">無限スクロールフィードの例</a></td>
+            <td>
+              <ul>
+                <li><a href="../patterns/disclosure/examples/disclosure-card.html">ディスクロージャー（表示/非表示）カードの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
+                <li><a href="../patterns/feed/examples/feed.html">無限スクロールフィードの例</a></li>
+              </ul>
+            </td>
           </tr>
           <tr>
             <td><code>banner</code></td>
@@ -163,7 +168,7 @@
                 <li><a href="../patterns/listbox/examples/listbox-grouped.html">グループ化された選択肢付きリストボックスの例</a></li>
                 <li><a href="../patterns/menubar/examples/menubar-editor.html">エディターメニューバーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-color-viewer.html">カラービューアスライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
-                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">（非推奨）日付ピッカースピンボタンの例</a></li>
                 <li><a href="../patterns/switch/examples/switch-button.html">HTML ボタンを使用したスイッチの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/treeview/examples/treeview-1a.html">計算プロパティを使用したファイルディレクトリツリービューの例</a></li>
                 <li><a href="../patterns/treeview/examples/treeview-1b.html">宣言プロパティを使用したファイルディレクトリツリービューの例</a></li>
@@ -358,7 +363,8 @@
             <td><code>spinbutton</code></td>
             <td>
               <ul>
-                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">（非推奨）日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/quantity-spinbutton.html">数量スピンボタンの例</a></li>
                 <li><a href="../patterns/toolbar/examples/toolbar.html">ツールバーの例</a></li>
               </ul>
             </td>
@@ -524,6 +530,7 @@
                 <li><a href="../patterns/combobox/examples/combobox-datepicker.html">日付ピッカーコンボボックスの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/combobox/examples/combobox-select-only.html">選択限定コンボボックスの例</a></li>
                 <li><a href="../patterns/combobox/examples/grid-combo.html">グリッドポップアップ付き編集可能コンボボックスの例</a></li>
+                <li><a href="../patterns/disclosure/examples/disclosure-card.html">ディスクロージャー（表示/非表示）カードの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/disclosure/examples/disclosure-faq.html">よくある質問の回答用ディスクロージャー（表示/非表示）の例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/disclosure/examples/disclosure-image-description.html">画像説明用ディスクロージャー（表示/非表示）の例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/disclosure/examples/disclosure-navigation-hybrid.html">トップレベルリンク付きディスクロージャーナビゲーションメニューの例</a></li>
@@ -531,6 +538,7 @@
                 <li><a href="../patterns/menu-button/examples/menu-button-actions-active-descendant.html">aria-activedescendant を使用したアクションメニューボタンの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/menu-button/examples/menu-button-actions.html">element.focus() を使用したアクションメニューボタンの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/menu-button/examples/menu-button-links.html">ナビゲーションメニューボタンの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
+                <li><a href="../patterns/spinbutton/examples/quantity-spinbutton.html">数量スピンボタンの例</a></li>
                 <li><a href="../patterns/tabs/examples/tabs-automatic.html">自動アクティブ化タブの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/tabs/examples/tabs-manual.html">手動アクティブ化タブの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/toolbar/examples/toolbar.html">ツールバーの例</a></li>
@@ -568,9 +576,14 @@
               <ul>
                 <li><a href="../patterns/alertdialog/examples/alertdialog.html">アラートダイアログの例</a></li>
                 <li><a href="../patterns/menubar/examples/menubar-editor.html">エディターメニューバーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
+                <li><a href="../patterns/spinbutton/examples/quantity-spinbutton.html">数量スピンボタンの例</a></li>
                 <li><a href="../patterns/toolbar/examples/toolbar.html">ツールバーの例</a></li>
               </ul>
             </td>
+          </tr>
+          <tr>
+            <td><code>aria-errormessage</code></td>
+            <td><a href="../patterns/spinbutton/examples/quantity-spinbutton.html">Quantity Spin Button</a></td>
           </tr>
           <tr>
             <td><code>aria-expanded</code></td>
@@ -583,6 +596,7 @@
                 <li><a href="../patterns/combobox/examples/combobox-datepicker.html">日付ピッカーコンボボックスの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/combobox/examples/combobox-select-only.html">選択限定コンボボックスの例</a></li>
                 <li><a href="../patterns/combobox/examples/grid-combo.html">グリッドポップアップ付き編集可能コンボボックスの例</a></li>
+                <li><a href="../patterns/disclosure/examples/disclosure-card.html">ディスクロージャー（表示/非表示）カードの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/disclosure/examples/disclosure-faq.html">よくある質問の回答用ディスクロージャー（表示/非表示）の例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/disclosure/examples/disclosure-image-description.html">画像説明用ディスクロージャー（表示/非表示）の例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/disclosure/examples/disclosure-navigation-hybrid.html">トップレベルリンク付きディスクロージャーナビゲーションメニューの例</a></li>
@@ -631,7 +645,8 @@
                 <li><a href="../patterns/slider/examples/slider-rating.html">評価スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-seek.html">メディアシークスライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-temperature.html">垂直温度スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
-                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">（非推奨）日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/quantity-spinbutton.html">数量スピンボタンの例</a></li>
                 <li><a href="../patterns/switch/examples/switch-button.html">HTML ボタンを使用したスイッチの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/switch/examples/switch-checkbox.html">HTML チェックボックス入力を使用したスイッチの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/switch/examples/switch.html">スイッチの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
@@ -639,6 +654,10 @@
                 <li><a href="../patterns/toolbar/examples/toolbar.html">ツールバーの例</a></li>
               </ul>
             </td>
+          </tr>
+          <tr>
+            <td><code>aria-invalid</code></td>
+            <td><a href="../patterns/spinbutton/examples/quantity-spinbutton.html">Quantity Spin Button</a></td>
           </tr>
           <tr>
             <td><code>aria-label</code></td>
@@ -657,7 +676,7 @@
                 <li><a href="../patterns/menubar/examples/menubar-navigation.html">ナビゲーションメニューバーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/radio/examples/radio-rating.html">評価ラジオグループの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider-multithumb/examples/slider-multithumb.html">水平マルチサムスライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
-                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">（非推奨）日付ピッカースピンボタンの例</a></li>
                 <li><a href="../patterns/table/examples/table.html">テーブルの例</a></li>
                 <li><a href="../patterns/toolbar/examples/toolbar.html">ツールバーの例</a></li>
                 <li><a href="../patterns/treegrid/examples/treegrid-1.html">ツリーグリッドメール受信トレイの例</a></li>
@@ -696,7 +715,7 @@
                 <li><a href="../patterns/slider/examples/slider-rating.html">評価スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-seek.html">メディアシークスライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-temperature.html">垂直温度スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
-                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">（非推奨）日付ピッカースピンボタンの例</a></li>
                 <li><a href="../patterns/switch/examples/switch-button.html">HTML ボタンを使用したスイッチの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/tabs/examples/tabs-automatic.html">自動アクティブ化タブの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/tabs/examples/tabs-manual.html">手動アクティブ化タブの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
@@ -855,7 +874,8 @@
                 <li><a href="../patterns/slider/examples/slider-rating.html">評価スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-seek.html">メディアシークスライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-temperature.html">垂直温度スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
-                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">（非推奨）日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/quantity-spinbutton.html">数量スピンボタンの例</a></li>
                 <li><a href="../patterns/toolbar/examples/toolbar.html">ツールバーの例</a></li>
               </ul>
             </td>
@@ -870,7 +890,8 @@
                 <li><a href="../patterns/slider/examples/slider-rating.html">評価スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-seek.html">メディアシークスライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-temperature.html">垂直温度スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
-                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">（非推奨）日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/quantity-spinbutton.html">数量スピンボタンの例</a></li>
                 <li><a href="../patterns/toolbar/examples/toolbar.html">ツールバーの例</a></li>
               </ul>
             </td>
@@ -885,7 +906,8 @@
                 <li><a href="../patterns/slider/examples/slider-rating.html">評価スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-seek.html">メディアシークスライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-temperature.html">垂直温度スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
-                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">（非推奨）日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/quantity-spinbutton.html">数量スピンボタンの例</a></li>
                 <li><a href="../patterns/toolbar/examples/toolbar.html">ツールバーの例</a></li>
               </ul>
             </td>
@@ -897,7 +919,7 @@
                 <li><a href="../patterns/slider/examples/slider-rating.html">評価スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-seek.html">メディアシークスライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
                 <li><a href="../patterns/slider/examples/slider-temperature.html">垂直温度スライダーの例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li>
-                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">日付ピッカースピンボタンの例</a></li>
+                <li><a href="../patterns/spinbutton/examples/datepicker-spinbuttons.html">（非推奨）日付ピッカースピンボタンの例</a></li>
                 <li><a href="../patterns/toolbar/examples/toolbar.html">ツールバーの例</a></li>
               </ul>
             </td>
@@ -908,6 +930,7 @@
       <h2 id="examples_experimental_label">実験的な例</h2>
       <div><strong>注記:</strong> HC の略語は、例にハイコントラストのサポートがあることを意味します。</div>
       <ul id="examples_experimental_ul">
+                <li><a href="../patterns/listbox/examples/listbox-actions.html">オプションでアクションを実行するスクロール可能リストボックスの実験的な例</a></li>
                 <li><a href="../patterns/tabs/examples/tabs-actions.html">アクションボタン付きタブの実験的な例</a> (<abbr title="ハイコントラストサポート">HC</abbr>)</li></ul>
     </section>
   </main>

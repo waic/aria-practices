@@ -20,13 +20,13 @@
   <body>
     <nav aria-label="関連するリンク" class="feedback">
       <ul>
-        <li><a href="https://github.com/w3c/aria-practices/projects/14">関連する Issues</a></li>
+        <li><a href="https://github.com/orgs/w3c/projects/132">関連する Issues</a></li>
         <li><a href="../disclosure-pattern.html">デザインパターン</a></li>
       </ul>
     </nav>
     <main>
       <h1>よくある質問の回答用ディスクロージャー（表示/非表示）の例</h1>
-      <!-- af8f4c1d97ead402022d704754c3d382c4a2cef2 -->
+      <!-- 18c1a2fca626f7aeb33270e23ae9b18833e2164d -->
 
       <section>
         <h2>この例について</h2>
@@ -43,6 +43,7 @@
             <a href="disclosure-navigation.html">ディスクロージャーナビゲーションメニューの例</a>
           </li>
           <li><a href="disclosure-navigation-hybrid.html">トップレベルリンク付きディスクロージャーナビゲーションメニューの例</a></li>
+          <li><a href="disclosure-card.html">ディスクロージャー（表示/非表示）カードの例</a></li>
         </ul>
       </section>
 
@@ -53,46 +54,38 @@
         <div role="separator" id="ex_start_sep" aria-labelledby="ex_label ex_start_sep" aria-label="の開始"></div>
         <div id="ex1">
           <h3>パーキング<abbr title="Frequently Asked Questions">FAQ</abbr></h3>
-          <dl class="faq">
-            <dt>
+          <ul class="faq">
+            <li>
               <button type="button" aria-expanded="false" aria-controls="faq1_desc">割り当てられた区画の許可証を持っていますが、その区画に空いている場所が見つからない場合はどうすればよいですか？</button>
-            </dt>
-            <dd>
               <div id="faq1_desc" class="desc">
                 メーターを支払わずに最寄りの利用可能なパーキングメーターに駐車し、999-999-9999 に電話して問題を報告してください。
                 代替場所を記録して承認し、割り当てられた施設での不足の原因を調査します。
               </div>
-            </dd>
-            <dt>
+            </li>
+            <li>
               <button type="button" aria-expanded="false" aria-controls="faq2_desc">許可証を紛失した場合、又は許可証が盗まれた場合はどうすればよいですか？</button>
-            </dt>
-            <dd>
               <div id="faq2_desc" class="desc">
                 パーキングオフィスに来て、紛失を報告するべきです。
                 紛失した許可証を交換するには料金がかかります。
                 ただし、許可証が盗まれた場合は、料金交換免除のために、盗難された駐車許可証についての申告書類とともに警察の報告書のコピーを提出する必要があります。
               </div>
-            </dd>
-            <dt>
+            </li>
+            <li>
               <button type="button" aria-expanded="false" aria-controls="faq3_desc">休日に無料駐車場はありますか？</button>
-            </dt>
-            <dd>
               <div id="faq3_desc" class="desc">
                 すべての施設は、毎日午前 2 時から午前 6 時まで制限されています。
                 カレンダーに<q>休日</q>として公式に記載されているものを除き、休日や休憩の例外はありません。
                 注意：24 時間レンタルのスペース、24 時間レンタルの駐車場、及び障害者用駐車場は常に実施されます。
               </div>
-            </dd>
-            <dt>
+            </li>
+            <li>
               <button type="button" aria-expanded="false" aria-controls="faq4_desc">すべての駐車施設に同じ実施規則がありますか？</button>
-            </dt>
-            <dd>
               <div id="faq4_desc" class="desc">
                 一部の駐車施設の制限は他の施設とは異なります。
                 各駐車場の入り口にある標識に注意してください。
               </div>
-            </dd>
-          </dl>
+            </li>
+          </ul>
         </div>
         <div role="separator" id="ex_end_sep" aria-labelledby="ex_label ex_end_sep" aria-label="の終了"></div>
       </section>
@@ -101,10 +94,8 @@
         <h2>アクセシビリティ機能</h2>
         <ul>
           <li>
-            FAQ のセマンティックな構造は、ネイティブの <code>dl</code>、<code>dt</code>、及び <code>dd</code> 要素で伝えられます。
-            リスト構造が支援技術に伝達されるようにするために、<code>dt</code> 要素にボタンロールを適用する代わりに、<code>button</code> 要素が <code>dt</code> 要素内に配置されています。
-            同様に、ボタンで表示又は非表示にできる回答コンテンツを含む各 <code>div</code> 要素は、<code>dd</code> 要素の子です。
-            一部の回答が非表示になっていても、すべての <code>dd</code> 要素が DOM に存在するため、<code>dl</code> 構造は常に完全です。
+            FAQ リストのセマンティックな構造は、ネイティブの <code>ul</code> 及び <code>li</code> 要素で伝えられます。
+            リスト構造が支援技術に伝達されるようにするために、質問を含む <code>button</code> 要素と回答を含む <code>div</code> 要素が <code>li</code> 要素の子として配置されています。注記： <code>button</code> のアクションは、回答を含む <code>div</code> 要素の表示・非表示のために使用されます。
           </li>
           <li>視覚障害のある人がディスクロージャーをインタラクティブなものとして識別し、ディスクロージャーボタン又はそのラベルをクリックすると展開状態が変化することを認識しやすくするために、ポインターがボタン又はそのラベルにホバーすると、背景色が変わります。境界線が表示され、カーソルがポインターに変わります。</li>
           <li>
@@ -210,6 +201,18 @@
         </table>
       </section>
 
+      <section id="at-support">
+        <h2>Assistive Technology Support</h2>
+        <p><a href="../../../about/at-support-tables/at-support-tables.html">Learn how to interpret and use assistive technology support data</a></p>
+        <iframe
+          class="support-levels-disclosure-faq"
+          src="https://aria-at.w3.org/embed/reports/apg/disclosure-faq"
+          height="100"
+          allow="clipboard-write"
+          style="border-style: none; width: 100%;">
+        </iframe>
+      </section>
+      
       <section>
         <h2>JavaScript 及び CSS のソースコード</h2>
         <!--  After the js and css files are named with the name of this example, change the href and text of the following 2 links to refer to the appropriate js and css files.  -->
@@ -219,7 +222,7 @@
             <a href="css/disclosure-faq.css" type="tex/css">disclosure-faq.css</a>
           </li>
           <li>
-            Javascript:
+            JavaScript:
             <a href="js/disclosure-button.js" type="text/javascript">disclosureButton.js</a>
           </li>
         </ul>
