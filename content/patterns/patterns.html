@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
+    <!-- 翻訳元リビジョン: https://github.com/w3c/aria-practices/tree/18c1a2fca626f7aeb33270e23ae9b18833e2164d -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patterns</title>
+    <title>パターン</title>
 
     <!-- Core JS and CSS for the patterns page -->
     <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/base.css">
@@ -15,9 +16,9 @@
     <script data-skipto="colorTheme:aria; displayOption:popup; containerElement:div" src="../shared/js/skipto.js"></script>
   </head>
   <body>
-    <h1>Patterns</h1>
+    <h1>パターン</h1>
     <section class="pattern-filter-section">
-      <h2>Filter Patterns</h2>
+      <h2>パターンをフィルタする</h2>
       <div class="pattern-filter-flex-container">
       <form
         action="javascript:void(0);"
@@ -32,13 +33,13 @@
         <input
           type="text"
           id="pattern-filter-input"
-          placeholder="Filter patterns"
+          placeholder="パターンをフィルタ"
           oninput="aria.Filter.filterListItems(this.value, '#patterns', 'pattern-name', 'no-patterns-found')"
-          aria-label="Filter patterns"
+          aria-label="パターンをフィルタ"
         >
         <button
           id="clear-pattern-filter"
-          aria-label="Clear pattern filter"
+          aria-label="パターンフィルタをクリア"
           onclick="aria.Filter.clearInput(document.getElementById('pattern-filter-input'), '#patterns', 'pattern-name', 'no-patterns-found')"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
@@ -47,7 +48,7 @@
         </button>
       </form>
       <fieldset class="view-toggle">
-        <button id="listViewButton" onclick="aria.Filter.onViewButtonClicked(this)"  aria-pressed="false" aria-label="Show list view">
+        <button id="listViewButton" onclick="aria.Filter.onViewButtonClicked(this)"  aria-pressed="false" aria-label="リスト表示">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="25" viewBox="0 0 25 21">
             <g transform="translate(0 -0.4)" fill="currentColor">
               <path d="M4,20.775H1a1.135,1.135,0,0,0-1,1v3a1.135,1.135,0,0,0,1,1H4a1.135,1.135,0,0,0,1-1v-3A1.135,1.135,0,0,0,4,20.775Zm20,1H9a1.135,1.135,0,0,0-1,1v1a1.135,1.135,0,0,0,1,1H24a1.135,1.135,0,0,0,1-1v-1A1.135,1.135,0,0,0,24,21.775Z" transform="translate(0 -20.375)" />
@@ -56,7 +57,7 @@
             </g>
           </svg>
         </button>
-        <button id="tilesViewButton" onclick="aria.Filter.onViewButtonClicked(this)" aria-pressed="true" aria-label="Show tiles view" class="active">
+        <button id="tilesViewButton" onclick="aria.Filter.onViewButtonClicked(this)" aria-pressed="true" aria-label="タイル表示" class="active">
           <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 22 22" >
             <g transform="translate(0 -0.5)" fill="currentColor">
               <rect width="9" height="9" rx="1" transform="translate(0 0.5)"/>
@@ -86,11 +87,11 @@
         <a href="alert/alert-pattern.html">
           <h2 class="pattern-name">
             <img alt="" src="../images/pattern-alert.svg">
-            <span>Alert</span>
+            <span>アラート<span class="ja-badge">日本語版</span></span>
           </h2>
         </a>
         <div class="pattern-introduction">
-          An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.
+          アラートは、利用者のタスクを中断することなく、利用者の注意を引くように、簡潔で重要なメッセージを表示する要素です。
         </div>
       </li>
 
@@ -122,11 +123,11 @@
         <a href="button/button-pattern.html">
           <h2 class="pattern-name">
             <img alt="" src="../images/pattern-button.svg">
-            <span>Button</span>
+            <span>ボタン<span class="ja-badge">日本語版</span></span>
           </h2>
         </a>
         <div class="pattern-introduction">
-          A button is a widget that enables users to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+          ボタンは、フォームの送信、ダイアログの開閉、アクションのキャンセル、削除操作の実行など、利用者によるアクションやイベントをトリガするウィジェットです。
         </div>
       </li>
 
@@ -146,11 +147,11 @@
         <a href="checkbox/checkbox-pattern.html">
           <h2 class="pattern-name">
             <img alt="" src="../images/pattern-checkbox.svg">
-            <span>Checkbox</span>
+            <span>チェックボックス<span class="ja-badge">日本語版</span></span>
           </h2>
         </a>
         <div class="pattern-introduction">
-          WAI-ARIA supports two types of checkbox widgets: dual-state checkboxes toggle between two choices -- checked and not checked -- and tri-state checkboxes, which allow an additional third state known as partially checked.
+          WAI-ARIA は、2 種類の checkbox ウィジェットをサポートしています。二値状態のチェックボックスは、チェックされているとチェックされていないの 2 つの選択肢を切り替え、三値状態のチェックボックスは、部分的にチェックされているとして知られる追加の 3 番目の状態を許可します。
         </div>
       </li>
 
@@ -182,11 +183,11 @@
         <a href="disclosure/disclosure-pattern.html">
           <h2 class="pattern-name">
             <img alt="" src="../images/pattern-disclosure.svg">
-            <span>Disclosure (Show/Hide)</span>
+            <span>ディスクロージャー（表示/非表示）<span class="ja-badge">日本語版</span></span>
           </h2>
         </a>
         <div class="pattern-introduction">
-          A disclosure is a widget that enables content to be either collapsed (hidden) or expanded (visible).
+          ディスクロージャーは、コンテンツを折りたたんだり（非表示）、展開したり（表示）できるウィジェットです。
         </div>
       </li>
 
@@ -290,11 +291,11 @@
         <a href="radio/radio-group-pattern.html">
           <h2 class="pattern-name">
             <img alt="" src="../images/pattern-radio.svg">
-            <span>Radio Group</span>
+            <span>ラジオグループ<span class="ja-badge">日本語版</span></span>
           </h2>
         </a>
         <div class="pattern-introduction">
-          A radio group is a set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.
+          ラジオグループは、ラジオボタンとして知られるチェック可能なボタンのセットであり、一度にチェックできるボタンは 1 つだけです。
         </div>
       </li>
 
@@ -431,7 +432,7 @@
       </li>
 
       <li id="no-patterns-found" aria-hidden="true" style="display: none">
-        <h2>No results found.</h2>
+        <h2>該当するパターンが見つかりません。</h2>
       </li>
     </ul>
   </body>
