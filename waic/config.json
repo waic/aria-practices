@@ -1,0 +1,30 @@
+{
+  "stylesheets": [
+    "https://www.w3.org/WAI/assets/css/style.css",
+    "https://www.w3.org/WAI/content-assets/wai-aria-practices/styles.css",
+    "https://www.w3.org/WAI/content-assets/wai-aria-practices/shared/css/github.css",
+    "{{BASE}}shared/css/apg-overrides.css"
+  ],
+  "removeStylesheets": [
+    "StyleSheets/TR/2016/base.css",
+    "shared/css/core.css"
+  ],
+  "tabs": [
+    { "key": "home",      "label": "ホーム",         "href": "apg-home.html" },
+    { "key": "patterns",  "label": "パターン",       "href": "patterns/patterns.html" },
+    { "key": "practices", "label": "実践",           "href": "practices/practices.html" },
+    { "key": "index",     "label": "インデックス",   "href": "index/index.html" },
+    { "key": "about",     "label": "概要",           "href": "about/about.html" }
+  ],
+  "transform": {
+    "apg-home.html":            { "activeTab": "home",
+                                  "extraStylesheets": ["https://www.w3.org/WAI/content-assets/wai-aria-practices/homepage.css"] },
+    "patterns/patterns.html":   { "activeTab": "patterns"                     },
+    "practices/practices.html": { "activeTab": "practices"                    },
+    "about/about.html":         { "activeTab": "about"                        },
+    "index/index.html":         { "activeTab": "index"                        },
+    "patterns/**":              { "activeTab": "patterns",  "toc": true       },
+    "practices/**":             { "activeTab": "practices", "toc": true       },
+    "about/**":                 { "activeTab": "about",     "toc": true       }
+  }
+}
