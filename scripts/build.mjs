@@ -115,10 +115,172 @@ function renderTabs(activeTab, basePath) {
     .join('\n');
 }
 
+/**
+ * apg-home.html の Jekyll 用素材構造 (div#top-card / #resources / #collaboration) を、
+ * 本家 https://www.w3.org/WAI/ARIA/apg/ のレンダリング済み構造に変換する。
+ * homepage.css が期待するクラス名 (off-white-section / top-box / resource-item /
+ * collaboration-item 等) の DOM を生成する。
+ * upstream で apg-home の構造が変わると抽出に失敗して throw する (追従が必要になった合図)。
+ */
+function transformHomeLayout(html) {
+  const get = (re, src, name) => {
+    const m = src.match(re);
+    if (!m) {
+      throw new Error(
+        `homeLayout: ${name} の抽出に失敗しました (upstream の apg-home 構造が変わった可能性があります)`
+      );
+    }
+    return m;
+  };
+  const getItems = (src, name) => {
+    const items = [...src.matchAll(/<li>\s*([\s\S]*?)\s*<\/li>/g)];
+    if (items.length === 0) {
+      throw new Error(`homeLayout: ${name} の <li> が見つかりません`);
+    }
+    return items.map((m) => m[1]);
+  };
+
+  // --- セクション抽出
+  const topCard = get(
+    /<div id="top-card">([\s\S]*?)<\/div>\s*<div id="resources">/,
+    html,
+    'top-card'
+  )[1];
+  const resources = get(
+    /<div id="resources">([\s\S]*?)<\/div>\s*<div id="collaboration">/,
+    html,
+    'resources'
+  )[1];
+  const collaboration = get(
+    /<div id="collaboration">([\s\S]*?)<\/ul>\s*<\/div>/,
+    html,
+    'collaboration'
+  )[1];
+
+  // --- top-card
+  const topH1 = get(/<h1[^>]*>([\s\S]*?)<\/h1>/, topCard, 'top-card の h1')[1];
+  const topP = get(/<p>([\s\S]*?)<\/p>/, topCard, 'top-card の p')[1];
+  const topA = get(/<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/, topCard, 'top-card の a');
+  const topImg = get(/<img[^>]*>/, topCard, 'top-card の img')[0];
+
+  // --- resources
+  const resH2 = get(/<h2[^>]*>([\s\S]*?)<\/h2>/, resources, 'resources の h2')[1];
+  const resP = get(/<h2[^>]*>[\s\S]*?<\/h2>\s*<p>([\s\S]*?)<\/p>/, resources, 'resources の p')[1];
+  const resourceItems = getItems(resources, 'resources').map((li, i) => {
+    const h3 = get(/<h3>([\s\S]*?)<\/h3>/, li, `resources li[${i}] の h3`)[1];
+    const p = get(/<p>([\s\S]*?)<\/p>/, li, `resources li[${i}] の p`)[1];
+    const a = get(/<a ([^>]*)>([\s\S]*?)<\/a>/, li, `resources li[${i}] の a`);
+    const img = get(/<img[^>]*>/, li, `resources li[${i}] の img`)[0];
+    const aAttrs = a[1].includes('class=')
+      ? a[1]
+      : `${a[1]} class="button-link"`;
+    return `        <div class="resource-item">
+          <div class="resource-item-content">
+            <h3>${h3}</h3>
+            <p>${p}</p>
+            <a ${aAttrs}>${a[2]}</a>
+          </div>
+          <div class="resource-item-img">
+            ${img}
+          </div>
+        </div>`;
+  });
+
+  // --- collaboration (最後の li は mailing-list-item として構造が異なる)
+  const colH2 = get(/<h2[^>]*>([\s\S]*?)<\/h2>/, collaboration, 'collaboration の h2')[1];
+  const colP = get(
+    /<h2[^>]*>[\s\S]*?<\/h2>\s*<p[^>]*>([\s\S]*?)<\/p>/,
+    collaboration,
+    'collaboration の p'
+  )[1];
+  const colLis = getItems(collaboration, 'collaboration');
+  const colItems = colLis.map((li, i) => {
+    const h3 = get(/<h3>([\s\S]*?)<\/h3>/, li, `collaboration li[${i}] の h3`)[1];
+    const img = get(/<img[^>]*>/, li, `collaboration li[${i}] の img`)[0];
+    const isLast = i === colLis.length - 1;
+    if (isLast) {
+      // Mailing Lists: p が複数 (本文 + リンク行)
+      const ps = [...li.matchAll(/<p>([\s\S]*?)<\/p>/g)].map((m) => m[0]);
+      return `        <div class="collaboration-item mailing-list-item">
+          <div class="collaboration-detail-4 detail-4"></div>
+          ${img}
+          <div>
+            <h3>${h3}</h3>
+            ${ps.join('\n            ')}
+          </div>
+        </div>`;
+    }
+    const p = get(/<p>([\s\S]*?)<\/p>/, li, `collaboration li[${i}] の p`)[1];
+    const a = get(/<a ([^>]*)>([\s\S]*?)<\/a>/, li, `collaboration li[${i}] の a`);
+    return `        <div class="collaboration-item">
+          ${img}
+          <h3>${h3}</h3>
+          <p>${p}</p>
+          <a ${a[1]}>${a[2]}</a>
+        </div>`;
+  });
+
+  // --- head 内の素材用 <style> (img { max-width: 300px } 等) を除去
+  html = html.replace(/[ \t]*<style>[\s\S]*?<\/style>\n?/, '');
+
+  // --- body を本家レンダリング構造で置換
+  const body = `
+    <main id="main" class="standalone-resource__main">
+<div>
+    <div class="off-white-section">
+      <div class="contained top-contained margin-fix">
+        <div class="top-section">
+          <div class="top-box">
+            <div class="top-detail-1 detail-1"></div>
+            <div class="detail-2"></div>
+            <h1>${topH1}</h1>
+            <p>${topP}</p>
+            <a href="${topA[1]}" class="button-link button-link-white">${topA[2]}</a>
+          </div>
+          ${topImg}
+        </div>
+      </div>
+      <div class="detail-3"></div>
+      <div class="top-grid-pattern grid-pattern"></div>
+    </div>
+    <div class="white-section">
+      <div class="centered">
+        <div class="resource-detail-4 detail-4"></div>
+        <h2>${resH2}</h2>
+        <p>${resP}</p>
+      </div>
+      <div class="contained margin-fix">
+${resourceItems.join('\n')}
+      </div>
+      <div class="collaboration-grid-pattern grid-pattern"></div>
+    </div>
+    <div class="white-section">
+      <div class="centered margin-fix">
+        <h2 class="collaboration-h2">${colH2}</h2>
+        <p class="collaboration-p">${colP}</p>
+      </div>
+      <div class="collaboration-items">
+${colItems.join('\n')}
+      </div>
+      <div class="bottom-grid-pattern grid-pattern"></div>
+    </div>
+    <div class="bottom-off-white-section off-white-section"></div>
+</div>
+    </main>
+  `;
+  html = html.replace(/(<body[^>]*>)[\s\S]*<\/body>/, `$1\n${body}\n</body>`);
+  return html;
+}
+
 async function transformHtml(relPath, rule) {
   const abs = join(DIST, relPath);
   let html = await readFile(abs, 'utf8');
   const basePath = computeBasePath(relPath);
+
+  // (a0) apg-home: Jekyll 用素材構造を本家レンダリング構造に変換
+  if (rule.homeLayout) {
+    html = transformHomeLayout(html);
+  }
 
   // (a) 旧スタイルシートの <link> を除去 (本家ビルドと同様に styles.css へ置換)
   for (const pattern of CONFIG.removeStylesheets || []) {
@@ -135,11 +297,15 @@ async function transformHtml(relPath, rule) {
     .join('\n');
   html = html.replace('</head>', `${cssLinks}\n</head>`);
 
-  // (c) お知らせ枠を <h1>...</header> または <h1>...</h1> の直後に挿入
+  // (c) お知らせ枠を挿入
+  //    - homeLayout ページ: <main> 直後 (h1 は青カード内にあるため)
+  //    - それ以外: <h1>...</header> または <h1>...</h1> の直後
   //    共通ヘッダー (site-header も </header> を持つ) より先に処理して誤マッチを防ぐ
   if (rule.notice && notices[rule.notice]) {
     const notice = renderTemplate(notices[rule.notice], { BASE: basePath });
-    if (/<\/header>\s*/.test(html)) {
+    if (rule.homeLayout) {
+      html = html.replace(/(<main[^>]*>)/, `$1\n${notice}`);
+    } else if (/<\/header>\s*/.test(html)) {
       html = html.replace(/(<\/header>)/, `$1\n${notice}`);
     } else {
       html = html.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n${notice}`);

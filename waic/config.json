@@ -17,7 +17,7 @@
     { "key": "about",     "label": "概要",           "href": "about/about.html" }
   ],
   "transform": {
-    "apg-home.html":            { "activeTab": "home",
+    "apg-home.html":            { "activeTab": "home",      "homeLayout": true,
                                   "extraStylesheets": ["https://www.w3.org/WAI/content-assets/wai-aria-practices/homepage.css"] },
     "patterns/patterns.html":   { "activeTab": "patterns"                     },
     "practices/practices.html": { "activeTab": "practices"                    },
