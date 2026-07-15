@@ -3,7 +3,7 @@
  * WAIC APG 日本語版 静的ビルダー (エントリポイント)
  *
  * 使い方: node scripts/build.mjs
- * 依存: Node.js 20+ (fs.cp / readdir recursive を使用)。npm install 不要。
+ * 依存: Node.js 20.12+ (fs.cp / readdir recursive / Dirent.parentPath を使用)。npm install 不要。
  *
  * 動作:
  *   1. dist/ を空にする
