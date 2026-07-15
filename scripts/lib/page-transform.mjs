@@ -14,9 +14,7 @@
  * apg-home 特有の DOM 変換は home-layout.mjs 側にあり、この前段で適用される。
  */
 
-function renderTemplate(tpl, vars) {
-  return tpl.replace(/\{\{(\w+)\}\}/g, (_, key) => vars[key] ?? '');
-}
+import { escapeRegExp, renderTemplate } from './util.mjs';
 
 /**
  * 必須アンカーの置換。アンカーが見つからなければ throw する
@@ -54,7 +52,7 @@ function renderTabs(tabs, posixPath, basePath) {
 function removeOldStylesheets(html, patterns) {
   for (const pattern of patterns) {
     const re = new RegExp(
-      `[ \\t]*<link[^>]*href="[^"]*${pattern.replace(/[.+^${}()|[\]\\]/g, '\\$&')}[^"]*"[^>]*>\\n?`,
+      `[ \\t]*<link[^>]*href="[^"]*${escapeRegExp(pattern)}[^"]*"[^>]*>\\n?`,
       'g'
     );
     html = html.replace(re, '');
@@ -64,7 +62,7 @@ function removeOldStylesheets(html, patterns) {
 
 function insertStylesheets(html, stylesheets, basePath) {
   const cssLinks = stylesheets
-    .map((s) => `  <link rel="stylesheet" href="${s.replaceAll('{{BASE}}', basePath)}">`)
+    .map((s) => `  <link rel="stylesheet" href="${renderTemplate(s, { BASE: basePath })}">`)
     .join('\n');
   return replaceOrThrow(html, '</head>', `${cssLinks}\n</head>`, '</head>');
 }

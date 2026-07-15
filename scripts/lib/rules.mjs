@@ -5,15 +5,14 @@
  * 値 null は除外 (変換スキップ)。glob 除外は対象 glob より前に定義すること。
  */
 
+import { escapeRegExp } from './util.mjs';
+
 function globToRegExp(glob) {
+  // glob の * はワイルドカードなので、先に * で split してから
+  // 残りの断片をエスケープする (escapeRegExp は * ? も含む完全集合)
   const escaped = glob
     .split('**')
-    .map((part) =>
-      part
-        .split('*')
-        .map((s) => s.replace(/[.+^${}()|[\]\\]/g, '\\$&'))
-        .join('[^/]*')
-    )
+    .map((part) => part.split('*').map(escapeRegExp).join('[^/]*'))
     .join('(?:.*)?');
   return new RegExp(`^${escaped}$`);
 }
