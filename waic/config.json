@@ -17,17 +17,17 @@
     { "key": "about",     "label": "概要",           "href": "about/about.html" }
   ],
   "transform": {
-    "apg-home.html":            { "activeTab": "home",      "homeLayout": true,
+    "apg-home.html":            { "homeLayout": true,
                                   "extraStylesheets": ["https://www.w3.org/WAI/content-assets/wai-aria-practices/homepage.css"] },
-    "patterns/patterns.html":   { "activeTab": "patterns"                     },
-    "practices/practices.html": { "activeTab": "practices"                    },
-    "about/about.html":         { "activeTab": "about"                        },
-    "index/index.html":         { "activeTab": "index"                        },
+    "patterns/patterns.html":   {},
+    "practices/practices.html": {},
+    "about/about.html":         {},
+    "index/index.html":         {},
     "patterns/landmarks/examples/**": null,
     "patterns/feed/examples/feed-display.html": null,
     "patterns/toolbar/examples/help.html": null,
-    "patterns/**":              { "activeTab": "patterns",  "toc": true       },
-    "practices/**":             { "activeTab": "practices", "toc": true       },
-    "about/**":                 { "activeTab": "about",     "toc": true       }
+    "patterns/**":              { "toc": true },
+    "practices/**":             { "toc": true },
+    "about/**":                 { "toc": true }
   }
 }

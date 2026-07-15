@@ -18,11 +18,16 @@ function renderTemplate(tpl, vars) {
   return tpl.replace(/\{\{(\w+)\}\}/g, (_, key) => vars[key] ?? '');
 }
 
-function renderTabs(tabs, activeTab, basePath) {
+/**
+ * タブナビの <li> 群を生成する。
+ * active + aria-current="page" は、タブの href が現在ページ
+ * (posixPath: dist 相対 POSIX パス) と完全一致する場合のみ付与する。
+ */
+function renderTabs(tabs, posixPath, basePath) {
   return tabs
     .map((t) => {
       const attrs =
-        t.key === activeTab ? ' class="active" aria-current="page"' : '';
+        t.href === posixPath ? ' class="active" aria-current="page"' : '';
       const href = basePath + t.href;
       return `                <li class="nav__item"><a href="${href}"${attrs}>${t.label}</a></li>`;
     })
@@ -129,9 +134,12 @@ function ensureMainAttributes(html) {
 /**
  * ページ変換のメインエントリ。
  * @param html 変換対象の HTML
- * @param ctx  { rule, basePath, config, headerTpl, notices }
+ * @param ctx  { rule, basePath, posixPath, config, headerTpl, notices }
  */
-export function transformPage(html, { rule, basePath, config, headerTpl, notices }) {
+export function transformPage(
+  html,
+  { rule, basePath, posixPath, config, headerTpl, notices }
+) {
   // (a) 旧スタイルシートの除去と WAI CSS の挿入
   html = removeOldStylesheets(html, config.removeStylesheets || []);
   html = insertStylesheets(
@@ -158,7 +166,7 @@ export function transformPage(html, { rule, basePath, config, headerTpl, notices
   // (e) <body> 直後に共通ヘッダーを挿入
   const header = renderTemplate(headerTpl, {
     BASE: basePath,
-    TABS: renderTabs(config.tabs, rule.activeTab, basePath),
+    TABS: renderTabs(config.tabs, posixPath, basePath),
   });
   html = html.replace(/(<body[^>]*>)/, `$1\n${header}`);
 

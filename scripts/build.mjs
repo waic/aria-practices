@@ -90,7 +90,14 @@ for await (const absPath of walkHtml(DIST)) {
     if (rule.homeLayout) {
       html = transformHomeLayout(html);
     }
-    html = transformPage(html, { rule, basePath, config, headerTpl, notices });
+    html = transformPage(html, {
+      rule,
+      basePath,
+      posixPath,
+      config,
+      headerTpl,
+      notices,
+    });
     await writeFile(absPath, html);
     transformCount++;
   } catch (e) {
