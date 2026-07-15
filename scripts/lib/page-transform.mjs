@@ -19,6 +19,23 @@ function renderTemplate(tpl, vars) {
 }
 
 /**
+ * 必須アンカーの置換。アンカーが見つからなければ throw する
+ * (home-layout.mjs と同様、upstream の構造変化を fail-loud で検知するため)。
+ * pattern は文字列 / 正規表現のどちらも可。
+ * 任意アンカー (無くても正常なもの) には使わず、素の replace のままにすること。
+ */
+function replaceOrThrow(html, pattern, replacement, name) {
+  const found =
+    typeof pattern === 'string' ? html.includes(pattern) : pattern.test(html);
+  if (!found) {
+    throw new Error(
+      `${name} が見つかりません (upstream の構造が変わった可能性があります)`
+    );
+  }
+  return html.replace(pattern, replacement);
+}
+
+/**
  * タブナビの <li> 群を生成する。
  * active + aria-current="page" は、タブの href が現在ページ
  * (posixPath: dist 相対 POSIX パス) と完全一致する場合のみ付与する。
@@ -49,21 +66,36 @@ function insertStylesheets(html, stylesheets, basePath) {
   const cssLinks = stylesheets
     .map((s) => `  <link rel="stylesheet" href="${s.replaceAll('{{BASE}}', basePath)}">`)
     .join('\n');
-  return html.replace('</head>', `${cssLinks}\n</head>`);
+  return replaceOrThrow(html, '</head>', `${cssLinks}\n</head>`, '</head>');
 }
 
 function insertNotice(html, notice, isHomeLayout) {
   if (isHomeLayout) {
     // h1 が青カード内にあるため <main> 直後に置く
-    return html.replace(/(<main[^>]*>)/, `$1\n${notice}`);
+    return replaceOrThrow(
+      html,
+      /(<main[^>]*>)/,
+      `$1\n${notice}`,
+      'notice 挿入先の <main>'
+    );
   }
   // 一部の example ページはデモコンテンツ内に <header role="banner"> を含み、
   // </header> 優先だと notice がデモ内部に注入されてしまう。ページタイトルの
   // h1 はデモ用 header より前にあるため、h1 直後を優先する。
   if (/<h1[^>]*>/.test(html)) {
-    return html.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n${notice}`);
+    return replaceOrThrow(
+      html,
+      /(<h1[^>]*>[\s\S]*?<\/h1>)/,
+      `$1\n${notice}`,
+      'notice 挿入先の h1'
+    );
   }
-  return html.replace(/(<\/header>)/, `$1\n${notice}`);
+  return replaceOrThrow(
+    html,
+    /(<\/header>)/,
+    `$1\n${notice}`,
+    'notice 挿入先の h1 / </header>'
+  );
 }
 
 function removeFeedbackNav(html) {
@@ -182,18 +214,26 @@ export function transformPage(
     BASE: basePath,
     TABS: renderTabs(config.tabs, posixPath, basePath),
   });
-  html = html.replace(/(<body[^>]*>)/, `$1\n${header}`);
+  html = replaceOrThrow(html, /(<body[^>]*>)/, `$1\n${header}`, '<body>');
 
   // (g) <main> の id/class を補完し、wrapper で包む (TOC があれば main の前に差し込む)
   html = ensureMainAttributes(html);
-  html = html.replace(/(<main\b)/, `<div class="default-grid with-gap leftcol">\n${toc}    $1`);
-  html = html.replace('</main>', '</main>\n</div>');
+  html = replaceOrThrow(
+    html,
+    /(<main\b)/,
+    `<div class="default-grid with-gap leftcol">\n${toc}    $1`,
+    '<main>'
+  );
+  html = replaceOrThrow(html, '</main>', '</main>\n</div>', '</main>');
 
   // (h) <body> に id="top" を保証し、トップに戻るボタンを追加
+  //     (id="top" 付与はマッチしない場合「既に id がある」正常系なので素の replace のまま)
   html = html.replace(/<body(?![^>]*\bid=)([^>]*)>/, '<body id="top"$1>');
-  html = html.replace(
+  html = replaceOrThrow(
+    html,
     '</body>',
-    `    <a class="button button-backtotop" href="#top"><span>トップに戻る</span></a>\n  </body>`
+    `    <a class="button button-backtotop" href="#top"><span>トップに戻る</span></a>\n  </body>`,
+    '</body>'
   );
 
   return html;
