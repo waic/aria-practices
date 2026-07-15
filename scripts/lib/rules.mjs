@@ -2,6 +2,7 @@
  * config.transform のルール解決。
  * キーは dist 相対パス。glob 可 (** = 任意の深さ、* = 1 セグメント内)。
  * 完全一致キーが glob より優先。glob 同士は定義順で先勝ち。
+ * 値 null は除外 (変換スキップ)。glob 除外は対象 glob より前に定義すること。
  */
 
 function globToRegExp(glob) {
