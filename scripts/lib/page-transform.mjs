@@ -34,15 +34,25 @@ function replaceOrThrow(html, pattern, replacement, name) {
 }
 
 /**
+ * dist 相対パスをタブ href と比較しやすい形に正規化する。
+ * `index.html` → `""`、`patterns/index.html` → `"patterns/"` のようにディレクトリ URL 化する。
+ */
+function normalizeForTab(p) {
+  if (p === 'index.html') return '';
+  return p.replace(/\/index\.html$/, '/');
+}
+
+/**
  * タブナビの <li> 群を生成する。
- * active + aria-current="page" は、タブの href が現在ページ
- * (posixPath: dist 相対 POSIX パス) と完全一致する場合のみ付与する。
+ * active + aria-current="page" は、タブの href (ディレクトリ URL) が
+ * 現在ページを正規化した値と一致する場合のみ付与する。
  */
 function renderTabs(tabs, posixPath, basePath) {
+  const normalized = normalizeForTab(posixPath);
   return tabs
     .map((t) => {
       const attrs =
-        t.href === posixPath ? ' class="active" aria-current="page"' : '';
+        t.href === normalized ? ' class="active" aria-current="page"' : '';
       const href = basePath + t.href;
       return `                <li class="nav__item"><a href="${href}"${attrs}>${t.label}</a></li>`;
     })
@@ -94,6 +104,20 @@ function insertNotice(html, notice, isHomeLayout) {
     `$1\n${notice}`,
     'notice 挿入先の h1 / </header>'
   );
+}
+
+/**
+ * タブ 5 ページを URL パス直下の index.html に配置したことに合わせ、
+ * ページ内の旧ファイル名参照をディレクトリ URL に書き換える。
+ * basePath 相対プレフィックスを保った状態で末尾のファイル名部分のみ置換する。
+ */
+function rewriteInternalLinks(html) {
+  return html
+    .replaceAll('apg-home.html', './')
+    .replaceAll('patterns/patterns.html', 'patterns/')
+    .replaceAll('practices/practices.html', 'practices/')
+    .replaceAll('about/about.html', 'about/')
+    .replaceAll('index/index.html', 'example-index/');
 }
 
 function removeFeedbackNav(html) {
@@ -227,6 +251,10 @@ export function transformPage(
   // (h) <body> に id="top" を保証し、トップに戻るボタンを追加
   //     (id="top" 付与はマッチしない場合「既に id がある」正常系なので素の replace のまま)
   html = html.replace(/<body(?![^>]*\bid=)([^>]*)>/, '<body id="top"$1>');
+
+  // (i) 旧タブページのファイル名参照をディレクトリ URL に書き換える
+  html = rewriteInternalLinks(html);
+
   html = replaceOrThrow(
     html,
     '</body>',

@@ -17,8 +17,8 @@
  *   - apg-home 特有の DOM 変換 (homeLayout: true):            lib/home-layout.mjs
  *   - ルール解決 (完全一致 > glob):                            lib/rules.mjs
  */
-import { readFile, writeFile, cp, readdir, rm, mkdir } from 'node:fs/promises';
-import { join, relative, sep } from 'node:path';
+import { readFile, writeFile, cp, readdir, rm, mkdir, rmdir } from 'node:fs/promises';
+import { join, relative, sep, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { compileRules } from './lib/rules.mjs';
 import { transformPage } from './lib/page-transform.mjs';
@@ -82,7 +82,10 @@ for await (const absPath of walkHtml(DIST)) {
   const rule = resolveRule(posixPath);
   if (!rule) continue;
 
-  const depth = posixPath.split('/').length - 1;
+  // publishAs があるルールは URL パス直下 (例: patterns/index.html) に出力する。
+  // basePath / posixPath (タブ active 判定) は移動先の深さに合わせて計算する。
+  const outputRelPath = rule.publishAs || posixPath;
+  const depth = outputRelPath.split('/').length - 1;
   const basePath = depth === 0 ? '' : '../'.repeat(depth);
 
   try {
@@ -93,17 +96,35 @@ for await (const absPath of walkHtml(DIST)) {
     html = transformPage(html, {
       rule,
       basePath,
-      posixPath,
+      posixPath: outputRelPath,
       config,
       headerTpl,
       notices,
     });
-    await writeFile(absPath, html);
+    if (rule.publishAs) {
+      const outAbs = join(DIST, rule.publishAs);
+      if (outAbs !== absPath) {
+        await mkdir(dirname(outAbs), { recursive: true });
+        await writeFile(outAbs, html);
+        await rm(absPath);
+      } else {
+        await writeFile(outAbs, html);
+      }
+    } else {
+      await writeFile(absPath, html);
+    }
     transformCount++;
   } catch (e) {
     console.error(`  ✗ ${posixPath}: ${e.message}`);
     throw e;
   }
+}
+
+// 空になった旧ディレクトリ (dist/index/) を掃除する。中身が残っている場合は失敗して残す。
+try {
+  await rmdir(join(DIST, 'index'));
+} catch (e) {
+  if (e.code !== 'ENOENT' && e.code !== 'ENOTEMPTY') throw e;
 }
 
 console.log(`build complete: dist/ (${transformCount} files transformed)`);

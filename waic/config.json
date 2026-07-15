@@ -10,19 +10,20 @@
     "shared/css/core.css"
   ],
   "tabs": [
-    { "key": "home",      "label": "ホーム",         "href": "apg-home.html" },
-    { "key": "patterns",  "label": "パターン",       "href": "patterns/patterns.html" },
-    { "key": "practices", "label": "実践",           "href": "practices/practices.html" },
-    { "key": "index",     "label": "インデックス",   "href": "index/index.html" },
-    { "key": "about",     "label": "概要",           "href": "about/about.html" }
+    { "key": "home",      "label": "ホーム",         "href": "" },
+    { "key": "patterns",  "label": "パターン",       "href": "patterns/" },
+    { "key": "practices", "label": "実践",           "href": "practices/" },
+    { "key": "index",     "label": "インデックス",   "href": "example-index/" },
+    { "key": "about",     "label": "概要",           "href": "about/" }
   ],
   "transform": {
     "apg-home.html":            { "homeLayout": true,
+                                  "publishAs": "index.html",
                                   "extraStylesheets": ["https://www.w3.org/WAI/content-assets/wai-aria-practices/homepage.css"] },
-    "patterns/patterns.html":   {},
-    "practices/practices.html": {},
-    "about/about.html":         {},
-    "index/index.html":         {},
+    "patterns/patterns.html":   { "publishAs": "patterns/index.html" },
+    "practices/practices.html": { "publishAs": "practices/index.html" },
+    "about/about.html":         { "publishAs": "about/index.html" },
+    "index/index.html":         { "publishAs": "example-index/index.html" },
     "patterns/landmarks/examples/**": null,
     "patterns/feed/examples/feed-display.html": null,
     "patterns/toolbar/examples/help.html": null,
