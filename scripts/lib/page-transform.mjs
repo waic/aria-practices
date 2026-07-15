@@ -57,10 +57,13 @@ function insertNotice(html, notice, isHomeLayout) {
     // h1 が青カード内にあるため <main> 直後に置く
     return html.replace(/(<main[^>]*>)/, `$1\n${notice}`);
   }
-  if (/<\/header>\s*/.test(html)) {
-    return html.replace(/(<\/header>)/, `$1\n${notice}`);
+  // 一部の example ページはデモコンテンツ内に <header role="banner"> を含み、
+  // </header> 優先だと notice がデモ内部に注入されてしまう。ページタイトルの
+  // h1 はデモ用 header より前にあるため、h1 直後を優先する。
+  if (/<h1[^>]*>/.test(html)) {
+    return html.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n${notice}`);
   }
-  return html.replace(/(<h1[^>]*>[\s\S]*?<\/h1>)/, `$1\n${notice}`);
+  return html.replace(/(<\/header>)/, `$1\n${notice}`);
 }
 
 function removeFeedbackNav(html) {
