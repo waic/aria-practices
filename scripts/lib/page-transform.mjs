@@ -163,19 +163,30 @@ export function transformPage(
     ({ html, toc } = buildToc(html));
   }
 
-  // (e) <body> 直後に共通ヘッダーを挿入
+  // (e) <main> が無いページ (patterns.html / practices.html 等の一覧ページ) は
+  //     body 内容全体を <main> で包み、main ランドマークとスキップリンクの
+  //     飛び先 (ensureMainAttributes が id="main" を補完) を確保する。
+  //     共通ヘッダーを main の外に置くため、ヘッダー挿入より前に行う。
+  if (!/<main\b/.test(html)) {
+    html = html.replace(
+      /(<body[^>]*>)([\s\S]*?)(<\/body>)/,
+      '$1\n<main>$2</main>\n$3'
+    );
+  }
+
+  // (f) <body> 直後に共通ヘッダーを挿入
   const header = renderTemplate(headerTpl, {
     BASE: basePath,
     TABS: renderTabs(config.tabs, posixPath, basePath),
   });
   html = html.replace(/(<body[^>]*>)/, `$1\n${header}`);
 
-  // (f) <main> の id/class を補完し、wrapper で包む (TOC があれば main の前に差し込む)
+  // (g) <main> の id/class を補完し、wrapper で包む (TOC があれば main の前に差し込む)
   html = ensureMainAttributes(html);
   html = html.replace(/(<main\b)/, `<div class="default-grid with-gap leftcol">\n${toc}    $1`);
   html = html.replace('</main>', '</main>\n</div>');
 
-  // (g) <body> に id="top" を保証し、トップに戻るボタンを追加
+  // (h) <body> に id="top" を保証し、トップに戻るボタンを追加
   html = html.replace(/<body(?![^>]*\bid=)([^>]*)>/, '<body id="top"$1>');
   html = html.replace(
     '</body>',
