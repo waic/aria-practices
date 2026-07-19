@@ -16,13 +16,18 @@
     { "key": "index",     "label": "インデックス",   "href": "example-index/" },
     { "key": "about",     "label": "概要",           "href": "about/" }
   ],
+  "notices": {
+    "full":  "ja-status-notice-full.html",
+    "short": "ja-status-notice-short.html"
+  },
   "transform": {
     "apg-home.html":            { "homeLayout": true,
                                   "publishAs": "index.html",
+                                  "notice": "full",
                                   "extraStylesheets": ["https://www.w3.org/WAI/content-assets/wai-aria-practices/homepage.css"] },
-    "patterns/patterns.html":   { "publishAs": "patterns/index.html" },
-    "practices/practices.html": { "publishAs": "practices/index.html" },
-    "about/about.html":         { "publishAs": "about/index.html" },
+    "patterns/patterns.html":   { "publishAs": "patterns/index.html", "notice": "short" },
+    "practices/practices.html": { "publishAs": "practices/index.html", "notice": "short" },
+    "about/about.html":         { "publishAs": "about/index.html", "notice": "short" },
     "index/index.html":         { "publishAs": "example-index/index.html" },
     "patterns/landmarks/examples/**": null,
     "patterns/feed/examples/feed-display.html": null,
