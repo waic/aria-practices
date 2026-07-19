@@ -62,6 +62,11 @@ const notices = {};
 for (const [name, file] of Object.entries(config.notices || {})) {
   notices[name] = await readFile(join(PARTIALS, file), 'utf8');
 }
+// upstream の CSR 用テンプレート。ビルド時に h1 直後へ直接注入する。
+const readThisFirstTpl = await readFile(
+  join(CONTENT, 'shared/templates/read-this-first.html'),
+  'utf8'
+);
 
 // ---- ステップ 6: 対象 HTML を変換
 async function* walkHtml(dir) {
@@ -100,6 +105,7 @@ for await (const absPath of walkHtml(DIST)) {
       config,
       headerTpl,
       notices,
+      readThisFirstTpl,
     });
     if (rule.publishAs) {
       const outAbs = join(DIST, rule.publishAs);

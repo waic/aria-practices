@@ -125,6 +125,34 @@ function removeFeedbackNav(html) {
 }
 
 /**
+ * upstream の "Read This First" バナー (`<script data-read-this-first ...>` で CSR 挿入される)
+ * をビルド時に直接埋め込む。
+ * - script タグを検知し、あれば除去する
+ * - template の <body> 内 (`<div class="read-this-first">...`) を取り出し、
+ *   相対パス `../../` を basePath に置換して h1 直後に挿入する
+ * script タグが無ければ何もしない。upstream での有無 (patterns / practices など) が
+ * そのままトリガになるので、upstream 追従時に config を触らずに済む。
+ */
+function insertReadThisFirst(html, tpl, basePath) {
+  const scriptRe = /[ \t]*<script[^>]*\bdata-read-this-first\b[^>]*>\s*<\/script>\n?/;
+  if (!scriptRe.test(html)) return html;
+  const bodyMatch = tpl.match(/<body[^>]*>([\s\S]*?)<\/body>/);
+  if (!bodyMatch) {
+    throw new Error(
+      'read-this-first テンプレートに <body> が見つかりません (upstream の構造が変わった可能性があります)'
+    );
+  }
+  const banner = bodyMatch[1].trim().replace(/\.\.\/\.\.\//g, basePath);
+  html = html.replace(scriptRe, '');
+  return replaceOrThrow(
+    html,
+    /(<h1[^>]*>[\s\S]*?<\/h1>)/,
+    `$1\n${banner}`,
+    'read-this-first 挿入先の h1'
+  );
+}
+
+/**
  * id の無い h2 に見出しテキスト由来の id を付与し、
  * 「このページの内容」サイドバーの HTML を生成する。
  * 戻り値: { html, toc } (toc は h2 が無ければ空文字)
@@ -195,7 +223,7 @@ function ensureMainAttributes(html) {
  */
 export function transformPage(
   html,
-  { rule, basePath, posixPath, config, headerTpl, notices }
+  { rule, basePath, posixPath, config, headerTpl, notices, readThisFirstTpl }
 ) {
   // (a) 旧スタイルシートの除去と WAI CSS の挿入
   html = removeOldStylesheets(html, config.removeStylesheets || []);
@@ -213,6 +241,11 @@ export function transformPage(
 
   // (c) feedback nav の除去 (本家ビルドと同様)
   html = removeFeedbackNav(html);
+
+  // (c') Read This First バナーをビルド時に埋め込む (upstream の CSR を置き換え)
+  if (readThisFirstTpl) {
+    html = insertReadThisFirst(html, readThisFirstTpl, basePath);
+  }
 
   // (d) TOC サイドバー (共通ヘッダー挿入前に行い、ヘッダー由来の h2 を拾わないようにする)
   let toc = '';
