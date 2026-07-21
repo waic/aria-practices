@@ -1,0 +1,108 @@
+/**
+ * APG 日本語版の共通スタイル
+ * - WAI サイトの style.css / styles.css / homepage.css の上に追加される上書き
+ */
+
+/* 本家 styles.css が nav 末尾を隠す (末尾に外部リンクを置く想定) 仕様を無効化 */
+nav.nav li:last-of-type {
+  display: revert !important;
+}
+
+/* スキップリンク */
+.button--skip-link {
+  background-color: var(--gold) !important;
+  border-color: var(--gold) !important;
+  outline-color: currentColor !important;
+  color: var(--off-black) !important;
+  font-weight: 600;
+  font-size: larger;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  top: 0.5em;
+  width: 14em;
+  opacity: 1;
+  transition:
+    transform 0.1875s ease-out,
+    opacity 0.1875s ease-out;
+}
+.button--skip-link:not(:focus):not(:hover) {
+  transform: translateY(-4em);
+  opacity: 0;
+}
+
+/* ヘッダータイトルのリンク見た目 */
+.minimal-header-title a {
+  text-decoration: none;
+}
+.minimal-header-title a:hover,
+.minimal-header-title a:focus {
+  text-decoration: underline;
+}
+
+/* 「このページの内容」サイドバー (本家ページの inline style から移植) */
+.nav-hack {
+  font-size: 0.85rem;
+  align-self: start;
+}
+.nav-hack ul {
+  list-style: none;
+  border-bottom: 1px solid #bcbcbc;
+  padding-left: 0;
+}
+.nav-hack li:not(:first-child) {
+  padding-top: 0.4em;
+  line-height: 1.2;
+  border-top: 1px solid #bcbcbc;
+}
+.nav-hack li a {
+  text-decoration: none;
+}
+.nav-hack h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+.nav-hack p {
+  margin: 0;
+}
+h2#sidebar-header {
+  font-size: 0.95rem;
+}
+.nav-hack.sidebar a:hover,
+.nav-hack.sidebar a:active {
+  color: var(--dk-blue);
+  text-decoration: underline;
+}
+
+/* 日本語版のお知らせ枠 */
+.ja-status-notice {
+  margin: 1em 0 2em;
+  padding: 1em 1.5em;
+  border-left: 4px solid #015a9c;
+  background: #eef4fa;
+  font-size: 0.9375rem;
+}
+.ja-status-notice p {
+  margin: 0.5em 0;
+}
+.ja-status-notice ul {
+  margin: 0.25em 0 0 1.5em;
+}
+.ja-status-notice li {
+  margin: 0.15em 0;
+}
+
+/* 日本語版バッジ */
+.ja-badge {
+  display: inline-block;
+  margin-left: 0.5em;
+  padding: 0.05em 0.5em;
+  background: #015a9c;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 3px;
+  vertical-align: middle;
+}

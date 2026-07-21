@@ -3,3 +3,5 @@ node_modules
 .vscode/*
 !.vscode/extensions.json
 .env
+# WAIC APG ビルド出力
+dist/
