@@ -129,7 +129,8 @@ SVG やテーブル、リンク、リスト、画像などの HTML タグや構�
 - supersede : 置き換える
 - acceptance criteria : 受け入れ基準
 - dot release : ドットリリース
-- trigger,trigger stimulus : トリガ
+- trigger : トリガー
+- trigger stimulus : トリガー刺激
 - Sufficient Techniques : 十分な達成方法
 - advisory techniques : 参考達成方法
 - Failure : 失敗例
