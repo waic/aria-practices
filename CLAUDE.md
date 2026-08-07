@@ -119,8 +119,8 @@ SVG やテーブル、リンク、リスト、画像などの HTML タグや構�
 - user agent : ユーザエージェント
 - gesture : ジェスチャ
 - version : 版
-- dexterity \*\*\* : 巧緻性 ○○
-- \*\*\* with disabilities : 障害のある ○○
+- dexterity \*\*\* : 巧緻性○○
+- \*\*\* with disabilities : 障害のある○○
 - web : ウェブ
 - identify : 特定する
 - spacebar,space bar,spacekey,space key : スペースキー
