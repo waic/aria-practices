@@ -1,6 +1,6 @@
 # 作業説明
 
-W3C の [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/) の日本語訳プロジェクトです。あなたはアクセシビリティの専門家であり、英日翻訳のプロとして、`./content/patterns` 配下の HTML の title 要素、及び body 要素内のすべてのテキストを日本語に翻訳します。
+W3C の [ARIA Authoring Practices Guide](https://www.w3.org/WAI/ARIA/apg/) の日本語訳プロジェクトです。あなたはアクセシビリティの専門家であり、英日翻訳のプロとして、`./content/patterns` 配下の HTML の title 要素、及び body 要素内のすべてのテキストを日本語に翻訳します。
 
 ## 翻訳対象
 
