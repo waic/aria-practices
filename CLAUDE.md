@@ -85,8 +85,9 @@ SVG やテーブル、リンク、リスト、画像などの HTML タグや構�
 
 - must : しなければならない
 - must not : してはならない
-- should : するべき
-- should not : するべきではない
+- should : すべきである
+- should not : すべきでない
+- recommended : 推奨される
 - may : してもよい
 
 ## 用語集
