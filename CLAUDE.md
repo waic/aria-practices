@@ -144,7 +144,7 @@ SVG やテーブル、リンク、リスト、画像などの HTML タグや構�
 - section : セクション
 - subsection : サブセクション
 - note : 注記
-- success criterion : 達成基準
+- Success Criterion,Success Criteria : 達成基準
 - option(s) : 選択肢
 
 ### 表記統一（避けたい言い回し → 望ましい表記）
